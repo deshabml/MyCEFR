@@ -12,6 +12,9 @@
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
 		DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */; };
 		DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */; };
+		DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7699B2A1E1F35004008D4 /* ContentView.swift */; };
+		DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */; };
+		DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,10 @@
 		DDB6E55929F2FE08005A4A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		DDB7699B2A1E1F35004008D4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimRegular.ttf; sourceTree = "<group>"; };
+		DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimCyrillic.otf; sourceTree = "<group>"; };
+		DDB769A32A1E2057004008D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +80,9 @@
 		DDB6E56329F30E2B005A4A72 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DDB7699E2A1E1FD6004008D4 /* Font */,
 				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
+				DDB769A32A1E2057004008D4 /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -81,6 +90,7 @@
 		DDB6E56429F30F85005A4A72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDB7699B2A1E1F35004008D4 /* ContentView.swift */,
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
 			);
 			path = View;
@@ -92,6 +102,15 @@
 				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DDB7699E2A1E1FD6004008D4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */,
+				DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +171,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
+				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,
 				DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */,
 			);
@@ -166,6 +187,7 @@
 			files = (
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
+				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +320,7 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MyCEFR/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +350,7 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MyCEFR/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

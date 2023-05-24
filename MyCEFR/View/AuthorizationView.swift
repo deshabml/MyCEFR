@@ -14,12 +14,13 @@ struct AuthorizationView: View {
     var body: some View {
         VStack {
             Text("Авторизуйтесь")
+                .font(.custom("ItimCyrillic", size: 24))
                 .padding(.vertical, 50)
             VStack {
                 TextField("Login", text: $viewModel.loginText)
                     .padding()
                     .background(.white)
-                TextField("Password", text: $viewModel.loginText)
+                SecureField("Password", text: $viewModel.loginText)
                     .padding()
                     .background(.white)
             }
@@ -37,7 +38,7 @@ struct AuthorizationView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AuthorizationView_Previews: PreviewProvider {
     static var previews: some View {
         AuthorizationView()
     }
