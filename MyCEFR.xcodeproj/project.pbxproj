@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
-		DDB6E55829F2FE05005A4A72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* ContentView.swift */; };
+		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
 		DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */; };
+		DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
-		DDB6E55729F2FE05005A4A72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		DDB6E55929F2FE08005A4A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,9 @@
 			isa = PBXGroup;
 			children = (
 				DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */,
-				DDB6E55729F2FE05005A4A72 /* ContentView.swift */,
-				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
+				DDB6E56429F30F85005A4A72 /* View */,
+				DDB6E56729F31556005A4A72 /* ViewModel */,
+				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
 			);
 			path = MyCEFR;
@@ -65,6 +68,30 @@
 				DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DDB6E56329F30E2B005A4A72 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DDB6E56429F30F85005A4A72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDB6E56729F31556005A4A72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB6E55829F2FE05005A4A72 /* ContentView.swift in Sources */,
+				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
+				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
