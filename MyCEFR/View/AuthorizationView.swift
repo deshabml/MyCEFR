@@ -8,39 +8,23 @@
 import SwiftUI
 
 struct AuthorizationView: View {
-    
+
     @StateObject var viewModel = AuthorizationViewModel()
     @State var isAuthorization = true
-    
+
     var body: some View {
         VStack {
             Text(isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь")
                 .font(.custom("ItimCyrillic", size: 28))
                 .padding(.vertical, 30)
             VStack(spacing: 10) {
-                if viewModel.showCreatePassword {
-                    SecureField("Password", text: $viewModel.createPasswordTextOne)
-                        .font(.custom("ItimCyrillic", size: 18))
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(8)
-                    SecureField("Password", text: $viewModel.createPasswordTextSecond)
-                        .font(.custom("ItimCyrillic", size: 18))
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(8)
+                if viewModel.showCreatePassword, !isAuthorization {
+                    SecureFieldView(viewModel: viewModel.createPasswordSFVMOne)
+                    SecureFieldView(viewModel: viewModel.createPasswordSFVMSecond)
                     if viewModel.showButtonCompleteRegistration {
-                        Button {
-                            viewModel.showCreatePassword.toggle()
-                        } label: {
-                            Text("Завершить регистрацию")
-                                .font(.custom("ItimCyrillic", size: 24))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 10)
-                                .background(Color("MainTopicColor"))
-                                .cornerRadius(8)
-                        }
+                        ButtonView(viewModel: viewModel.buttonRegComplitedViewModel,
+                                   color: Color("MainTopicColor"),
+                                   width: nil)
                     }
                 } else {
                     if viewModel.showCodeTextFild {
@@ -54,16 +38,7 @@ struct AuthorizationView: View {
                                 .cornerRadius(8)
                             HStack {
                                 Spacer()
-                                Button {
-                                    viewModel.showCodeTextFild.toggle()
-                                    viewModel.showButtonSendCode.toggle()
-                                } label: {
-                                    Image(systemName: "square.and.pencil")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundColor(Color("RedTopicColor"))
-                                        .padding(.horizontal, 8)
-                                }
+                                ButtonImageView(viewModel: viewModel.buttomEditMailBIVM)
                             }
                         }
                         TextField("Код", text: $viewModel.verificationCodeText)
@@ -73,18 +48,9 @@ struct AuthorizationView: View {
                             .background(.white)
                             .cornerRadius(8)
                         if viewModel.showButtonSend {
-                            Button {
-                                viewModel.showCreatePassword.toggle()
-                            } label: {
-                                Text("Отправить")
-                                    .font(.custom("ItimCyrillic", size: 24))
-                                    .frame(width: 110)
-                                    .foregroundColor(.black)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 10)
-                                    .background(Color("MainTopicColor"))
-                                    .cornerRadius(8)
-                            }
+                            ButtonView(viewModel: viewModel.buttonSendViewModel,
+                                       color: Color("MainTopicColor"),
+                                       width: 110)
                         }
                     } else {
                         TextField("E-mail", text: $viewModel.loginText)
@@ -97,42 +63,21 @@ struct AuthorizationView: View {
                 if viewModel.showButtonSendCode, !isAuthorization {
                     HStack {
                         Spacer()
-                        Button {
-                            viewModel.showButtonSendCode.toggle()
-                            viewModel.showCodeTextFild.toggle()
-                        } label: {
-                            Text("Выслать код")
-                                .font(.custom("ItimCyrillic", size: 24))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 10)
-                                .background(Color("MainTopicColor"))
-                                .cornerRadius(8)
-                        }
+                        ButtonView(viewModel: viewModel.buttonSendCodeViewModel,
+                                   color: Color("MainTopicColor"),
+                                           width: nil)
                     }
                     .padding(.horizontal, 2)
                 }
                 if isAuthorization {
                     ZStack {
-                        SecureField("Password", text: $viewModel.passwordText)
-                            .font(.custom("ItimCyrillic", size: 18))
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(8)
+                        SecureFieldView(viewModel: viewModel.passwordSFVM)
                         if viewModel.showButtonLogIn {
                             HStack {
                                 Spacer()
-                                Button {
-                                    print("log in")
-                                } label: {
-                                    Text("Войти")
-                                        .font(.custom("ItimCyrillic", size: 24))
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 10)
-                                        .background(Color("MainTopicColor"))
-                                        .cornerRadius(8)
-                                }
+                                ButtonView(viewModel: viewModel.buttonLogInViewModel,
+                                           color: Color("MainTopicColor"),
+                                           width: nil)
                             }
                             .padding(.horizontal, 2)
                         }
@@ -150,19 +95,13 @@ struct AuthorizationView: View {
             .padding(.vertical, 70)
             Spacer()
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            Image("AuthorizationBackground")
-                .resizable()
-                .ignoresSafeArea()
-                .scaledToFill()
-                .blur(radius: isAuthorization ? 0 : 12)
-        )
+        .modifier(BackgroundElement(isShowView: $isAuthorization,
+                                    ImageName: "AuthorizationBackground"))
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonLogIn)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonSendCode)
-        .animation(.easeInOut(duration: 0.3), value: isAuthorization)
-        .animation(.easeInOut(duration: 0.3), value: viewModel.showCodeTextFild)
+        .animation(.easeInOut(duration: 0.4), value: isAuthorization)
+        .animation(.easeInOut(duration: 0.4), value: viewModel.showCodeTextFild)
+        .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonCompleteRegistration)
     }
 }
 
