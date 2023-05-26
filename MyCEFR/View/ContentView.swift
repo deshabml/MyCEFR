@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
         AuthorizationView()
             .preferredColorScheme(.light)
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
