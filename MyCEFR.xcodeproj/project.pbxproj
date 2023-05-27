@@ -12,7 +12,6 @@
 		DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */; };
 		DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */; };
 		DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */; };
-		DD4AAEC32A214F4D003E2860 /* PaddingLeft&Right.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC22A214F4D003E2860 /* PaddingLeft&Right.swift */; };
 		DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */; };
 		DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */; };
 		DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */; };
@@ -22,6 +21,7 @@
 		DD4AAED62A21F21E003E2860 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED52A21F21E003E2860 /* Realm */; };
 		DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED72A21F21E003E2860 /* RealmSwift */; };
 		DD4AAEDB2A21F619003E2860 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* User.swift */; };
+		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
@@ -38,7 +38,6 @@
 		DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
 		DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldView.swift; sourceTree = "<group>"; };
 		DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldViewModel.swift; sourceTree = "<group>"; };
-		DD4AAEC22A214F4D003E2860 /* PaddingLeft&Right.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaddingLeft&Right.swift"; sourceTree = "<group>"; };
 		DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageView.swift; sourceTree = "<group>"; };
 		DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageViewModel.swift; sourceTree = "<group>"; };
 		DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
 		DD4AAED22A21F154003E2860 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		DD4AAEDA2A21F619003E2860 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
@@ -102,18 +102,11 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		DD4AAEC12A214F39003E2860 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				DD4AAEC22A214F4D003E2860 /* PaddingLeft&Right.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		DD4AAED12A21F124003E2860 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				DD4AAED22A21F154003E2860 /* RealmService.swift */,
+				DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -146,12 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				DDB769A42A1E2BDF004008D4 /* Application */,
-				DD4AAEC12A214F39003E2860 /* Core */,
 				DD4AAED92A21F600003E2860 /* Model */,
 				DDB6E56429F30F85005A4A72 /* View */,
 				DDB6E56729F31556005A4A72 /* ViewModel */,
-				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DD4AAED12A21F124003E2860 /* Services */,
+				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
 			);
 			path = MyCEFR;
@@ -291,8 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4AAEC32A214F4D003E2860 /* PaddingLeft&Right.swift in Sources */,
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
+				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,

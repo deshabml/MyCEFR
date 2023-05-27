@@ -25,6 +25,7 @@ struct TextFieldView: View {
         } else {
             TextField(viewModel.placeHolder, text: $viewModel.bindingProperty)
                 .font(.custom("ItimCyrillic", size: size))
+                .frame(height: 25)
                 .padding()
                 .background(.white)
                 .cornerRadius(8)

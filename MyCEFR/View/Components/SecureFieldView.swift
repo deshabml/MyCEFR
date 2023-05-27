@@ -16,12 +16,14 @@ struct SecureFieldView: View {
             if viewModel.showPassword {
                 TextField(viewModel.placeHolder, text: $viewModel.bindingProperty)
                     .font(.custom("ItimCyrillic", size: 18))
+                    .frame(height: 25)
                     .padding()
                     .background(.white)
                     .cornerRadius(8)
             } else {
                 SecureField(viewModel.placeHolder, text: $viewModel.bindingProperty)
                     .font(.custom("ItimCyrillic", size: 18))
+                    .frame(height: 25)
                     .padding()
                     .background(.white)
                     .cornerRadius(8)
@@ -33,7 +35,7 @@ struct SecureFieldView: View {
                 } label: {
                     Image(systemName: viewModel.showPassword ? "eye.fill" : "eye.slash.fill")
                         .foregroundColor(.gray)
-                        .padding(.right, viewModel.isThereButton ? 106 : 8)
+                        .padding(.trailing, viewModel.isThereButton ? 106 : 8)
                 }
             }
         }

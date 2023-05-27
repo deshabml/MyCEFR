@@ -95,6 +95,9 @@ struct AuthorizationView: View {
         }
         .modifier(BackgroundElement(isShowView: $isAuthorization,
                                     ImageName: "AuthorizationBackground"))
+        .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
+            Button("ОК") { }
+        }
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonLogIn)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonSendCode)
         .animation(.easeInOut(duration: 0.4), value: isAuthorization)
