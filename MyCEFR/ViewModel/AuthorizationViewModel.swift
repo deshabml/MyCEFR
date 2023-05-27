@@ -27,6 +27,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
     var allertTextError = ""
+    private var verificationCode = ""
 
     init() {
         setupComlpitionElements()
@@ -34,7 +35,19 @@ class AuthorizationViewModel: ObservableObject {
 
     func sendVerificationCode() {
         let code = generateVerificationCode()
-        SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty, verificationCode: code)
+        verificationCode = code
+        Task {
+            await SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty, verificationCode: code)
+        }
+    }
+
+    func checkVerificationCode() -> Bool {
+        guard verificationCodeTFVM.bindingProperty == verificationCode else {
+            allertTextError = "Вы ввели неверный код!"
+            showAllertError.toggle()
+            return false
+        }
+        return true
     }
 
 }
@@ -43,7 +56,9 @@ extension AuthorizationViewModel {
 
     func setupComlpitionElements() {
         buttonSendViewModel.setupAction { [unowned self] in
-            self.showCreatePassword.toggle()
+            if self.checkVerificationCode() {
+                self.showCreatePassword.toggle()
+            }
         }
         buttonSendCodeViewModel.setupAction { [unowned self] in
             if checkEmail() {

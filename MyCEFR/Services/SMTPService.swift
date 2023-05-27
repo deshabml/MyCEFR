@@ -20,7 +20,7 @@ class SMTPService {
 
     private init () { }
 
-    func sendMail(mail: String, verificationCode: String) {
+    func sendMail(mail: String, verificationCode: String) async {
         let myCEFR = Mail.User(name: "MyCEFR", email: "drlight@gmail.com")
         let user = Mail.User(email: mail)
         let mail = Mail(
@@ -30,7 +30,7 @@ class SMTPService {
             text: """
             Ваш код для регистрации а приложении MyCEFR:
             \(verificationCode)
-            Если вы не отправляли запро на регистрацию в нашем приложении,
+            Если вы не отправляли запрос на регистрацию в нашем приложении,
             просто проигнорируйте это письмо.
             """)
         smtp.send(mail) { (error) in
