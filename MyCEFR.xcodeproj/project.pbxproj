@@ -18,6 +18,10 @@
 		DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */; };
 		DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */; };
 		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
+		DD4AAED32A21F154003E2860 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAED22A21F154003E2860 /* RealmService.swift */; };
+		DD4AAED62A21F21E003E2860 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED52A21F21E003E2860 /* Realm */; };
+		DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED72A21F21E003E2860 /* RealmSwift */; };
+		DD4AAEDB2A21F619003E2860 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* User.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
@@ -40,6 +44,8 @@
 		DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
+		DD4AAED22A21F154003E2860 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		DD4AAEDA2A21F619003E2860 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */,
+				DD4AAED62A21F21E003E2860 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +110,22 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		DD4AAED12A21F124003E2860 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAED22A21F154003E2860 /* RealmService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD4AAED92A21F600003E2860 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEDA2A21F619003E2860 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DDB6E54929F2FE05005A4A72 = {
 			isa = PBXGroup;
 			children = (
@@ -123,9 +147,11 @@
 			children = (
 				DDB769A42A1E2BDF004008D4 /* Application */,
 				DD4AAEC12A214F39003E2860 /* Core */,
+				DD4AAED92A21F600003E2860 /* Model */,
 				DDB6E56429F30F85005A4A72 /* View */,
 				DDB6E56729F31556005A4A72 /* ViewModel */,
 				DDB6E56329F30E2B005A4A72 /* Supporting files */,
+				DD4AAED12A21F124003E2860 /* Services */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
 			);
 			path = MyCEFR;
@@ -202,6 +228,10 @@
 			dependencies = (
 			);
 			name = MyCEFR;
+			packageProductDependencies = (
+				DD4AAED52A21F21E003E2860 /* Realm */,
+				DD4AAED72A21F21E003E2860 /* RealmSwift */,
+			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +260,9 @@
 				Base,
 			);
 			mainGroup = DDB6E54929F2FE05005A4A72;
+			packageReferences = (
+				DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,6 +298,7 @@
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
+				DD4AAEDB2A21F619003E2860 /* User.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
@@ -273,6 +307,7 @@
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
+				DD4AAED32A21F154003E2860 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +516,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD4AAED52A21F21E003E2860 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		DD4AAED72A21F21E003E2860 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDB6E54A29F2FE05005A4A72 /* Project object */;
 }
