@@ -15,6 +15,9 @@
 		DD4AAEC32A214F4D003E2860 /* PaddingLeft&Right.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC22A214F4D003E2860 /* PaddingLeft&Right.swift */; };
 		DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */; };
 		DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */; };
+		DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */; };
+		DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */; };
+		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		DD4AAEC22A214F4D003E2860 /* PaddingLeft&Right.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaddingLeft&Right.swift"; sourceTree = "<group>"; };
 		DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageView.swift; sourceTree = "<group>"; };
 		DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageViewModel.swift; sourceTree = "<group>"; };
+		DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
+		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 				DD4AAEB22A212CD9003E2860 /* ButtonView.swift */,
 				DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */,
 				DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */,
+				DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -73,6 +80,7 @@
 				DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */,
 				DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */,
 				DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */,
+				DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */,
+				DD4AAECC2A21DFD8003E2860 /* TextElement.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -252,13 +261,16 @@
 				DD4AAEC32A214F4D003E2860 /* PaddingLeft&Right.swift in Sources */,
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
+				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
+				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
+				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
 			);

@@ -9,19 +9,21 @@ import Foundation
 
 class AuthorizationViewModel: ObservableObject {
 
-    @Published var loginText: String = "" {
-        didSet {
-            toggleShowButton(texts: [passwordSFVM.bindingProperty, loginText], showButton: &showButtonLogIn)
-            toggleShowButton(texts: [loginText], showButton: &showButtonSendCode)
-            passwordSFVM.setupThereButton(showButtonLogIn)
-        }
-    }
+    @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
+//    @Published var loginText: String = "" {
+//        didSet {
+//            toggleShowButton(texts: [passwordSFVM.bindingProperty, loginText], showButton: &showButtonLogIn)
+//            toggleShowButton(texts: [loginText], showButton: &showButtonSendCode)
+//            passwordSFVM.setupThereButton(showButtonLogIn)
+//        }
+//    }
     @Published var passwordSFVM = SecureFieldViewModel()
-    @Published var verificationCodeText: String = "" {
-        didSet {
-            toggleShowButton(texts: [verificationCodeText], showButton: &showButtonSend)
-        }
-    }
+    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Код")
+//    @Published var verificationCodeText: String = "" {
+//        didSet {
+//            toggleShowButton(texts: [verificationCodeText], showButton: &showButtonSend)
+//        }
+//    }
     @Published var createPasswordSFVMOne = SecureFieldViewModel()
     @Published var createPasswordSFVMSecond = SecureFieldViewModel()
     @Published var showButtonLogIn = false
@@ -50,12 +52,24 @@ class AuthorizationViewModel: ObservableObject {
         buttonRegComplitedViewModel.setupAction { [unowned self] in
             self.showCreatePassword.toggle()
         }
-        passwordSFVM.setupDidSet { [unowned self] in
-            self.toggleShowButton(texts: [self.passwordSFVM.bindingProperty, self.loginText], showButton: &self.showButtonLogIn)
+        loginTFVM.setupDidSet { [unowned self] in
+            self.toggleShowButton(texts: [self.passwordSFVM.bindingProperty, self.loginTFVM.bindingProperty],
+                                  showButton: &self.showButtonLogIn)
+            self.toggleShowButton(texts: [self.loginTFVM.bindingProperty],
+                                  showButton: &self.showButtonSendCode)
             self.passwordSFVM.setupThereButton(self.showButtonLogIn)
         }
+        passwordSFVM.setupDidSet { [unowned self] in
+            self.toggleShowButton(texts: [self.passwordSFVM.bindingProperty, self.loginTFVM.bindingProperty], showButton: &self.showButtonLogIn)
+            self.passwordSFVM.setupThereButton(self.showButtonLogIn)
+        }
+        verificationCodeTFVM.setupDidSet { [unowned self] in
+            self.toggleShowButton(texts: [self.verificationCodeTFVM.bindingProperty],
+                                  showButton: &self.showButtonSend)
+        }
         createPasswordSFVMOne.setupDidSet { [unowned self] in
-            self.toggleShowButton(texts: [self.createPasswordSFVMOne.bindingProperty, self.createPasswordSFVMSecond.bindingProperty],
+            self.toggleShowButton(texts: [self.createPasswordSFVMOne.bindingProperty,
+                                          self.createPasswordSFVMSecond.bindingProperty],
                                   showButton: &self.showButtonCompleteRegistration)
         }
         createPasswordSFVMSecond.setupDidSet { [unowned self] in

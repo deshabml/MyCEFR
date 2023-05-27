@@ -15,8 +15,9 @@ struct AuthorizationView: View {
     var body: some View {
         VStack {
             Text(isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь")
-                .font(.custom("ItimCyrillic", size: 28))
-                .padding(.vertical, 30)
+                .modifier(TextElement(size: 28,
+                                      verticalPadding: 30,
+                                      foregroundColor: .black))
             VStack(spacing: 10) {
                 if viewModel.showCreatePassword, !isAuthorization {
                     SecureFieldView(viewModel: viewModel.createPasswordSFVMOne)
@@ -29,7 +30,7 @@ struct AuthorizationView: View {
                 } else {
                     if viewModel.showCodeTextFild {
                         ZStack {
-                            Text(viewModel.loginText)
+                            Text(viewModel.loginTFVM.bindingProperty)
                                 .font(.custom("ItimCyrillic", size: 18))
                                 .padding()
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -41,23 +42,20 @@ struct AuthorizationView: View {
                                 ButtonImageView(viewModel: viewModel.buttomEditMailBIVM)
                             }
                         }
-                        TextField("Код", text: $viewModel.verificationCodeText)
-                            .font(.custom("ItimCyrillic", size: 24))
-                            .frame(width: 110, height: 20)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(8)
+                        TextFieldView(viewModel: viewModel.verificationCodeTFVM,
+                                      size: 24,
+                                      width: 110,
+                                      height: 24)
                         if viewModel.showButtonSend {
                             ButtonView(viewModel: viewModel.buttonSendViewModel,
                                        color: Color("MainTopicColor"),
                                        width: 110)
                         }
                     } else {
-                        TextField("E-mail", text: $viewModel.loginText)
-                            .font(.custom("ItimCyrillic", size: 18))
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(8)
+                        TextFieldView(viewModel: viewModel.loginTFVM,
+                                      size: 18,
+                                      width: nil,
+                                      height: nil)
                     }
                 }
                 if viewModel.showButtonSendCode, !isAuthorization {
@@ -88,8 +86,8 @@ struct AuthorizationView: View {
                     viewModel.showCodeTextFild = false
                 } label: {
                     Text(isAuthorization ? "Ещё не с нами?" : "Уже есть аккаунт")
-                        .foregroundColor(Color("RedTopicColor"))
-                        .font(.custom("ItimCyrillic", size: 18))
+                        .modifier(TextElement(size: 18,
+                                              foregroundColor: Color("RedTopicColor")))
                 }
             }
             .padding(.vertical, 70)

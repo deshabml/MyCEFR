@@ -32,7 +32,7 @@ struct SecureFieldView: View {
                     viewModel.showPassword.toggle()
                 } label: {
                     Image(systemName: viewModel.showPassword ? "eye.fill" : "eye.slash.fill")
-                        .foregroundColor(.black)
+                        .foregroundColor(.gray)
                         .padding(.right, viewModel.isThereButton ? 106 : 8)
                 }
             }
