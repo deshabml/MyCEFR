@@ -30,6 +30,8 @@
 		DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7699B2A1E1F35004008D4 /* ContentView.swift */; };
 		DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */; };
 		DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */; };
+		DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = DDBAE3612A229B71003A2415 /* SwiftSMTP */; };
+		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,7 @@
 		DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimRegular.ttf; sourceTree = "<group>"; };
 		DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimCyrillic.otf; sourceTree = "<group>"; };
 		DDB769A32A1E2057004008D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 			files = (
 				DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */,
 				DD4AAED62A21F21E003E2860 /* Realm in Frameworks */,
+				DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +111,7 @@
 			children = (
 				DD4AAED22A21F154003E2860 /* RealmService.swift */,
 				DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */,
+				DDBAE3632A229BB0003A2415 /* SMTPService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			packageProductDependencies = (
 				DD4AAED52A21F21E003E2860 /* Realm */,
 				DD4AAED72A21F21E003E2860 /* RealmSwift */,
+				DDBAE3612A229B71003A2415 /* SwiftSMTP */,
 			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
@@ -254,6 +260,7 @@
 			mainGroup = DDB6E54929F2FE05005A4A72;
 			packageReferences = (
 				DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
@@ -290,6 +297,7 @@
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
+				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* User.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
@@ -518,6 +526,14 @@
 				kind = branch;
 			};
 		};
+		DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,6 +546,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		DDBAE3612A229B71003A2415 /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

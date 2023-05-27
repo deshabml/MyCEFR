@@ -34,6 +34,7 @@ class AuthorizationViewModel: ObservableObject {
 
     func sendVerificationCode() {
         let code = generateVerificationCode()
+        SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty, verificationCode: code)
     }
 
 }
@@ -48,6 +49,9 @@ extension AuthorizationViewModel {
             if checkEmail() {
                 self.showButtonSendCode.toggle()
                 self.showCodeTextFild.toggle()
+                DispatchQueue.main.async {
+                    self.sendVerificationCode()
+                }
             }
         }
         buttonLogInViewModel.setupAction { [unowned self] in
