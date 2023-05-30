@@ -41,13 +41,4 @@ final class RealmService {
 
 extension RealmService {
 
-    func getUsers() -> [User] {
-        let userList = dataBase.objects(User.self)
-        var users: [User] = []
-        for user in userList {
-            users.append(user)
-        }
-        return users
-    }
-
 }

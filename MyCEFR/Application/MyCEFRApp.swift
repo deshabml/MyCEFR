@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct MyCEFRApp: App {
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
+
 }
+
+

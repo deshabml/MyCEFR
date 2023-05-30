@@ -61,13 +61,7 @@ extension AuthorizationViewModel {
             }
         }
         buttonSendCodeViewModel.setupAction { [unowned self] in
-            if checkEmail() {
-                self.showButtonSendCode.toggle()
-                self.showCodeTextFild.toggle()
-                DispatchQueue.main.async {
-                    self.sendVerificationCode()
-                }
-            }
+            self.sendCodeViewAction()
         }
         buttonLogInViewModel.setupAction { [unowned self] in
             print("log in")
@@ -119,13 +113,9 @@ extension AuthorizationViewModel {
 
 extension AuthorizationViewModel {
 
-    func checkEmail() -> Bool {
+    func checkEmail() throws {
         let itog = ValidationAuthorization.shared.isMail(login: loginTFVM.bindingProperty)
-        if !itog {
-            allertTextError = "Введен не корректный E-mail"
-            showAllertError.toggle()
-        }
-        return itog
+        guard itog else { throw ErrorsAuthorization.notMail }
     }
 
     func generateVerificationCode() -> String {
@@ -142,6 +132,30 @@ extension AuthorizationViewModel {
             arrayString.append(element)
         }
         return arrayString.joined()
+    }
+
+    func sendCodeViewAction() {
+        do {
+            try checkEmail()
+            Task {
+                do {
+                    try await AuthService.shared.searchLogin(login: loginTFVM.bindingProperty)
+//                    try await AuthService.shared.signUp(login: loginTFVM.bindingProperty, password: "Gegcbr1q2w3e")
+                    showButtonSendCode.toggle()
+                    showCodeTextFild.toggle()
+                    DispatchQueue.main.async { [unowned self] in
+                        self.sendVerificationCode()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        } catch ErrorsAuthorization.notMail {
+            allertTextError = "Введен не корректный E-mail"
+            showAllertError.toggle()
+        } catch {
+            print(error)
+        }
     }
 
 }

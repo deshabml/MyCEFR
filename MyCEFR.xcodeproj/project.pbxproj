@@ -22,6 +22,12 @@
 		DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED72A21F21E003E2860 /* RealmSwift */; };
 		DD4AAEDB2A21F619003E2860 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* User.swift */; };
 		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
+		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
+		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
+		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
+		DD9AA5BD2A25F08000FB18A8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */; };
+		DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */; };
+		DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
@@ -48,6 +54,9 @@
 		DD4AAED22A21F154003E2860 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		DD4AAEDA2A21F619003E2860 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
+		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
@@ -69,6 +78,9 @@
 				DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */,
 				DD4AAED62A21F21E003E2860 /* Realm in Frameworks */,
 				DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */,
+				DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */,
+				DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */,
+				DD9AA5BD2A25F08000FB18A8 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +124,7 @@
 				DD4AAED22A21F154003E2860 /* RealmService.swift */,
 				DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */,
 				DDBAE3632A229BB0003A2415 /* SMTPService.swift */,
+				DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,6 +163,7 @@
 				DD4AAED12A21F124003E2860 /* Services */,
 				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
+				DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */,
 			);
 			path = MyCEFR;
 			sourceTree = "<group>";
@@ -205,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */,
+				DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -229,6 +244,9 @@
 				DD4AAED52A21F21E003E2860 /* Realm */,
 				DD4AAED72A21F21E003E2860 /* RealmSwift */,
 				DDBAE3612A229B71003A2415 /* SwiftSMTP */,
+				DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */,
+				DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */,
+				DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */,
 			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
@@ -261,6 +279,7 @@
 			packageReferences = (
 				DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+				DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
@@ -278,6 +297,7 @@
 			files = (
 				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
 				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
+				DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,
 				DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */,
 			);
@@ -296,7 +316,9 @@
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
+				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
+				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* User.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
@@ -526,6 +548,14 @@
 				kind = branch;
 			};
 		};
+		DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kitura/Swift-SMTP";
@@ -546,6 +576,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		DDBAE3612A229B71003A2415 /* SwiftSMTP */ = {
 			isa = XCSwiftPackageProductDependency;
