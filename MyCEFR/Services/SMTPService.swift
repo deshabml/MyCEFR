@@ -11,6 +11,7 @@ class SMTPService {
 
     static let shared = SMTPService()
 
+    // MARK: - Задаем параметры SMTP сервера
     private let smtp = SMTP(
         hostname: "smtp.gmail.com",
         email: "robmycefr@gmail.com",
@@ -20,6 +21,7 @@ class SMTPService {
 
     private init () { }
 
+    // MARK: - Отправляем письмо с кодом верификации
     func sendMail(mail: String, verificationCode: String) async {
         let myCEFR = Mail.User(name: "MyCEFR", email: "drlight@gmail.com")
         let user = Mail.User(email: mail)

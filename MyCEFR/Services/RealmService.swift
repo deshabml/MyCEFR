@@ -38,7 +38,6 @@ final class RealmService {
     }
 
 }
-
-extension RealmService {
-
-}
+// extension RealmService {
+//
+// }

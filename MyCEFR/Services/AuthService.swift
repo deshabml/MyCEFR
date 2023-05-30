@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseAuth
-import Firebase
 
 class AuthService {
 
@@ -17,6 +16,7 @@ class AuthService {
 
     private init() { }
 
+    // MARK: - Вход в профиль пользователя
     func signIn(login: String, password: String) async throws -> User {
         do {
             let result = try await auth.signIn(withEmail: login, password: password)
@@ -24,6 +24,7 @@ class AuthService {
         } catch { throw error }
     }
 
+    // MARK: - Создаём в профиль пользователя
     func signUp(login: String, password: String) async throws -> User {
         do {
             let result = try await auth.createUser(withEmail: login,
@@ -32,11 +33,16 @@ class AuthService {
         } catch { throw error }
     }
 
- //   func searchLogin(login: String) async throws {
-//        do {
-//            ref = Database.database().reference(withPath: "users")
- //           let _ = try await auth
- //       } catch { throw error }
- //   }
+    // MARK: - Проверяем не занят ли логин(e-mail)
+    func freeLogin(login: String) async throws -> Bool {
+        do {
+             let providers = try await auth.fetchSignInMethods(forEmail: login)
+            if providers == ["password"] {
+                return false
+            } else {
+                return true
+            }
+        } catch { throw error }
+    }
 
 }

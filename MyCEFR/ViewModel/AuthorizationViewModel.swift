@@ -33,6 +33,7 @@ class AuthorizationViewModel: ObservableObject {
         setupComlpitionElements()
     }
 
+    // MARK: - Отправляем на почту код верификации
     func sendVerificationCode() {
         let code = generateVerificationCode()
         verificationCode = code
@@ -41,6 +42,7 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
 
+    // MARK: - Сверка кода Верификации
     func checkVerificationCode() -> Bool {
         guard verificationCodeTFVM.bindingProperty == verificationCode else {
             allertTextError = "Вы ввели неверный код!"
@@ -54,6 +56,7 @@ class AuthorizationViewModel: ObservableObject {
 
 extension AuthorizationViewModel {
 
+    // MARK: - Настраиваем действия для completionBlock вложенных viewModels
     func setupComlpitionElements() {
         buttonSendViewModel.setupAction { [unowned self] in
             if self.checkVerificationCode() {
@@ -61,7 +64,7 @@ extension AuthorizationViewModel {
             }
         }
         buttonSendCodeViewModel.setupAction { [unowned self] in
-            self.sendCodeViewAction()
+            self.sendCodeAction()
         }
         buttonLogInViewModel.setupAction { [unowned self] in
             print("log in")
@@ -100,6 +103,8 @@ extension AuthorizationViewModel {
         }
     }
 
+
+    // MARK: - Подсчёт символов в TextField
     func toggleShowButton(texts: [String], showButton: inout Bool) {
         let filterText = texts.filter { $0 != "" }
         if filterText.count == texts.count {
@@ -113,11 +118,13 @@ extension AuthorizationViewModel {
 
 extension AuthorizationViewModel {
 
+    // MARK: - Валидация почтового адреса
     func checkEmail() throws {
         let itog = ValidationAuthorization.shared.isMail(login: loginTFVM.bindingProperty)
         guard itog else { throw ErrorsAuthorization.notMail }
     }
 
+    // MARK: - Генерируем код верификации
     func generateVerificationCode() -> String {
         var arrayString: [String] = []
         for _ in 0 ... 7 {
@@ -134,20 +141,18 @@ extension AuthorizationViewModel {
         return arrayString.joined()
     }
 
-    func sendCodeViewAction() {
+    // MARK: - Действие для кнопки "Отправить код"
+    func sendCodeAction() {
         do {
             try checkEmail()
             Task {
                 do {
-                    try await AuthService.shared.searchLogin(login: loginTFVM.bindingProperty)
-//                    try await AuthService.shared.signUp(login: loginTFVM.bindingProperty, password: "Gegcbr1q2w3e")
-                    showButtonSendCode.toggle()
-                    showCodeTextFild.toggle()
-                    DispatchQueue.main.async { [unowned self] in
-                        self.sendVerificationCode()
+                    let isFreeLogin = try await AuthService.shared.freeLogin(login: loginTFVM.bindingProperty)
+                    DispatchQueue.main.async {
+                        self.freeLogin(isFreeLogin)
                     }
                 } catch {
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }
         } catch ErrorsAuthorization.notMail {
@@ -155,6 +160,18 @@ extension AuthorizationViewModel {
             showAllertError.toggle()
         } catch {
             print(error)
+        }
+    }
+
+    // MARK: - Отправляем код верификации, либо выдаем предупреждение что логин занят!
+    func freeLogin(_ isFreeLogin: Bool) {
+        if isFreeLogin {
+            showButtonSendCode.toggle()
+            showCodeTextFild.toggle()
+            sendVerificationCode()
+        } else {
+            allertTextError = "Профиль с таким e-mail уже существует, попробуйте авторизоваться!"
+            showAllertError.toggle()
         }
     }
 
