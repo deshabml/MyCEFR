@@ -22,6 +22,19 @@ struct ProfileSettingsView: View {
         .fullScreenCover(isPresented: $viewModel.showAuthorizationScreen) {
             AuthorizationView()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            Image("WhiteBackground")
+                .resizable()
+                .ignoresSafeArea()
+                .scaledToFill()
+                .overlay(alignment: .bottom,content: {
+                    Ellipse()
+                        .foregroundColor(Color("MainBlueColor"))
+                        .frame(width: 570, height: 492)
+                        .padding(.vertical, 650)
+                })
+        )
 
     }
 
