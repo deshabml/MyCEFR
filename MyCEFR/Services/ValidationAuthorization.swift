@@ -29,7 +29,7 @@ final class ValidationAuthorization {
         guard login != "" else { throw ErrorsAuthorization.emptyLogin}
         guard password != "" else { throw ErrorsAuthorization.emptyPassword}
         guard isMail(login: login) else { throw ErrorsAuthorization.notMail }
-        guard password.count >= 8 else { throw ErrorsAuthorization.shortPassword }
+        guard isSecurePassword(password: password) else { throw ErrorsAuthorization.shortPassword }
     }
 
     // MARK: - Валидация почтового адреса
@@ -37,6 +37,13 @@ final class ValidationAuthorization {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: login)
+    }
+
+    // MARK: - Валидация пароля
+    func isSecurePassword(password: String) -> Bool {
+        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"
+        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return passwordPred.evaluate(with: password)
     }
 
 }

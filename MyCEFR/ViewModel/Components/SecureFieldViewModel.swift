@@ -16,6 +16,7 @@ class SecureFieldViewModel: ObservableObject {
         }
     }
     @Published var showPassword = false
+    @Published var showError = false
     var isThereButton = false
     var placeHolder = "Password"
     var completion: (()->())!
@@ -36,6 +37,10 @@ class SecureFieldViewModel: ObservableObject {
         if bindingProperty.isEmpty {
             self.showPassword = false
         }
+    }
+
+    func showErrorToggle() {
+        showError.toggle()
     }
 
 //    func clear() {

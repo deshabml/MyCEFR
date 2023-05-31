@@ -28,6 +28,7 @@
 		DD9AA5BD2A25F08000FB18A8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */; };
 		DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */; };
 		DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */; };
+		DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.AddBorder.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DD9AA5C22A27A76400FB18A8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		DDB6E54929F2FE05005A4A72 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB769A42A1E2BDF004008D4 /* Application */,
+				DD9AA5C22A27A76400FB18A8 /* Core */,
 				DD4AAED92A21F600003E2860 /* Model */,
 				DDB6E56429F30F85005A4A72 /* View */,
 				DDB6E56729F31556005A4A72 /* ViewModel */,
@@ -314,6 +325,7 @@
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
+				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,

@@ -21,6 +21,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showCodeTextFild = false
     @Published var showCreatePassword = false
     @Published var showAllertError = false
+    @Published var showPasswordErrorText = false
     @Published var showButtonCompleteRegistration = false
     @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Отправить")
     @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Выслать код")
@@ -28,6 +29,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
     var allertTextError = ""
+    var passwordErrorText = ""
     private var verificationCode = ""
 
     init() {
@@ -62,6 +64,7 @@ extension AuthorizationViewModel {
         buttonSendViewModel.setupAction { [unowned self] in
             if self.checkVerificationCode() {
                 self.showCreatePassword.toggle()
+                self.verificationCodeTFVM.clear()
             }
         }
         buttonSendCodeViewModel.setupAction { [unowned self] in
@@ -72,7 +75,7 @@ extension AuthorizationViewModel {
             print(self.generateVerificationCode())
         }
         buttonRegComplitedViewModel.setupAction { [unowned self] in
-            self.showCreatePassword.toggle()
+            self.actionButtonRegComplited()
         }
         loginTFVM.setupDidSet { [unowned self] in
             self.toggleShowButton(texts: [self.passwordSFVM.bindingProperty, self.loginTFVM.bindingProperty],
@@ -130,7 +133,7 @@ extension AuthorizationViewModel {
         var arrayString: [String] = []
         for _ in 0 ... 7 {
             let isString = Bool.random()
-            let element: String
+            var element: String = ""
             if isString {
                 let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 element = "\(letters.randomElement() ?? "E")"
@@ -184,4 +187,47 @@ extension AuthorizationViewModel {
             showCreatePassword = false
         }
     }
+
+    // MARK: - Завершаем регистрацию пользователя
+    func actionButtonRegComplited() {
+        guard createPasswordSFVMOne.bindingProperty == createPasswordSFVMSecond.bindingProperty else {
+            passwordErrorText = "Введенные пароли не совпадают!"
+            passwordErrorAnimation()
+            return
+        }
+        let password = createPasswordSFVMOne.bindingProperty
+        do {
+            try ValidationAuthorization.shared.checkAuthorization(login: loginTFVM.bindingProperty, password: password)
+            print(AuthService.shared.currentUser?.email)
+            Task {
+                do {
+                    let _ = try await AuthService.shared.signUp(login:loginTFVM.bindingProperty, password: password)
+                    DispatchQueue.main.async { [unowned self] in
+                        self.allertTextError = "Поздравляем вы успешно зарегистрировались!"
+                        self.showAllertError.toggle()
+                        print(AuthService.shared.currentUser?.email)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        } catch ErrorsAuthorization.shortPassword {
+            passwordErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            passwordErrorAnimation()
+        } catch {
+            print(error)
+        }
+    }
+
+    // MARK: - Переключаем маркер анимации Ошибки пароля
+    func passwordErrorAnimation() {
+        createPasswordSFVMOne.showErrorToggle()
+        createPasswordSFVMSecond.showErrorToggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+            self.createPasswordSFVMOne.showErrorToggle()
+            self.createPasswordSFVMSecond.showErrorToggle()
+        }
+        showPasswordErrorText = true
+    }
+
 }

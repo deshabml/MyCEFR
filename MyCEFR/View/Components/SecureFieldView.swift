@@ -20,6 +20,7 @@ struct SecureFieldView: View {
                     .padding()
                     .background(.white)
                     .cornerRadius(8)
+                    .addBorder(viewModel.showError ? .red : .white, width: 2, cornerRadius: 8)
             } else {
                 SecureField(viewModel.placeHolder, text: $viewModel.bindingProperty)
                     .font(.custom("ItimCyrillic", size: 18))
@@ -27,6 +28,7 @@ struct SecureFieldView: View {
                     .padding()
                     .background(.white)
                     .cornerRadius(8)
+                    .addBorder(viewModel.showError ? .red : .white, width: 2, cornerRadius: 8)
             }
             HStack {
                 Spacer()
@@ -39,6 +41,11 @@ struct SecureFieldView: View {
                 }
             }
         }
+        .padding(.leading, viewModel.showError ? 5 : 0)
+        .animation(Animation.spring(response: 0.2,
+                                    dampingFraction: 0.1,
+                                    blendDuration: 0.3),
+                   value: viewModel.showError)
     }
 
 }

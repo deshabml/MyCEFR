@@ -30,8 +30,8 @@ class TextFieldViewModel: ObservableObject {
         self.completion = completion
     }
 
-//    func clear() {
-//        bindingProperty = ""
-//    }
+    func clear() {
+        bindingProperty = ""
+    }
 
 }

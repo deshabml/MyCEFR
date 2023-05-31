@@ -19,8 +19,15 @@ struct AuthorizationView: View {
                                       foregroundColor: .white))
             VStack(spacing: 10) {
                 if viewModel.showCreatePassword, !viewModel.isAuthorization {
-                    SecureFieldView(viewModel: viewModel.createPasswordSFVMOne)
-                    SecureFieldView(viewModel: viewModel.createPasswordSFVMSecond)
+                    VStack {
+                        SecureFieldView(viewModel: viewModel.createPasswordSFVMOne)
+                        SecureFieldView(viewModel: viewModel.createPasswordSFVMSecond)
+                    }
+                    if viewModel.showPasswordErrorText {
+                        Text(viewModel.passwordErrorText)
+                            .modifier(TextElement(size: 18,
+                                                  foregroundColor: .red))
+                    }
                     if viewModel.showButtonCompleteRegistration {
                         ButtonView(viewModel: viewModel.buttonRegComplitedViewModel,
                                    color: Color("MainTopicColor"),
@@ -96,6 +103,7 @@ struct AuthorizationView: View {
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }
+        .animation(.easeInOut(duration: 0.2), value: viewModel.showPasswordErrorText)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonLogIn)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonSendCode)
         .animation(.easeInOut(duration: 0.4), value: viewModel.isAuthorization)
