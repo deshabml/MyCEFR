@@ -14,6 +14,7 @@ class AuthorizationViewModel: ObservableObject {
     @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Код")
     @Published var createPasswordSFVMOne = SecureFieldViewModel()
     @Published var createPasswordSFVMSecond = SecureFieldViewModel()
+    @Published var isAuthorization = true
     @Published var showButtonLogIn = false
     @Published var showButtonSendCode = false
     @Published var showButtonSend = false
@@ -175,4 +176,12 @@ extension AuthorizationViewModel {
         }
     }
 
+    // MARK: - Переключаем экран с режима авторизации в режим регистрации и наоборот!
+    func actionButtonAuthOrReg() {
+        isAuthorization.toggle()
+        showCodeTextFild = false
+        if showCreatePassword {
+            showCreatePassword = false
+        }
+    }
 }

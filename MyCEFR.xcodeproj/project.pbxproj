@@ -163,7 +163,6 @@
 				DD4AAED12A21F124003E2860 /* Services */,
 				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
-				DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */,
 			);
 			path = MyCEFR;
 			sourceTree = "<group>";
@@ -179,6 +178,7 @@
 		DDB6E56329F30E2B005A4A72 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */,
 				DDB7699E2A1E1FD6004008D4 /* Font */,
 				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
 				DDB769A32A1E2057004008D4 /* Info.plist */,

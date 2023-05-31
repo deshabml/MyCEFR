@@ -10,16 +10,15 @@ import SwiftUI
 struct AuthorizationView: View {
 
     @StateObject var viewModel = AuthorizationViewModel()
-    @State var isAuthorization = true
 
     var body: some View {
         VStack {
-            Text(isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь")
+            Text(viewModel.isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь")
                 .modifier(TextElement(size: 28,
                                       verticalPadding: 30,
-                                      foregroundColor: .black))
+                                      foregroundColor: .white))
             VStack(spacing: 10) {
-                if viewModel.showCreatePassword, !isAuthorization {
+                if viewModel.showCreatePassword, !viewModel.isAuthorization {
                     SecureFieldView(viewModel: viewModel.createPasswordSFVMOne)
                     SecureFieldView(viewModel: viewModel.createPasswordSFVMSecond)
                     if viewModel.showButtonCompleteRegistration {
@@ -58,7 +57,7 @@ struct AuthorizationView: View {
                                       height: nil)
                     }
                 }
-                if viewModel.showButtonSendCode, !isAuthorization {
+                if viewModel.showButtonSendCode, !viewModel.isAuthorization {
                     HStack {
                         Spacer()
                         ButtonView(viewModel: viewModel.buttonSendCodeViewModel,
@@ -67,7 +66,7 @@ struct AuthorizationView: View {
                     }
                     .padding(.horizontal, 2)
                 }
-                if isAuthorization {
+                if viewModel.isAuthorization {
                     ZStack {
                         SecureFieldView(viewModel: viewModel.passwordSFVM)
                         if viewModel.showButtonLogIn {
@@ -82,10 +81,9 @@ struct AuthorizationView: View {
                     }
                 }
                 Button {
-                    isAuthorization.toggle()
-                    viewModel.showCodeTextFild = false
+                    viewModel.actionButtonAuthOrReg()
                 } label: {
-                    Text(isAuthorization ? "Ещё не с нами?" : "Уже есть аккаунт")
+                    Text(viewModel.isAuthorization ? "Ещё не с нами?" : "Уже есть аккаунт")
                         .modifier(TextElement(size: 18,
                                               foregroundColor: Color("RedTopicColor")))
                 }
@@ -93,14 +91,14 @@ struct AuthorizationView: View {
             .padding(.vertical, 70)
             Spacer()
         }
-        .modifier(BackgroundElement(isShowView: $isAuthorization,
+        .modifier(BackgroundElement(isShowView: $viewModel.isAuthorization,
                                     ImageName: "AuthorizationBackground"))
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonLogIn)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonSendCode)
-        .animation(.easeInOut(duration: 0.4), value: isAuthorization)
+        .animation(.easeInOut(duration: 0.4), value: viewModel.isAuthorization)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showCodeTextFild)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonCompleteRegistration)
     }

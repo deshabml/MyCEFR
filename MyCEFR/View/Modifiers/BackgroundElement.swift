@@ -22,6 +22,12 @@ struct BackgroundElement: ViewModifier {
                     .ignoresSafeArea()
                     .scaledToFill()
                     .blur(radius: isShowView ? 0 : 12)
+                    .overlay(alignment: .bottom,content: {
+                        Ellipse()
+                            .foregroundColor(Color("MainBlueColor"))
+                            .frame(width: 570, height: 492)
+                            .padding(.vertical, 650)
+                    })
             )
     }
 
