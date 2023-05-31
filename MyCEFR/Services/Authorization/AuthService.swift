@@ -45,4 +45,11 @@ class AuthService {
         } catch { throw error }
     }
 
+    // MARK: - Выходим из аккаунта
+    func signOut() throws {
+        do {
+            try auth.signOut()
+        } catch { throw error }
+    }
+
 }

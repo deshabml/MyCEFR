@@ -74,16 +74,23 @@ struct AuthorizationView: View {
                     .padding(.horizontal, 2)
                 }
                 if viewModel.isAuthorization {
-                    ZStack {
-                        SecureFieldView(viewModel: viewModel.passwordSFVM)
-                        if viewModel.showButtonLogIn {
-                            HStack {
-                                Spacer()
-                                ButtonView(viewModel: viewModel.buttonLogInViewModel,
-                                           color: Color("MainTopicColor"),
-                                           width: nil)
+                    VStack {
+                        ZStack {
+                            SecureFieldView(viewModel: viewModel.passwordSFVM)
+                            if viewModel.showButtonLogIn {
+                                HStack {
+                                    Spacer()
+                                    ButtonView(viewModel: viewModel.buttonLogInViewModel,
+                                               color: Color("MainTopicColor"),
+                                               width: nil)
+                                }
+                                .padding(.horizontal, 2)
                             }
-                            .padding(.horizontal, 2)
+                        }
+                        if viewModel.showlogInErrorText {
+                            Text(viewModel.logInErrorText)
+                                .modifier(TextElement(size: 18,
+                                                      foregroundColor: .red))
                         }
                     }
                 }
@@ -100,6 +107,9 @@ struct AuthorizationView: View {
         }
         .modifier(BackgroundElement(isShowView: $viewModel.isAuthorization,
                                     ImageName: "AuthorizationBackground"))
+        .fullScreenCover(isPresented: $viewModel.showProfileSettingsScreen) {
+                ProfileSettingsView(viewModel: viewModel.profileSettingsViewModel)
+        }
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }

@@ -9,9 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @StateObject var viewModel = ContentViewModel()
+
     var body: some View {
-        AuthorizationView()
-            .preferredColorScheme(.light)
+        if viewModel.isLoggedIn {
+            ProfileSettingsView(viewModel: viewModel.psvm)
+                .preferredColorScheme(.light)
+        } else {
+            AuthorizationView()
+                .preferredColorScheme(.light)
+        }
     }
     
 }

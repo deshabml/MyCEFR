@@ -22,14 +22,18 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showCreatePassword = false
     @Published var showAllertError = false
     @Published var showPasswordErrorText = false
+    @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
+    @Published var showProfileSettingsScreen = false
     @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Отправить")
     @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Выслать код")
     @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "Войти")
     @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
+    @Published var profileSettingsViewModel = ProfileSettingsViewModel()
     var allertTextError = ""
     var passwordErrorText = ""
+    var logInErrorText = ""
     private var verificationCode = ""
 
     init() {
@@ -71,8 +75,7 @@ extension AuthorizationViewModel {
             self.sendCodeAction()
         }
         buttonLogInViewModel.setupAction { [unowned self] in
-            print("log in")
-            print(self.generateVerificationCode())
+            self.actionButtonLogIn()
         }
         buttonRegComplitedViewModel.setupAction { [unowned self] in
             self.actionButtonRegComplited()
@@ -133,7 +136,7 @@ extension AuthorizationViewModel {
         var arrayString: [String] = []
         for _ in 0 ... 7 {
             let isString = Bool.random()
-            var element: String = ""
+            let element: String
             if isString {
                 let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 element = "\(letters.randomElement() ?? "E")"
@@ -186,6 +189,7 @@ extension AuthorizationViewModel {
         if showCreatePassword {
             showCreatePassword = false
         }
+        showlogInErrorText = false
     }
 
     // MARK: - Завершаем регистрацию пользователя
@@ -198,14 +202,12 @@ extension AuthorizationViewModel {
         let password = createPasswordSFVMOne.bindingProperty
         do {
             try ValidationAuthorization.shared.checkAuthorization(login: loginTFVM.bindingProperty, password: password)
-            print(AuthService.shared.currentUser?.email)
             Task {
                 do {
                     let _ = try await AuthService.shared.signUp(login:loginTFVM.bindingProperty, password: password)
                     DispatchQueue.main.async { [unowned self] in
-                        self.allertTextError = "Поздравляем вы успешно зарегистрировались!"
-                        self.showAllertError.toggle()
-                        print(AuthService.shared.currentUser?.email)
+                        self.profileSettingsViewModel.setupUser(user: UserProfile(eMail: loginTFVM.bindingProperty))
+                        self.showProfileSettingsScreen.toggle()
                     }
                 } catch {
                     print(error)
@@ -226,8 +228,49 @@ extension AuthorizationViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
             self.createPasswordSFVMOne.showErrorToggle()
             self.createPasswordSFVMSecond.showErrorToggle()
+            self.showPasswordErrorText = true
         }
-        showPasswordErrorText = true
+    }
+
+    // MARK: - Переключаем маркер анимации Ошибки авторизация
+    func logInErrorAnimation() {
+        loginTFVM.showErrorToggle()
+        passwordSFVM.showErrorToggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+            self.loginTFVM.showErrorToggle()
+            self.passwordSFVM.showErrorToggle()
+            self.showlogInErrorText = true
+        }
+    }
+
+    // MARK: - Авторизация пользователя
+    func actionButtonLogIn() {
+        do {
+            try ValidationAuthorization.shared.checkAuthorization(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)
+            Task {
+                do {
+                    let _ = try await AuthService.shared.signIn(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)
+                    DispatchQueue.main.async { [unowned self] in
+                        self.profileSettingsViewModel.setupUser(user: UserProfile(eMail: loginTFVM.bindingProperty))
+                        self.showProfileSettingsScreen.toggle()
+                    }
+                } catch {
+                    logInErrorText = "Неправильно указан логин или пароль"
+                    logInErrorAnimation()
+                }
+            }
+        } catch ErrorsAuthorization.emptyAll {
+            logInErrorText = "E-mail не может буть пустым!"
+            logInErrorAnimation()
+        } catch ErrorsAuthorization.notMail {
+            logInErrorText = "Введен не корректный E-mail"
+            logInErrorAnimation()
+        } catch ErrorsAuthorization.shortPassword {
+            logInErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            logInErrorAnimation()
+        } catch {
+            print(error)
+        }
     }
 
 }

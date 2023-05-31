@@ -29,6 +29,12 @@ struct TextFieldView: View {
                 .padding()
                 .background(.white)
                 .cornerRadius(8)
+                .addBorder(viewModel.showError ? .red : .white, width: 2, cornerRadius: 8)
+                .padding(.leading, viewModel.showError ? 5 : 0)
+                .animation(Animation.spring(response: 0.2,
+                                            dampingFraction: 0.1,
+                                            blendDuration: 0.3),
+                           value: viewModel.showError)
         }
     }
 

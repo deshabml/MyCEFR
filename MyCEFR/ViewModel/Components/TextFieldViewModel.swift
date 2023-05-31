@@ -14,7 +14,7 @@ class TextFieldViewModel: ObservableObject {
             completion()
         }
     }
-    @Published var showPassword = false
+    @Published var showError = false
     let placeHolder: String
     var completion: (()->())!
 
@@ -32,6 +32,10 @@ class TextFieldViewModel: ObservableObject {
 
     func clear() {
         bindingProperty = ""
+    }
+
+    func showErrorToggle() {
+        showError.toggle()
     }
 
 }
