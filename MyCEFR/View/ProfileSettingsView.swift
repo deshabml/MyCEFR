@@ -19,9 +19,6 @@ struct ProfileSettingsView: View {
                        color: Color("RedTopicColor"),
                        width: 80)
         }
-        .fullScreenCover(isPresented: $viewModel.showAuthorizationScreen) {
-            AuthorizationView()
-        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             Image("WhiteBackground")
@@ -42,6 +39,6 @@ struct ProfileSettingsView: View {
 
 struct ProfileSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSettingsView(viewModel: ProfileSettingsViewModel())
+        ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: ContentViewModel()))
     }
 }

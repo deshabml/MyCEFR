@@ -9,15 +9,11 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
 
-    var psvm = ProfileSettingsViewModel()
+    @Published var currentUser = AuthService.shared.currentUser
 
-    var isLoggedIn: Bool {
-        if let currentUser = AuthService.shared.currentUser {
-            psvm.setupUser(user: UserProfile(eMail: currentUser.email ?? ""))
-            return true
-        } else {
-            return false
-        }
+    // MARK: - Присваиваем currentUser актуальную информацию о пользователе
+    func updatingUser() {
+        currentUser = AuthService.shared.currentUser
     }
-    
+
 }

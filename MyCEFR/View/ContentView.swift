@@ -12,11 +12,11 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
 
     var body: some View {
-        if viewModel.isLoggedIn {
-            ProfileSettingsView(viewModel: viewModel.psvm)
+        if let _ = viewModel.currentUser {
+            ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: viewModel))
                 .preferredColorScheme(.light)
         } else {
-            AuthorizationView()
+            AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
                 .preferredColorScheme(.light)
         }
     }

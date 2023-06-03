@@ -9,6 +9,7 @@ import Foundation
 
 class AuthorizationViewModel: ObservableObject {
 
+    let contentViewModel: ContentViewModel
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
     @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Код")
@@ -24,19 +25,18 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showPasswordErrorText = false
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
-    @Published var showProfileSettingsScreen = false
     @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Отправить")
     @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Выслать код")
     @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "Войти")
     @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
-    @Published var profileSettingsViewModel = ProfileSettingsViewModel()
     var allertTextError = ""
     var passwordErrorText = ""
     var logInErrorText = ""
     private var verificationCode = ""
 
-    init() {
+    init(contentViewModel: ContentViewModel) {
+        self.contentViewModel = contentViewModel
         setupComlpitionElements()
     }
 
@@ -206,8 +206,7 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signUp(login:loginTFVM.bindingProperty, password: password)
                     DispatchQueue.main.async { [unowned self] in
-                        self.profileSettingsViewModel.setupUser(user: UserProfile(eMail: loginTFVM.bindingProperty))
-                        self.showProfileSettingsScreen.toggle()
+                        self.contentViewModel.updatingUser()
                     }
                 } catch {
                     print(error)
@@ -251,8 +250,7 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signIn(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)
                     DispatchQueue.main.async { [unowned self] in
-                        self.profileSettingsViewModel.setupUser(user: UserProfile(eMail: loginTFVM.bindingProperty))
-                        self.showProfileSettingsScreen.toggle()
+                        self.contentViewModel.updatingUser()
                     }
                 } catch {
                     logInErrorText = "Неправильно указан логин или пароль"

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthorizationView: View {
 
-    @StateObject var viewModel = AuthorizationViewModel()
+    @StateObject var viewModel: AuthorizationViewModel
 
     var body: some View {
         VStack {
@@ -107,9 +107,6 @@ struct AuthorizationView: View {
         }
         .modifier(BackgroundElement(isShowView: $viewModel.isAuthorization,
                                     ImageName: "AuthorizationBackground"))
-        .fullScreenCover(isPresented: $viewModel.showProfileSettingsScreen) {
-                ProfileSettingsView(viewModel: viewModel.profileSettingsViewModel)
-        }
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }
@@ -124,6 +121,6 @@ struct AuthorizationView: View {
 
 struct AuthorizationView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthorizationView()
+        AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: ContentViewModel()))
     }
 }
