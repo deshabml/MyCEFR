@@ -7,20 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
+		DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */; };
+		DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */; };
+		DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */; };
+		DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */; };
+		DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */; };
+		DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */; };
+		DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */; };
+		DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */; };
+		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
+		DD4AAED32A21F154003E2860 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAED22A21F154003E2860 /* RealmService.swift */; };
+		DD4AAED62A21F21E003E2860 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED52A21F21E003E2860 /* Realm */; };
+		DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD4AAED72A21F21E003E2860 /* RealmSwift */; };
+		DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* UserProfile.swift */; };
+		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
+		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
+		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
+		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
+		DD9AA5BD2A25F08000FB18A8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */; };
+		DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */; };
+		DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */; };
+		DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */; };
+		DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */; };
+		DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */; };
+		DD9AA5CA2A27C7D500FB18A8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9AA5C92A27C7D500FB18A8 /* ContentViewModel.swift */; };
 		DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */; };
 		DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */; };
 		DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55929F2FE08005A4A72 /* Assets.xcassets */; };
 		DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */; };
 		DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */; };
+		DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7699B2A1E1F35004008D4 /* ContentView.swift */; };
+		DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */; };
+		DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */; };
+		DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = DDBAE3612A229B71003A2415 /* SwiftSMTP */; };
+		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD4AAEB22A212CD9003E2860 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
+		DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
+		DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldView.swift; sourceTree = "<group>"; };
+		DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldViewModel.swift; sourceTree = "<group>"; };
+		DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageView.swift; sourceTree = "<group>"; };
+		DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageViewModel.swift; sourceTree = "<group>"; };
+		DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
+		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
+		DD4AAED22A21F154003E2860 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		DD4AAEDA2A21F619003E2860 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
+		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.AddBorder.swift; sourceTree = "<group>"; };
+		DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModel.swift; sourceTree = "<group>"; };
+		DD9AA5C92A27C7D500FB18A8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		DDB6E55229F2FE05005A4A72 /* MyCEFR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCEFR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRApp.swift; sourceTree = "<group>"; };
 		DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		DDB6E55929F2FE08005A4A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDB6E55C29F2FE08005A4A72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		DDB7699B2A1E1F35004008D4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimRegular.ttf; sourceTree = "<group>"; };
+		DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimCyrillic.otf; sourceTree = "<group>"; };
+		DDB769A32A1E2057004008D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,12 +83,84 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4AAED82A21F21E003E2860 /* RealmSwift in Frameworks */,
+				DD4AAED62A21F21E003E2860 /* Realm in Frameworks */,
+				DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */,
+				DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */,
+				DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */,
+				DD9AA5BD2A25F08000FB18A8 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD4AAEB12A212C94003E2860 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEB22A212CD9003E2860 /* ButtonView.swift */,
+				DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */,
+				DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */,
+				DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD4AAEB42A212D13003E2860 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */,
+				DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */,
+				DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */,
+				DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD4AAEB72A21315E003E2860 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */,
+				DD4AAECC2A21DFD8003E2860 /* TextElement.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		DD4AAED12A21F124003E2860 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAED22A21F154003E2860 /* RealmService.swift */,
+				DD9AA5CB2A27F3DC00FB18A8 /* Authorization */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD4AAED92A21F600003E2860 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD9AA5C22A27A76400FB18A8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DD9AA5CB2A27F3DC00FB18A8 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */,
+				DDBAE3632A229BB0003A2415 /* SMTPService.swift */,
+				DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 		DDB6E54929F2FE05005A4A72 = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +180,12 @@
 		DDB6E55429F2FE05005A4A72 /* MyCEFR */ = {
 			isa = PBXGroup;
 			children = (
-				DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */,
+				DDB769A42A1E2BDF004008D4 /* Application */,
+				DD9AA5C22A27A76400FB18A8 /* Core */,
+				DD4AAED92A21F600003E2860 /* Model */,
 				DDB6E56429F30F85005A4A72 /* View */,
 				DDB6E56729F31556005A4A72 /* ViewModel */,
+				DD4AAED12A21F124003E2860 /* Services */,
 				DDB6E56329F30E2B005A4A72 /* Supporting files */,
 				DDB6E55B29F2FE08005A4A72 /* Preview Content */,
 			);
@@ -73,7 +203,10 @@
 		DDB6E56329F30E2B005A4A72 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */,
+				DDB7699E2A1E1FD6004008D4 /* Font */,
 				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
+				DDB769A32A1E2057004008D4 /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -81,7 +214,11 @@
 		DDB6E56429F30F85005A4A72 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDB7699B2A1E1F35004008D4 /* ContentView.swift */,
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
+				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
+				DD4AAEB12A212C94003E2860 /* Components */,
+				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,9 +226,30 @@
 		DDB6E56729F31556005A4A72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DD9AA5C92A27C7D500FB18A8 /* ContentViewModel.swift */,
 				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
+				DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */,
+				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DDB7699E2A1E1FD6004008D4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */,
+				DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DDB769A42A1E2BDF004008D4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DDB6E55529F2FE05005A4A72 /* MyCEFRApp.swift */,
+				DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +268,14 @@
 			dependencies = (
 			);
 			name = MyCEFR;
+			packageProductDependencies = (
+				DD4AAED52A21F21E003E2860 /* Realm */,
+				DD4AAED72A21F21E003E2860 /* RealmSwift */,
+				DDBAE3612A229B71003A2415 /* SwiftSMTP */,
+				DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */,
+				DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */,
+				DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */,
+			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +304,11 @@
 				Base,
 			);
 			mainGroup = DDB6E54929F2FE05005A4A72;
+			packageReferences = (
+				DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+				DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
+				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
+				DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,
 				DDB6E55A29F2FE08005A4A72 /* Assets.xcassets in Resources */,
 			);
@@ -164,9 +338,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
+				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
+				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
+				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
+				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
+				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
+				DD9AA5CA2A27C7D500FB18A8 /* ContentViewModel.swift in Sources */,
+				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,
+				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
+				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
+				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
+				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
+				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
+				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
+				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
+				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
+				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
+				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
+				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
+				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
+				DD4AAED32A21F154003E2860 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +493,12 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MyCEFR/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,9 +506,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.MyCEFR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,11 +526,12 @@
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MyCEFR/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,9 +539,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.MyCEFR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -367,6 +570,66 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD4AAED52A21F21E003E2860 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		DD4AAED72A21F21E003E2860 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4AAED42A21F21E003E2860 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		DDBAE3612A229B71003A2415 /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDB6E54A29F2FE05005A4A72 /* Project object */;
 }
