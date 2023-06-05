@@ -40,7 +40,6 @@ class AuthorizationViewModel: ObservableObject {
         setupComlpitionElements()
     }
 
-    // MARK: - Отправляем на почту код верификации
     func sendVerificationCode() {
         let code = generateVerificationCode()
         verificationCode = code
@@ -49,7 +48,6 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Сверка кода Верификации
     func checkVerificationCode() -> Bool {
         guard verificationCodeTFVM.bindingProperty == verificationCode else {
             allertTextError = "Вы ввели неверный код!"
@@ -63,7 +61,6 @@ class AuthorizationViewModel: ObservableObject {
 
 extension AuthorizationViewModel {
 
-    // MARK: - Настраиваем действия для completionBlock вложенных viewModels
     func setupComlpitionElements() {
         buttonSendViewModel.setupAction { [unowned self] in
             if self.checkVerificationCode() {
@@ -111,7 +108,6 @@ extension AuthorizationViewModel {
     }
 
 
-    // MARK: - Подсчёт символов в TextField
     func toggleShowButton(texts: [String], showButton: inout Bool) {
         let filterText = texts.filter { $0 != "" }
         if filterText.count == texts.count {
@@ -125,13 +121,11 @@ extension AuthorizationViewModel {
 
 extension AuthorizationViewModel {
 
-    // MARK: - Валидация почтового адреса
     func checkEmail() throws {
         let itog = ValidationAuthorization.shared.isMail(login: loginTFVM.bindingProperty)
         guard itog else { throw ErrorsAuthorization.notMail }
     }
 
-    // MARK: - Генерируем код верификации
     func generateVerificationCode() -> String {
         var arrayString: [String] = []
         for _ in 0 ... 7 {
@@ -148,7 +142,6 @@ extension AuthorizationViewModel {
         return arrayString.joined()
     }
 
-    // MARK: - Действие для кнопки "Отправить код"
     func sendCodeAction() {
         do {
             try checkEmail()
@@ -170,7 +163,6 @@ extension AuthorizationViewModel {
         }
     }
 
-    // MARK: - Отправляем код верификации, либо выдаем предупреждение что логин занят!
     func freeLogin(_ isFreeLogin: Bool) {
         if isFreeLogin {
             showButtonSendCode.toggle()
@@ -182,7 +174,6 @@ extension AuthorizationViewModel {
         }
     }
 
-    // MARK: - Переключаем экран с режима авторизации в режим регистрации и наоборот!
     func actionButtonAuthOrReg() {
         isAuthorization.toggle()
         showCodeTextFild = false
@@ -192,7 +183,6 @@ extension AuthorizationViewModel {
         showlogInErrorText = false
     }
 
-    // MARK: - Завершаем регистрацию пользователя
     func actionButtonRegComplited() {
         guard createPasswordSFVMOne.bindingProperty == createPasswordSFVMSecond.bindingProperty else {
             passwordErrorText = "Введенные пароли не совпадают!"
@@ -220,7 +210,6 @@ extension AuthorizationViewModel {
         }
     }
 
-    // MARK: - Переключаем маркер анимации Ошибки пароля
     func passwordErrorAnimation() {
         createPasswordSFVMOne.showErrorToggle()
         createPasswordSFVMSecond.showErrorToggle()
@@ -231,7 +220,6 @@ extension AuthorizationViewModel {
         }
     }
 
-    // MARK: - Переключаем маркер анимации Ошибки авторизация
     func logInErrorAnimation() {
         loginTFVM.showErrorToggle()
         passwordSFVM.showErrorToggle()
@@ -242,7 +230,6 @@ extension AuthorizationViewModel {
         }
     }
 
-    // MARK: - Авторизация пользователя
     func actionButtonLogIn() {
         do {
             try ValidationAuthorization.shared.checkAuthorization(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)

@@ -16,7 +16,6 @@ class AuthService {
 
     private init() { }
 
-    // MARK: - Вход в профиль пользователя
     func signIn(login: String, password: String) async throws -> User {
         do {
             let result = try await auth.signIn(withEmail: login, password: password)
@@ -24,7 +23,6 @@ class AuthService {
         } catch { throw error }
     }
 
-    // MARK: - Создаём в профиль пользователя
     func signUp(login: String, password: String) async throws -> User {
         do {
             let result = try await auth.createUser(withEmail: login,
@@ -33,7 +31,6 @@ class AuthService {
         } catch { throw error }
     }
 
-    // MARK: - Проверяем не занят ли логин(e-mail)
     func freeLogin(login: String) async throws -> Bool {
         do {
              let providers = try await auth.fetchSignInMethods(forEmail: login)
@@ -45,7 +42,6 @@ class AuthService {
         } catch { throw error }
     }
 
-    // MARK: - Выходим из аккаунта
     func signOut() throws {
         do {
             try auth.signOut()

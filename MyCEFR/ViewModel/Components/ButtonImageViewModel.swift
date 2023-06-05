@@ -10,14 +10,14 @@ import Foundation
 class ButtonImageViewModel: ObservableObject {
 
     let imageSystemName: String
-    var completion: (()->())!
+    var action: (()->())!
 
     init(imageSystemName: String) {
         self.imageSystemName = imageSystemName
     }
 
-    func setupAction(completion: @escaping ()->()) {
-        self.completion = completion
+    func setupAction(action: @escaping ()->()) {
+        self.action = action
     }
 
 }

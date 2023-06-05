@@ -91,6 +91,10 @@ struct AuthorizationView: View {
                             Text(viewModel.logInErrorText)
                                 .modifier(TextElement(size: 18,
                                                       foregroundColor: .red))
+                                .padding(10)
+                                .background(
+                                    Color("WhiteColor").blur(radius: 40)
+                                )
                         }
                     }
                 }
@@ -99,7 +103,11 @@ struct AuthorizationView: View {
                 } label: {
                     Text(viewModel.isAuthorization ? "Ещё не с нами?" : "Уже есть аккаунт")
                         .modifier(TextElement(size: 18,
-                                              foregroundColor: Color("RedTopicColor")))
+                                              foregroundColor: .white))
+                        .padding(10)
+                        .background(
+                            Color("BlackColor").blur(radius: 50)
+                        )
                 }
             }
             .padding(.vertical, 70)

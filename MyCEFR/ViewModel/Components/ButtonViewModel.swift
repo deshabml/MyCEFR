@@ -10,14 +10,14 @@ import Foundation
 class ButtonViewModel: ObservableObject {
 
     let buttonText: String
-    var completion: (()->())!
+    var action: (()->())!
 
     init(buttonText: String) {
         self.buttonText = buttonText
     }
 
-    func setupAction(completion: @escaping ()->()) {
-        self.completion = completion
+    func setupAction(action: @escaping ()->()) {
+        self.action = action
     }
     
 }

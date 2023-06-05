@@ -23,7 +23,6 @@ final class ValidationAuthorization {
 
     private init() { }
 
-    // MARK: - Валидация регистрационных данных
     func checkAuthorization(login: String, password: String) throws {
         guard login != "" || password != "" else { throw ErrorsAuthorization.emptyAll }
         guard login != "" else { throw ErrorsAuthorization.emptyLogin}
@@ -32,14 +31,12 @@ final class ValidationAuthorization {
         guard isSecurePassword(password: password) else { throw ErrorsAuthorization.shortPassword }
     }
 
-    // MARK: - Валидация почтового адреса
     func isMail(login: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: login)
     }
 
-    // MARK: - Валидация пароля
     func isSecurePassword(password: String) -> Bool {
         let passwordRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"
         let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)

@@ -20,10 +20,6 @@ class SecureFieldViewModel: ObservableObject {
     var isThereButton = false
     var placeHolder = "Password"
     var completion: (()->())!
-    
-//    func setupProperty(_ bindingProperty: String) {
-//        self.bindingProperty = bindingProperty
-//    }
 
     func setupDidSet(completion: @escaping ()->()) {
         self.completion = completion
@@ -42,9 +38,5 @@ class SecureFieldViewModel: ObservableObject {
     func showErrorToggle() {
         showError.toggle()
     }
-
-//    func clear() {
-//        bindingProperty = ""
-//    }
 
 }

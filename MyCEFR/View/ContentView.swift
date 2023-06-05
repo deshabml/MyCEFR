@@ -12,13 +12,16 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
 
     var body: some View {
-        if let _ = viewModel.currentUser {
-            ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: viewModel))
-                .preferredColorScheme(.light)
-        } else {
-            AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
-                .preferredColorScheme(.light)
+        VStack{
+            if viewModel.isUser {
+                ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: viewModel))
+                    .preferredColorScheme(.light)
+            } else {
+                AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
+                    .preferredColorScheme(.light)
+            }
         }
+        .animation(.easeInOut(duration: 0.4), value: viewModel.isUser)
     }
     
 }

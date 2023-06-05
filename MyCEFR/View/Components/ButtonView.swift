@@ -15,7 +15,7 @@ struct ButtonView: View {
 
     var body: some View {
         Button {
-            viewModel.completion()
+            viewModel.action()
         } label: {
             if let width {
                 Text(viewModel.buttonText)

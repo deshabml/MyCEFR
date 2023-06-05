@@ -13,7 +13,7 @@ struct ButtonImageView: View {
 
     var body: some View {
         Button {
-            viewModel.completion()
+            viewModel.action()
         } label: {
             Image(systemName: viewModel.imageSystemName)
                 .resizable()

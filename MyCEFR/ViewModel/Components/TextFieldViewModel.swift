@@ -22,10 +22,6 @@ class TextFieldViewModel: ObservableObject {
         self.placeHolder = placeHolder
     }
 
-//    func setupProperty(_ bindingProperty: String) {
-//        self.bindingProperty = bindingProperty
-//    }
-
     func setupDidSet(completion: @escaping ()->()) {
         self.completion = completion
     }

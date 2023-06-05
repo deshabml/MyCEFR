@@ -9,11 +9,27 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
 
-    @Published var currentUser = AuthService.shared.currentUser
+    var currentUser = AuthService.shared.currentUser {
+        didSet {
+            findOutIsUser()
+        }
+    }
+    @Published var isUser = false
 
-    // MARK: - Присваиваем currentUser актуальную информацию о пользователе
+    init() {
+        findOutIsUser()
+    }
+
     func updatingUser() {
         currentUser = AuthService.shared.currentUser
+    }
+
+    func findOutIsUser() {
+        if currentUser != nil {
+            isUser = true
+        } else {
+            isUser = false
+        }
     }
 
 }
