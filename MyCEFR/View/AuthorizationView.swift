@@ -115,6 +115,9 @@ struct AuthorizationView: View {
         }
         .modifier(BackgroundElement(isShowView: $viewModel.isAuthorization,
                                     ImageName: "AuthorizationBackground"))
+        .onTapGesture {
+            hideKeyboard()
+        }
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }

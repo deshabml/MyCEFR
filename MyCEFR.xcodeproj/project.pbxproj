@@ -42,6 +42,7 @@
 		DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */; };
 		DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = DDBAE3612A229B71003A2415 /* SwiftSMTP */; };
 		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
+		DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF522A2F20A10046F018 /* HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItimCyrillic.otf; sourceTree = "<group>"; };
 		DDB769A32A1E2057004008D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
+		DDEABF522A2F20A10046F018 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */,
+				DDEABF522A2F20A10046F018 /* HideKeyboard.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
+				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,
