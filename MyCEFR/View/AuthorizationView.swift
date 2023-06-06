@@ -13,10 +13,6 @@ struct AuthorizationView: View {
 
     var body: some View {
         VStack {
-            Text(viewModel.isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь")
-                .modifier(TextElement(size: 28,
-                                      verticalPadding: 30,
-                                      foregroundColor: .white))
             VStack(spacing: 10) {
                 if viewModel.showCreatePassword, !viewModel.isAuthorization {
                     VStack {
@@ -30,7 +26,7 @@ struct AuthorizationView: View {
                     }
                     if viewModel.showButtonCompleteRegistration {
                         ButtonView(viewModel: viewModel.buttonRegComplitedViewModel,
-                                   color: Color("MainTopicColor"),
+                                   color: (.black, Color("MainTopicColor")),
                                    width: nil)
                     }
                 } else {
@@ -54,7 +50,7 @@ struct AuthorizationView: View {
                                       height: 24)
                         if viewModel.showButtonSend {
                             ButtonView(viewModel: viewModel.buttonSendViewModel,
-                                       color: Color("MainTopicColor"),
+                                       color: (.black, Color("MainTopicColor")),
                                        width: 110)
                         }
                     } else {
@@ -68,7 +64,7 @@ struct AuthorizationView: View {
                     HStack {
                         Spacer()
                         ButtonView(viewModel: viewModel.buttonSendCodeViewModel,
-                                   color: Color("MainTopicColor"),
+                                   color: (.black, Color("MainTopicColor")),
                                            width: nil)
                     }
                     .padding(.horizontal, 2)
@@ -81,7 +77,7 @@ struct AuthorizationView: View {
                                 HStack {
                                     Spacer()
                                     ButtonView(viewModel: viewModel.buttonLogInViewModel,
-                                               color: Color("MainTopicColor"),
+                                               color: (.black, Color("MainTopicColor")),
                                                width: nil)
                                 }
                                 .padding(.horizontal, 2)
@@ -110,10 +106,11 @@ struct AuthorizationView: View {
                         )
                 }
             }
-            .padding(.vertical, 70)
+            .padding(.top, 170)
             Spacer()
         }
-        .modifier(BackgroundElement(isShowView: $viewModel.isAuthorization,
+        .modifier(AuthBackgroundElement(isShowView: $viewModel.isAuthorization,
+                                        headingText: viewModel.isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь",
                                     ImageName: "AuthorizationBackground"))
         .onTapGesture {
             hideKeyboard()

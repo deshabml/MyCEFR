@@ -10,30 +10,41 @@ import SwiftUI
 struct ButtonView: View {
 
     @StateObject var viewModel: ButtonViewModel
-    let color: Color
+    let color: (Color, Color)
     let width: CGFloat?
+    var isBigButton = false
 
     var body: some View {
         Button {
             viewModel.action()
         } label: {
-            if let width {
+            if isBigButton {
                 Text(viewModel.buttonText)
                     .font(.custom("ItimCyrillic", size: 24))
-                    .frame(width: width)
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 16)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(color.0)
                     .padding(.vertical, 10)
-                    .background(color)
+                    .background(color.1)
                     .cornerRadius(8)
             } else {
-                Text(viewModel.buttonText)
-                    .font(.custom("ItimCyrillic", size: 24))
-                    .foregroundColor(.black)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .background(color)
-                    .cornerRadius(8)
+                if let width {
+                    Text(viewModel.buttonText)
+                        .font(.custom("ItimCyrillic", size: 24))
+                        .frame(width: width)
+                        .foregroundColor(color.0)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(color.1)
+                        .cornerRadius(8)
+                } else {
+                    Text(viewModel.buttonText)
+                        .font(.custom("ItimCyrillic", size: 24))
+                        .foregroundColor(color.0)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(color.1)
+                        .cornerRadius(8)
+                }
             }
         }
     }
@@ -43,7 +54,7 @@ struct ButtonView: View {
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonView(viewModel: ButtonViewModel(buttonText: "Отправить"),
-                   color: Color("MainTopicColor"),
+                   color: (.black, Color("MainTopicColor")),
                    width: 110)
     }
 }

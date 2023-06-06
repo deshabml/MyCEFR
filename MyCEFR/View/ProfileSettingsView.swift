@@ -8,33 +8,23 @@
 import SwiftUI
 
 struct ProfileSettingsView: View {
-
+    
     @StateObject var viewModel: ProfileSettingsViewModel
-
+    
     var body: some View {
         VStack(spacing: 100) {
+            Spacer()
             Text(viewModel.email)
                 .modifier(TextElement(size: 40, foregroundColor: .black))
             ButtonView(viewModel: viewModel.buttonExitVM,
-                       color: Color("RedTopicColor"),
-                       width: 80)
+                       color: (.white, Color("MainBlueColor")),
+                       width: nil,
+                       isBigButton: true)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            Image("WhiteBackground")
-                .resizable()
-                .ignoresSafeArea()
-                .scaledToFill()
-                .overlay(alignment: .bottom,content: {
-                    Ellipse()
-                        .foregroundColor(Color("MainBlueColor"))
-                        .frame(width: 570, height: 492)
-                        .padding(.vertical, 650)
-                })
-        )
-
+        .modifier(BackgroundElement(isProfile: true, headingText: "Settings"))
     }
-
+    
 }
 
 struct ProfileSettingsView_Previews: PreviewProvider {

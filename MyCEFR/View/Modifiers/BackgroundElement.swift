@@ -2,31 +2,43 @@
 //  BackgroundElement.swift
 //  MyCEFR
 //
-//  Created by Лаборатория on 26.05.2023.
+//  Created by Лаборатория on 06.06.2023.
 //
 
 import SwiftUI
 
 struct BackgroundElement: ViewModifier {
 
-    @Binding var isShowView: Bool
-    var ImageName: String
+    var isProfile = false
+    var headingText: String
 
     func body(content: Content) -> some View {
         content
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
-                Image(ImageName)
+                Image("WhiteBackground")
                     .resizable()
                     .ignoresSafeArea()
                     .scaledToFill()
-                    .blur(radius: isShowView ? 0 : 12)
-                    .overlay(alignment: .bottom,content: {
-                        Ellipse()
-                            .foregroundColor(Color("MainBlueColor"))
-                            .frame(width: 570, height: 492)
-                            .padding(.vertical, 650)
+                    .overlay(alignment: .bottom, content: {
+                        if isProfile {
+                            Rectangle()
+                                .foregroundColor(Color("MainBlueColor"))
+                                .frame(width: 570, height: 492)
+                                .padding(.bottom, 600)
+                        } else {
+                            Ellipse()
+                                .foregroundColor(Color("MainBlueColor"))
+                                .frame(width: 570, height: 492)
+                                .padding(.bottom, 550)
+                        }
+                    })
+                    .overlay(alignment: .top, content: {
+                        Text(headingText)
+                            .modifier(TextElement(size: isProfile ? 38 : 28,
+                                                  verticalPadding: isProfile ? 50 : 100,
+                                                  foregroundColor: .white))
                     })
             )
     }

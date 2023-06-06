@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
 		DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */; };
-		DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */; };
+		DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */; };
 		DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */; };
 		DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */; };
 		DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */; };
@@ -43,12 +43,15 @@
 		DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = DDBAE3612A229B71003A2415 /* SwiftSMTP */; };
 		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
 		DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF522A2F20A10046F018 /* HideKeyboard.swift */; };
+		DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF542A2F23460046F018 /* TabBarView.swift */; };
+		DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */; };
+		DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF582A2F30780046F018 /* BackgroundElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD4AAEB22A212CD9003E2860 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
-		DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
+		DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackgroundElement.swift; sourceTree = "<group>"; };
 		DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldView.swift; sourceTree = "<group>"; };
 		DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldViewModel.swift; sourceTree = "<group>"; };
 		DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageView.swift; sourceTree = "<group>"; };
@@ -78,6 +81,9 @@
 		DDB769A32A1E2057004008D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
 		DDEABF522A2F20A10046F018 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		DDEABF542A2F23460046F018 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
+		DDEABF582A2F30780046F018 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +128,8 @@
 		DD4AAEB72A21315E003E2860 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				DD4AAEBA2A213AF8003E2860 /* BackgroundElement.swift */,
+				DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */,
+				DDEABF582A2F30780046F018 /* BackgroundElement.swift */,
 				DD4AAECC2A21DFD8003E2860 /* TextElement.swift */,
 			);
 			path = Modifiers;
@@ -219,7 +226,9 @@
 			children = (
 				DDB7699B2A1E1F35004008D4 /* ContentView.swift */,
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
+				DDEABF542A2F23460046F018 /* TabBarView.swift */,
 				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
+				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -343,18 +352,21 @@
 			files = (
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
+				DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
 				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
-				DD4AAEBB2A213AF9003E2860 /* BackgroundElement.swift in Sources */,
+				DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD9AA5CA2A27C7D500FB18A8 /* ContentViewModel.swift in Sources */,
+				DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */,
 				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
+				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,

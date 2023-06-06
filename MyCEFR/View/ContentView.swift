@@ -14,7 +14,8 @@ struct ContentView: View {
     var body: some View {
         VStack{
             if viewModel.isUser {
-                ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: viewModel))
+                TabBarView()
+                    .environmentObject(viewModel)
                     .preferredColorScheme(.light)
             } else {
                 AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
