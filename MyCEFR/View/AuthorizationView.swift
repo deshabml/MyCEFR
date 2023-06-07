@@ -97,7 +97,7 @@ struct AuthorizationView: View {
                 Button {
                     viewModel.actionButtonAuthOrReg()
                 } label: {
-                    Text(viewModel.isAuthorization ? "Ещё не с нами?" : "Уже есть аккаунт")
+                    Text(viewModel.isAuthorization ? "Not with us yet?" : "Already have an account")
                         .modifier(TextElement(size: 18,
                                               foregroundColor: .white))
                         .padding(10)
@@ -110,7 +110,7 @@ struct AuthorizationView: View {
             Spacer()
         }
         .modifier(AuthBackgroundElement(isShowView: $viewModel.isAuthorization,
-                                        headingText: viewModel.isAuthorization ? "Авторизуйтесь" : "Зарегистрируйтесь",
+                                        headingText: viewModel.isAuthorization ? "Authorize" : "Register",
                                     ImageName: "AuthorizationBackground"))
         .onTapGesture {
             hideKeyboard()

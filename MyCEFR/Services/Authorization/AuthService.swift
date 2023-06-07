@@ -23,21 +23,13 @@ class AuthService {
         } catch { throw error }
     }
 
-//    func signUp(login: String, password: String) async throws -> User {
-//        do {
-//            let result = try await auth.createUser(withEmail: login,
-//                                                   password: password)
-//            return result.user
-//        } catch { throw error }
-//    }
-
     func signUp(login: String, password: String) async throws -> UserProfile {
         do {
             let result = try await auth.createUser(withEmail: login,
                                                    password: password)
             let user = result.user
             let userProfile = UserProfile(id: user.uid,
-                                          name: "Имя Фамилия",
+                                          name: "First and last name",
                                           eMail: user.email ?? "",
                                           phone: 0,
                                           imageUrl: "UserImage/deshabImage.jpg")

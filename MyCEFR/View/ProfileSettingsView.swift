@@ -28,17 +28,22 @@ struct ProfileSettingsView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-
                     } else {
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .foregroundColor(.white)
-                            .background(.blue)
+                            .background(Color("MainBlueColor"))
                     }
                 }
                 .frame(width: 100, height: 100)
                 .cornerRadius(50)
+                .addBorder(.white,
+                           width: 6,
+                           cornerRadius: 50)
+                .addBorder(Color("MainBlueColor"),
+                           width: 2,
+                           cornerRadius: 50)
             }
             .padding(.top, 110)
 //            .padding(.horizontal, 200)

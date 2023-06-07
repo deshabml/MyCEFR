@@ -10,11 +10,11 @@ import UIKit
 class ProfileSettingsViewModel: ObservableObject {
 
     let contentViewModel: ContentViewModel
-    @Published var userProfile = UserProfile(name: "Имя Фамилия",
+    @Published var userProfile = UserProfile(name: "First and last name",
                                              eMail: "adress@email.ru",
                                              phone: 88888888888,
                                              imageUrl: "")
-    @Published var buttonExitVM = ButtonViewModel(buttonText: "Выход")
+    @Published var buttonExitVM = ButtonViewModel(buttonText: "log out")
     @Published var image: UIImage?
 
     init(contentViewModel: ContentViewModel) {
@@ -52,10 +52,5 @@ class ProfileSettingsViewModel: ObservableObject {
             }
         }
     }
-
-//    func setupUser(user: UserProfile) {
-//        self.user = user
-//        email = user.eMail
-//    }
 
 }

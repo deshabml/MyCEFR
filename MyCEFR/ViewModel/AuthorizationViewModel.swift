@@ -12,7 +12,7 @@ class AuthorizationViewModel: ObservableObject {
     let contentViewModel: ContentViewModel
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
-    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Код")
+    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Code")
     @Published var createPasswordSFVMOne = SecureFieldViewModel()
     @Published var createPasswordSFVMSecond = SecureFieldViewModel()
     @Published var isAuthorization = true
@@ -25,10 +25,10 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showPasswordErrorText = false
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
-    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Отправить")
-    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Выслать код")
-    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "Войти")
-    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
+    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Send")
+    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Send code")
+    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "log in")
+    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Complete regisrtation")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
     var allertTextError = ""
     var passwordErrorText = ""
@@ -50,7 +50,7 @@ class AuthorizationViewModel: ObservableObject {
 
     func checkVerificationCode() -> Bool {
         guard verificationCodeTFVM.bindingProperty == verificationCode else {
-            allertTextError = "Вы ввели неверный код!"
+            allertTextError = "Wrong code!"
             showAllertError.toggle()
             return false
         }
@@ -155,7 +155,7 @@ extension AuthorizationViewModel {
                 }
             }
         } catch ErrorsAuthorization.notMail {
-            allertTextError = "Введен не корректный E-mail"
+            allertTextError = "Incorrect e-mail"
             showAllertError.toggle()
         } catch {
             print(error)
@@ -168,7 +168,7 @@ extension AuthorizationViewModel {
             showCodeTextFild.toggle()
             sendVerificationCode()
         } else {
-            allertTextError = "Профиль с таким e-mail уже существует, попробуйте авторизоваться!"
+            allertTextError = "E-mail already exist, try loggin in!"
             showAllertError.toggle()
         }
     }
@@ -184,7 +184,7 @@ extension AuthorizationViewModel {
 
     func actionButtonRegComplited() {
         guard createPasswordSFVMOne.bindingProperty == createPasswordSFVMSecond.bindingProperty else {
-            passwordErrorText = "Введенные пароли не совпадают!"
+            passwordErrorText = "passwords don't match!"
             passwordErrorAnimation()
             return
         }
@@ -202,7 +202,7 @@ extension AuthorizationViewModel {
                 }
             }
         } catch ErrorsAuthorization.shortPassword {
-            passwordErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            passwordErrorText = "Not a secure password! Must be at least 8 characters (latin aiphabet, mixed case and numbers)"
             passwordErrorAnimation()
         } catch {
             print(error)
@@ -240,19 +240,19 @@ extension AuthorizationViewModel {
                     }
                 } catch {
                     DispatchQueue.main.async { [unowned self] in
-                        self.logInErrorText = "Неправильно указан логин или пароль"
+                        self.logInErrorText = "Incorrect login or password"
                         self.logInErrorAnimation()
                     }
                 }
             }
         } catch ErrorsAuthorization.emptyAll {
-            logInErrorText = "E-mail не может буть пустым!"
+            logInErrorText = "E-mail can not be empty!"
             logInErrorAnimation()
         } catch ErrorsAuthorization.notMail {
-            logInErrorText = "Введен не корректный E-mail"
+            logInErrorText = "Incorrect e-mail"
             logInErrorAnimation()
         } catch ErrorsAuthorization.shortPassword {
-            logInErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            logInErrorText = "Not a secure password! Must be at least 8 characters (latin aiphabet, mixed case and numbers)"
             logInErrorAnimation()
         } catch {
             print(error)
