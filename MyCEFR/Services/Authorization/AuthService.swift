@@ -23,11 +23,28 @@ class AuthService {
         } catch { throw error }
     }
 
-    func signUp(login: String, password: String) async throws -> User {
+//    func signUp(login: String, password: String) async throws -> User {
+//        do {
+//            let result = try await auth.createUser(withEmail: login,
+//                                                   password: password)
+//            return result.user
+//        } catch { throw error }
+//    }
+
+    func signUp(login: String, password: String) async throws -> UserProfile {
         do {
             let result = try await auth.createUser(withEmail: login,
                                                    password: password)
-            return result.user
+            let user = result.user
+            let userProfile = UserProfile(id: user.uid,
+                                          name: "Имя Фамилия",
+                                          eMail: user.email ?? "",
+                                          phone: 0,
+                                          imageUrl: "UserImage/deshabImage.jpg")
+            do {
+                try await FirestoreService.shared.createProfile(userProfile: userProfile)
+                return userProfile
+            } catch { throw error }
         } catch { throw error }
     }
 

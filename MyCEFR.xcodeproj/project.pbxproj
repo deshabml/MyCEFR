@@ -46,6 +46,8 @@
 		DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF542A2F23460046F018 /* TabBarView.swift */; };
 		DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */; };
 		DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF582A2F30780046F018 /* BackgroundElement.swift */; };
+		DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5A2A2F61830046F018 /* FirestoreService.swift */; };
+		DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5C2A305ACE0046F018 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		DDEABF542A2F23460046F018 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
 		DDEABF582A2F30780046F018 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
+		DDEABF5A2A2F61830046F018 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		DDEABF5C2A305ACE0046F018 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				DD4AAED22A21F154003E2860 /* RealmService.swift */,
+				DDEABF5A2A2F61830046F018 /* FirestoreService.swift */,
+				DDEABF5C2A305ACE0046F018 /* StorageService.swift */,
 				DD9AA5CB2A27F3DC00FB18A8 /* Authorization */,
 			);
 			path = Services;
@@ -355,6 +361,7 @@
 				DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
+				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
 				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
 				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */,
@@ -374,6 +381,7 @@
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
+				DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
 				DDB6E55629F2FE05005A4A72 /* MyCEFRApp.swift in Sources */,

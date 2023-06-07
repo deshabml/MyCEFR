@@ -13,9 +13,36 @@ struct ProfileSettingsView: View {
     
     var body: some View {
         VStack(spacing: 100) {
+            HStack() {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(viewModel.userProfile.name)
+                        .modifier(TextElement(size: 25, foregroundColor: .black))
+                    Text(viewModel.userProfile.eMail)
+                        .modifier(TextElement(size: 18, foregroundColor: .gray))
+                    Text("\(viewModel.userProfile.phone)")
+                        .modifier(TextElement(size: 18, foregroundColor: .gray))
+                }
+                Spacer()
+                VStack {
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+
+                    } else {
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .foregroundColor(.white)
+                            .background(.blue)
+                    }
+                }
+                .frame(width: 100, height: 100)
+                .cornerRadius(50)
+            }
+            .padding(.top, 110)
+//            .padding(.horizontal, 200)
             Spacer()
-            Text(viewModel.email)
-                .modifier(TextElement(size: 40, foregroundColor: .black))
             ButtonView(viewModel: viewModel.buttonExitVM,
                        color: (.white, Color("MainBlueColor")),
                        width: nil,

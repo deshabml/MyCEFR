@@ -17,19 +17,15 @@ struct TabBarView: View {
                 SelectLevelView()
                     .tabItem {
                         Image(systemName: "house.fill")
+                            .frame(width: 30, height: 30)
                     }
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: contentViewModel))
                     .tabItem {
                         Image(systemName: "person.fill")
+                            .frame(width: 30, height: 30)
                     }
             }
         }
     }
 
-}
-
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView()
-    }
 }

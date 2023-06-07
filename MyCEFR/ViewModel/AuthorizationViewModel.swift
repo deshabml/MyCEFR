@@ -107,7 +107,6 @@ extension AuthorizationViewModel {
         }
     }
 
-
     func toggleShowButton(texts: [String], showButton: inout Bool) {
         let filterText = texts.filter { $0 != "" }
         if filterText.count == texts.count {
@@ -240,8 +239,10 @@ extension AuthorizationViewModel {
                         self.contentViewModel.updatingUser()
                     }
                 } catch {
-                    logInErrorText = "Неправильно указан логин или пароль"
-                    logInErrorAnimation()
+                    DispatchQueue.main.async { [unowned self] in
+                        self.logInErrorText = "Неправильно указан логин или пароль"
+                        self.logInErrorAnimation()
+                    }
                 }
             }
         } catch ErrorsAuthorization.emptyAll {
