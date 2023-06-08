@@ -48,6 +48,7 @@
 		DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF582A2F30780046F018 /* BackgroundElement.swift */; };
 		DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5A2A2F61830046F018 /* FirestoreService.swift */; };
 		DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5C2A305ACE0046F018 /* StorageService.swift */; };
+		DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		DDEABF582A2F30780046F018 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
 		DDEABF5A2A2F61830046F018 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		DDEABF5C2A305ACE0046F018 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 				DD9AA5C92A27C7D500FB18A8 /* ContentViewModel.swift */,
 				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
 				DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */,
+				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -374,6 +377,7 @@
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
+				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,

@@ -46,7 +46,6 @@ struct ProfileSettingsView: View {
                            cornerRadius: 50)
             }
             .padding(.top, 110)
-//            .padding(.horizontal, 200)
             Spacer()
             ButtonView(viewModel: viewModel.buttonExitVM,
                        color: (.white, Color("MainBlueColor")),

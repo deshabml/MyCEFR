@@ -14,7 +14,7 @@ struct TabBarView: View {
     var body: some View {
         NavigationView {
             TabView {
-                SelectLevelView()
+                SelectLevelView(viewModel: SelectLevelViewModel(contentViewModel: contentViewModel))
                     .tabItem {
                         Image(systemName: "house.fill")
                             .frame(width: 30, height: 30)

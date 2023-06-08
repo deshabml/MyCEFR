@@ -53,7 +53,7 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(viewModel: ButtonViewModel(buttonText: "Отправить"),
+        ButtonView(viewModel: ButtonViewModel(buttonText: "Send"),
                    color: (.black, Color("MainTopicColor")),
                    width: 110)
     }
