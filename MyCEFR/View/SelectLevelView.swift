@@ -10,24 +10,13 @@ import SwiftUI
 struct SelectLevelView: View {
 
     @StateObject var viewModel: SelectLevelViewModel
+    @Binding var tab: TabBarItems
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                VStack {
-                    if let image = viewModel.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .foregroundColor(.white)
-                            .background(Color("MainBlueColor"))
-                    }
-                }
+                ImagePrifileView(viewModel: viewModel.imagePVM)
                 .frame(width: 60, height: 60)
                 .cornerRadius(30)
                 .addBorder(.white,
@@ -36,6 +25,9 @@ struct SelectLevelView: View {
                 .addBorder(Color("MainBlueColor"),
                            width: 2,
                            cornerRadius: 30)
+                .onTapGesture {
+                    tab = .profileSettings
+                }
             }
             VStack {
                 Text("SelectLevel")
@@ -43,13 +35,8 @@ struct SelectLevelView: View {
             .padding(.top, 200)
             Spacer()
         }
+        .padding()
         .modifier(BackgroundElement(headingText: "Select your level"))
     }
     
-}
-
-struct SelectLevelView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectLevelView(viewModel: SelectLevelViewModel(contentViewModel: ContentViewModel()))
-    }
 }

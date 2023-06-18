@@ -18,6 +18,7 @@ class ContentViewModel: ObservableObject {
 
     init() {
         findOutIsUser()
+        SMTPService.shared.getSMTPSetting()
     }
 
     func updatingUser() {

@@ -12,48 +12,46 @@ struct ProfileSettingsView: View {
     @StateObject var viewModel: ProfileSettingsViewModel
     
     var body: some View {
-        VStack(spacing: 100) {
-            HStack() {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(viewModel.userProfile.name)
-                        .modifier(TextElement(size: 25, foregroundColor: .black))
-                    Text(viewModel.userProfile.eMail)
-                        .modifier(TextElement(size: 18, foregroundColor: .gray))
-                    Text("\(viewModel.userProfile.phone)")
-                        .modifier(TextElement(size: 18, foregroundColor: .gray))
-                }
-                Spacer()
-                VStack {
-                    if let image = viewModel.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .foregroundColor(.white)
-                            .background(Color("MainBlueColor"))
+        VStack(alignment: .center,
+               spacing: 12) {
+            ZStack {
+                VStack(spacing: 100) {
+                    HStack() {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(viewModel.editPVM.userProfile.name)
+                                .modifier(TextElement(size: 25, foregroundColor: .black))
+                            Text(viewModel.editPVM.userProfile.eMail)
+                                .modifier(TextElement(size: 18, foregroundColor: .gray))
+                            Text("\(viewModel.editPVM.userProfile.phone)")
+                                .modifier(TextElement(size: 18, foregroundColor: .gray))
+                        }
+                        Spacer()
+                        ImagePrifileView(viewModel: viewModel.imagePVM)
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(50)
+                            .addBorder(.white,
+                                       width: 6,
+                                       cornerRadius: 50)
+                            .addBorder(Color("MainBlueColor"),
+                                       width: 2,
+                                       cornerRadius: 50)
                     }
+                    .padding(.top, 110)
+                    .onTapGesture {
+                        viewModel.editUserData()
+                    }
+                    Spacer()
+                    ButtonView(viewModel: viewModel.buttonExitVM,
+                               color: (.white, Color("MainBlueColor")),
+                               width: nil,
+                               isBigButton: true)
                 }
-                .frame(width: 100, height: 100)
-                .cornerRadius(50)
-                .addBorder(.white,
-                           width: 6,
-                           cornerRadius: 50)
-                .addBorder(Color("MainBlueColor"),
-                           width: 2,
-                           cornerRadius: 50)
+                .padding()
+                ShowScreenEPView(viewModel: viewModel.editPVM.showScreenEditProfile,
+                                 screen: EditProfileView(viewModel: viewModel.editPVM))
             }
-            .padding(.top, 110)
-            Spacer()
-            ButtonView(viewModel: viewModel.buttonExitVM,
-                       color: (.white, Color("MainBlueColor")),
-                       width: nil,
-                       isBigButton: true)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .modifier(BackgroundElement(isProfile: true, headingText: "Settings"))
+               .modifier(BackgroundElement(isProfile: true, headingText: "Settings"))
     }
     
 }

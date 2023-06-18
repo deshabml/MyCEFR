@@ -14,7 +14,6 @@ struct BackgroundElement: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
                 Image("WhiteBackground")

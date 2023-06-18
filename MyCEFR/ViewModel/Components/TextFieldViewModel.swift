@@ -11,12 +11,12 @@ class TextFieldViewModel: ObservableObject {
 
     @Published var bindingProperty: String = "" {
         didSet {
-            completion()
+            completion?()
         }
     }
     @Published var showError = false
     let placeHolder: String
-    var completion: (()->())!
+    var completion: (()->())?
 
     init(placeHolder: String) {
         self.placeHolder = placeHolder
@@ -24,6 +24,10 @@ class TextFieldViewModel: ObservableObject {
 
     func setupDidSet(completion: @escaping ()->()) {
         self.completion = completion
+    }
+
+    func setupProperty(_ bindingProperty: String) {
+        self.bindingProperty = bindingProperty
     }
 
     func clear() {

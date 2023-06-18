@@ -13,6 +13,7 @@ class FirestoreService {
     static let shared = FirestoreService()
     let db = Firestore.firestore()
     var userProfilesRef: CollectionReference { db.collection("userProfiles") }
+    var SMRPSettingRef: CollectionReference { db.collection("smtpSetting") }
 
     private init() { }
 
@@ -34,6 +35,21 @@ class FirestoreService {
                 throw FirestoreErrorCode(.invalidArgument)
             }
             return profile
+        } catch {
+            throw error
+        }
+    }
+
+    func getSMTPSeting(id: String) async throws -> SMTPSetting {
+        do {
+            let snap = try await SMRPSettingRef.document(id).getDocument()
+            guard let data = snap.data() else {
+                throw FirestoreErrorCode(.dataLoss)
+            }
+            guard let smtpSetting = SMTPSetting(data: data) else {
+                throw FirestoreErrorCode(.invalidArgument)
+            }
+            return smtpSetting
         } catch {
             throw error
         }

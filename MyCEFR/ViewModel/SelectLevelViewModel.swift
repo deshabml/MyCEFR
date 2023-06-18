@@ -14,7 +14,7 @@ class SelectLevelViewModel: ObservableObject {
                                              eMail: "adress@email.ru",
                                              phone: 88888888888,
                                              imageUrl: "")
-    @Published var image: UIImage?
+    @Published var imagePVM = ImagePrifileViewModel()
 
     init(contentViewModel: ContentViewModel) {
         self.contentViewModel = contentViewModel
@@ -33,11 +33,10 @@ class SelectLevelViewModel: ObservableObject {
     }
 
     func getImage() {
-        print(userProfile.imageUrl)
         StorageService.shared.getImage(imageUrl: userProfile.imageUrl) { result in
             switch result {
                 case .success(let image):
-                    self.image = image
+                    self.imagePVM.setImage(image: image)
                 case .failure(let error):
                     print(error)
             }

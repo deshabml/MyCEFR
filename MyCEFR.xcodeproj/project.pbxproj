@@ -49,6 +49,18 @@
 		DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5A2A2F61830046F018 /* FirestoreService.swift */; };
 		DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5C2A305ACE0046F018 /* StorageService.swift */; };
 		DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */; };
+		DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF602A31BFD70046F018 /* TabBarItems.swift */; };
+		DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF622A31C4DA0046F018 /* EditProfileView.swift */; };
+		DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */; };
+		DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */; };
+		DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF682A31C80E0046F018 /* ShowScreenSettingsElement.swift */; };
+		DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */; };
+		DDEABF702A3281070046F018 /* PhotoPickerRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF6F2A3281070046F018 /* PhotoPickerRecipeView.swift */; };
+		DDEABF722A3281290046F018 /* PhotoPickerRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF712A3281290046F018 /* PhotoPickerRecipeViewModel.swift */; };
+		DDEABF742A3281940046F018 /* MediaFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF732A3281940046F018 /* MediaFile.swift */; };
+		DDEABF762A331ADF0046F018 /* ImagePrifileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF752A331ADF0046F018 /* ImagePrifileView.swift */; };
+		DDEABF782A331B030046F018 /* ImagePrifileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF772A331B030046F018 /* ImagePrifileViewModel.swift */; };
+		DDF408A72A3F4AA800FB1F35 /* SMTPSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +102,18 @@
 		DDEABF5A2A2F61830046F018 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		DDEABF5C2A305ACE0046F018 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModel.swift; sourceTree = "<group>"; };
+		DDEABF602A31BFD70046F018 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
+		DDEABF622A31C4DA0046F018 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPView.swift; sourceTree = "<group>"; };
+		DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModel.swift; sourceTree = "<group>"; };
+		DDEABF682A31C80E0046F018 /* ShowScreenSettingsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenSettingsElement.swift; sourceTree = "<group>"; };
+		DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		DDEABF6F2A3281070046F018 /* PhotoPickerRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerRecipeView.swift; sourceTree = "<group>"; };
+		DDEABF712A3281290046F018 /* PhotoPickerRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerRecipeViewModel.swift; sourceTree = "<group>"; };
+		DDEABF732A3281940046F018 /* MediaFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaFile.swift; sourceTree = "<group>"; };
+		DDEABF752A331ADF0046F018 /* ImagePrifileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePrifileView.swift; sourceTree = "<group>"; };
+		DDEABF772A331B030046F018 /* ImagePrifileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePrifileViewModel.swift; sourceTree = "<group>"; };
+		DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +136,13 @@
 		DD4AAEB12A212C94003E2860 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */,
 				DD4AAEB22A212CD9003E2860 /* ButtonView.swift */,
 				DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */,
 				DD4AAEBD2A21453A003E2860 /* SecureFieldView.swift */,
 				DD4AAEC82A21CEE9003E2860 /* TextFieldView.swift */,
+				DDEABF6F2A3281070046F018 /* PhotoPickerRecipeView.swift */,
+				DDEABF752A331ADF0046F018 /* ImagePrifileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -123,10 +150,13 @@
 		DD4AAEB42A212D13003E2860 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */,
 				DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */,
 				DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */,
 				DD4AAEBF2A214569003E2860 /* SecureFieldViewModel.swift */,
 				DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */,
+				DDEABF712A3281290046F018 /* PhotoPickerRecipeViewModel.swift */,
+				DDEABF772A331B030046F018 /* ImagePrifileViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -137,6 +167,7 @@
 				DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */,
 				DDEABF582A2F30780046F018 /* BackgroundElement.swift */,
 				DD4AAECC2A21DFD8003E2860 /* TextElement.swift */,
+				DDEABF682A31C80E0046F018 /* ShowScreenSettingsElement.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -156,6 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
+				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
+				DDEABF732A3281940046F018 /* MediaFile.swift */,
+				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +270,7 @@
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
 				DDEABF542A2F23460046F018 /* TabBarView.swift */,
 				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
+				DDEABF622A31C4DA0046F018 /* EditProfileView.swift */,
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
@@ -250,6 +285,7 @@
 				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
 				DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */,
 				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
+				DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -361,12 +397,18 @@
 			files = (
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
+				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
+				DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */,
 				DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */,
+				DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */,
+				DDEABF722A3281290046F018 /* PhotoPickerRecipeViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
+				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
 				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
 				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
+				DDF408A72A3F4AA800FB1F35 /* SMTPSetting.swift in Sources */,
 				DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DD9AA5CA2A27C7D500FB18A8 /* ContentViewModel.swift in Sources */,
@@ -378,13 +420,19 @@
 				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
+				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
 				DDB7699C2A1E1F35004008D4 /* ContentView.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
+				DDEABF762A331ADF0046F018 /* ImagePrifileView.swift in Sources */,
+				DDEABF782A331B030046F018 /* ImagePrifileViewModel.swift in Sources */,
+				DDEABF702A3281070046F018 /* PhotoPickerRecipeView.swift in Sources */,
+				DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
+				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,
 				DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
