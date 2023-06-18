@@ -186,10 +186,10 @@
 		DD4AAED92A21F600003E2860 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
 				DDEABF732A3281940046F018 /* MediaFile.swift */,
-				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

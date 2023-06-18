@@ -32,7 +32,7 @@ class SMTPService {
         }
     }
 
-    func sendMail(mail: String, verificationCode: String) async {
+    func sendMail(mail: String, verificationCode: String, forgotPassword: Bool) async {
         let myCEFR = Mail.User(name: "MyCEFR", email: "drlight@gmail.com")
         let user = Mail.User(email: mail)
         let mail = Mail(
@@ -40,7 +40,7 @@ class SMTPService {
             to: [user],
             subject: "Код для подтверждения адреса электронной почты",
             text: """
-            Ваш код для регистрации а приложении MyCEFR:
+            Ваш код \(forgotPassword ?  "для изменения пароля" : "для регистрации") в приложении MyCEFR:
             \(verificationCode)
             Если вы не отправляли запрос на регистрацию в нашем приложении,
             просто проигнорируйте это письмо.

@@ -25,9 +25,9 @@ struct AuthorizationView: View {
                                                   foregroundColor: .red))
                     }
                     if viewModel.showButtonCompleteRegistration {
-                        ButtonView(viewModel: viewModel.buttonRegComplitedViewModel,
-                                   color: (.black, Color("MainTopicColor")),
-                                   width: nil)
+                            ButtonView(viewModel: viewModel.buttonRegComplitedViewModel,
+                                       color: (.black, Color("MainTopicColor")),
+                                       width: nil)
                     }
                 } else {
                     if viewModel.showCodeTextFild {
@@ -94,10 +94,27 @@ struct AuthorizationView: View {
                         }
                     }
                 }
+                if viewModel.showlogInErrorText {
+                    HStack {
+                        Spacer()
+                        Button {
+                            viewModel.actionButtonAuthOrReg()
+                            viewModel.forgotPassword.toggle()
+                        } label: {
+                            Text("forgot password ?")
+                                .modifier(TextElement(size: 18,
+                                                      foregroundColor: .white))
+                                .padding(10)
+                                .background(
+                                    Color("BlackColor").blur(radius: 50)
+                                )
+                        }
+                    }
+                }
                 Button {
                     viewModel.actionButtonAuthOrReg()
                 } label: {
-                    Text(viewModel.isAuthorization ? "Not with us yet?" : "Already have an account")
+                    Text(viewModel.buttonSwicthScreenText)
                         .modifier(TextElement(size: 18,
                                               foregroundColor: .white))
                         .padding(10)
@@ -110,7 +127,7 @@ struct AuthorizationView: View {
             Spacer()
         }
         .modifier(AuthBackgroundElement(isShowView: $viewModel.isAuthorization,
-                                        headingText: viewModel.isAuthorization ? "Authorize" : "Register",
+                                        headingText: viewModel.backgraundText,
                                     ImageName: "AuthorizationBackground"))
         .onTapGesture {
             hideKeyboard()
@@ -118,6 +135,7 @@ struct AuthorizationView: View {
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }
+        .animation(.easeInOut(duration: 0.2), value: viewModel.forgotPassword)
         .animation(.easeInOut(duration: 0.2), value: viewModel.showPasswordErrorText)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonLogIn)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonSendCode)

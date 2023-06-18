@@ -25,11 +25,34 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showPasswordErrorText = false
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
+    @Published var forgotPassword = false
     @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Send")
-    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Send code")
+    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Send mail")
     @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "log in")
     @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Complete regisrtation")
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
+    var backgraundText: String {
+        if isAuthorization {
+            return "Authorize"
+        } else {
+            if forgotPassword {
+                return "Password recovery"
+            } else {
+                return "Register"
+            }
+        }
+    }
+    var buttonSwicthScreenText: String {
+        if isAuthorization {
+            return "Not with us yet?"
+        } else {
+            if forgotPassword {
+                return "Back to authorisation"
+            } else {
+                return "Already have an account"
+            }
+        }
+    }
     var allertTextError = ""
     var passwordErrorText = ""
     var logInErrorText = ""
@@ -44,7 +67,9 @@ class AuthorizationViewModel: ObservableObject {
         let code = generateVerificationCode()
         verificationCode = code
         Task {
-            await SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty, verificationCode: code)
+            await SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty,
+                                              verificationCode: code,
+                                              forgotPassword: forgotPassword)
         }
     }
 
@@ -164,12 +189,30 @@ extension AuthorizationViewModel {
 
     func freeLogin(_ isFreeLogin: Bool) {
         if isFreeLogin {
-            showButtonSendCode.toggle()
-            showCodeTextFild.toggle()
-            sendVerificationCode()
+            if forgotPassword {
+                allertTextError = "An account with this email does not exist!"
+                showAllertError.toggle()
+            } else {
+                showButtonSendCode.toggle()
+                showCodeTextFild.toggle()
+                sendVerificationCode()
+            }
         } else {
-            allertTextError = "E-mail already exist, try loggin in!"
-            showAllertError.toggle()
+            if forgotPassword {
+                showButtonSendCode.toggle()
+                showCodeTextFild.toggle()
+                Task {
+                    do {
+                        try await AuthService.shared.sendPasswordReset(login: loginTFVM.bindingProperty)
+                    } catch {
+                        print(error)
+                    }
+                }
+                actionButtonAuthOrReg()
+            } else {
+                allertTextError = "E-mail already exist, try loggin in!"
+                showAllertError.toggle()
+            }
         }
     }
 
@@ -180,6 +223,7 @@ extension AuthorizationViewModel {
             showCreatePassword = false
         }
         showlogInErrorText = false
+        forgotPassword = false
     }
 
     func actionButtonRegComplited() {

@@ -57,4 +57,10 @@ class AuthService {
         } catch { throw error }
     }
 
+    func sendPasswordReset(login: String) async throws {
+        do {
+            try await auth.sendPasswordReset(withEmail: login)
+        } catch { throw error }
+    }
+
 }
