@@ -18,7 +18,7 @@ class SecureFieldViewModel: ObservableObject {
     @Published var showPassword = false
     @Published var showError = false
     var isThereButton = false
-    var placeHolder = "Password"
+    var placeHolder = "password".localized
     var completion: (()->())!
 
     func setupDidSet(completion: @escaping ()->()) {

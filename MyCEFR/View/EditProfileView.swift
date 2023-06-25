@@ -24,10 +24,10 @@ struct EditProfileView: View {
             HStack {
                 ButtonView(viewModel: viewModel.saveButtonVM,
                            color: (.white, Color("MainBlueColor")),
-                           width: 100)
+                           width: 120)
                 ButtonView(viewModel: viewModel.cancelButtonVM,
                            color: (.white, Color("MainBlueColor")),
-                           width: 100)
+                           width: 120)
             }
         }
         .padding()

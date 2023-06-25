@@ -101,7 +101,7 @@ struct AuthorizationView: View {
                             viewModel.actionButtonAuthOrReg()
                             viewModel.forgotPassword.toggle()
                         } label: {
-                            Text("forgot password ?")
+                            Text("forgotPassword".localized)
                                 .modifier(TextElement(size: 18,
                                                       foregroundColor: .white))
                                 .padding(10)

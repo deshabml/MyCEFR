@@ -10,7 +10,7 @@ import SwiftUI
 class ProfileSettingsViewModel: ObservableObject {
 
     let contentViewModel: ContentViewModel
-    @Published var buttonExitVM = ButtonViewModel(buttonText: "log out")
+    @Published var buttonExitVM = ButtonViewModel(buttonText: "logOut".localized)
     @Published var imagePVM = ImagePrifileViewModel()
     @Published var editPVM = EditProfileViewModel()
 

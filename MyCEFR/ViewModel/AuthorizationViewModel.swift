@@ -12,7 +12,7 @@ class AuthorizationViewModel: ObservableObject {
     let contentViewModel: ContentViewModel
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
-    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Code")
+    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "code".localized)
     @Published var createPasswordSFVMOne = SecureFieldViewModel()
     @Published var createPasswordSFVMSecond = SecureFieldViewModel()
     @Published var isAuthorization = true
@@ -26,30 +26,30 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
     @Published var forgotPassword = false
-    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Send")
-    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Send mail")
-    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "log in")
-    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Complete regisrtation")
+    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "send".localized)
+    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "sendMail".localized)
+    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "logIn".localized)
+    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "completeReg".localized)
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
     var backgraundText: String {
         if isAuthorization {
-            return "Authorize"
+            return "authorize".localized
         } else {
             if forgotPassword {
-                return "Password recovery"
+                return "passwordRecovery".localized
             } else {
-                return "Register"
+                return "register".localized
             }
         }
     }
     var buttonSwicthScreenText: String {
         if isAuthorization {
-            return "Not with us yet?"
+            return "notWithUsYet".localized
         } else {
             if forgotPassword {
-                return "Back to authorisation"
+                return "backToAuthorisation".localized
             } else {
-                return "Already have an account"
+                return "alreadyHaveAnAccount".localized
             }
         }
     }
@@ -75,7 +75,7 @@ class AuthorizationViewModel: ObservableObject {
 
     func checkVerificationCode() -> Bool {
         guard verificationCodeTFVM.bindingProperty == verificationCode else {
-            allertTextError = "Wrong code!"
+            allertTextError = "wrongCode".localized
             showAllertError.toggle()
             return false
         }
@@ -180,7 +180,7 @@ extension AuthorizationViewModel {
                 }
             }
         } catch ErrorsAuthorization.notMail {
-            allertTextError = "Incorrect e-mail"
+            allertTextError = "incorrectEMail".localized
             showAllertError.toggle()
         } catch {
             print(error)
@@ -190,7 +190,7 @@ extension AuthorizationViewModel {
     func freeLogin(_ isFreeLogin: Bool) {
         if isFreeLogin {
             if forgotPassword {
-                allertTextError = "An account with this email does not exist!"
+                allertTextError = "anAccountWithThisEmailDoesNotExist".localized
                 showAllertError.toggle()
             } else {
                 showButtonSendCode.toggle()
@@ -210,7 +210,7 @@ extension AuthorizationViewModel {
                 }
                 actionButtonAuthOrReg()
             } else {
-                allertTextError = "E-mail already exist, try loggin in!"
+                allertTextError = "eMailAlreadyExistTryLogginIn".localized
                 showAllertError.toggle()
             }
         }
@@ -228,7 +228,7 @@ extension AuthorizationViewModel {
 
     func actionButtonRegComplited() {
         guard createPasswordSFVMOne.bindingProperty == createPasswordSFVMSecond.bindingProperty else {
-            passwordErrorText = "passwords don't match!"
+            passwordErrorText = "passwordsDontMatch".localized
             passwordErrorAnimation()
             return
         }
@@ -246,7 +246,7 @@ extension AuthorizationViewModel {
                 }
             }
         } catch ErrorsAuthorization.shortPassword {
-            passwordErrorText = "Not a secure password! Must be at least 8 characters (latin aiphabet, mixed case and numbers)"
+            passwordErrorText = "notSecurePassword".localized
             passwordErrorAnimation()
         } catch {
             print(error)
@@ -284,19 +284,19 @@ extension AuthorizationViewModel {
                     }
                 } catch {
                     DispatchQueue.main.async { [unowned self] in
-                        self.logInErrorText = "Incorrect login or password"
+                        self.logInErrorText = "incorrectLoginOrPassword".localized
                         self.logInErrorAnimation()
                     }
                 }
             }
         } catch ErrorsAuthorization.emptyAll {
-            logInErrorText = "E-mail can not be empty!"
+            logInErrorText = "eMailCanNotBeEmpty".localized
             logInErrorAnimation()
         } catch ErrorsAuthorization.notMail {
-            logInErrorText = "Incorrect e-mail"
+            logInErrorText = "incorrectEMail".localized
             logInErrorAnimation()
         } catch ErrorsAuthorization.shortPassword {
-            logInErrorText = "Not a secure password! Must be at least 8 characters (latin aiphabet, mixed case and numbers)"
+            logInErrorText = "notSecurePassword".localized
             logInErrorAnimation()
         } catch {
             print(error)

@@ -36,7 +36,7 @@ struct BackgroundElement: ViewModifier {
                     .overlay(alignment: .top, content: {
                         Text(headingText)
                             .modifier(TextElement(size: isProfile ? 38 : 28,
-                                                  verticalPadding: isProfile ? 50 : 100,
+                                                  verticalPadding: isProfile ? 50 : 80,
                                                   foregroundColor: .white))
                     })
             )

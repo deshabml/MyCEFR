@@ -14,8 +14,8 @@ class EditProfileViewModel: ObservableObject {
                                              eMail: "adress@email.ru",
                                              phone: 88888888888,
                                              imageUrl: "")
-    @Published var cancelButtonVM = ButtonViewModel(buttonText: "Cancel")
-    @Published var saveButtonVM = ButtonViewModel(buttonText: "Save")
+    @Published var cancelButtonVM = ButtonViewModel(buttonText: "сancel".localized)
+    @Published var saveButtonVM = ButtonViewModel(buttonText: "save".localized)
 
     @Published var nameTFVM = TextFieldViewModel(placeHolder: "")
     @Published var number = ""

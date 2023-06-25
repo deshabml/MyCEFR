@@ -51,7 +51,7 @@ struct ProfileSettingsView: View {
                                  screen: EditProfileView(viewModel: viewModel.editPVM))
             }
         }
-               .modifier(BackgroundElement(isProfile: true, headingText: "Settings"))
+               .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
     }
     
 }

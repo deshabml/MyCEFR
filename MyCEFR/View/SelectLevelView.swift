@@ -36,7 +36,7 @@ struct SelectLevelView: View {
             Spacer()
         }
         .padding()
-        .modifier(BackgroundElement(headingText: "Select your level"))
+        .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
     }
     
 }

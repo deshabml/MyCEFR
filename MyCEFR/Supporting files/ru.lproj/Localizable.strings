@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  MyCEFR
+
+  Created by Лаборатория on 25.06.2023.
+  
+*/
+
+"code" = "Код";
+"send" = "Отправить";
+"sendMail" = "Отправить Код";
+"logIn" = "Войти";
+"completeReg" = "Завершить регистрацию";
+"authorize" = "Авторизация";
+"register" = "Регистрация";
+"passwordRecovery" = "Восстановление пароля";
+"notWithUsYet" = "Еще не с нами?";
+"alreadyHaveAnAccount" = "Уже есть аккаунт";
+"backToAuthorisation" = "Вернуться к авторизации";
+"wrongCode" = "Вы ввели неверный код!";
+"incorrectEMail" = "Введен не корректный E-mail";
+"anAccountWithThisEmailDoesNotExist" = "Учетной записи с таким E-mail не существует!";
+"eMailAlreadyExistTryLogginIn" = "Профиль с таким e-mail уже существует, попробуйте авторизоваться!";
+"passwordsDontMatch" = "Введенные пароли не совпадают!";
+"notSecurePassword" = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)";
+"incorrectLoginOrPassword" = "Неправильно указан логин или пароль";
+"eMailCanNotBeEmpty" = "E-mail не может буть пустым!";
+"forgotPassword" = "Забыли пароль?";
+"password" = "Пароль";
+"logOut" = "Выход";
+"save" = "Cохранить";
+"сancel" = "Отмена";
+"settings" = "Настройки";
+"selectYourLevel" = "Выберите свой уровень";
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD2989852A48CDA00026FF2F /* Localizable.strings */; };
+		DD2989882A48D0150026FF2F /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2989872A48D0150026FF2F /* Localized.swift */; };
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
 		DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */; };
 		DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */; };
@@ -64,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD2989842A48CDA00026FF2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD2989862A48CDA20026FF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD2989872A48D0150026FF2F /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		DD4AAEB22A212CD9003E2860 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
 		DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackgroundElement.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 			children = (
 				DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */,
 				DDEABF522A2F20A10046F018 /* HideKeyboard.swift */,
+				DD2989872A48D0150026FF2F /* Localized.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 				DDB7699E2A1E1FD6004008D4 /* Font */,
 				DDB6E55929F2FE08005A4A72 /* Assets.xcassets */,
 				DDB769A32A1E2057004008D4 /* Info.plist */,
+				DD2989852A48CDA00026FF2F /* Localizable.strings */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -359,6 +366,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DDB6E54929F2FE05005A4A72;
 			packageReferences = (
@@ -381,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
+				DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */,
 				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
 				DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,
@@ -432,6 +441,7 @@
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
+				DD2989882A48D0150026FF2F /* Localized.swift in Sources */,
 				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,
 				DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
@@ -442,6 +452,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD2989852A48CDA00026FF2F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD2989842A48CDA00026FF2F /* en */,
+				DD2989862A48CDA20026FF2F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DDB6E55E29F2FE08005A4A72 /* Debug */ = {
