@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB52A9D1D7F000AAE33 /* Word.swift */; };
+		DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */; };
 		DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD2989852A48CDA00026FF2F /* Localizable.strings */; };
 		DD2989882A48D0150026FF2F /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2989872A48D0150026FF2F /* Localized.swift */; };
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1DFEB52A9D1D7F000AAE33 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeech.swift; sourceTree = "<group>"; };
 		DD2989842A48CDA00026FF2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989862A48CDA20026FF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989872A48D0150026FF2F /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 			children = (
 				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
+				DD1DFEB52A9D1D7F000AAE33 /* Word.swift */,
+				DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
 				DDEABF732A3281940046F018 /* MediaFile.swift */,
 			);
@@ -406,6 +412,7 @@
 			files = (
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
+				DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */,
 				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
 				DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */,
 				DDEABF552A2F23460046F018 /* TabBarView.swift in Sources */,
@@ -440,6 +447,7 @@
 				DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
+				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
 				DD2989882A48D0150026FF2F /* Localized.swift in Sources */,
 				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,

@@ -26,15 +26,8 @@ struct ProfileSettingsView: View {
                                 .modifier(TextElement(size: 18, foregroundColor: .gray))
                         }
                         Spacer()
-                        ImagePrifileView(viewModel: viewModel.imagePVM)
-                            .frame(width: 100, height: 100)
-                            .cornerRadius(50)
-                            .addBorder(.white,
-                                       width: 6,
-                                       cornerRadius: 50)
-                            .addBorder(Color("MainBlueColor"),
-                                       width: 2,
-                                       cornerRadius: 50)
+                        ImagePrifileView(viewModel: viewModel.imagePVM,
+                                         size: 100)
                     }
                     .padding(.top, 110)
                     .onTapGesture {

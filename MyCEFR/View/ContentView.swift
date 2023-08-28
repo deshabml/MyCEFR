@@ -12,16 +12,7 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
 
     var body: some View {
-        VStack{
-            if viewModel.isUser {
-                TabBarView()
-                    .environmentObject(viewModel)
-                    .preferredColorScheme(.light)
-            } else {
-                AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
-                    .preferredColorScheme(.light)
-            }
-        }
+        mainView
         .animation(.easeInOut(duration: 0.4), value: viewModel.isUser)
     }
     
@@ -31,4 +22,21 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+extension ContentView {
+
+    private var mainView: some View {
+        VStack {
+            if viewModel.isUser {
+                TabBarView()
+                    .environmentObject(viewModel)
+            } else {
+                AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: viewModel))
+            }
+        }
+        .preferredColorScheme(.light)
+
+    }
+
 }

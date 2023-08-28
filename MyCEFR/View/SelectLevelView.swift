@@ -16,15 +16,8 @@ struct SelectLevelView: View {
         VStack {
             HStack {
                 Spacer()
-                ImagePrifileView(viewModel: viewModel.imagePVM)
-                .frame(width: 60, height: 60)
-                .cornerRadius(30)
-                .addBorder(.white,
-                           width: 6,
-                           cornerRadius: 30)
-                .addBorder(Color("MainBlueColor"),
-                           width: 2,
-                           cornerRadius: 30)
+                ImagePrifileView(viewModel: viewModel.imagePVM,
+                                 size: 60)
                 .onTapGesture {
                     tab = .profileSettings
                 }

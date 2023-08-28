@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AuthorizationView: View {
 
+    @EnvironmentObject var contentViewModel: ContentViewModel
     @StateObject var viewModel: AuthorizationViewModel
 
     var body: some View {

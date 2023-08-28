@@ -10,6 +10,7 @@ import SwiftUI
 struct ImagePrifileView: View {
 
     @StateObject var viewModel: ImagePrifileViewModel
+    let size: CGFloat
 
     var body: some View {
         VStack {
@@ -25,6 +26,14 @@ struct ImagePrifileView: View {
                     .background(Color("MainBlueColor"))
             }
         }
+        .frame(width: size, height: size)
+        .cornerRadius(size / 2)
+        .addBorder(.white,
+                   width: 6,
+                   cornerRadius: size / 2)
+        .addBorder(Color("MainBlueColor"),
+                   width: 2,
+                   cornerRadius: size / 2)
     }
 
 }
