@@ -1,5 +1,5 @@
 //
-//  PartOfSpeech.swift
+//  Group.swift
 //  MyCEFR
 //
 //  Created by Лаборатория on 28.08.2023.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct PartOfSpeech: Identifiable {
+struct Group: Identifiable {
 
     var id: String = UUID().uuidString
     var name: String
 
 }
 
-extension PartOfSpeech {
+extension Group {
 
     var representation: [String: Any] {
         var dict: [String: Any] = [:]
