@@ -40,4 +40,8 @@ class StorageService {
         }
     }
 
+    func uploadPhotos(image: UIImage, completion: @escaping (Result<URL, Error>) -> ()) {
+        let data = Data()
+    }
+
 }

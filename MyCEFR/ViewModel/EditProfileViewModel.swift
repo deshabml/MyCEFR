@@ -10,7 +10,7 @@ import Foundation
 class EditProfileViewModel: ObservableObject {
 
     @Published var showScreenEditProfile = ShowScreenEPViewModel(imageName: "WhiteBackground")
-    @Published var userProfile = UserProfile(name: "First and last name",
+    @Published var userProfile = UserProfile(name: "firstAndlastName".localized,
                                              eMail: "adress@email.ru",
                                              phone: 88888888888,
                                              imageUrl: "")
@@ -23,10 +23,14 @@ class EditProfileViewModel: ObservableObject {
 
     init() {
         cancelButtonVM.setupAction { [unowned self] in
+            self.nameTFVM.setupProperty(userProfile.name)
+            self.image.resetSettings()
             self.dismissScreen()
         }
         saveButtonVM.setupAction { [unowned self] in
-            print("Save")
+            if let dataImage = image.loadedImage?.data {
+                print(dataImage)
+            }
         }
         nameTFVM.setupProperty(userProfile.name)
         number = "\(userProfile.phone)"

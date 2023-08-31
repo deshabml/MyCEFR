@@ -60,4 +60,8 @@ class PhotoPickerRecipeViewModel: ObservableObject {
         }
     }
 
+    func resetSettings() {
+        loadedImage = nil
+    }
+
 }
