@@ -20,11 +20,10 @@ class StorageService {
     var storeRef: StorageReference { store.reference() }
 
     private init() { }
-
+    
     func getImage(imageUrl: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
         let imageRef = storeRef.child(imageUrl)
         imageRef.getData(maxSize: 2000000) { data, error in
-//            imageRef.getData(maxSize: 1024 * 1024) { data, error in
             if let error {
                 completion(.failure(error))
             } else {

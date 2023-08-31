@@ -29,12 +29,12 @@ class AuthService {
                                                    password: password)
             let user = result.user
             let userProfile = UserProfile(id: user.uid,
-                                          name: "First and last name",
+                                          name: "firstAndlastName".localized,
                                           eMail: user.email ?? "",
                                           phone: 0,
                                           imageUrl: "UserImage/\(user.uid)Image.jpg")
             do {
-                try await FirestoreService.shared.createProfile(userProfile: userProfile)
+                try await FirestoreService.shared.editProfile(userProfile: userProfile)
                 return userProfile
             } catch { throw error }
         } catch { throw error }

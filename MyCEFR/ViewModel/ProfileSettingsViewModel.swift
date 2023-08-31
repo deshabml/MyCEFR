@@ -17,7 +17,7 @@ class ProfileSettingsViewModel: ObservableObject {
     init(contentViewModel: ContentViewModel) {
         self.contentViewModel = contentViewModel
         editPVM.sutupCompition { [unowned self] in
-            self.getImage()
+            self.downloadProfile()
         }
         self.buttonExitVM.setupAction {
             do {

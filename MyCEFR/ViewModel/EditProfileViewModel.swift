@@ -25,12 +25,14 @@ class EditProfileViewModel: ObservableObject {
     var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
 
     init() {
+        self.nameTFVM.setupProperty(userProfile.name)
         cancelButtonVM.setupAction { [unowned self] in
             self.nameTFVM.setupProperty(userProfile.name)
             self.image.resetSettings()
             self.dismissScreen()
         }
         saveButtonVM.setupAction { [unowned self] in
+            self.editProfile()
             self.uploadPhotos()
         }
         nameTFVM.setupProperty(userProfile.name)
@@ -50,22 +52,27 @@ class EditProfileViewModel: ObservableObject {
         self.completion = completion
     }
 
+    func editProfile() {
+        userProfile.name = nameTFVM.bindingProperty
+        Task {
+            do {
+                let _ = try await FirestoreService.shared.editProfile(userProfile: userProfile)
+            } catch {
+                print(error)
+            }
+        }
+    }
     func uploadPhotos() {
         if let dataImage = image.loadedImage?.data {
             guard dataImage.count <= 2000000 else {
                 showAllertError.toggle()
                 return
             }
-
-
-            let queue = DispatchQueue(label: "MySerialQueueConcurrency", attributes: .concurrent)
-            let group = DispatchGroup()
-
             DispatchQueue.main.async { [unowned self] in
                 StorageService.shared.uploadPhotos(image: dataImage,
                                                    imageUrl: self.userProfile.imageUrl)
-                self.completion()
             }
+            self.completion()
             self.dismissScreen()
         }
     }

@@ -17,7 +17,7 @@ class FirestoreService {
 
     private init() { }
 
-    func createProfile(userProfile: UserProfile) async throws {
+    func editProfile(userProfile: UserProfile) async throws {
         do {
             try await userProfilesRef.document(userProfile.id).setData(userProfile.representation)
         } catch {
