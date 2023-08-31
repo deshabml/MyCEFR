@@ -32,7 +32,7 @@ class AuthService {
                                           name: "First and last name",
                                           eMail: user.email ?? "",
                                           phone: 0,
-                                          imageUrl: "UserImage/deshabImage.jpg")
+                                          imageUrl: "UserImage/\(user.uid)Image.jpg")
             do {
                 try await FirestoreService.shared.createProfile(userProfile: userProfile)
                 return userProfile

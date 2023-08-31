@@ -33,6 +33,8 @@
 "settings" = "Настройки";
 "selectYourLevel" = "Выберите свой уровень";
 "firstAndlastName" = "Имя и Фамилия";
+"theSizeOfThePhotoShouldNotExceedTwoMB" = "Размер фотографии не должен превышать 2 Mb";
+
 
 
 

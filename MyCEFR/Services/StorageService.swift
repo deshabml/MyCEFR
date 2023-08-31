@@ -23,7 +23,8 @@ class StorageService {
 
     func getImage(imageUrl: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
         let imageRef = storeRef.child(imageUrl)
-        imageRef.getData(maxSize: 1024 * 1024) { data, error in
+        imageRef.getData(maxSize: 2000000) { data, error in
+//            imageRef.getData(maxSize: 1024 * 1024) { data, error in
             if let error {
                 completion(.failure(error))
             } else {
@@ -40,8 +41,12 @@ class StorageService {
         }
     }
 
-    func uploadPhotos(image: UIImage, completion: @escaping (Result<URL, Error>) -> ()) {
-        let data = Data()
+    func uploadPhotos(image: Data, imageUrl: String) {
+        let data = image
+        let riversRef = storeRef.child(imageUrl)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        riversRef.putData(data, metadata: metadata)
     }
 
 }

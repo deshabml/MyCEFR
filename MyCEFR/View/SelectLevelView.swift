@@ -30,6 +30,9 @@ struct SelectLevelView: View {
         }
         .padding()
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
+        .onAppear {
+            viewModel.downloadProfile()
+        }
     }
     
 }

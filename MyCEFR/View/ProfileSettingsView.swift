@@ -45,6 +45,9 @@ struct ProfileSettingsView: View {
             }
         }
                .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
+               .onAppear {
+                   viewModel.downloadProfile()
+               }
     }
     
 }

@@ -31,6 +31,9 @@ struct EditProfileView: View {
             }
         }
         .padding()
+        .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
+            Button("ОК") { }
+        }
     }
 
 }

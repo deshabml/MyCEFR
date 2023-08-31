@@ -16,25 +16,15 @@ class ProfileSettingsViewModel: ObservableObject {
 
     init(contentViewModel: ContentViewModel) {
         self.contentViewModel = contentViewModel
+        editPVM.sutupCompition { [unowned self] in
+            self.getImage()
+        }
         self.buttonExitVM.setupAction {
             do {
                 try AuthService.shared.signOut()
                 self.contentViewModel.updatingUser()
             } catch {
-                print(error)
-            }
-        }
-        guard let user = contentViewModel.currentUser else { return }
-        Task {
-            do {
-                let userProfile = try await  FirestoreService.shared.getProfile(userId: user.uid)
-                DispatchQueue.main.async { [unowned self] in
-                    self.editPVM.setUserProfile(userProfile: userProfile)
-                    self.updateEditPVM()
-                    self.getImage()
-                }
-            } catch {
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
@@ -46,7 +36,7 @@ class ProfileSettingsViewModel: ObservableObject {
                     self.imagePVM.setImage(image: image)
                     self.editPVM.image.setupImageStandard(Image(uiImage: image))
                 case .failure(let error):
-                    print(error)
+                    print(error.localizedDescription)
             }
         }
     }
@@ -59,6 +49,22 @@ class ProfileSettingsViewModel: ObservableObject {
 
     func updateEditPVM() {
         editPVM = editPVM
+    }
+
+    func downloadProfile() {
+        guard let user = contentViewModel.currentUser else { return }
+        Task {
+            do {
+                let userProfile = try await  FirestoreService.shared.getProfile(userId: user.uid)
+                DispatchQueue.main.async { [unowned self] in
+                    self.editPVM.setUserProfile(userProfile: userProfile)
+                    self.updateEditPVM()
+                    self.getImage()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }

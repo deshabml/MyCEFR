@@ -18,6 +18,9 @@ class SelectLevelViewModel: ObservableObject {
 
     init(contentViewModel: ContentViewModel) {
         self.contentViewModel = contentViewModel
+    }
+
+    func downloadProfile() {
         guard let user = contentViewModel.currentUser else { return }
         Task {
             do {
@@ -27,7 +30,7 @@ class SelectLevelViewModel: ObservableObject {
                     self.getImage()
                 }
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

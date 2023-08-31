@@ -20,6 +20,9 @@ class EditProfileViewModel: ObservableObject {
     @Published var nameTFVM = TextFieldViewModel(placeHolder: "")
     @Published var number = ""
     @Published var image = PhotoPickerRecipeViewModel()
+    @Published var showAllertError = false
+    var completion: (()->())!
+    var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
 
     init() {
         cancelButtonVM.setupAction { [unowned self] in
@@ -28,9 +31,7 @@ class EditProfileViewModel: ObservableObject {
             self.dismissScreen()
         }
         saveButtonVM.setupAction { [unowned self] in
-            if let dataImage = image.loadedImage?.data {
-                print(dataImage)
-            }
+            self.uploadPhotos()
         }
         nameTFVM.setupProperty(userProfile.name)
         number = "\(userProfile.phone)"
@@ -43,6 +44,30 @@ class EditProfileViewModel: ObservableObject {
 
     func setUserProfile(userProfile: UserProfile) {
         self.userProfile = userProfile
+    }
+
+    func sutupCompition(completion: @escaping ()->()) {
+        self.completion = completion
+    }
+
+    func uploadPhotos() {
+        if let dataImage = image.loadedImage?.data {
+            guard dataImage.count <= 2000000 else {
+                showAllertError.toggle()
+                return
+            }
+
+
+            let queue = DispatchQueue(label: "MySerialQueueConcurrency", attributes: .concurrent)
+            let group = DispatchGroup()
+
+            DispatchQueue.main.async { [unowned self] in
+                StorageService.shared.uploadPhotos(image: dataImage,
+                                                   imageUrl: self.userProfile.imageUrl)
+                self.completion()
+            }
+            self.dismissScreen()
+        }
     }
 
 }
