@@ -34,6 +34,7 @@ class EditProfileViewModel: ObservableObject {
         saveButtonVM.setupAction { [unowned self] in
             self.editProfile()
             self.uploadPhotos()
+            self.dismissScreen()
         }
         bindingPropertySetup()
     }
@@ -60,6 +61,7 @@ class EditProfileViewModel: ObservableObject {
                 print(error)
             }
         }
+        self.completion()
     }
     
     func uploadPhotos() {
@@ -73,7 +75,6 @@ class EditProfileViewModel: ObservableObject {
                                                    imageUrl: self.userProfile.imageUrl)
             }
             self.completion()
-            self.dismissScreen()
         }
     }
 
