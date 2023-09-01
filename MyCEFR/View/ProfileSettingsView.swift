@@ -22,8 +22,8 @@ struct ProfileSettingsView: View {
                                 .modifier(TextElement(size: 25, foregroundColor: .black))
                             Text(viewModel.editPVM.userProfile.eMail)
                                 .modifier(TextElement(size: 18, foregroundColor: .gray))
-                            Text("\(viewModel.editPVM.userProfile.phone)")
-                                .modifier(TextElement(size: 18, foregroundColor: .gray))
+//                            Text("\(viewModel.editPVM.userProfile.phone)")
+//                                .modifier(TextElement(size: 18, foregroundColor: .gray))
                         }
                         Spacer()
                         ImagePrifileView(viewModel: viewModel.imagePVM,

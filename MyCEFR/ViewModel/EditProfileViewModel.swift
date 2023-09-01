@@ -25,9 +25,9 @@ class EditProfileViewModel: ObservableObject {
     var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
 
     init() {
-        self.nameTFVM.setupProperty(userProfile.name)
+//        self.nameTFVM.setupProperty(userProfile.name)
         cancelButtonVM.setupAction { [unowned self] in
-            self.nameTFVM.setupProperty(userProfile.name)
+            self.bindingPropertySetup()
             self.image.resetSettings()
             self.dismissScreen()
         }
@@ -35,9 +35,7 @@ class EditProfileViewModel: ObservableObject {
             self.editProfile()
             self.uploadPhotos()
         }
-        nameTFVM.setupProperty(userProfile.name)
-        number = "\(userProfile.phone)"
-
+        bindingPropertySetup()
     }
 
     func dismissScreen() {
@@ -53,6 +51,7 @@ class EditProfileViewModel: ObservableObject {
     }
 
     func editProfile() {
+        guard nameTFVM.bindingProperty != "" else { return }
         userProfile.name = nameTFVM.bindingProperty
         Task {
             do {
@@ -62,6 +61,7 @@ class EditProfileViewModel: ObservableObject {
             }
         }
     }
+    
     func uploadPhotos() {
         if let dataImage = image.loadedImage?.data {
             guard dataImage.count <= 2000000 else {
@@ -74,6 +74,13 @@ class EditProfileViewModel: ObservableObject {
             }
             self.completion()
             self.dismissScreen()
+        }
+    }
+
+    func bindingPropertySetup() {
+        if userProfile.name != "Имя и Фамилия", userProfile.name != "First and last name" {
+            nameTFVM.setupProperty(userProfile.name)
+            number = "\(userProfile.phone)"
         }
     }
 
