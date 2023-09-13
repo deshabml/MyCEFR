@@ -25,7 +25,6 @@ class EditProfileViewModel: ObservableObject {
     var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
 
     init() {
-//        self.nameTFVM.setupProperty(userProfile.name)
         cancelButtonVM.setupAction { [unowned self] in
             self.bindingPropertySetup()
             self.image.resetSettings()

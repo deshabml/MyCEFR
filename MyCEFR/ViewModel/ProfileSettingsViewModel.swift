@@ -9,20 +9,20 @@ import SwiftUI
 
 class ProfileSettingsViewModel: ObservableObject {
 
-    let contentViewModel: ContentViewModel
     @Published var buttonExitVM = ButtonViewModel(buttonText: "logOut".localized)
     @Published var imagePVM = ImagePrifileViewModel()
     @Published var editPVM = EditProfileViewModel()
+    var completeonUpdatingUser: (()->())!
 
-    init(contentViewModel: ContentViewModel) {
-        self.contentViewModel = contentViewModel
+    func setup(completeonUpdatingUser: @escaping ()->()) {
+        self.completeonUpdatingUser = completeonUpdatingUser
         editPVM.sutupCompition { [unowned self] in
             self.downloadProfile()
         }
         self.buttonExitVM.setupAction {
             do {
                 try AuthService.shared.signOut()
-                self.contentViewModel.updatingUser()
+                self.completeonUpdatingUser()
             } catch {
                 print(error.localizedDescription)
             }
@@ -52,7 +52,7 @@ class ProfileSettingsViewModel: ObservableObject {
     }
 
     func downloadProfile() {
-        guard let user = contentViewModel.currentUser else { return }
+        guard let user = AuthService.shared.currentUser else { return }
         Task {
             do {
                 let userProfile = try await  FirestoreService.shared.getProfile(userId: user.uid)

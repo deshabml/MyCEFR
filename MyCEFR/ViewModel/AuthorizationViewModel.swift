@@ -9,7 +9,6 @@ import Foundation
 
 class AuthorizationViewModel: ObservableObject {
 
-    let contentViewModel: ContentViewModel
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
     @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "code".localized)
@@ -57,10 +56,14 @@ class AuthorizationViewModel: ObservableObject {
     var passwordErrorText = ""
     var logInErrorText = ""
     private var verificationCode = ""
+    var completeonUpdatingUser: (()->())!
 
-    init(contentViewModel: ContentViewModel) {
-        self.contentViewModel = contentViewModel
+    init() {
         setupComlpitionElements()
+    }
+
+    func setupCompleteonUpdatingUser(completeonUpdatingUser: @escaping ()->()) {
+        self.completeonUpdatingUser = completeonUpdatingUser
     }
 
     func sendVerificationCode() {
@@ -239,7 +242,7 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signUp(login:loginTFVM.bindingProperty, password: password)
                     DispatchQueue.main.async { [unowned self] in
-                        self.contentViewModel.updatingUser()
+                        self.completeonUpdatingUser()
                     }
                 } catch {
                     print(error)
@@ -280,7 +283,7 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signIn(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)
                     DispatchQueue.main.async { [unowned self] in
-                        self.contentViewModel.updatingUser()
+                        self.completeonUpdatingUser()
                     }
                 } catch {
                     DispatchQueue.main.async { [unowned self] in

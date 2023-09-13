@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SelectLevelView: View {
 
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: SelectLevelViewModel
-    @Binding var tab: TabBarItems
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct SelectLevelView: View {
                 ImagePrifileView(viewModel: viewModel.imagePVM,
                                  size: 60)
                 .onTapGesture {
-                    tab = .profileSettings
+                    coordinator.tab = .profile
                 }
             }
             VStack {

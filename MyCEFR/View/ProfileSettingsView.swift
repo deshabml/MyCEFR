@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProfileSettingsView: View {
-    
+
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: ProfileSettingsViewModel
     
     var body: some View {
@@ -22,8 +23,6 @@ struct ProfileSettingsView: View {
                                 .modifier(TextElement(size: 25, foregroundColor: .black))
                             Text(viewModel.editPVM.userProfile.eMail)
                                 .modifier(TextElement(size: 18, foregroundColor: .gray))
-//                            Text("\(viewModel.editPVM.userProfile.phone)")
-//                                .modifier(TextElement(size: 18, foregroundColor: .gray))
                         }
                         Spacer()
                         ImagePrifileView(viewModel: viewModel.imagePVM,
@@ -46,6 +45,7 @@ struct ProfileSettingsView: View {
         }
                .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
                .onAppear {
+                   viewModel.setup { coordinator.updatingUser() }
                    viewModel.downloadProfile()
                }
     }
@@ -54,6 +54,6 @@ struct ProfileSettingsView: View {
 
 struct ProfileSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSettingsView(viewModel: ProfileSettingsViewModel(contentViewModel: ContentViewModel()))
+        ProfileSettingsView(viewModel: ProfileSettingsViewModel())
     }
 }

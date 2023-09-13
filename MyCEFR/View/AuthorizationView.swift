@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthorizationView: View {
 
-    @EnvironmentObject var contentViewModel: ContentViewModel
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: AuthorizationViewModel
 
     var body: some View {
@@ -127,6 +127,11 @@ struct AuthorizationView: View {
             .padding(.top, 170)
             Spacer()
         }
+        .onAppear {
+            viewModel.setupCompleteonUpdatingUser {
+                coordinator.updatingUser()
+            }
+        }
         .modifier(AuthBackgroundElement(isShowView: $viewModel.isAuthorization,
                                         headingText: viewModel.backgraundText,
                                     ImageName: "AuthorizationBackground"))
@@ -148,6 +153,6 @@ struct AuthorizationView: View {
 
 struct AuthorizationView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthorizationView(viewModel: AuthorizationViewModel(contentViewModel: ContentViewModel()))
+        AuthorizationView(viewModel: AuthorizationViewModel())
     }
 }
