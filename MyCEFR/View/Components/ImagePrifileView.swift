@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ImagePrifileView: View {
-
-    @StateObject var viewModel: ImagePrifileViewModel
+    
+    @EnvironmentObject var coordinator: Coordinator
+    
     let size: CGFloat
-
+    
     var body: some View {
         VStack {
-            if let image = viewModel.image {
+            if let image = coordinator.imegeProfile {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -35,5 +36,5 @@ struct ImagePrifileView: View {
                    width: 2,
                    cornerRadius: size / 2)
     }
-
+    
 }

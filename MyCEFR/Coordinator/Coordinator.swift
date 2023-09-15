@@ -17,26 +17,24 @@ final class Coordinator: ObservableObject {
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
+            downloadProfile()
         }
     }
-
+    @Published var imegeProfile: UIImage?
+    @Published var userProfile: UserProfile = UserProfile(name: "firstAndlastName".localized,
+                                                          eMail: "adress@email.ru",
+                                                          phone: 88888888888,
+                                                          imageUrl: "")
     init() {
         findOutIsUser()
         SMTPService.shared.getSMTPSetting()
+        downloadProfile()
     }
 
     func goHome() {
         path.removeLast(path.count)
     }
-//    func goToAuthorization() {
-//        path.append(MyPage.authorization)
-//    }
-//    func goToSelectLevel() {
-//        path.append(MyPage.selectLevel)
-//    }
-//    func goToProfileSettings() {
-//        path.append(MyPage.profileSettings)
-//    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -62,6 +60,32 @@ extension Coordinator {
             isUser = true
         } else {
             isUser = false
+        }
+    }
+
+    func getProfileImage() {
+        StorageService.shared.getImage(imageUrl: userProfile.imageUrl) { result in
+            switch result {
+                case .success(let image):
+                    self.imegeProfile = image
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+
+    func downloadProfile() {
+        guard let user = AuthService.shared.currentUser else { return }
+        Task {
+            do {
+                let userProfile = try await  FirestoreService.shared.getProfile(userId: user.uid)
+                DispatchQueue.main.async { [unowned self] in
+                    self.userProfile = userProfile
+                    self.getProfileImage()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 class EditProfileViewModel: ObservableObject {
-
+    
     @Published var showScreenEditProfile = ShowScreenEPViewModel(imageName: "WhiteBackground")
     @Published var userProfile = UserProfile(name: "firstAndlastName".localized,
                                              eMail: "adress@email.ru",
@@ -16,14 +16,16 @@ class EditProfileViewModel: ObservableObject {
                                              imageUrl: "")
     @Published var cancelButtonVM = ButtonViewModel(buttonText: "сancel".localized)
     @Published var saveButtonVM = ButtonViewModel(buttonText: "save".localized)
-
+    
     @Published var nameTFVM = TextFieldViewModel(placeHolder: "")
     @Published var number = ""
-    @Published var image = PhotoPickerRecipeViewModel()
+    @Published var image = PhotoPickerViewModel()
     @Published var showAllertError = false
+    @Published var isShowEditScreen = false
+    
     var completion: (()->())!
     var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
-
+    
     init() {
         cancelButtonVM.setupAction { [unowned self] in
             self.bindingPropertySetup()
@@ -32,24 +34,25 @@ class EditProfileViewModel: ObservableObject {
         }
         saveButtonVM.setupAction { [unowned self] in
             self.editProfile()
-            self.uploadPhotos()
-            self.dismissScreen()
+            if self.uploadPhotos() {
+                self.dismissScreen()
+            }
         }
         bindingPropertySetup()
     }
-
+    
     func dismissScreen() {
         showScreenEditProfile.isShow.toggle()
     }
-
+    
     func setUserProfile(userProfile: UserProfile) {
         self.userProfile = userProfile
     }
-
+    
     func sutupCompition(completion: @escaping ()->()) {
         self.completion = completion
     }
-
+    
     func editProfile() {
         guard nameTFVM.bindingProperty != "" else { return }
         userProfile.name = nameTFVM.bindingProperty
@@ -63,25 +66,29 @@ class EditProfileViewModel: ObservableObject {
         self.completion()
     }
     
-    func uploadPhotos() {
+    func uploadPhotos() -> Bool {
         if let dataImage = image.loadedImage?.data {
             guard dataImage.count <= 2000000 else {
                 showAllertError.toggle()
-                return
+                return false
             }
             DispatchQueue.main.async { [unowned self] in
                 StorageService.shared.uploadPhotos(image: dataImage,
-                                                   imageUrl: self.userProfile.imageUrl)
+                                                   imageUrl: self.userProfile.imageUrl) {
+                    self.completion()
+                }
             }
-            self.completion()
+            return true
+        } else {
+            return false
         }
     }
-
+    
     func bindingPropertySetup() {
         if userProfile.name != "Имя и Фамилия", userProfile.name != "First and last name" {
             nameTFVM.setupProperty(userProfile.name)
             number = "\(userProfile.phone)"
         }
     }
-
+    
 }

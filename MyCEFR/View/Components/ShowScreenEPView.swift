@@ -9,17 +9,24 @@ import SwiftUI
 
 struct ShowScreenEPView<Content: View>: View {
 
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: ShowScreenEPViewModel
     var screen: Content
-
+    
     var body: some View {
-        if viewModel.isShow {
-            Rectangle()
-                .ignoresSafeArea()
-                .opacity(0.6)
-            screen
-                .modifier(ShowScreenSettingsElement(imageName: viewModel.imageName))
+        ZStack {
+            if viewModel.isShow {
+                Rectangle()
+                    .ignoresSafeArea()
+                    .opacity(0.6)
+                screen
+                    .environmentObject(coordinator)
+                    .modifier(ShowScreenSettingsElement(imageName: viewModel.imageName))
+                
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.easeInOut, value: viewModel.isShow)
     }
-
+    
 }

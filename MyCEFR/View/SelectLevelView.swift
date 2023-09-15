@@ -16,8 +16,8 @@ struct SelectLevelView: View {
         VStack {
             HStack {
                 Spacer()
-                ImagePrifileView(viewModel: viewModel.imagePVM,
-                                 size: 60)
+                ImagePrifileView(size: 60)
+                .environmentObject(coordinator)
                 .onTapGesture {
                     coordinator.tab = .profile
                 }
@@ -31,7 +31,10 @@ struct SelectLevelView: View {
         .padding()
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
         .onAppear {
-            viewModel.downloadProfile()
+//            viewModel.userProfile = coordinator.userProfile
+//            viewModel.imagePVM.image = coordinator.imegeProfile
+//            viewModel.setup(userProfile: coordinator.userProfile,
+//                            image: coordinator.imegeProfile)
         }
     }
     

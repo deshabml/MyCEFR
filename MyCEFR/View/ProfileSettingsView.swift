@@ -15,39 +15,41 @@ struct ProfileSettingsView: View {
     var body: some View {
         VStack(alignment: .center,
                spacing: 12) {
-            ZStack {
-                VStack(spacing: 100) {
-                    HStack() {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(viewModel.editPVM.userProfile.name)
-                                .modifier(TextElement(size: 25, foregroundColor: .black))
-                            Text(viewModel.editPVM.userProfile.eMail)
-                                .modifier(TextElement(size: 18, foregroundColor: .gray))
-                        }
-                        Spacer()
-                        ImagePrifileView(viewModel: viewModel.imagePVM,
-                                         size: 100)
-                    }
-                    .padding(.top, 110)
-                    .onTapGesture {
-                        viewModel.editUserData()
+            VStack(spacing: 100) {
+                HStack() {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(coordinator.userProfile.name)
+                            .modifier(TextElement(size: 25, foregroundColor: .black))
+                        Text(coordinator.userProfile.eMail)
+                            .modifier(TextElement(size: 18, foregroundColor: .gray))
                     }
                     Spacer()
-                    ButtonView(viewModel: viewModel.buttonExitVM,
-                               color: (.white, Color("MainBlueColor")),
-                               width: nil,
-                               isBigButton: true)
+                    ImagePrifileView(size: 100)
+                        .environmentObject(coordinator)
                 }
-                .padding()
+                .padding(.top, 110)
+                .onTapGesture {
+                    viewModel.editUserData()
+                }
+                Spacer()
+                ButtonView(viewModel: viewModel.buttonExitVM,
+                           color: (.white, Color("MainBlueColor")),
+                           width: nil,
+                           isBigButton: true)
+            }
+            .padding()
+            .overlay {
                 ShowScreenEPView(viewModel: viewModel.editPVM.showScreenEditProfile,
                                  screen: EditProfileView(viewModel: viewModel.editPVM))
+                .environmentObject(coordinator)
             }
         }
                .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
                .onAppear {
                    viewModel.setup { coordinator.updatingUser() }
-                   viewModel.downloadProfile()
+                   //                   viewModel.editPVM.setUserProfile(userProfile: coordinator.userProfile)
                }
+        //               .animation(.easeInOut, value: viewModel.editPVM.isShowEditScreen)
     }
     
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 import PhotosUI
 
-struct PhotoPickerRecipeView: View {
+struct PhotoPickerView: View {
 
-    @StateObject var viewModel: PhotoPickerRecipeViewModel
+    @StateObject var viewModel: PhotoPickerViewModel
 
     var body: some View {
         PhotosPicker(selection: $viewModel.selectedPhoto, matching: .images) {

@@ -40,12 +40,14 @@ class StorageService {
         }
     }
 
-    func uploadPhotos(image: Data, imageUrl: String) {
+    func uploadPhotos(image: Data, imageUrl: String, completion: @escaping () -> ()) {
         let data = image
         let riversRef = storeRef.child(imageUrl)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
-        riversRef.putData(data, metadata: metadata)
+        riversRef.putData(data, metadata: metadata) {_ in
+            completion()
+        }
     }
 
 }

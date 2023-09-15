@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-class PhotoPickerRecipeViewModel: ObservableObject {
+class PhotoPickerViewModel: ObservableObject {
 
     @Published var selectedPhoto: PhotosPickerItem? {
         didSet {

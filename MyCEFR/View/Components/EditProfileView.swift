@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditProfileView: View {
 
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: EditProfileViewModel
 
     var body: some View {
@@ -19,7 +20,7 @@ struct EditProfileView: View {
                               width: 180,
                               height: 24)
                 .shadow(radius: 4)
-                PhotoPickerRecipeView(viewModel: viewModel.image)
+                PhotoPickerView(viewModel: viewModel.image)
             }
             HStack {
                 ButtonView(viewModel: viewModel.saveButtonVM,
@@ -33,6 +34,13 @@ struct EditProfileView: View {
         .padding()
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
+        }
+        .onAppear {
+            viewModel.setUserProfile(userProfile: coordinator.userProfile)
+            viewModel.sutupCompition { coordinator.downloadProfile() }
+            if let image = coordinator.imegeProfile {
+                viewModel.image.setupImageStandard(Image(uiImage: image))
+            }
         }
     }
 
