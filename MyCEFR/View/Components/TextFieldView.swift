@@ -43,8 +43,10 @@ struct TextFieldView: View {
 }
 
 struct TextFieldView_Previews: PreviewProvider {
+
     static var previews: some View {
-        TextFieldView(viewModel: TextFieldViewModel(placeHolder: ""),
+        TextFieldView(viewModel: TextFieldViewModel(placeHolder: "Demo"),
                       size: 24, width: 110, height: 20)
     }
+
 }

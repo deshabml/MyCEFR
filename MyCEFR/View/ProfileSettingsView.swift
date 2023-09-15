@@ -57,7 +57,10 @@ struct ProfileSettingsView: View {
 }
 
 struct ProfileSettingsView_Previews: PreviewProvider {
+
     static var previews: some View {
         ProfileSettingsView(viewModel: ProfileSettingsViewModel())
+            .environmentObject(Coordinator(isWorker: false))
     }
+    
 }

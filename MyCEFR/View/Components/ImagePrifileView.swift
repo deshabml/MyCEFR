@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ImagePrifileView: View {
-    
+
     @EnvironmentObject var coordinator: Coordinator
-    
     let size: CGFloat
-    
+
     var body: some View {
         VStack {
             if let image = coordinator.imegeProfile {
@@ -37,4 +36,13 @@ struct ImagePrifileView: View {
                    cornerRadius: size / 2)
     }
     
+}
+
+struct ImagePrifileView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        ImagePrifileView(size: 100)
+            .environmentObject(Coordinator(isWorker: false))
+    }
+
 }

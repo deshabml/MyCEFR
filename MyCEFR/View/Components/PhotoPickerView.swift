@@ -26,3 +26,12 @@ struct PhotoPickerView: View {
     }
 
 }
+
+struct PhotoPickerView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        PhotoPickerView(viewModel: PhotoPickerViewModel())
+    }
+
+}
+

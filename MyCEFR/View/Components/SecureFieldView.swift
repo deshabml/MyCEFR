@@ -55,7 +55,9 @@ struct SecureFieldView: View {
 }
 
 struct SecureFieldView_Previews: PreviewProvider {
+
     static var previews: some View {
         SecureFieldView(viewModel: SecureFieldViewModel())
     }
+    
 }

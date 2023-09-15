@@ -14,21 +14,24 @@ final class Coordinator: ObservableObject {
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
     @Published var isUser = false
+    @Published var imegeProfile: UIImage? = nil
+    @Published var userProfile: UserProfile = UserProfile(name: "firstAndlastName".localized,
+                                                          eMail: "adress@email.ru",
+                                                          phone: 88888888888,
+                                                          imageUrl: "")
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
             downloadProfile()
         }
     }
-    @Published var imegeProfile: UIImage?
-    @Published var userProfile: UserProfile = UserProfile(name: "firstAndlastName".localized,
-                                                          eMail: "adress@email.ru",
-                                                          phone: 88888888888,
-                                                          imageUrl: "")
-    init() {
-        findOutIsUser()
-        SMTPService.shared.getSMTPSetting()
-        downloadProfile()
+
+    init(isWorker: Bool) {
+        if isWorker {
+            findOutIsUser()
+            SMTPService.shared.getSMTPSetting()
+            downloadProfile()
+        }
     }
 
     func goHome() {

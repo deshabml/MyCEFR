@@ -26,7 +26,9 @@ struct ButtonImageView: View {
 }
 
 struct ButtonImageView_Previews: PreviewProvider {
+
     static var previews: some View {
         ButtonImageView(viewModel: ButtonImageViewModel(imageSystemName: "square.and.pencil"))
     }
+    
 }

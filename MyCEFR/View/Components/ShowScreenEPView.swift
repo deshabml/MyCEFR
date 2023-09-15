@@ -30,3 +30,12 @@ struct ShowScreenEPView<Content: View>: View {
     }
     
 }
+
+struct ShowScreenEPView_Previews: PreviewProvider {
+
+    static var previews: some View {
+        ShowScreenEPView(viewModel: ShowScreenEPViewModel(imageName: ""), screen: EditProfileView(viewModel: EditProfileViewModel()))
+            .environmentObject(Coordinator(isWorker: false))
+    }
+
+}

@@ -15,7 +15,7 @@ struct MyCEFRApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(Coordinator())
+                .environmentObject(Coordinator(isWorker: true))
         }
     }
 

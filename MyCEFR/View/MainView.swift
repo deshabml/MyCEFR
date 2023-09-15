@@ -22,7 +22,7 @@ struct MainView_Previews: PreviewProvider {
 
     static var previews: some View {
         MainView()
-            .environmentObject(Coordinator())
+            .environmentObject(Coordinator(isWorker: false))
     }
 
 }

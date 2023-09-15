@@ -30,7 +30,6 @@ class EditProfileViewModel: ObservableObject {
     
     init() {
         cancelButtonVM.setupAction { [unowned self] in
-            self.bindingPropertySetup()
             self.image.resetSettings()
             self.dismissScreen()
         }
@@ -40,7 +39,6 @@ class EditProfileViewModel: ObservableObject {
                 self.dismissScreen()
             }
         }
-        bindingPropertySetup()
     }
     
     func dismissScreen() {
@@ -81,8 +79,6 @@ class EditProfileViewModel: ObservableObject {
                 } completionProgress: { [unowned self] progress in
                     if progress <= 1 {
                         self.progressUploadPhotosCPVM.setup(progress: progress)
-                        print(self.progressUploadPhotosCPVM.progress)
-//                        print(6.0642653933467096e-05 <= 1 ? "Yes" : "No")
                     }
                 }
             }

@@ -36,18 +36,30 @@ struct EditProfileView: View {
             Button("ОК") { }
         }
         .onAppear {
-            viewModel.setUserProfile(userProfile: coordinator.userProfile)
-            viewModel.sutupCompition { coordinator.downloadProfile() }
-            if let image = coordinator.imegeProfile {
-                viewModel.image.setupImageStandard(Image(uiImage: image))
-            }
+            onApperAction()
         }
     }
 
 }
 
 struct EditProfileView_Previews: PreviewProvider {
+
     static var previews: some View {
         EditProfileView(viewModel: EditProfileViewModel())
+            .environmentObject(Coordinator(isWorker: false))
     }
+    
+}
+
+extension EditProfileView {
+
+    private func onApperAction() {
+        viewModel.setUserProfile(userProfile: coordinator.userProfile)
+        viewModel.bindingPropertySetup()
+        viewModel.sutupCompition { coordinator.downloadProfile() }
+        if let image = coordinator.imegeProfile {
+            viewModel.image.setupImageStandard(Image(uiImage: image))
+        }
+    }
+
 }

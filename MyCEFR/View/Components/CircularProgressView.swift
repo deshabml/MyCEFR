@@ -37,7 +37,9 @@ struct CircularProgressView: View {
 }
 
 struct CircularProgressView_Previews: PreviewProvider {
+
     static var previews: some View {
         CircularProgressView(viewvModel: CircularProgressViewModel())
     }
+    
 }
