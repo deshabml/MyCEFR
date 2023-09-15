@@ -26,6 +26,10 @@ struct ProfileSettingsView: View {
                     Spacer()
                     ImagePrifileView(size: 100)
                         .environmentObject(coordinator)
+                        .overlay {
+                            CircularProgressView(viewvModel: viewModel.editPVM.progressUploadPhotosCPVM)
+                                .frame(width: 60, height: 60)
+                        }
                 }
                 .padding(.top, 110)
                 .onTapGesture {
@@ -47,9 +51,7 @@ struct ProfileSettingsView: View {
                .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
                .onAppear {
                    viewModel.setup { coordinator.updatingUser() }
-                   //                   viewModel.editPVM.setUserProfile(userProfile: coordinator.userProfile)
                }
-        //               .animation(.easeInOut, value: viewModel.editPVM.isShowEditScreen)
     }
     
 }

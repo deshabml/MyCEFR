@@ -22,6 +22,8 @@ class EditProfileViewModel: ObservableObject {
     @Published var image = PhotoPickerViewModel()
     @Published var showAllertError = false
     @Published var isShowEditScreen = false
+    @Published var progressUploadPhotosCPVM = CircularProgressViewModel()
+
     
     var completion: (()->())!
     var allertTextError = "theSizeOfThePhotoShouldNotExceedTwoMB".localized
@@ -73,9 +75,15 @@ class EditProfileViewModel: ObservableObject {
                 return false
             }
             DispatchQueue.main.async { [unowned self] in
-                StorageService.shared.uploadPhotos(image: dataImage,
-                                                   imageUrl: self.userProfile.imageUrl) {
+                StorageService.shared.uploadPhotos(image: dataImage, imageUrl: self.userProfile.imageUrl) { [unowned self] in
                     self.completion()
+                    self.progressUploadPhotosCPVM.setup(progress: 0)
+                } completionProgress: { [unowned self] progress in
+                    if progress <= 1 {
+                        self.progressUploadPhotosCPVM.setup(progress: progress)
+                        print(self.progressUploadPhotosCPVM.progress)
+//                        print(6.0642653933467096e-05 <= 1 ? "Yes" : "No")
+                    }
                 }
             }
             return true
