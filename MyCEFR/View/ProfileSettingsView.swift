@@ -16,25 +16,7 @@ struct ProfileSettingsView: View {
         VStack(alignment: .center,
                spacing: 12) {
             VStack(spacing: 100) {
-                HStack() {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(coordinator.userProfile.name)
-                            .modifier(TextElement(size: 25, foregroundColor: .black))
-                        Text(coordinator.userProfile.eMail)
-                            .modifier(TextElement(size: 18, foregroundColor: .gray))
-                    }
-                    Spacer()
-                    ImagePrifileView(size: 100)
-                        .environmentObject(coordinator)
-                        .overlay {
-                            CircularProgressView(viewvModel: viewModel.editPVM.progressUploadPhotosCPVM)
-                                .frame(width: 60, height: 60)
-                        }
-                }
-                .padding(.top, 110)
-                .onTapGesture {
-                    viewModel.editUserData()
-                }
+                profileInfo()
                 Spacer()
                 ButtonView(viewModel: viewModel.buttonExitVM,
                            color: (.white, Color("MainBlueColor")),
@@ -63,4 +45,30 @@ struct ProfileSettingsView_Previews: PreviewProvider {
             .environmentObject(Coordinator(isWorker: false))
     }
     
+}
+
+extension ProfileSettingsView {
+
+    private func profileInfo() -> some View {
+        HStack() {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(coordinator.userProfile.name)
+                    .modifier(TextElement(size: 25, foregroundColor: .black))
+                Text(coordinator.userProfile.eMail)
+                    .modifier(TextElement(size: 18, foregroundColor: .gray))
+            }
+            Spacer()
+            ImagePrifileView(size: 100)
+                .environmentObject(coordinator)
+                .overlay {
+                    CircularProgressView(viewvModel: viewModel.editPVM.progressUploadPhotosCPVM)
+                        .frame(width: 60, height: 60)
+                }
+        }
+        .padding(.top, 110)
+        .onTapGesture {
+            viewModel.editUserData()
+        }
+    }
+
 }

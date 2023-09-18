@@ -56,6 +56,7 @@ struct AuthorizationView: View {
         .animation(.easeInOut(duration: 0.4), value: viewModel.showCodeTextFild)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonCompleteRegistration)
     }
+    
 }
 
 struct AuthorizationView_Previews: PreviewProvider {
