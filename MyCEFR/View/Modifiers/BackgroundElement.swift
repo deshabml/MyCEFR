@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BackgroundElement: ViewModifier {
 
+    @EnvironmentObject var coordinator: Coordinator
     var isProfile = false
     var headingText: String
 
@@ -16,30 +17,35 @@ struct BackgroundElement: ViewModifier {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
-                Image("WhiteBackground")
-                    .resizable()
+                ZStack {
+                    VStack {
+                        Color("WhiteColor")
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .ignoresSafeArea()
-                    .scaledToFill()
-                    .overlay(alignment: .bottom, content: {
+                    VStack (alignment: .center) {
                         if isProfile {
                             Rectangle()
                                 .foregroundColor(Color("MainBlueColor"))
                                 .frame(width: 570, height: 492)
-                                .padding(.bottom, 600)
                         } else {
+
+
                             Ellipse()
                                 .foregroundColor(Color("MainBlueColor"))
                                 .frame(width: 570, height: 492)
-                                .padding(.bottom, 550)
                         }
-                    })
-                    .overlay(alignment: .top, content: {
+                        Spacer()
+                    }
+                    .padding(.top, isProfile ? -410 : -380)
+                    VStack (alignment: .center) {
                         Text(headingText)
-                            .modifier(TextElement(size: isProfile ? 38 : 28,
-                                                  verticalPadding: isProfile ? 50 : 80,
+                            .modifier(TextElement(size: 28,
+                                                  verticalPadding: isProfile ? 20 : 40,
                                                   foregroundColor: .white))
-                    })
-            )
+                        Spacer()
+                    }
+                })
     }
 
 }

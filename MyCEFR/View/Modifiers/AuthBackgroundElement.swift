@@ -18,24 +18,37 @@ struct AuthBackgroundElement: ViewModifier {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
-                Image(ImageName)
-                    .resizable()
+                ZStack {
+                    VStack {
+                        Color("BackgraundAuthorizationColor")
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .ignoresSafeArea()
-                    .scaledToFill()
-                    .blur(radius: isShowView ? 0 : 12)
-                    .overlay(alignment: .bottom, content: {
+                    VStack (alignment: .center) {
                         Ellipse()
                             .foregroundColor(Color("MainBlueColor"))
                             .frame(width: 570, height: 492)
-                            .padding(.bottom, 650)
-                    })
-                    .overlay(alignment: .top, content: {
+                        Spacer()
+                    }
+                    .padding(.top, -380)
+                    VStack (alignment: .center) {
                         Text(headingText)
                             .modifier(TextElement(size: 28,
-                                                  verticalPadding: 100,
+                                                  verticalPadding: 40,
                                                   foregroundColor: .white))
-                    })
+                        Spacer()
+                    }
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .foregroundColor(Color("WhiteColor"))
+                            .frame(width: 300, height: 600)
+                            .rotationEffect(Angle(degrees: 35))
+                    }
+                    .padding(.trailing, -300)
+                    .padding(.bottom, -250)
+                }
             )
     }
-
+    
 }

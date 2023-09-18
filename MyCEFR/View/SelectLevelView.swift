@@ -14,21 +14,13 @@ struct SelectLevelView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                ImagePrifileView(size: 60)
-                    .environmentObject(coordinator)
-                    .onTapGesture {
-                        coordinator.tab = .profile
-                    }
-            }
+            imageProfile()
             VStack {
                 Text("SelectLevel")
             }
             .padding(.top, 200)
             Spacer()
         }
-        .padding()
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
     }
     
@@ -41,4 +33,21 @@ struct SelectLevelView_Previews: PreviewProvider {
             .environmentObject(Coordinator(isWorker: false))
     }
 
+}
+
+extension SelectLevelView {
+
+    private func imageProfile() -> some View {
+        HStack {
+            Spacer()
+            ImagePrifileView(size: 60)
+                .environmentObject(coordinator)
+                .onTapGesture {
+                    coordinator.tab = .profile
+                }
+        }
+        .padding(.top, -8)
+        .padding(.horizontal, 8)
+    }
+    
 }
