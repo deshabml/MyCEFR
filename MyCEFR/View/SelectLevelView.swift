@@ -15,17 +15,7 @@ struct SelectLevelView: View {
     var body: some View {
         VStack {
             imageProfile()
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    level()
-                    level()
-                    level()
-                    level()
-                    level()
-                    level()
-                }
-            }
-            .padding(.top, 200)
+            levels()
             Spacer()
         }
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
@@ -57,11 +47,11 @@ extension SelectLevelView {
         .padding(.horizontal, 8)
     }
 
-    private func level() -> some View {
+    private func levelCell(level: Level) -> some View {
         VStack(alignment: .center, spacing: 35) {
             VStack(alignment: .center, spacing: 8) {
-                Text("A1")
-                Text("Elementary")
+                Text(level.name)
+                Text(level.fullName)
             }
             .padding(.top)
             ProgressView(value: 0.3)
@@ -78,7 +68,24 @@ extension SelectLevelView {
         .frame(width: 244, height: 144)
         .background(Color("MainBlueColor"))
         .cornerRadius(18)
-        .padding(.leading, 16)
+    }
+
+    private func levels() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            if viewModel.levels.isEmpty {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .padding(100)
+            } else {
+                HStack {
+                    ForEach(viewModel.levels) {level in
+                        levelCell(level: level)
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
+        .padding(.top, 200)
     }
     
 }

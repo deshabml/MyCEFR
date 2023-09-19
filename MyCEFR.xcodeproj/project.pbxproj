@@ -12,6 +12,7 @@
 		DD1DFEBA2A9D3A5B000AAE33 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB92A9D3A5B000AAE33 /* Group.swift */; };
 		DD2634032AB496A000EAAD0E /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634022AB496A000EAAD0E /* CircularProgressView.swift */; };
 		DD2634052AB496F200EAAD0E /* CircularProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634042AB496F200EAAD0E /* CircularProgressViewModel.swift */; };
+		DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634062ABA35EA00EAAD0E /* Level.swift */; };
 		DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD2989852A48CDA00026FF2F /* Localizable.strings */; };
 		DD2989882A48D0150026FF2F /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2989872A48D0150026FF2F /* Localized.swift */; };
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
@@ -73,6 +74,7 @@
 		DD1DFEB92A9D3A5B000AAE33 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DD2634022AB496A000EAAD0E /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		DD2634042AB496F200EAAD0E /* CircularProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewModel.swift; sourceTree = "<group>"; };
+		DD2634062ABA35EA00EAAD0E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		DD2989842A48CDA00026FF2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989862A48CDA20026FF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989872A48D0150026FF2F /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DD1DFEB92A9D3A5B000AAE33 /* Group.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
 				DDEABF732A3281940046F018 /* MediaFile.swift */,
+				DD2634062ABA35EA00EAAD0E /* Level.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
+				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,
 				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
@@ -614,6 +618,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -647,6 +652,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

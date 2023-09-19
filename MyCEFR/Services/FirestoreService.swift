@@ -14,6 +14,8 @@ class FirestoreService {
     let db = Firestore.firestore()
     var userProfilesRef: CollectionReference { db.collection("userProfiles") }
     var SMRPSettingRef: CollectionReference { db.collection("smtpSetting") }
+    var levelRef: CollectionReference { db.collection("level") }
+
 
     private init() { }
 
@@ -50,6 +52,23 @@ class FirestoreService {
                 throw FirestoreErrorCode(.invalidArgument)
             }
             return smtpSetting
+        } catch {
+            throw error
+        }
+    }
+
+    func getlevels() async throws -> [Level] {
+        do {
+            let querySnapshot = try await levelRef.getDocuments()
+            var levels: [Level] = []
+            for snap in querySnapshot.documents {
+                let data = snap.data()
+                guard let level = Level(data: data) else {
+                    throw FirestoreErrorCode(.invalidArgument)
+                }
+                levels.append(level)
+            }
+            return levels
         } catch {
             throw error
         }
