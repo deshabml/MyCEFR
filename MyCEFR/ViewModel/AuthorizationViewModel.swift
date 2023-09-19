@@ -24,7 +24,11 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showPasswordErrorText = false
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
-    @Published var forgotPassword = false
+    @Published var forgotPassword = false {
+        didSet {
+            passwordSFVM.bindingProperty = ""
+        }
+    }
     @Published var buttonSendViewModel = ButtonViewModel(buttonText: "send".localized)
     @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "sendMail".localized)
     @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "logIn".localized)

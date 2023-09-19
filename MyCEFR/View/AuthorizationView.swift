@@ -56,7 +56,7 @@ struct AuthorizationView: View {
         .animation(.easeInOut(duration: 0.4), value: viewModel.showCodeTextFild)
         .animation(.easeInOut(duration: 0.4), value: viewModel.showButtonCompleteRegistration)
     }
-    
+
 }
 
 struct AuthorizationView_Previews: PreviewProvider {
@@ -167,6 +167,7 @@ extension AuthorizationView {
             Button {
                 viewModel.actionButtonAuthOrReg()
                 viewModel.forgotPassword.toggle()
+                viewModel.showButtonSendCode = true
             } label: {
                 Text("forgotPassword".localized)
                     .modifier(TextElement(size: 18,
