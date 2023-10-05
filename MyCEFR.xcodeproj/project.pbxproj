@@ -15,6 +15,8 @@
 		DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634062ABA35EA00EAAD0E /* Level.swift */; };
 		DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD2989852A48CDA00026FF2F /* Localizable.strings */; };
 		DD2989882A48D0150026FF2F /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2989872A48D0150026FF2F /* Localized.swift */; };
+		DD2A47062ACF030400B64D5A /* MyCEFRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */; };
+		DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */; };
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
 		DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */; };
 		DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */; };
@@ -68,6 +70,16 @@
 		DDF408A72A3F4AA800FB1F35 /* SMTPSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DD2A47072ACF030400B64D5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB6E54A29F2FE05005A4A72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB6E55129F2FE05005A4A72;
+			remoteInfo = MyCEFR;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		DD1DFEB52A9D1D7F000AAE33 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeech.swift; sourceTree = "<group>"; };
@@ -78,6 +90,9 @@
 		DD2989842A48CDA00026FF2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989862A48CDA20026FF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989872A48D0150026FF2F /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		DD2A47032ACF030400B64D5A /* MyCEFRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCEFRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRTests.swift; sourceTree = "<group>"; };
+		DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModelTests.swift; sourceTree = "<group>"; };
 		DD4AAEB22A212CD9003E2860 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
 		DD4AAEBA2A213AF8003E2860 /* AuthBackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackgroundElement.swift; sourceTree = "<group>"; };
@@ -130,6 +145,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD2A47002ACF030400B64D5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB6E54F29F2FE05005A4A72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2A47042ACF030400B64D5A /* MyCEFRTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */,
+				DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */,
+			);
+			path = MyCEFRTests;
+			sourceTree = "<group>";
+		};
 		DD4AAEB12A212C94003E2860 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB6E55429F2FE05005A4A72 /* MyCEFR */,
+				DD2A47042ACF030400B64D5A /* MyCEFRTests */,
 				DDB6E55329F2FE05005A4A72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -253,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB6E55229F2FE05005A4A72 /* MyCEFR.app */,
+				DD2A47032ACF030400B64D5A /* MyCEFRTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +371,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DD2A47022ACF030400B64D5A /* MyCEFRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD2A47092ACF030400B64D5A /* Build configuration list for PBXNativeTarget "MyCEFRTests" */;
+			buildPhases = (
+				DD2A46FF2ACF030400B64D5A /* Sources */,
+				DD2A47002ACF030400B64D5A /* Frameworks */,
+				DD2A47012ACF030400B64D5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD2A47082ACF030400B64D5A /* PBXTargetDependency */,
+			);
+			name = MyCEFRTests;
+			productName = MyCEFRTests;
+			productReference = DD2A47032ACF030400B64D5A /* MyCEFRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDB6E55129F2FE05005A4A72 /* MyCEFR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDB6E56029F2FE08005A4A72 /* Build configuration list for PBXNativeTarget "MyCEFR" */;
@@ -368,9 +419,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					DD2A47022ACF030400B64D5A = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = DDB6E55129F2FE05005A4A72;
+					};
 					DDB6E55129F2FE05005A4A72 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -395,11 +450,19 @@
 			projectRoot = "";
 			targets = (
 				DDB6E55129F2FE05005A4A72 /* MyCEFR */,
+				DD2A47022ACF030400B64D5A /* MyCEFRTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD2A47012ACF030400B64D5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB6E55029F2FE05005A4A72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +479,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD2A46FF2ACF030400B64D5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */,
+				DD2A47062ACF030400B64D5A /* MyCEFRTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB6E54E29F2FE05005A4A72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,6 +546,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DD2A47082ACF030400B64D5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB6E55129F2FE05005A4A72 /* MyCEFR */;
+			targetProxy = DD2A47072ACF030400B64D5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DD2989852A48CDA00026FF2F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -487,10 +567,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD2A470A2ACF030400B64D5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62VLSN5H88;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.MyCEFRTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCEFR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyCEFR";
+			};
+			name = Debug;
+		};
+		DD2A470B2ACF030400B64D5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62VLSN5H88;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.MyCEFRTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyCEFR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyCEFR";
+			};
+			name = Release;
+		};
 		DDB6E55E29F2FE08005A4A72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -523,6 +649,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -551,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -583,6 +711,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -618,7 +747,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +781,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,6 +801,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD2A47092ACF030400B64D5A /* Build configuration list for PBXNativeTarget "MyCEFRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2A470A2ACF030400B64D5A /* Debug */,
+				DD2A470B2ACF030400B64D5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDB6E54D29F2FE05005A4A72 /* Build configuration list for PBXProject "MyCEFR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -74,4 +74,13 @@ class FirestoreService {
         }
     }
 
+
+    func editWord(word: Word, level: Level) async throws {
+        do {
+            try await db.collection("word" + level.name).document(word.id).setData(word.representation)
+        } catch {
+            throw error
+        }
+    }
+
 }

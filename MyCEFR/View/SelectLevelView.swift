@@ -17,6 +17,12 @@ struct SelectLevelView: View {
             imageProfile()
             levels()
             Spacer()
+            Button {
+                print("Upload")
+            } label: {
+                Text("UploadWord")
+            }
+
         }
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
     }

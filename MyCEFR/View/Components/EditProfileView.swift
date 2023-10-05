@@ -32,6 +32,7 @@ struct EditProfileView: View {
             }
         }
         .padding()
+        .background(.white)
         .alert(viewModel.allertTextError, isPresented: $viewModel.showAllertError) {
             Button("ОК") { }
         }

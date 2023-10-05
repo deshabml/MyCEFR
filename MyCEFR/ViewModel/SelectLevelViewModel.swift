@@ -10,6 +10,7 @@ import UIKit
 class SelectLevelViewModel: ObservableObject {
 
     @Published var levels: [Level] = []
+    var wordsA1: [Word] = []
 
     init() {
         getLevels()
@@ -26,6 +27,18 @@ class SelectLevelViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    func uploadWord() {
+//        Task {
+//            for word in wordsA1 {
+//                do {
+//                    try await FirestoreService.shared.editWord(word: word, level: Level(id: "1",
+//                                                                                        name: "А1",
+//                                                                                        fullName: "Elementary"))
+//                } catch { print(error.localizedDescription) }
+//            }
+//        }
     }
 
 }
