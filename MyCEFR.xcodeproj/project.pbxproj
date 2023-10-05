@@ -15,7 +15,6 @@
 		DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634062ABA35EA00EAAD0E /* Level.swift */; };
 		DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD2989852A48CDA00026FF2F /* Localizable.strings */; };
 		DD2989882A48D0150026FF2F /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2989872A48D0150026FF2F /* Localized.swift */; };
-		DD2A47062ACF030400B64D5A /* MyCEFRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */; };
 		DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */; };
 		DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB22A212CD9003E2860 /* ButtonView.swift */; };
 		DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */; };
@@ -91,7 +90,6 @@
 		DD2989862A48CDA20026FF2F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD2989872A48D0150026FF2F /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		DD2A47032ACF030400B64D5A /* MyCEFRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCEFRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCEFRTests.swift; sourceTree = "<group>"; };
 		DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModelTests.swift; sourceTree = "<group>"; };
 		DD4AAEB22A212CD9003E2860 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		DD2A47042ACF030400B64D5A /* MyCEFRTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD2A47052ACF030400B64D5A /* MyCEFRTests.swift */,
 				DD2A470C2ACF036A00B64D5A /* AuthorizationViewModelTests.swift */,
 			);
 			path = MyCEFRTests;
@@ -484,7 +481,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */,
-				DD2A47062ACF030400B64D5A /* MyCEFRTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

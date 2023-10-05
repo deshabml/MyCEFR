@@ -46,4 +46,17 @@ final class AuthorizationViewModelTests: XCTestCase {
         XCTAssertEqual(itog.count, 8)
     }
 
+    func testGenerateVerificationCodeShouldUniqueResult() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        let itogFirst = viewModel.generateVerificationCode()
+        let itogSecond = viewModel.generateVerificationCode()
+        let itogThird = viewModel.generateVerificationCode()
+        XCTAssertNotEqual(itogFirst, itogSecond)
+        XCTAssertNotEqual(itogFirst, itogThird)
+        XCTAssertNotEqual(itogSecond, itogThird)
+    }
+
 }
