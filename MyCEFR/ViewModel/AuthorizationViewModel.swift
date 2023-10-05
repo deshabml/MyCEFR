@@ -59,7 +59,7 @@ class AuthorizationViewModel: ObservableObject {
     var allertTextError = ""
     var passwordErrorText = ""
     var logInErrorText = ""
-    private var verificationCode = ""
+    var verificationCode = ""
     var completeonUpdatingUser: (()->())!
 
     init() {
