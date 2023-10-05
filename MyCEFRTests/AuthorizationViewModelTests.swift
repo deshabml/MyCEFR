@@ -21,14 +21,29 @@ final class AuthorizationViewModelTests: XCTestCase {
     }
 
     func testSetupCompleteonUpdatingUserShouldWorksCorrectly() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
         let randomVolue = Int.random(in: 0 ..< 100)
         var itogOne: Int = randomVolue + randomVolue
         var itogTwo: Int = 0
-        viewModel?.setupCompleteonUpdatingUser(completeonUpdatingUser: {
+        viewModel.setupCompleteonUpdatingUser(completeonUpdatingUser: {
             itogTwo = randomVolue + randomVolue
         })
-        viewModel?.completeonUpdatingUser()
+        viewModel.completeonUpdatingUser()
         XCTAssertEqual(itogOne, itogTwo)
+    }
+
+    func testGenerateVerificationCodeShouldCorrectFormat() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        let itog = viewModel.generateVerificationCode()
+        let itogUniqueElements = Set(Array(itog))
+        XCTAssertGreaterThan(itogUniqueElements.count, 1)
+        XCTAssertEqual(itog.count, 8)
     }
 
 }
