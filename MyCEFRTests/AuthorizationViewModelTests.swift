@@ -123,11 +123,68 @@ final class AuthorizationViewModelTests: XCTestCase {
             return
         }
         var isShow = false
-        var password = "123"
-        var mail = "mail@mail.ru"
+        let password = "123"
+        let mail = "mail@mail.ru"
         viewModel.toggleShowButton(texts: [password, mail], showButton: &isShow)
         XCTAssertTrue(isShow)
     }
 
+    func testCheckEmailShouldIncorrectMail() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        let noValidMails = ["12@ma.5",
+                            "example.com",
+                            "#@%^%#$@#$@#.com",
+                            "@example.com",
+                            "Joe Smith <email@example.com>",
+                            "email.example.com",
+                            "email@example@example.com",
+                            ".email@example.com",
+                            "email.@example.com",
+                            "email..email@example.com",
+                            "あいうえお@example.com",
+                            "email@example.com (Joe Smith)",
+                            "email@example",
+                            "email@-example.com",
+                            "email@example.web",
+                            "email@111.222.333.44444",
+                            "email@example..com",
+                            "Abc..123@example.com"
+        ]
+        for noValidMail in noValidMails {
+            viewModel.loginTFVM.bindingProperty = noValidMail
+            do {
+                try viewModel.checkEmail()
+                XCTFail("\(noValidMail)")
+            } catch {
+                let returnedErrror = error as? ErrorsAuthorization
+                XCTAssertEqual(returnedErrror, ErrorsAuthorization.notMail)
+            }
+        }
+    }
+
+    func testCheckEmailShouldCorrectMail() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        let validMails = ["email@example.com",
+                          "firstname.lastname@example.com",
+                          "email@subdomain.example.com",
+                          "firstname+lastname@example.com",
+                          "1234567890@example.com",
+                          "email@example-one.ru",
+                          "_______@example.com",
+                          "email@example.name",
+                          "email@example.museum",
+                          "email@example.co.jp",
+                          "firstname-lastname@example.com"]
+        for validMail in validMails {
+            viewModel.loginTFVM.bindingProperty = validMail
+            XCTAssertNoThrow(try viewModel.checkEmail(), "\(validMail)")
+        }
+    }
 
 }
