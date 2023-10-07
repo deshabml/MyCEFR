@@ -271,4 +271,37 @@ final class AuthorizationViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showlogInErrorText)
     }
 
+    func testActionButtonLogInShouldErrorsAuthorizationEmptyAll() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.loginTFVM.bindingProperty = ""
+        viewModel.passwordSFVM.bindingProperty = ""
+        viewModel.actionButtonLogIn()
+        XCTAssertEqual(viewModel.logInErrorText, "eMailCanNotBeEmpty".localized)
+    }
+
+    func testActionButtonLogInShouldErrorsAuthorizationNotMail() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.loginTFVM.bindingProperty = "#@%^%#$@#$@#.com"
+        viewModel.passwordSFVM.bindingProperty = "12345"
+        viewModel.actionButtonLogIn()
+        XCTAssertEqual(viewModel.logInErrorText, "incorrectEMail".localized)
+    }
+
+    func testActionButtonLogInShouldErrorsAuthorizationShortPassword() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.loginTFVM.bindingProperty = "email@example.com"
+        viewModel.passwordSFVM.bindingProperty = "12345"
+        viewModel.actionButtonLogIn()
+        XCTAssertEqual(viewModel.logInErrorText, "notSecurePassword".localized)
+    }
+
 }
