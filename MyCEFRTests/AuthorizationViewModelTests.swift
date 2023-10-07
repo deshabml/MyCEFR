@@ -252,5 +252,23 @@ final class AuthorizationViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.createPasswordSFVMSecond.showError)
         XCTAssertTrue(viewModel.showPasswordErrorText)
     }
+    
+    func testLogInErrorAnimation() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.logInErrorAnimation()
+        XCTAssertTrue(viewModel.loginTFVM.showError)
+        XCTAssertTrue(viewModel.passwordSFVM.showError)
+        let expactation = XCTestExpectation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(80)) {
+            expactation.fulfill()
+        }
+        wait(for: [expactation])
+        XCTAssertFalse(viewModel.loginTFVM.showError)
+        XCTAssertFalse(viewModel.passwordSFVM.showError)
+        XCTAssertTrue(viewModel.showlogInErrorText)
+    }
 
 }
