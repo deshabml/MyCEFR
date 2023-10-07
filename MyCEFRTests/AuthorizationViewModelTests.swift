@@ -187,4 +187,38 @@ final class AuthorizationViewModelTests: XCTestCase {
         }
     }
 
+    func testFreeLoginShouldLoginBusy() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.forgotPassword = false
+        viewModel.freeLogin(false)
+        XCTAssertTrue(viewModel.showAllertError)
+        XCTAssertEqual(viewModel.allertTextError, "eMailAlreadyExistTryLogginIn".localized)
+        XCTAssertFalse(viewModel.showCodeTextFild)
+        viewModel.showCodeTextFild = true
+        viewModel.forgotPassword = true
+        viewModel.freeLogin(false)
+        XCTAssertTrue(viewModel.showButtonSendCode)
+        XCTAssertFalse(viewModel.showCodeTextFild)
+    }
+
+    func testFreeLoginShouldLoginFree() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        viewModel.forgotPassword = false
+        viewModel.freeLogin(true)
+        XCTAssertFalse(viewModel.showAllertError)
+        XCTAssertNotEqual(viewModel.allertTextError, "eMailAlreadyExistTryLogginIn".localized)
+        XCTAssertTrue(viewModel.showButtonSendCode)
+        XCTAssertTrue(viewModel.showCodeTextFild)
+        viewModel.forgotPassword = true
+        viewModel.freeLogin(true)
+        XCTAssertTrue(viewModel.showButtonSendCode)
+        XCTAssertTrue(viewModel.showCodeTextFild)
+    }
+
 }
