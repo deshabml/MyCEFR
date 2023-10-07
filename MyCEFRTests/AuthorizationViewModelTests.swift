@@ -221,4 +221,18 @@ final class AuthorizationViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showCodeTextFild)
     }
 
+    func testActionButtonAuthOrReg() {
+        guard let viewModel else {
+            XCTFail()
+            return
+        }
+        let isAuthorization = viewModel.isAuthorization
+        viewModel.actionButtonAuthOrReg()
+        XCTAssertNotEqual(isAuthorization, viewModel.isAuthorization)
+        XCTAssertFalse(viewModel.showCodeTextFild)
+        XCTAssertFalse(viewModel.showCreatePassword)
+        XCTAssertFalse(viewModel.showlogInErrorText)
+        XCTAssertFalse(viewModel.forgotPassword)
+    }
+
 }
