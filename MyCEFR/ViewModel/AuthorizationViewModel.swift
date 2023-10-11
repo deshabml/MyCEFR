@@ -263,7 +263,8 @@ extension AuthorizationViewModel {
     func passwordErrorAnimation() {
         createPasswordSFVMOne.showErrorToggle()
         createPasswordSFVMSecond.showErrorToggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
+            guard let self else { return }
             self.createPasswordSFVMOne.showErrorToggle()
             self.createPasswordSFVMSecond.showErrorToggle()
             self.showPasswordErrorText = true
@@ -273,7 +274,8 @@ extension AuthorizationViewModel {
     func logInErrorAnimation() {
         loginTFVM.showErrorToggle()
         passwordSFVM.showErrorToggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
+            guard let self else { return }
             self.loginTFVM.showErrorToggle()
             self.passwordSFVM.showErrorToggle()
             self.showlogInErrorText = true

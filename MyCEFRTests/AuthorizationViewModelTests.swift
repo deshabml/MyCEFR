@@ -43,7 +43,7 @@ final class AuthorizationViewModelTests: XCTestCase {
             return
         }
         let randomVolue = Int.random(in: 0 ..< 100)
-        var itogOne: Int = randomVolue + randomVolue
+        let itogOne: Int = randomVolue + randomVolue
         var itogTwo: Int = 0
         viewModel.setupCompleteonUpdatingUser(completeonUpdatingUser: {
             itogTwo = randomVolue + randomVolue
@@ -82,7 +82,6 @@ final class AuthorizationViewModelTests: XCTestCase {
             return
         }
         viewModel.sendVerificationCode()
-        let correctCode = viewModel.verificationCode
         let randomCode = viewModel.generateVerificationCode()
         viewModel.verificationCodeTFVM.bindingProperty = randomCode
         let itog = viewModel.checkVerificationCode()
@@ -244,7 +243,8 @@ final class AuthorizationViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.createPasswordSFVMOne.showError)
         XCTAssertTrue(viewModel.createPasswordSFVMSecond.showError)
         let expactation = XCTestExpectation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(80)) {
+        let queue = DispatchQueue(label: "Очередь", qos: .utility)
+        queue.asyncAfter(deadline: .now() + .milliseconds(90)) {
             expactation.fulfill()
         }
         wait(for: [expactation])
@@ -261,14 +261,16 @@ final class AuthorizationViewModelTests: XCTestCase {
         viewModel.logInErrorAnimation()
         XCTAssertTrue(viewModel.loginTFVM.showError)
         XCTAssertTrue(viewModel.passwordSFVM.showError)
-        let expactation = XCTestExpectation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(80)) {
-            expactation.fulfill()
+        let expactationLogIn = XCTestExpectation()
+        let queue = DispatchQueue(label: "Очередь", qos: .utility)
+        queue.asyncAfter(deadline: .now() + .milliseconds(90)) {
+            expactationLogIn.fulfill()
         }
-        wait(for: [expactation])
+        wait(for: [expactationLogIn])
         XCTAssertFalse(viewModel.loginTFVM.showError)
         XCTAssertFalse(viewModel.passwordSFVM.showError)
         XCTAssertTrue(viewModel.showlogInErrorText)
+
     }
 
     func testActionButtonLogInShouldErrorsAuthorizationEmptyAll() {

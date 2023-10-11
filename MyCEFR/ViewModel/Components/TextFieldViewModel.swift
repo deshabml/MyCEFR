@@ -35,7 +35,7 @@ class TextFieldViewModel: ObservableObject {
     }
 
     func showErrorToggle() {
-        showError.toggle()
+        self.showError.toggle()
     }
 
 }
