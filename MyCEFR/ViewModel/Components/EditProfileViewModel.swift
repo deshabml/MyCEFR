@@ -16,7 +16,6 @@ class EditProfileViewModel: ObservableObject {
                                              imageUrl: "")
     @Published var cancelButtonVM = ButtonViewModel(buttonText: "сancel".localized)
     @Published var saveButtonVM = ButtonViewModel(buttonText: "save".localized)
-    
     @Published var nameTFVM = TextFieldViewModel(placeHolder: "")
     @Published var number = ""
     @Published var image = PhotoPickerViewModel()
@@ -54,7 +53,7 @@ class EditProfileViewModel: ObservableObject {
     }
     
     func editProfile() {
-        guard nameTFVM.bindingProperty != "" else { return }
+        guard nameTFVM.bindingProperty != "", completion != nil else { return }
         userProfile.name = nameTFVM.bindingProperty
         Task {
             do {
