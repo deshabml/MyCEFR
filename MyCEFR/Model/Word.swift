@@ -51,3 +51,12 @@ extension Word {
     }
 
 }
+
+struct JSONWord: Codable {
+
+    var word: String
+    var translation: String
+    var transcription: String
+    var partOfSpeech: String
+
+}

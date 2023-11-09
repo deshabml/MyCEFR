@@ -54,6 +54,9 @@
 		DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */; };
 		DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */; };
 		DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */; };
+		DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */; };
+		DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA982AFB988A00CBA47A /* NetworkError.swift */; };
+		DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */; };
 		DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF522A2F20A10046F018 /* HideKeyboard.swift */; };
 		DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */; };
 		DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF582A2F30780046F018 /* BackgroundElement.swift */; };
@@ -131,6 +134,9 @@
 		DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelTests.swift; sourceTree = "<group>"; };
+		DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
+		DDE8AA982AFB988A00CBA47A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		DDEABF522A2F20A10046F018 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
 		DDEABF582A2F30780046F018 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 			children = (
 				DDEABF5A2A2F61830046F018 /* FirestoreService.swift */,
 				DDEABF5C2A305ACE0046F018 /* StorageService.swift */,
+				DDE8AA952AFB982500CBA47A /* Network */,
 				DD9AA5CB2A27F3DC00FB18A8 /* Authorization */,
 			);
 			path = Services;
@@ -393,6 +400,16 @@
 			path = ComponentsTests;
 			sourceTree = "<group>";
 		};
+		DDE8AA952AFB982500CBA47A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8AA982AFB988A00CBA47A /* NetworkError.swift */,
+				DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */,
+				DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -520,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */,
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
 				DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */,
@@ -540,6 +558,7 @@
 				DD4AAEBB2A213AF9003E2860 /* AuthBackgroundElement.swift in Sources */,
 				DDB6E55829F2FE05005A4A72 /* AuthorizationView.swift in Sources */,
 				DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */,
+				DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */,
 				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
@@ -547,6 +566,7 @@
 				DD71FDC82AB24E6300E8EE75 /* MyTab.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
 				DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */,
+				DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,

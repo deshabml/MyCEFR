@@ -7,14 +7,6 @@
 
 import Foundation
 
-// enum MyPage: String, CaseIterable, Identifiable {
-
-//    case authorization, selectLevel, profileSettings(userProfile: UserProfile)
-
-//    var id: String {self.rawValue}
-
-// }
-
 enum MyPage: Hashable, Identifiable {
 
     case authorization

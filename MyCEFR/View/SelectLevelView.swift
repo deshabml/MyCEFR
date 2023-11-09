@@ -18,11 +18,18 @@ struct SelectLevelView: View {
             levels()
             Spacer()
             Button {
+                viewModel.downloadJson()
+                print("DownloadJson")
+            } label: {
+                Text("DownloadJson")
+            }
+            Spacer()
+            Button {
+                viewModel.uploadWord()
                 print("Upload")
             } label: {
                 Text("UploadWord")
             }
-
         }
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
     }
