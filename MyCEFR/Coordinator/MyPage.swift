@@ -12,6 +12,7 @@ enum MyPage: Hashable, Identifiable {
     case authorization
     case selectLevel
     case profileSettings
+    case level
 
     var id: String {
         String(describing: self)
@@ -20,15 +21,17 @@ enum MyPage: Hashable, Identifiable {
     static func == (lhs: MyPage, rhs: MyPage) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
+    
     func hash(into hasher: inout Hasher) {
         switch self {
-        case .authorization:
-            hasher.combine("authorization")
-        case .selectLevel:
-            hasher.combine("selectLevel")
-        case .profileSettings:
-            hasher.combine("profileSettings")
+            case .authorization:
+                hasher.combine("authorization")
+            case .selectLevel:
+                hasher.combine("selectLevel")
+            case .profileSettings:
+                hasher.combine("profileSettings")
+            case .level:
+                hasher.combine("level")
         }
     }
-
 }

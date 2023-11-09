@@ -57,6 +57,7 @@
 		DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */; };
 		DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA982AFB988A00CBA47A /* NetworkError.swift */; };
 		DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */; };
+		DDE8AA9D2AFCC50100CBA47A /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */; };
 		DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF522A2F20A10046F018 /* HideKeyboard.swift */; };
 		DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */; };
 		DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF582A2F30780046F018 /* BackgroundElement.swift */; };
@@ -137,6 +138,7 @@
 		DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
 		DDE8AA982AFB988A00CBA47A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		DDEABF522A2F20A10046F018 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
 		DDEABF582A2F30780046F018 /* BackgroundElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundElement.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
 				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
+				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -551,6 +554,7 @@
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
 				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
+				DDE8AA9D2AFCC50100CBA47A /* LevelView.swift in Sources */,
 				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
 				DD1DFEBA2A9D3A5B000AAE33 /* Group.swift in Sources */,
 				DDF408A72A3F4AA800FB1F35 /* SMTPSetting.swift in Sources */,

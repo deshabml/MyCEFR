@@ -38,6 +38,10 @@ final class Coordinator: ObservableObject {
         path.removeLast(path.count)
     }
 
+    func goToLevelScreen() {
+        path.append(MyPage.level)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -47,6 +51,8 @@ final class Coordinator: ObservableObject {
                 SelectLevelView(viewModel: SelectLevelViewModel())
             case .profileSettings:
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel())
+            case .level:
+                LevelView()
         }
     }
 

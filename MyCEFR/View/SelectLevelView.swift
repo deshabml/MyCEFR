@@ -61,26 +61,32 @@ extension SelectLevelView {
     }
 
     private func levelCell(level: Level) -> some View {
-        VStack(alignment: .center, spacing: 35) {
-            VStack(alignment: .center, spacing: 8) {
-                Text(level.name)
-                Text(level.fullName)
+        Button {
+            if level.id == "1" {
+                coordinator.goToLevelScreen()
             }
-            .padding(.top)
-            ProgressView(value: 0.3)
-                .progressViewStyle(.linear)
-                .frame(height: 8)
-                .tint(Color("ProgressLevelColor"))
-                .background(Color("ProgressBackLevelColor"))
-                .cornerRadius(4)
-                .padding(.horizontal)
+        } label: {
+            VStack(alignment: .center, spacing: 35) {
+                VStack(alignment: .center, spacing: 8) {
+                    Text(level.name)
+                    Text(level.fullName)
+                }
+                .padding(.top)
+                ProgressView(value: 0.3)
+                    .progressViewStyle(.linear)
+                    .frame(height: 8)
+                    .tint(Color("ProgressLevelColor"))
+                    .background(Color("ProgressBackLevelColor"))
+                    .cornerRadius(4)
+                    .padding(.horizontal)
+            }
+            .modifier(TextElement(size: 28,
+                                  verticalPadding: 40,
+                                  foregroundColor: .white))
+            .frame(width: 244, height: 144)
+            .background(Color("MainBlueColor"))
+            .cornerRadius(18)
         }
-        .modifier(TextElement(size: 28,
-                              verticalPadding: 40,
-                              foregroundColor: .white))
-        .frame(width: 244, height: 144)
-        .background(Color("MainBlueColor"))
-        .cornerRadius(18)
     }
 
     private func levels() -> some View {
