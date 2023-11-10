@@ -115,7 +115,6 @@ extension Coordinator {
     func levelBackColor(level: Level) -> UIColor {
         let colorName = level.fullName.filter { $0 != "-" } + "BackColor"
         let color = UIColor(named: colorName)
-        print(colorName)
         guard let color else { return UIColor.blue }
         return color
     }

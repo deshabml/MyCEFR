@@ -34,7 +34,7 @@ final class SelectLevelViewModel: ObservableObject {
             do {
                 let words = try await NetworkServiceAA.shared.getData(dataset: [JSONWord(word: "", translation: "", transcription: "", partOfSpeech: "")])
                 for word in words {
-                    wordsA1.append(Word(groupID: "2", groupName: "Arts and media", word: word.word, translation: word.translation, transcription: word.transcription, partOfSpeechID: word.partOfSpeech))
+                    wordsA1.append(Word(groupID: "19", groupName: "Describing things", word: word.word, translation: word.translation, transcription: word.transcription, partOfSpeechID: word.partOfSpeech))
                     print(wordsA1)
                 }
             } catch { 

@@ -58,12 +58,12 @@ extension LevelView {
                 .scaledToFill()
                 .frame(width: 40, height: 40)
                 .foregroundColor(Color("MainBlueColor"))
-                .shadow(color: .black, radius: 2, x: 2, y: 2)
+                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
         }
         .padding()
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .black, radius: 2, x: 2, y: 2)
+        .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
         .padding()
     }
 }

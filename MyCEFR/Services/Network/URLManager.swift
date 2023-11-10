@@ -28,5 +28,5 @@ enum Server: String {
 
 enum EndPoint: String {
 
-    case words = "/v3/630982f9-a05f-4025-bc48-8b2beae36d70"
+    case words = "/v3/bb3d8cf0-425b-4fa3-a13d-0f80d7cc0243"
 }
