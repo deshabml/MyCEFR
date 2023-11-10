@@ -24,7 +24,6 @@ struct PhotoPickerView: View {
                 .shadow(color: .black, radius: 8)
         }
     }
-
 }
 
 struct PhotoPickerView_Previews: PreviewProvider {
@@ -32,6 +31,5 @@ struct PhotoPickerView_Previews: PreviewProvider {
     static var previews: some View {
         PhotoPickerView(viewModel: PhotoPickerViewModel())
     }
-
 }
 

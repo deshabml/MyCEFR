@@ -39,7 +39,6 @@ struct TextFieldView: View {
                            value: viewModel.showError)
         }
     }
-
 }
 
 struct TextFieldView_Previews: PreviewProvider {
@@ -48,5 +47,4 @@ struct TextFieldView_Previews: PreviewProvider {
         TextFieldView(viewModel: TextFieldViewModel(placeHolder: "Demo"),
                       size: 24, width: 110, height: 20)
     }
-
 }

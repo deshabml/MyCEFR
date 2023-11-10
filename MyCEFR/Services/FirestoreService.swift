@@ -82,5 +82,4 @@ class FirestoreService {
             throw error
         }
     }
-
 }

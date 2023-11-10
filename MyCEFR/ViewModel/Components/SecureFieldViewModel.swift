@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SecureFieldViewModel: ObservableObject {
+final class SecureFieldViewModel: ObservableObject {
 
     @Published var bindingProperty: String = "" {
         didSet {

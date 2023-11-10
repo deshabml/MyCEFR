@@ -52,5 +52,4 @@ struct AuthBackgroundElement: ViewModifier {
 
             )
     }
-    
 }

@@ -13,7 +13,6 @@ struct SMTPSetting {
     var email: String
     var password: String
     var port: Int32
-    
 }
 
 extension SMTPSetting {
@@ -37,5 +36,4 @@ extension SMTPSetting {
         self.password = password
         self.port = port
     }
-
 }

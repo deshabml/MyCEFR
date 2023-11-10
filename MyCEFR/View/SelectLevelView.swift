@@ -33,7 +33,6 @@ struct SelectLevelView: View {
         }
         .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
     }
-    
 }
 
 struct SelectLevelView_Previews: PreviewProvider {
@@ -42,7 +41,6 @@ struct SelectLevelView_Previews: PreviewProvider {
         SelectLevelView(viewModel: SelectLevelViewModel())
             .environmentObject(Coordinator(isWorker: false))
     }
-
 }
 
 extension SelectLevelView {
@@ -62,6 +60,7 @@ extension SelectLevelView {
 
     private func levelCell(level: Level) -> some View {
         Button {
+            coordinator.setupSelectLevel(level: level)
             if level.id == "1" {
                 coordinator.goToLevelScreen()
             }
@@ -84,7 +83,9 @@ extension SelectLevelView {
                                   verticalPadding: 40,
                                   foregroundColor: .white))
             .frame(width: 244, height: 144)
-            .background(Color("MainBlueColor"))
+            .background {
+                Color(uiColor: coordinator.levelBackColor(level: level))
+            }
             .cornerRadius(18)
         }
     }
@@ -105,6 +106,5 @@ extension SelectLevelView {
             }
         }
         .padding(.top, 200)
-    }
-    
+    }    
 }

@@ -20,5 +20,4 @@ struct ShowScreenSettingsElement: ViewModifier {
             .shadow(radius: 2)
             .padding()
     }
-
 }

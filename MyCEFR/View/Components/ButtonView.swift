@@ -48,7 +48,6 @@ struct ButtonView: View {
             }
         }
     }
-
 }
 
 struct ButtonView_Previews: PreviewProvider {
@@ -58,5 +57,4 @@ struct ButtonView_Previews: PreviewProvider {
                    color: (.black, Color("MainTopicColor")),
                    width: 110)
     }
-    
 }

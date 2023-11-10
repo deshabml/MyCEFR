@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectLevelViewModel: ObservableObject {
+final class SelectLevelViewModel: ObservableObject {
 
     @Published var levels: [Level] = []
     var wordsA1: [Word] = []
@@ -37,10 +37,9 @@ class SelectLevelViewModel: ObservableObject {
                     wordsA1.append(Word(groupID: "2", groupName: "Arts and media", word: word.word, translation: word.translation, transcription: word.transcription, partOfSpeechID: word.partOfSpeech))
                     print(wordsA1)
                 }
-            } catch {
+            } catch { 
                 print(error.localizedDescription)
             }
-
         }
     }
 
@@ -51,9 +50,10 @@ class SelectLevelViewModel: ObservableObject {
 //                    try await FirestoreService.shared.editWord(word: word, level: Level(id: "3",
 //                                                                                        name: "B1",
 //                                                                                        fullName: "Intermediate"))
-//                } catch { print(error.localizedDescription) }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
 //            }
 //        }
     }
-
 }

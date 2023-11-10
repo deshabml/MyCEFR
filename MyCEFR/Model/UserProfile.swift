@@ -14,7 +14,6 @@ struct UserProfile: Identifiable {
     var eMail: String
     var phone: Int
     var imageUrl: String
-
 }
 
 extension UserProfile {
@@ -41,5 +40,4 @@ extension UserProfile {
         self.phone = phone
         self.imageUrl = imageUrl
     }
-
 }

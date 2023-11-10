@@ -62,5 +62,4 @@ class AuthService {
             try await auth.sendPasswordReset(withEmail: login)
         } catch { throw error }
     }
-
 }

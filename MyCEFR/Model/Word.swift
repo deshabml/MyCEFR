@@ -16,7 +16,6 @@ struct Word: Identifiable {
     var translation: String
     var transcription: String
     var partOfSpeechID: String
-
 }
 
 extension Word {
@@ -49,7 +48,6 @@ extension Word {
         self.transcription = transcription
         self.partOfSpeechID = partOfSpeechID
     }
-
 }
 
 struct JSONWord: Codable {
@@ -58,5 +56,4 @@ struct JSONWord: Codable {
     var translation: String
     var transcription: String
     var partOfSpeech: String
-
 }

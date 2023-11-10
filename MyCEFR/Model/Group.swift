@@ -11,7 +11,6 @@ struct Group: Identifiable {
 
     var id: String = UUID().uuidString
     var name: String
-
 }
 
 extension Group {
@@ -29,5 +28,4 @@ extension Group {
         self.id = id
         self.name = name
     }
-
 }

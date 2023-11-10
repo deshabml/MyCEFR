@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ButtonImageViewModel: ObservableObject {
+final class ButtonImageViewModel: ObservableObject {
 
     let imageSystemName: String
     var action: (()->())!

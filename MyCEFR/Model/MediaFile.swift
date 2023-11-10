@@ -11,5 +11,4 @@ struct MediaFile: Identifiable {
 
     var id: String = UUID().uuidString
     var data: Data
-
 }

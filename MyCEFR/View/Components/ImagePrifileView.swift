@@ -35,7 +35,6 @@ struct ImagePrifileView: View {
                    width: 2,
                    cornerRadius: size / 2)
     }
-    
 }
 
 struct ImagePrifileView_Previews: PreviewProvider {
@@ -44,5 +43,4 @@ struct ImagePrifileView_Previews: PreviewProvider {
         ImagePrifileView(size: 100)
             .environmentObject(Coordinator(isWorker: false))
     }
-
 }

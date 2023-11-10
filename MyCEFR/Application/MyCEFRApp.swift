@@ -18,7 +18,6 @@ struct MyCEFRApp: App {
                 .environmentObject(Coordinator(isWorker: true))
         }
     }
-
 }
 
 

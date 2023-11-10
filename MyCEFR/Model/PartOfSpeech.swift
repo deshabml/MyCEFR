@@ -11,7 +11,6 @@ struct PartOfSpeech: Identifiable {
 
     var id: String = UUID().uuidString
     var name: String
-
 }
 
 extension PartOfSpeech {
@@ -29,5 +28,4 @@ extension PartOfSpeech {
         self.id = id
         self.name = name
     }
-
 }

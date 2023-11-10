@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShowScreenEPViewModel: ObservableObject {
+final class ShowScreenEPViewModel: ObservableObject {
 
     @Published var isShow: Bool = false
     var imageName: String

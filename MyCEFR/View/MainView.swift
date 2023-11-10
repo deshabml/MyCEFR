@@ -35,10 +35,12 @@ extension MainView {
                 TabView(selection: $coordinator.tab) {
                     tabItem(myPage: .selectLevel,
                             imageName: "house.fill",
-                            myTab: .home)
+                            myTab: .home,
+                            path: $coordinator.pathHome)
                     tabItem(myPage: .profileSettings,
                             imageName: "person.fill",
-                            myTab: .profile)
+                            myTab: .profile,
+                            path: $coordinator.pathProfile)
                 }
             } else {
                 AuthorizationView(viewModel: AuthorizationViewModel())
@@ -48,8 +50,8 @@ extension MainView {
         .preferredColorScheme(.light)
     }
 
-    private func tabItem(myPage: MyPage,imageName: String, myTab: MyTab) -> some View {
-        NavigationStack(path: $coordinator.path) {
+    private func tabItem(myPage: MyPage,imageName: String, myTab: MyTab, path: Binding<NavigationPath>) -> some View {
+        NavigationStack(path: path) {
             coordinator.getPage(myPage)
                 .navigationDestination(for: MyPage.self) { page in
                     coordinator.getPage(page)
@@ -61,5 +63,4 @@ extension MainView {
         }
         .tag(myTab)
     }
-
 }

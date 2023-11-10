@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthorizationViewModel: ObservableObject {
+final class AuthorizationViewModel: ObservableObject {
 
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
@@ -88,7 +88,6 @@ class AuthorizationViewModel: ObservableObject {
         }
         return true
     }
-
 }
 
 extension AuthorizationViewModel {
@@ -147,7 +146,6 @@ extension AuthorizationViewModel {
             showButton = false
         }
     }
-
 }
 
 extension AuthorizationViewModel {
@@ -311,5 +309,4 @@ extension AuthorizationViewModel {
             print(error)
         }
     }
-
 }

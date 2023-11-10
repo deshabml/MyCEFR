@@ -18,5 +18,4 @@ extension String {
         let localized = Self.localizedStringWithFormat(format, argument)
         return localized
     }
-
 }

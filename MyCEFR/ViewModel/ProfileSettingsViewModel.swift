@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ProfileSettingsViewModel: ObservableObject {
+final class ProfileSettingsViewModel: ObservableObject {
 
     @Published var buttonExitVM = ButtonViewModel(buttonText: "logOut".localized)
 
@@ -30,6 +30,4 @@ class ProfileSettingsViewModel: ObservableObject {
     func editUserData() {
         editPVM.showScreenEditProfile.isShow.toggle()
     }
-
-
 }

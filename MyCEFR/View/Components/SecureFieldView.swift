@@ -51,7 +51,6 @@ struct SecureFieldView: View {
                                     blendDuration: 0.3),
                    value: viewModel.showError)
     }
-
 }
 
 struct SecureFieldView_Previews: PreviewProvider {
@@ -59,5 +58,4 @@ struct SecureFieldView_Previews: PreviewProvider {
     static var previews: some View {
         SecureFieldView(viewModel: SecureFieldViewModel())
     }
-    
 }

@@ -31,12 +31,10 @@ struct ProfileSettingsView: View {
             }
         }
                .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
-               .environmentObject(coordinator)
                .onAppear {
                    viewModel.setup { coordinator.updatingUser() }
                }
     }
-    
 }
 
 struct ProfileSettingsView_Previews: PreviewProvider {
@@ -45,7 +43,6 @@ struct ProfileSettingsView_Previews: PreviewProvider {
         ProfileSettingsView(viewModel: ProfileSettingsViewModel())
             .environmentObject(Coordinator(isWorker: false))
     }
-    
 }
 
 extension ProfileSettingsView {
@@ -71,5 +68,4 @@ extension ProfileSettingsView {
             viewModel.editUserData()
         }
     }
-
 }

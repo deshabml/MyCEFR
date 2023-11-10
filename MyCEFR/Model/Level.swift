@@ -12,7 +12,6 @@ struct Level: Identifiable {
     var id: String
     var name: String
     var fullName: String
-
 }
 
 extension Level {
@@ -33,5 +32,4 @@ extension Level {
         self.name = name
         self.fullName = fullName
     }
-
 }

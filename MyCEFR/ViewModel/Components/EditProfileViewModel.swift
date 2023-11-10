@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EditProfileViewModel: ObservableObject {
+final class EditProfileViewModel: ObservableObject {
     
     @Published var showScreenEditProfile = ShowScreenEPViewModel(imageName: "WhiteBackground")
     @Published var userProfile = UserProfile(name: "firstAndlastName".localized,

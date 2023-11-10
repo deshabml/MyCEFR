@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TextFieldViewModel: ObservableObject {
+final class TextFieldViewModel: ObservableObject {
 
     @Published var bindingProperty: String = "" {
         didSet {

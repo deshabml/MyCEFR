@@ -28,7 +28,6 @@ struct ShowScreenEPView<Content: View>: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .animation(.easeInOut, value: viewModel.isShow)
     }
-    
 }
 
 struct ShowScreenEPView_Previews: PreviewProvider {
@@ -37,5 +36,4 @@ struct ShowScreenEPView_Previews: PreviewProvider {
         ShowScreenEPView(viewModel: ShowScreenEPViewModel(imageName: ""), screen: EditProfileView(viewModel: EditProfileViewModel()))
             .environmentObject(Coordinator(isWorker: false))
     }
-
 }

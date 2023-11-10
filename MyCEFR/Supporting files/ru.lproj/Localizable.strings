@@ -34,6 +34,9 @@
 "selectYourLevel" = "Выберите свой уровень";
 "firstAndlastName" = "Имя и Фамилия";
 "theSizeOfThePhotoShouldNotExceedTwoMB" = "Размер фотографии не должен превышать 2 Mb";
+"vocabulary" = "Словарный запас";
+"grammar" = "Грамматика";
+"test" = "Тест";
 
 
 

@@ -40,7 +40,6 @@ struct EditProfileView: View {
             onApperAction()
         }
     }
-
 }
 
 struct EditProfileView_Previews: PreviewProvider {
@@ -49,7 +48,6 @@ struct EditProfileView_Previews: PreviewProvider {
         EditProfileView(viewModel: EditProfileViewModel())
             .environmentObject(Coordinator(isWorker: false))
     }
-    
 }
 
 extension EditProfileView {
@@ -62,5 +60,4 @@ extension EditProfileView {
             viewModel.image.setupImageStandard(Image(uiImage: image))
         }
     }
-
 }

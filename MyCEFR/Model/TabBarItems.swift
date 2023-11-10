@@ -11,5 +11,4 @@ enum TabBarItems {
 
     case profileSettings
     case selectLevel
-
 }

@@ -10,7 +10,8 @@ import SwiftUI
 @MainActor
 final class Coordinator: ObservableObject {
 
-    @Published var path = NavigationPath()
+    @Published var pathHome = NavigationPath()
+    @Published var pathProfile = NavigationPath()
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
     @Published var isUser = false
@@ -19,6 +20,9 @@ final class Coordinator: ObservableObject {
                                                           eMail: "adress@email.ru",
                                                           phone: 88888888888,
                                                           imageUrl: "")
+    @Published var selectLevel: Level = Level(id: "",
+                                              name: "",
+                                              fullName: "")
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
@@ -35,11 +39,15 @@ final class Coordinator: ObservableObject {
     }
 
     func goHome() {
-        path.removeLast(path.count)
+        pathHome.removeLast(pathHome.count)
     }
 
     func goToLevelScreen() {
-        path.append(MyPage.level)
+        pathHome.append(MyPage.level)
+    }
+
+    func goBackHome() {
+        pathHome.removeLast()
     }
 
     @ViewBuilder
@@ -52,10 +60,9 @@ final class Coordinator: ObservableObject {
             case .profileSettings:
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel())
             case .level:
-                LevelView()
+                LevelView(viewModel: LevelViewModel(level: self.selectLevel))
         }
     }
-
 }
 
 extension Coordinator {
@@ -97,5 +104,19 @@ extension Coordinator {
             }
         }
     }
+}
 
+extension Coordinator {
+
+    func setupSelectLevel(level: Level) {
+        selectLevel = level
+    }
+
+    func levelBackColor(level: Level) -> UIColor {
+        let colorName = level.fullName.filter { $0 != "-" } + "BackColor"
+        let color = UIColor(named: colorName)
+        print(colorName)
+        guard let color else { return UIColor.blue }
+        return color
+    }
 }

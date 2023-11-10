@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CircularProgressViewModel: ObservableObject {
+final class CircularProgressViewModel: ObservableObject {
 
     @Published var progress: Double = 0
 

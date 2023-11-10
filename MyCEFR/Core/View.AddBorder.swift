@@ -14,5 +14,4 @@ extension View {
          return clipShape(roundedRect)
               .overlay(roundedRect.strokeBorder(content, lineWidth: width))
      }
-
  }
