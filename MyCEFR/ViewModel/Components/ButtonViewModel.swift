@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ButtonViewModel: ObservableObject {
+final class ButtonViewModel: ObservableObject {
 
     let buttonText: String
     var action: (()->())!

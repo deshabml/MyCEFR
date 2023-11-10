@@ -7,12 +7,11 @@
 
 import Foundation
 
-class AuthorizationViewModel: ObservableObject {
+final class AuthorizationViewModel: ObservableObject {
 
-    let contentViewModel: ContentViewModel
     @Published var loginTFVM = TextFieldViewModel(placeHolder: "E-mail")
     @Published var passwordSFVM = SecureFieldViewModel()
-    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "Код")
+    @Published var verificationCodeTFVM = TextFieldViewModel(placeHolder: "code".localized)
     @Published var createPasswordSFVMOne = SecureFieldViewModel()
     @Published var createPasswordSFVMSecond = SecureFieldViewModel()
     @Published var isAuthorization = true
@@ -25,38 +24,70 @@ class AuthorizationViewModel: ObservableObject {
     @Published var showPasswordErrorText = false
     @Published var showlogInErrorText = false
     @Published var showButtonCompleteRegistration = false
-    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "Отправить")
-    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "Выслать код")
-    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "Войти")
-    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "Завершить регистрацию")
+    @Published var forgotPassword = false {
+        didSet {
+            passwordSFVM.bindingProperty = ""
+        }
+    }
+    @Published var buttonSendViewModel = ButtonViewModel(buttonText: "send".localized)
+    @Published var buttonSendCodeViewModel = ButtonViewModel(buttonText: "sendMail".localized)
+    @Published var buttonLogInViewModel = ButtonViewModel(buttonText: "logIn".localized)
+    @Published var buttonRegComplitedViewModel = ButtonViewModel(buttonText: "completeReg".localized)
     @Published var buttomEditMailBIVM = ButtonImageViewModel(imageSystemName: "square.and.pencil")
+    var backgraundText: String {
+        if isAuthorization {
+            return "authorize".localized
+        } else {
+            if forgotPassword {
+                return "passwordRecovery".localized
+            } else {
+                return "register".localized
+            }
+        }
+    }
+    var buttonSwicthScreenText: String {
+        if isAuthorization {
+            return "notWithUsYet".localized
+        } else {
+            if forgotPassword {
+                return "backToAuthorisation".localized
+            } else {
+                return "alreadyHaveAnAccount".localized
+            }
+        }
+    }
     var allertTextError = ""
     var passwordErrorText = ""
     var logInErrorText = ""
-    private var verificationCode = ""
+    var verificationCode = ""
+    var completeonUpdatingUser: (()->())!
 
-    init(contentViewModel: ContentViewModel) {
-        self.contentViewModel = contentViewModel
+    init() {
         setupComlpitionElements()
+    }
+
+    func setupCompleteonUpdatingUser(completeonUpdatingUser: @escaping ()->()) {
+        self.completeonUpdatingUser = completeonUpdatingUser
     }
 
     func sendVerificationCode() {
         let code = generateVerificationCode()
         verificationCode = code
         Task {
-            await SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty, verificationCode: code)
+            await SMTPService.shared.sendMail(mail: loginTFVM.bindingProperty,
+                                              verificationCode: code,
+                                              forgotPassword: forgotPassword)
         }
     }
 
     func checkVerificationCode() -> Bool {
         guard verificationCodeTFVM.bindingProperty == verificationCode else {
-            allertTextError = "Вы ввели неверный код!"
+            allertTextError = "wrongCode".localized
             showAllertError.toggle()
             return false
         }
         return true
     }
-
 }
 
 extension AuthorizationViewModel {
@@ -107,7 +138,6 @@ extension AuthorizationViewModel {
         }
     }
 
-
     func toggleShowButton(texts: [String], showButton: inout Bool) {
         let filterText = texts.filter { $0 != "" }
         if filterText.count == texts.count {
@@ -116,7 +146,6 @@ extension AuthorizationViewModel {
             showButton = false
         }
     }
-
 }
 
 extension AuthorizationViewModel {
@@ -156,7 +185,7 @@ extension AuthorizationViewModel {
                 }
             }
         } catch ErrorsAuthorization.notMail {
-            allertTextError = "Введен не корректный E-mail"
+            allertTextError = "incorrectEMail".localized
             showAllertError.toggle()
         } catch {
             print(error)
@@ -165,12 +194,30 @@ extension AuthorizationViewModel {
 
     func freeLogin(_ isFreeLogin: Bool) {
         if isFreeLogin {
-            showButtonSendCode.toggle()
-            showCodeTextFild.toggle()
-            sendVerificationCode()
+            if forgotPassword {
+                allertTextError = "anAccountWithThisEmailDoesNotExist".localized
+                showAllertError.toggle()
+            } else {
+                showButtonSendCode.toggle()
+                showCodeTextFild.toggle()
+                sendVerificationCode()
+            }
         } else {
-            allertTextError = "Профиль с таким e-mail уже существует, попробуйте авторизоваться!"
-            showAllertError.toggle()
+            if forgotPassword {
+                showButtonSendCode.toggle()
+                showCodeTextFild.toggle()
+                Task {
+                    do {
+                        try await AuthService.shared.sendPasswordReset(login: loginTFVM.bindingProperty)
+                    } catch {
+                        print(error)
+                    }
+                }
+                actionButtonAuthOrReg()
+            } else {
+                allertTextError = "eMailAlreadyExistTryLogginIn".localized
+                showAllertError.toggle()
+            }
         }
     }
 
@@ -181,11 +228,12 @@ extension AuthorizationViewModel {
             showCreatePassword = false
         }
         showlogInErrorText = false
+        forgotPassword = false
     }
 
     func actionButtonRegComplited() {
         guard createPasswordSFVMOne.bindingProperty == createPasswordSFVMSecond.bindingProperty else {
-            passwordErrorText = "Введенные пароли не совпадают!"
+            passwordErrorText = "passwordsDontMatch".localized
             passwordErrorAnimation()
             return
         }
@@ -196,14 +244,14 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signUp(login:loginTFVM.bindingProperty, password: password)
                     DispatchQueue.main.async { [unowned self] in
-                        self.contentViewModel.updatingUser()
+                        self.completeonUpdatingUser()
                     }
                 } catch {
                     print(error)
                 }
             }
         } catch ErrorsAuthorization.shortPassword {
-            passwordErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            passwordErrorText = "notSecurePassword".localized
             passwordErrorAnimation()
         } catch {
             print(error)
@@ -213,7 +261,8 @@ extension AuthorizationViewModel {
     func passwordErrorAnimation() {
         createPasswordSFVMOne.showErrorToggle()
         createPasswordSFVMSecond.showErrorToggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
+            guard let self else { return }
             self.createPasswordSFVMOne.showErrorToggle()
             self.createPasswordSFVMSecond.showErrorToggle()
             self.showPasswordErrorText = true
@@ -223,7 +272,8 @@ extension AuthorizationViewModel {
     func logInErrorAnimation() {
         loginTFVM.showErrorToggle()
         passwordSFVM.showErrorToggle()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
+            guard let self else { return }
             self.loginTFVM.showErrorToggle()
             self.passwordSFVM.showErrorToggle()
             self.showlogInErrorText = true
@@ -237,25 +287,26 @@ extension AuthorizationViewModel {
                 do {
                     let _ = try await AuthService.shared.signIn(login: loginTFVM.bindingProperty, password: passwordSFVM.bindingProperty)
                     DispatchQueue.main.async { [unowned self] in
-                        self.contentViewModel.updatingUser()
+                        self.completeonUpdatingUser()
                     }
                 } catch {
-                    logInErrorText = "Неправильно указан логин или пароль"
-                    logInErrorAnimation()
+                    DispatchQueue.main.async { [unowned self] in
+                        self.logInErrorText = "incorrectLoginOrPassword".localized
+                        self.logInErrorAnimation()
+                    }
                 }
             }
         } catch ErrorsAuthorization.emptyAll {
-            logInErrorText = "E-mail не может буть пустым!"
+            logInErrorText = "eMailCanNotBeEmpty".localized
             logInErrorAnimation()
         } catch ErrorsAuthorization.notMail {
-            logInErrorText = "Введен не корректный E-mail"
+            logInErrorText = "incorrectEMail".localized
             logInErrorAnimation()
         } catch ErrorsAuthorization.shortPassword {
-            logInErrorText = "Не безопасный пароль! должно быть не менее 8 символов (латинский алфавит, разного регистра и цифры)"
+            logInErrorText = "notSecurePassword".localized
             logInErrorAnimation()
         } catch {
             print(error)
         }
     }
-
 }

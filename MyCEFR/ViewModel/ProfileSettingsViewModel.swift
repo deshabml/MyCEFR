@@ -5,31 +5,29 @@
 //  Created by Лаборатория on 31.05.2023.
 //
 
-import Foundation
+import SwiftUI
 
-class ProfileSettingsViewModel: ObservableObject {
+final class ProfileSettingsViewModel: ObservableObject {
 
-    let contentViewModel: ContentViewModel
-    private var user: UserProfile = UserProfile(eMail: "")
-    @Published var email = ""
-    @Published var buttonExitVM = ButtonViewModel(buttonText: "Выход")
+    @Published var buttonExitVM = ButtonViewModel(buttonText: "logOut".localized)
 
-    init(contentViewModel: ContentViewModel) {
-        self.contentViewModel = contentViewModel
+    @Published var editPVM = EditProfileViewModel()
+    var completeonUpdatingUser: (()->())!
+
+    func setup(completeonUpdatingUser: @escaping ()->()) {
+        self.completeonUpdatingUser = completeonUpdatingUser
         self.buttonExitVM.setupAction {
             do {
                 try AuthService.shared.signOut()
-                self.contentViewModel.updatingUser()
+                self.completeonUpdatingUser()
             } catch {
-                print(error)
+                print(error.localizedDescription)
             }
         }
-        user = UserProfile(eMail: contentViewModel.currentUser?.email ?? "")
     }
 
-    func setupUser(user: UserProfile) {
-        self.user = user
-        email = user.eMail
-    }
 
+    func editUserData() {
+        editPVM.showScreenEditProfile.isShow.toggle()
+    }
 }

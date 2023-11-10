@@ -29,7 +29,9 @@ struct TextFieldView: View {
                 .padding()
                 .background(.white)
                 .cornerRadius(8)
-                .addBorder(viewModel.showError ? .red : .white, width: 2, cornerRadius: 8)
+                .addBorder(viewModel.showError ? .red : .white,
+                           width: 2,
+                           cornerRadius: 8)
                 .padding(.leading, viewModel.showError ? 5 : 0)
                 .animation(Animation.spring(response: 0.2,
                                             dampingFraction: 0.1,
@@ -37,12 +39,12 @@ struct TextFieldView: View {
                            value: viewModel.showError)
         }
     }
-
 }
 
 struct TextFieldView_Previews: PreviewProvider {
+
     static var previews: some View {
-        TextFieldView(viewModel: TextFieldViewModel(placeHolder: ""),
+        TextFieldView(viewModel: TextFieldViewModel(placeHolder: "Demo"),
                       size: 24, width: 110, height: 20)
     }
 }

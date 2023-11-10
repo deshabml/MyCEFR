@@ -17,9 +17,9 @@ struct TextElement: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("ItimCyrillic", size: size))
+            .multilineTextAlignment(.center)
             .padding(.vertical, verticalPadding)
             .padding(.horizontal, horizontalPadding)
             .foregroundColor(foregroundColor)
     }
-
 }

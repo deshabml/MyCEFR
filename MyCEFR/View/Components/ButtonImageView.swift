@@ -22,10 +22,10 @@ struct ButtonImageView: View {
                 .padding(.horizontal, 8)
         }
     }
-    
 }
 
 struct ButtonImageView_Previews: PreviewProvider {
+
     static var previews: some View {
         ButtonImageView(viewModel: ButtonImageViewModel(imageSystemName: "square.and.pencil"))
     }

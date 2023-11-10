@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  MyCEFR
+
+  Created by Лаборатория on 25.06.2023.
+  
+*/
+
+"code" = "Code";
+"send" = "Send";
+"sendMail" = "Send mail";
+"logIn" = "log in";
+"completeReg" = "Complete regisrtation";
+"authorize" = "Authorize";
+"register" = "Register";
+"passwordRecovery" = "Password recovery";
+"notWithUsYet" = "Not with us yet?";
+"alreadyHaveAnAccount" = "Already have an account";
+"backToAuthorisation" = "Back to authorisation";
+"wrongCode" = "Wrong code!";
+"incorrectEMail" = "Incorrect e-mail";
+"anAccountWithThisEmailDoesNotExist" = "An account with this email does not exist!";
+"eMailAlreadyExistTryLogginIn" = "E-mail already exist, try loggin in!";
+"passwordsDontMatch" = "passwords don't match!";
+"notSecurePassword" = "Not a secure password! Must be at least 8 characters (latin aiphabet, mixed case and numbers)";
+"incorrectLoginOrPassword" = "Incorrect login or password";
+"eMailCanNotBeEmpty" = "E-mail can not be empty!";
+"forgotPassword" = "Forgot password?";
+"password" = "Password";
+"logOut" = "log out";
+"save" = "Save";
+"сancel" = "Cancel";
+"settings" = "Settings";
+"selectYourLevel" = "Select your level";
+"firstAndlastName" = "First and last name";
+"theSizeOfThePhotoShouldNotExceedTwoMB" = "The size of the photo should not exceed 2 MB";
+"vocabulary" = "Vocabulary";
+"grammar" = "Grammar";
+"test" = "Test";

@@ -23,11 +23,20 @@ class AuthService {
         } catch { throw error }
     }
 
-    func signUp(login: String, password: String) async throws -> User {
+    func signUp(login: String, password: String) async throws -> UserProfile {
         do {
             let result = try await auth.createUser(withEmail: login,
                                                    password: password)
-            return result.user
+            let user = result.user
+            let userProfile = UserProfile(id: user.uid,
+                                          name: "firstAndlastName".localized,
+                                          eMail: user.email ?? "",
+                                          phone: 0,
+                                          imageUrl: "UserImage/\(user.uid)Image.jpg")
+            do {
+                try await FirestoreService.shared.editProfile(userProfile: userProfile)
+                return userProfile
+            } catch { throw error }
         } catch { throw error }
     }
 
@@ -48,4 +57,9 @@ class AuthService {
         } catch { throw error }
     }
 
+    func sendPasswordReset(login: String) async throws {
+        do {
+            try await auth.sendPasswordReset(withEmail: login)
+        } catch { throw error }
+    }
 }

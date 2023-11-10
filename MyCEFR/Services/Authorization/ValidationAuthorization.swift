@@ -32,9 +32,11 @@ final class ValidationAuthorization {
     }
 
     func isMail(login: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailRegEx = "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
+        let emailRegExSecond = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: login)
+        let emailPredSecond = NSPredicate(format:"SELF MATCHES %@", emailRegExSecond)
+        return emailPred.evaluate(with: login) && emailPredSecond.evaluate(with: login)
     }
 
     func isSecurePassword(password: String) -> Bool {
@@ -42,5 +44,4 @@ final class ValidationAuthorization {
         let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: password)
     }
-
 }
