@@ -48,11 +48,17 @@ final class WordGroupViewModel: ObservableObject {
         }
         var nameGroup = ""
         var partNuber = 1
+        let roomNumbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VII", "X", "XI", "XII"]
         for index in 0 ..< wordsGroup.count {
             if nameGroup == wordsGroup[index].group.name {
                 partNuber += 1
-                wordsGroup[index].group.name = nameGroup + " (part \(partNuber))"
+                if partNuber < 13 {
+                    wordsGroup[index].group.name = nameGroup + " (part " + roomNumbers[partNuber - 1] + ")"
+                } else {
+                    wordsGroup[index].group.name = nameGroup + " (part \(partNuber))"
+                }
             } else {
+                partNuber = 1
                 nameGroup = wordsGroup[index].group.name
             }
         }
