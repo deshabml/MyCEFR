@@ -40,22 +40,29 @@ struct WordGroupView: View {
 extension WordGroupView {
 
     private func wordCroupCell(wordGroup: (group: Group, count: Int)) -> some View {
-        HStack(spacing: 20) {
-            Image("WordGroupImage")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 50)
-            Text(wordGroup.group.name)
-                .font(.custom("Spectral-Regular", size: 15))
-            Spacer()
-            Text("\(wordGroup.count)")
-                .font(.custom("Spectral-Regular", size: 20))
+        Button {
+            
+        } label: {
+            HStack(spacing: 10) {
+                Image("WordGroupImage")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                Text(wordGroup.group.name)
+                    .font(.custom("Spectral-Regular", size: 16))
+                Spacer()
+                VStack(alignment: .center) {
+                    Text("\(wordGroup.count)")
+                        .font(.custom("Spectral-Regular", size: 20))
+                }
+                .frame(width: 20)
+            }
+            .padding()
+            .foregroundStyle(.black)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 17))
+            .shadow(color: .gray.opacity(0.5), radius: 2)
+            .padding(.horizontal)
         }
-        .padding()
-        .foregroundStyle(.black)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 17))
-        .shadow(color: .gray.opacity(0.5), radius: 2)
-        .padding(.horizontal)
     }
 }
