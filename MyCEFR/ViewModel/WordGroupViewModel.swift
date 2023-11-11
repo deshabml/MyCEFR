@@ -53,9 +53,9 @@ final class WordGroupViewModel: ObservableObject {
             if nameGroup == wordsGroup[index].group.name {
                 partNuber += 1
                 if partNuber < 13 {
-                    wordsGroup[index].group.name = nameGroup + " (part " + roomNumbers[partNuber - 1] + ")"
+                    wordsGroup[index].group.name = nameGroup + " - part " + roomNumbers[partNuber - 1]
                 } else {
-                    wordsGroup[index].group.name = nameGroup + " (part \(partNuber))"
+                    wordsGroup[index].group.name = nameGroup + " - part \(partNuber)"
                 }
             } else {
                 partNuber = 1

@@ -35,6 +35,7 @@
 		DD7289A42AFD742200A3F1F6 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */; };
 		DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */; };
 		DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */; };
+		DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */; };
 		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
 		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
 		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
@@ -121,6 +122,7 @@
 		DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupView.swift; sourceTree = "<group>"; };
 		DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupViewModel.swift; sourceTree = "<group>"; };
+		DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		DDB7699E2A1E1FD6004008D4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */,
 				DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */,
 				DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */,
 			);
@@ -523,6 +526,7 @@
 			files = (
 				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
 				DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */,
+				DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */,
 				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
 				DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,

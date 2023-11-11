@@ -50,7 +50,7 @@ extension LevelView {
     private func buttonView(label: String) -> some View {
         HStack {
             Text(label)
-                .font(.custom("ItimCyrillic", size: 24))
+                .font(.custom("Spectral-Regular", size: 24))
                 .foregroundStyle(.black)
             Spacer()
             Image(systemName: "arrow.forward.circle")

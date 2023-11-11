@@ -41,15 +41,15 @@ extension WordGroupView {
 
     private func wordCroupCell(wordGroup: (group: Group, count: Int)) -> some View {
         HStack(spacing: 20) {
-            Image(systemName: "text.book.closed")
+            Image("WordGroupImage")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 50, height: 50)
             Text(wordGroup.group.name)
-                .font(.custom("SFProText-Semibold", size: 15))
+                .font(.custom("Spectral-Regular", size: 15))
             Spacer()
             Text("\(wordGroup.count)")
-                .font(.custom("SFProText-Semibold", size: 20))
+                .font(.custom("Spectral-Regular", size: 20))
         }
         .padding()
         .foregroundStyle(.black)
