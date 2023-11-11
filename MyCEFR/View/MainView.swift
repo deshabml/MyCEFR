@@ -58,8 +58,11 @@ extension MainView {
                 }
         }
         .tabItem {
-            Image(systemName: imageName)
-                .frame(width: 30, height: 30)
+            VStack {
+                Image(systemName: imageName)
+                    .frame(width: 30, height: 30)
+                Text(myTab.rawValue.localized)
+            }
         }
         .tag(myTab)
     }

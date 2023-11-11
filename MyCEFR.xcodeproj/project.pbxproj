@@ -33,6 +33,9 @@
 		DD71FDC62AB1E65D00E8EE75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC52AB1E65D00E8EE75 /* MainView.swift */; };
 		DD71FDC82AB24E6300E8EE75 /* MyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC72AB24E6300E8EE75 /* MyTab.swift */; };
 		DD7289A42AFD742200A3F1F6 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */; };
+		DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */; };
+		DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */; };
+		DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */; };
 		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
 		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
 		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
@@ -117,6 +120,9 @@
 		DD71FDC52AB1E65D00E8EE75 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DD71FDC72AB24E6300E8EE75 /* MyTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTab.swift; sourceTree = "<group>"; };
 		DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupView.swift; sourceTree = "<group>"; };
+		DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupViewModel.swift; sourceTree = "<group>"; };
+		DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -350,6 +356,7 @@
 				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
+				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -363,6 +370,7 @@
 				DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */,
 				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
+				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -371,6 +379,7 @@
 		DDB7699E2A1E1FD6004008D4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */,
 				DDB769A12A1E1FF5004008D4 /* ItimCyrillic.otf */,
 				DDB7699F2A1E1FEF004008D4 /* ItimRegular.ttf */,
 			);
@@ -517,6 +526,7 @@
 			files = (
 				DDB769A02A1E1FEF004008D4 /* ItimRegular.ttf in Resources */,
 				DD2989832A48CDA00026FF2F /* Localizable.strings in Resources */,
+				DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */,
 				DDB769A22A1E1FF5004008D4 /* ItimCyrillic.otf in Resources */,
 				DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */,
 				DDB6E55D29F2FE08005A4A72 /* Preview Assets.xcassets in Resources */,
@@ -556,6 +566,7 @@
 				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
+				DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */,
 				DD9AA5C82A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift in Sources */,
 				DDE8AA9D2AFCC50100CBA47A /* LevelView.swift in Sources */,
 				DD9AA5C42A27A7AD00FB18A8 /* View.AddBorder.swift in Sources */,
@@ -590,6 +601,7 @@
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
+				DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
 				DD2989882A48D0150026FF2F /* Localized.swift in Sources */,
 				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,

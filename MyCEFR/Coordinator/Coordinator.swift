@@ -50,6 +50,10 @@ final class Coordinator: ObservableObject {
         pathHome.removeLast()
     }
 
+    func goWordGroup() {
+        pathHome.append(MyPage.wordGroup)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -61,6 +65,8 @@ final class Coordinator: ObservableObject {
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel())
             case .level:
                 LevelView(viewModel: LevelViewModel(level: self.selectLevel))
+            case .wordGroup:
+                WordGroupView(viewModel: WordGroupViewModel(level: self.selectLevel))
         }
     }
 }

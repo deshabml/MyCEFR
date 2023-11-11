@@ -74,6 +74,23 @@ class FirestoreService {
         }
     }
 
+    func getWords(level: Level) async throws -> [Word] {
+        do {
+            let querySnapshot = try await db.collection("word" + level.name).getDocuments()
+            var words: [Word] = []
+            for snap in querySnapshot.documents {
+                let data = snap.data()
+                guard let word = Word(data: data) else {
+                    throw FirestoreErrorCode(.invalidArgument)
+                }
+                words.append(word)
+            }
+            return words
+        } catch {
+            throw error
+        }
+    }
+
 
     func editWord(word: Word, level: Level) async throws {
         do {

@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum MyTab {
+enum MyTab: String {
 
-    case home
-    case profile
+    case home = "home"
+    case profile = "profile"
 }
