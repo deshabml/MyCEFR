@@ -18,6 +18,10 @@ final class WordGroupViewModel: ObservableObject {
         getWords()
     }
 
+    func fullNameLevel() -> String {
+        level.name + "\n" + "vocabulary".localized
+    }
+
     private func getWords() {
         Task {
             do {
@@ -34,7 +38,7 @@ final class WordGroupViewModel: ObservableObject {
     }
 
     private func getWordsGroup() {
-        var groups: [Group] = words.map { Group(id: $0.groupID, name: $0.groupName) }
+        let groups: [Group] = words.map { Group(id: $0.groupID, name: $0.groupName) }
         for group in Set(groups) {
             let oneGroups = groups.filter { $0 == group }
             wordsGroup.append((group: group, count: oneGroups.count))

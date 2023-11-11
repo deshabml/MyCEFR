@@ -13,13 +13,20 @@ struct WordGroupView: View {
     @StateObject var viewModel: WordGroupViewModel
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                ForEach(0 ..< viewModel.wordsGroup.count, id: \.self) { index in
-                    wordCroupCell(wordGroup: viewModel.wordsGroup[index])
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(0 ..< viewModel.wordsGroup.count, id: \.self) { index in
+                        wordCroupCell(wordGroup: viewModel.wordsGroup[index])
+                    }
                 }
             }
-        }
+            .padding(.top, 85)
+
+        .modifier(BackgroundElement(isProfile: true,
+                                    headingText: viewModel.fullNameLevel(),
+                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
+                                    completion: { coordinator.goBackHome() }))
+        .environmentObject(coordinator)
     }
 }
 
