@@ -38,7 +38,7 @@ struct BackgroundElement: ViewModifier {
                         Spacer()
                     }
                     .padding(.top, isProfile ? -410 : -380)
-                    if let colorBack {
+                    if colorBack != nil {
                         VStack {
                             HStack(alignment: .top) {
                                 Button {

@@ -15,7 +15,7 @@ struct LevelView: View {
     var body: some View {
         VStack(spacing: 40) {
             Button {
-
+                coordinator.goWordGroup()
             } label: {
                 buttonView(label: "vocabulary".localized)
             }

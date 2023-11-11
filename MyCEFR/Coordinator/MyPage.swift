@@ -13,6 +13,7 @@ enum MyPage: Hashable, Identifiable {
     case selectLevel
     case profileSettings
     case level
+    case wordGroup
 
     var id: String {
         String(describing: self)
@@ -32,6 +33,8 @@ enum MyPage: Hashable, Identifiable {
                 hasher.combine("profileSettings")
             case .level:
                 hasher.combine("level")
+            case .wordGroup:
+                hasher.combine("wordGroup")
         }
     }
 }
