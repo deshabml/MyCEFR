@@ -23,6 +23,7 @@ final class Coordinator: ObservableObject {
     @Published var selectLevel: Level = Level(id: "",
                                               name: "",
                                               fullName: "")
+    @Published var selectWords: [Word] = []
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
@@ -54,6 +55,11 @@ final class Coordinator: ObservableObject {
         pathHome.append(MyPage.wordGroup)
     }
 
+    func goWordSelection(selectWords: [Word]) {
+        self.selectWords = selectWords
+        pathHome.append(MyPage.wordSelection)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -67,6 +73,9 @@ final class Coordinator: ObservableObject {
                 LevelView(viewModel: LevelViewModel(level: self.selectLevel))
             case .wordGroup:
                 WordGroupView(viewModel: WordGroupViewModel(level: self.selectLevel))
+            case .wordSelection:
+                WordSelectionView(viewModel: WordSelectionViewModel(words: self.selectWords,
+                                                                    level: self.selectLevel))
         }
     }
 }

@@ -41,7 +41,7 @@ extension WordGroupView {
 
     private func wordCroupCell(wordGroup: (group: Group, count: Int)) -> some View {
         Button {
-            
+            coordinator.goWordSelection(selectWords: viewModel.selectionWords(group: wordGroup.group))
         } label: {
             HStack(spacing: 10) {
                 Image("WordGroupImage")

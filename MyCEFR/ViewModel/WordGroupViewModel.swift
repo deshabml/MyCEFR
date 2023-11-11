@@ -63,4 +63,8 @@ final class WordGroupViewModel: ObservableObject {
             }
         }
     }
+
+    func selectionWords(group: Group) -> [Word] {
+        words.filter { $0.groupID == group.id }
+    }
 }

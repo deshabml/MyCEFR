@@ -58,6 +58,8 @@
 		DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */; };
 		DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */; };
 		DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */; };
+		DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947042B0024DF00D413A8 /* WordSelectionView.swift */; };
+		DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */; };
 		DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */; };
 		DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA982AFB988A00CBA47A /* NetworkError.swift */; };
 		DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */; };
@@ -143,6 +145,8 @@
 		DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelTests.swift; sourceTree = "<group>"; };
+		DDD947042B0024DF00D413A8 /* WordSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionView.swift; sourceTree = "<group>"; };
+		DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionViewModel.swift; sourceTree = "<group>"; };
 		DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
 		DDE8AA982AFB988A00CBA47A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
@@ -357,6 +361,7 @@
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
 				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
+				DDD947042B0024DF00D413A8 /* WordSelectionView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -371,6 +376,7 @@
 				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
 				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
+				DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -561,6 +567,7 @@
 				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
 				DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */,
 				DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */,
+				DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */,
 				DDEABF722A3281290046F018 /* PhotoPickerViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
@@ -599,6 +606,7 @@
 				DDEABF702A3281070046F018 /* PhotoPickerView.swift in Sources */,
 				DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
+				DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
 				DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */,
