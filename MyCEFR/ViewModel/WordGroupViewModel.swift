@@ -46,5 +46,15 @@ final class WordGroupViewModel: ObservableObject {
                 groupFirst.group.id < groupSecond.group.id
             }
         }
+        var nameGroup = ""
+        var partNuber = 1
+        for index in 0 ..< wordsGroup.count {
+            if nameGroup == wordsGroup[index].group.name {
+                partNuber += 1
+                wordsGroup[index].group.name = nameGroup + " (part \(partNuber))"
+            } else {
+                nameGroup = wordsGroup[index].group.name
+            }
+        }
     }
 }
