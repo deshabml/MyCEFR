@@ -36,6 +36,7 @@
 		DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */; };
 		DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */; };
 		DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */; };
+		DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */; };
 		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
 		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
 		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
@@ -126,6 +127,7 @@
 		DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupView.swift; sourceTree = "<group>"; };
 		DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupViewModel.swift; sourceTree = "<group>"; };
 		DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWordsID.swift; sourceTree = "<group>"; };
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
 				DD1DFEB52A9D1D7F000AAE33 /* Word.swift */,
+				DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */,
 				DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */,
 				DD1DFEB92A9D3A5B000AAE33 /* Group.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
@@ -615,6 +618,7 @@
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,
 				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
+				DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,

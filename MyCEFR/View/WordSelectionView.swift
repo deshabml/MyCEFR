@@ -79,9 +79,13 @@ extension WordSelectionView {
                 Text(viewModel.words[index].translation)
             })
             Spacer()
-            soundButton {
-                print("Run Sound")
+            HStack(spacing: 32) {
+                soundButton {
+                    print("Run Sound")
+                }
+                selectedWordButton(index: index)
             }
+            .padding(.trailing, 16)
         }
         .padding(.horizontal, 4)
     }
@@ -92,6 +96,21 @@ extension WordSelectionView {
                 Divider()
                     .background(.black)
             }
+        }
+    }
+
+    private func selectedWordButton(index: Int) -> some View {
+        Button {
+            if viewModel.isSelectedWord(index: index, selectedWordsID: coordinator.selectedWordsID) {
+                coordinator.deleteSelectedWordsID(viewModel.words[index].id)
+            } else {
+                coordinator.addSelectedWordsID(viewModel.words[index].id)
+            }
+        } label: {
+            Image(viewModel.isSelectedWord(index: index, selectedWordsID: coordinator.selectedWordsID) ? "FlagActiveImage" : "FlagImage")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 20, height: 20)
         }
     }
 }

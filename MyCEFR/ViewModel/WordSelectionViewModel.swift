@@ -22,7 +22,6 @@ final class WordSelectionViewModel: ObservableObject{
         let fullName = level.name + "-" + words[0].groupName
         guard fullName.count > 20 else { return fullName }
         let fullNameArray = fullName.components(separatedBy: " ")
-        var summ = 0
         var newFullName = ""
         for word in fullNameArray {
             let sentenceLength = (newFullName.count + word.count + 1) <= 20
@@ -34,5 +33,9 @@ final class WordSelectionViewModel: ObservableObject{
             }
         }
         return newFullName
+    }
+
+    func isSelectedWord(index: Int, selectedWordsID: SelectedWordsID) -> Bool {
+        selectedWordsID.selectedID.contains(words[index].id)
     }
 }

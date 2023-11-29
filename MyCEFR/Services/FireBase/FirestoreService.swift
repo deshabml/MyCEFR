@@ -15,6 +15,7 @@ class FirestoreService {
     var userProfilesRef: CollectionReference { db.collection("userProfiles") }
     var SMRPSettingRef: CollectionReference { db.collection("smtpSetting") }
     var levelRef: CollectionReference { db.collection("level") }
+    var selectedWordsIDRef: CollectionReference { db.collection("selectedWordsID") }
 
 
     private init() { }
@@ -86,6 +87,29 @@ class FirestoreService {
                 words.append(word)
             }
             return words
+        } catch {
+            throw error
+        }
+    }
+
+    func editSelectedWordsID(selectedWordsID: SelectedWordsID) async throws {
+        do {
+            try await selectedWordsIDRef.document(selectedWordsID.id).setData(selectedWordsID.representation)
+        } catch {
+            throw error
+        }
+    }
+
+    func getSelectedWordsID(_ id: String) async throws -> SelectedWordsID {
+        do {
+            let snap = try await selectedWordsIDRef.document(id).getDocument()
+            guard let data = snap.data() else {
+                throw FirestoreErrorCode(.dataLoss)
+            }
+            guard let selectedWordsID = SelectedWordsID(data: data) else {
+                throw FirestoreErrorCode(.invalidArgument)
+            }
+            return selectedWordsID
         } catch {
             throw error
         }
