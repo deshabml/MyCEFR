@@ -21,12 +21,11 @@ struct WordGroupView: View {
                 }
             }
             .padding(.top, 85)
-
-        .modifier(BackgroundElement(isProfile: true,
-                                    headingText: viewModel.fullNameLevel(),
-                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
-                                    completion: { coordinator.goBackHome() }))
-        .environmentObject(coordinator)
+            .modifier(BackgroundElement(isProfile: true,
+                                        headingText: viewModel.fullNameLevel(),
+                                        colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
+                                        completion: { coordinator.goBackHome() }))
+            .environmentObject(coordinator)
     }
 }
 

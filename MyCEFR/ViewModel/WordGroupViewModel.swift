@@ -29,7 +29,6 @@ final class WordGroupViewModel: ObservableObject {
                 DispatchQueue.main.async { [unowned self] in
                     self.words = words
                     self.getWordsGroup()
-                    print(self.wordsGroup)
                 }
             } catch {
                 print(error.localizedDescription)
