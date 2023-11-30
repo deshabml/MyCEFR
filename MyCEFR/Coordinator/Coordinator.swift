@@ -176,4 +176,13 @@ extension Coordinator {
         selectedWordsID.selectedID.remove(at: index)
         editSelectedWordsID()
     }
+
+    func cancelTheSelectionWordsIDGroup(_ words: [Word]) {
+        for word in words {
+            let index = selectedWordsID.selectedID.firstIndex(of: word.id)
+            if let index {
+                selectedWordsID.selectedID.remove(at: index)
+            }
+        }
+    }
 }

@@ -11,6 +11,7 @@ final class WordSelectionViewModel: ObservableObject{
 
     let words: [Word]
     let level: Level
+    @Published var isSelectedWords = false
 
     init(words: [Word], level: Level) {
         self.words = words
@@ -40,6 +41,32 @@ final class WordSelectionViewModel: ObservableObject{
     }
 
     func wordsInAGroup() -> String {
-        "wordsInAGroup".localized + " \(words.count) " + "words".localized
+        let wordsText = "".declinationText(words.count, "wordsOne".localized, "wordsTwo".localized, "wordsThree".localized)
+        return "wordsInAGroup".localized + " \(words.count) " + wordsText
+    }
+
+    func isSelectedWordsTogle(selectedWordsID: SelectedWordsID) {
+        guard !words.isEmpty else {
+            isSelectedWords = false
+            return
+        }
+        for word in words {
+            if selectedWordsID.selectedID.contains(word.id) {
+                isSelectedWords = true
+                return
+            }
+        }
+        isSelectedWords = false
+    }
+
+    func howManyWordsAreSelected(selectedWordsID: SelectedWordsID) -> String {
+        var countSelected = 0
+        for word in words {
+            if selectedWordsID.selectedID.contains(word.id) {
+                countSelected += 1
+            }
+        }
+        let wordsText = "".declinationText(countSelected, "wordsOne".localized, "wordsTwo".localized, "wordsThree".localized)
+        return "selected".localized + ": \(countSelected) " + wordsText
     }
 }

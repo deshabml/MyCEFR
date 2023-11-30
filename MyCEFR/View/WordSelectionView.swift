@@ -14,29 +14,16 @@ struct WordSelectionView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            VStack {
-                if coordinator.selectedWordsID.selectedID.isEmpty {
-                    Text(viewModel.wordsInAGroup())
-                } else {
-                    HStack {
-                        Button {
-                            
-                        } label: {
-                            Text("Words")
-                        }
-                    }
-                }
-            }
-            .padding(60)
+            wordCounter()
             ScrollView {
-                VStack(spacing: 4) {
+                VStack(spacing: 8) {
                     ForEach(0 ..< viewModel.words.count, id: \.self) { index in
                         wordSelectionCell(index)
                         dividerWithCondition(index)
                     }
                 }
             }
-            .padding(.top, 85)
+            .padding(.top, 10)
         }
         .modifier(BackgroundElement(isProfile: true,
                                     headingText: viewModel.fullNameLevel(),
@@ -122,11 +109,51 @@ extension WordSelectionView {
             } else {
                 coordinator.addSelectedWordsID(viewModel.words[index].id)
             }
+            viewModel.isSelectedWordsTogle(selectedWordsID: coordinator.selectedWordsID)
         } label: {
             Image(viewModel.isSelectedWord(index: index, selectedWordsID: coordinator.selectedWordsID) ? "FlagActiveImage" : "FlagImage")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 20, height: 20)
         }
+    }
+
+    private func wordCounter() -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack {
+                VStack {
+                    if viewModel.isSelectedWords {
+                        Text(viewModel.howManyWordsAreSelected(selectedWordsID: coordinator.selectedWordsID))
+                            .font(Font.custom("Spectral-Regular", size: 18))
+                            .foregroundStyle(Color("MainBlueColor"))
+                    } else {
+                        Text(viewModel.wordsInAGroup())
+                            .font(Font.custom("Spectral-Regular", size: 18))
+                            .foregroundStyle(Color("MainBlueColor"))
+                    }
+                }
+                .padding(.vertical, 2)
+                .padding(.horizontal, 6)
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+                Spacer()
+                if viewModel.isSelectedWords {
+                    Button {
+                        coordinator.cancelTheSelectionWordsIDGroup(viewModel.words)
+                        viewModel.isSelectedWordsTogle(selectedWordsID: coordinator.selectedWordsID)
+                    } label: {
+                        Text("cancelTheSelection".localized)
+                            .font(Font.custom("Spectral-Regular", size: 18))
+                            .foregroundStyle(Color(.white))
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top, 40)
+        }
+        .onAppear {
+            viewModel.isSelectedWordsTogle(selectedWordsID: coordinator.selectedWordsID)
+        }
+        .animation(.easeInOut, value: viewModel.isSelectedWords)
     }
 }

@@ -39,15 +39,9 @@
 "test" = "Тест";
 "home" = "Домой";
 "profile" = "Профиль";
-"wordsInAGroup"  = "слов в группе:";
-"words" = "слов";
-
-
-
-
-
-
-
-
-
-
+"wordsInAGroup"  = "в группе:";
+"wordsOne" = "слово";
+"wordsTwo" = "слова";
+"wordsThree" = "слов";
+"cancelTheSelection" = "Отменить выбор";
+"selected" = "выбрано";
