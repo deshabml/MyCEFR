@@ -39,3 +39,5 @@
 "test" = "Test";
 "home" = "Home";
 "profile" = "Profile";
+"wordsInAGroup"  = "words in a group:";
+"words" = "words";

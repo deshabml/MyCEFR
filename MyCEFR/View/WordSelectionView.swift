@@ -13,15 +13,31 @@ struct WordSelectionView: View {
     @StateObject var viewModel: WordSelectionViewModel
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 4) {
-                ForEach(0 ..< viewModel.words.count, id: \.self) { index in
-                    wordSelectionCell(index)
-                    dividerWithCondition(index)
+        VStack(spacing: 0) {
+            VStack {
+                if coordinator.selectedWordsID.selectedID.isEmpty {
+                    Text(viewModel.wordsInAGroup())
+                } else {
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            Text("Words")
+                        }
+                    }
                 }
             }
+            .padding(60)
+            ScrollView {
+                VStack(spacing: 4) {
+                    ForEach(0 ..< viewModel.words.count, id: \.self) { index in
+                        wordSelectionCell(index)
+                        dividerWithCondition(index)
+                    }
+                }
+            }
+            .padding(.top, 85)
         }
-        .padding(.top, 85)
         .modifier(BackgroundElement(isProfile: true,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),

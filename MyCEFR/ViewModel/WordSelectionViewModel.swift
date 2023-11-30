@@ -38,4 +38,8 @@ final class WordSelectionViewModel: ObservableObject{
     func isSelectedWord(index: Int, selectedWordsID: SelectedWordsID) -> Bool {
         selectedWordsID.selectedID.contains(words[index].id)
     }
+
+    func wordsInAGroup() -> String {
+        "wordsInAGroup".localized + " \(words.count) " + "words".localized
+    }
 }
