@@ -15,15 +15,21 @@ struct WordSelectionView: View {
     var body: some View {
         VStack(spacing: 0) {
             wordCounter()
-            ScrollView {
-                VStack(spacing: 8) {
-                    ForEach(0 ..< viewModel.words.count, id: \.self) { index in
-                        wordSelectionCell(index)
-                        dividerWithCondition(index)
+            ZStack {
+                ScrollView {
+                    VStack(spacing: 8) {
+                        ForEach(0 ..< viewModel.words.count, id: \.self) { index in
+                            wordSelectionCell(index)
+                            dividerWithCondition(index)
+                        }
                     }
                 }
+                .padding(.top, 10)
+                VStack {
+                    Spacer()
+                    continueButton()
+                }
             }
-            .padding(.top, 10)
         }
         .modifier(BackgroundElement(isProfile: true,
                                     headingText: viewModel.fullNameLevel(),
@@ -35,7 +41,7 @@ struct WordSelectionView: View {
 
 #Preview {
     WordSelectionView(viewModel: WordSelectionViewModel(words: [Word(id: "1",
-                                                                    groupID: "1",
+                                                                     groupID: "1",
                                                                      groupName: "group",
                                                                      word: "name",
                                                                      translation: "имя",
@@ -69,7 +75,7 @@ extension WordSelectionView {
                     .font(Font.custom("Spectral-Regular", size: 20))
                     .foregroundStyle(.black)
             })
-                .frame(width: 30)
+            .frame(width: 30)
             VStack(alignment: .leading, spacing: 2, content: {
                 HStack(alignment: .center, spacing: 16) {
                     Text(viewModel.words[index].word)
@@ -155,5 +161,20 @@ extension WordSelectionView {
             viewModel.isSelectedWordsTogle(selectedWordsID: coordinator.selectedWordsID)
         }
         .animation(.easeInOut, value: viewModel.isSelectedWords)
+    }
+
+    private func continueButton() -> some View {
+        Button {
+
+        } label: {
+            Text("continue".localized)
+                .font(Font.custom("Spectral", size: 17)
+                    .weight(.semibold))
+                .foregroundStyle(.white)
+        }
+        .frame(width: 200, height: 40)
+        .background(Color("MainBlueColor"))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.bottom, 16)
     }
 }
