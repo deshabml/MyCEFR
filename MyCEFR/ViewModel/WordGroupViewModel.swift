@@ -29,7 +29,6 @@ final class WordGroupViewModel: ObservableObject {
                 DispatchQueue.main.async { [unowned self] in
                     self.words = words
                     self.getWordsGroup()
-                    print(self.wordsGroup)
                 }
             } catch {
                 print(error.localizedDescription)
@@ -62,5 +61,9 @@ final class WordGroupViewModel: ObservableObject {
                 nameGroup = wordsGroup[index].group.name
             }
         }
+    }
+
+    func selectionWords(group: Group) -> [Word] {
+        words.filter { $0.groupID == group.id }
     }
 }

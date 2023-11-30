@@ -34,7 +34,7 @@ final class SelectLevelViewModel: ObservableObject {
             do {
                 let words = try await NetworkServiceAA.shared.getData(dataset: [JSONWord(word: "", translation: "", transcription: "", partOfSpeech: "")])
                 for word in words {
-                    wordsA1.append(Word(groupID: "19", groupName: "Describing things", word: word.word, translation: word.translation, transcription: word.transcription, partOfSpeechID: word.partOfSpeech))
+                    wordsA1.append(Word(groupID: "48", groupName: "Work", word: word.word, translation: word.translation, transcription: word.transcription, partOfSpeechID: word.partOfSpeech))
                     print(wordsA1)
                 }
             } catch { 
@@ -47,9 +47,9 @@ final class SelectLevelViewModel: ObservableObject {
 //        Task {
 //            for word in wordsA1 {
 //                do {
-//                    try await FirestoreService.shared.editWord(word: word, level: Level(id: "3",
-//                                                                                        name: "B1",
-//                                                                                        fullName: "Intermediate"))
+//                    try await FirestoreService.shared.editWord(word: word, level: Level(id: "4",
+//                                                                                        name: "B2",
+//                                                                                        fullName: "Upper-Intermediate"))
 //                } catch {
 //                    print(error.localizedDescription)
 //                }

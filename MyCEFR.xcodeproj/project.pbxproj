@@ -36,6 +36,8 @@
 		DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */; };
 		DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */; };
 		DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */; };
+		DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */; };
+		DD7AF39D2B18737A00ECB879 /* String.declinationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AF39C2B18737900ECB879 /* String.declinationText.swift */; };
 		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
 		DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */; };
 		DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */; };
@@ -58,6 +60,9 @@
 		DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */; };
 		DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */; };
 		DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */; };
+		DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947042B0024DF00D413A8 /* WordSelectionView.swift */; };
+		DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */; };
+		DDD9470B2B016B1200D413A8 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD9470A2B016B1200D413A8 /* SpeechSynthesizer.swift */; };
 		DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */; };
 		DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA982AFB988A00CBA47A /* NetworkError.swift */; };
 		DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */; };
@@ -123,6 +128,8 @@
 		DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupView.swift; sourceTree = "<group>"; };
 		DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupViewModel.swift; sourceTree = "<group>"; };
 		DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWordsID.swift; sourceTree = "<group>"; };
+		DD7AF39C2B18737900ECB879 /* String.declinationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.declinationText.swift; sourceTree = "<group>"; };
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9AA5BE2A25F0FE00FB18A8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DD9AA5C02A25F5CD00FB18A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +150,9 @@
 		DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelTests.swift; sourceTree = "<group>"; };
+		DDD947042B0024DF00D413A8 /* WordSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionView.swift; sourceTree = "<group>"; };
+		DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionViewModel.swift; sourceTree = "<group>"; };
+		DDD9470A2B016B1200D413A8 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		DDE8AA962AFB983800CBA47A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
 		DDE8AA982AFB988A00CBA47A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DDE8AA9A2AFB98E700CBA47A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
@@ -241,8 +251,8 @@
 		DD4AAED12A21F124003E2860 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DDEABF5A2A2F61830046F018 /* FirestoreService.swift */,
-				DDEABF5C2A305ACE0046F018 /* StorageService.swift */,
+				DDD947092B016ABD00D413A8 /* Sound */,
+				DDD947082B016A9A00D413A8 /* FireBase */,
 				DDE8AA952AFB982500CBA47A /* Network */,
 				DD9AA5CB2A27F3DC00FB18A8 /* Authorization */,
 			);
@@ -255,6 +265,7 @@
 				DDF408A62A3F4AA800FB1F35 /* SMTPSetting.swift */,
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
 				DD1DFEB52A9D1D7F000AAE33 /* Word.swift */,
+				DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */,
 				DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */,
 				DD1DFEB92A9D3A5B000AAE33 /* Group.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
@@ -280,6 +291,7 @@
 				DD9AA5C32A27A7AC00FB18A8 /* View.AddBorder.swift */,
 				DDEABF522A2F20A10046F018 /* HideKeyboard.swift */,
 				DD2989872A48D0150026FF2F /* Localized.swift */,
+				DD7AF39C2B18737900ECB879 /* String.declinationText.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -357,6 +369,7 @@
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
 				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
+				DDD947042B0024DF00D413A8 /* WordSelectionView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -371,6 +384,7 @@
 				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
 				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
+				DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -413,6 +427,23 @@
 				DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */,
 			);
 			path = ComponentsTests;
+			sourceTree = "<group>";
+		};
+		DDD947082B016A9A00D413A8 /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				DDEABF5A2A2F61830046F018 /* FirestoreService.swift */,
+				DDEABF5C2A305ACE0046F018 /* StorageService.swift */,
+			);
+			path = FireBase;
+			sourceTree = "<group>";
+		};
+		DDD947092B016ABD00D413A8 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				DDD9470A2B016B1200D413A8 /* SpeechSynthesizer.swift */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		DDE8AA952AFB982500CBA47A /* Network */ = {
@@ -561,6 +592,7 @@
 				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
 				DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */,
 				DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */,
+				DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */,
 				DDEABF722A3281290046F018 /* PhotoPickerViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
@@ -578,6 +610,7 @@
 				DDEABF572A2F25DB0046F018 /* SelectLevelView.swift in Sources */,
 				DDE8AA972AFB983800CBA47A /* NetworkServiceAA.swift in Sources */,
 				DD9AA5BF2A25F0FE00FB18A8 /* AuthService.swift in Sources */,
+				DD7AF39D2B18737A00ECB879 /* String.declinationText.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
@@ -589,6 +622,7 @@
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,
 				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
+				DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
@@ -599,6 +633,8 @@
 				DDEABF702A3281070046F018 /* PhotoPickerView.swift in Sources */,
 				DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
+				DDD9470B2B016B1200D413A8 /* SpeechSynthesizer.swift in Sources */,
+				DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
 				DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */,

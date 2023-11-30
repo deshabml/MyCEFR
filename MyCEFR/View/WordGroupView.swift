@@ -21,12 +21,11 @@ struct WordGroupView: View {
                 }
             }
             .padding(.top, 85)
-
-        .modifier(BackgroundElement(isProfile: true,
-                                    headingText: viewModel.fullNameLevel(),
-                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
-                                    completion: { coordinator.goBackHome() }))
-        .environmentObject(coordinator)
+            .modifier(BackgroundElement(isProfile: true,
+                                        headingText: viewModel.fullNameLevel(),
+                                        colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
+                                        completion: { coordinator.goBackHome() }))
+            .environmentObject(coordinator)
     }
 }
 
@@ -41,7 +40,7 @@ extension WordGroupView {
 
     private func wordCroupCell(wordGroup: (group: Group, count: Int)) -> some View {
         Button {
-            
+            coordinator.goWordSelection(selectWords: viewModel.selectionWords(group: wordGroup.group))
         } label: {
             HStack(spacing: 10) {
                 Image("WordGroupImage")

@@ -39,3 +39,10 @@
 "test" = "Test";
 "home" = "Home";
 "profile" = "Profile";
+"wordsInAGroup"  = "in a group:";
+"wordsOne" = "words";
+"wordsTwo" = "words";
+"wordsThree" = "words";
+"cancelTheSelection" = "Cancel the selection";
+"selected" = "selected";
+"continue" = "Continue";

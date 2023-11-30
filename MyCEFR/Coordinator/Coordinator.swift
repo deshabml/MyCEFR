@@ -22,7 +22,14 @@ final class Coordinator: ObservableObject {
                                                           imageUrl: "")
     @Published var selectLevel: Level = Level(id: "",
                                               name: "",
-                                              fullName: "")
+                                              fullName: "") {
+        didSet {
+            getSelectedWordsID()
+        }
+    }
+    @Published var selectWords: [Word] = []
+    @Published var selectedWordsID: SelectedWordsID = SelectedWordsID(id: "",
+                                                                      selectedID: [])
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
@@ -54,6 +61,11 @@ final class Coordinator: ObservableObject {
         pathHome.append(MyPage.wordGroup)
     }
 
+    func goWordSelection(selectWords: [Word]) {
+        self.selectWords = selectWords
+        pathHome.append(MyPage.wordSelection)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -67,6 +79,9 @@ final class Coordinator: ObservableObject {
                 LevelView(viewModel: LevelViewModel(level: self.selectLevel))
             case .wordGroup:
                 WordGroupView(viewModel: WordGroupViewModel(level: self.selectLevel))
+            case .wordSelection:
+                WordSelectionView(viewModel: WordSelectionViewModel(words: self.selectWords,
+                                                                    level: self.selectLevel))
         }
     }
 }
@@ -123,5 +138,51 @@ extension Coordinator {
         let color = UIColor(named: colorName)
         guard let color else { return UIColor.blue }
         return color
+    }
+
+    func getSelectedWordsID() {
+        let id = "user:\(userProfile.id)_level:\(selectLevel.id)"
+        selectedWordsID.id = id
+        Task {
+            do {
+                let selectedWordsID = try await FirestoreService.shared.getSelectedWordsID(id)
+                DispatchQueue.main.async {
+                    self.selectedWordsID = selectedWordsID
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func editSelectedWordsID() {
+        Task {
+            do {
+                try await FirestoreService.shared.editSelectedWordsID(selectedWordsID: selectedWordsID)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func addSelectedWordsID(_ id: String) {
+        selectedWordsID.selectedID.append(id)
+        editSelectedWordsID()
+    }
+
+    func deleteSelectedWordsID(_ id: String) {
+        let index = selectedWordsID.selectedID.firstIndex(of: id)
+        guard let index else { return }
+        selectedWordsID.selectedID.remove(at: index)
+        editSelectedWordsID()
+    }
+
+    func cancelTheSelectionWordsIDGroup(_ words: [Word]) {
+        for word in words {
+            let index = selectedWordsID.selectedID.firstIndex(of: word.id)
+            if let index {
+                selectedWordsID.selectedID.remove(at: index)
+            }
+        }
     }
 }
