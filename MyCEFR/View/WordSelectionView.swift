@@ -77,7 +77,7 @@ extension WordSelectionView {
             })
             .frame(width: 30)
             VStack(alignment: .leading, spacing: 2, content: {
-                HStack(alignment: .center, spacing: 16) {
+                HStack(alignment: .center, spacing: 4) {
                     Text(viewModel.words[index].word)
                         .font(Font.custom("Spectral-Regular", size: 24))
                         .foregroundStyle(Color("MainBlueColor"))
@@ -149,7 +149,8 @@ extension WordSelectionView {
                         viewModel.isSelectedWordsTogle(selectedWordsID: coordinator.selectedWordsID)
                     } label: {
                         Text("cancelTheSelection".localized)
-                            .font(Font.custom("Spectral-Regular", size: 18))
+                            .font(Font.custom("Spectral", size: 20)
+                                .weight(.bold))
                             .foregroundStyle(Color(.white))
                     }
                 }
