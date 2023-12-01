@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShowScreenViewModel: ObservableObject {
+final class ShowScreenViewModel: ObservableObject {
 
     @Published var isShow: Bool = false
 }

@@ -16,7 +16,8 @@ struct ChoosingStudyMethodView: View {
             choosingStudyMethodButton("flashcards".localized,
                                       "wordsReview".localized,
                                       completion: {
-                print("Screen Show")
+                coordinator.showScreenViewModelCSM.isShow.toggle()
+                coordinator.goFlashcards()
             })
             fakeButton("learn".localized,
                        "learnWords".localized)

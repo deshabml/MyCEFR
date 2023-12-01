@@ -12,7 +12,6 @@ final class WordSelectionViewModel: ObservableObject{
     let words: [Word]
     let level: Level
     @Published var isSelectedWords = false
-    @Published var showScreenViewModelCSM = ShowScreenViewModel()
 
     init(words: [Word], level: Level) {
         self.words = words

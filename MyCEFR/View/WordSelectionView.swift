@@ -32,7 +32,7 @@ struct WordSelectionView: View {
             }
         }
         .overlay {
-            ShowScreenView(viewModel: viewModel.showScreenViewModelCSM,
+            ShowScreenView(viewModel: coordinator.showScreenViewModelCSM,
                            screen: ChoosingStudyMethodView())
             .environmentObject(coordinator)
         }
@@ -171,7 +171,7 @@ extension WordSelectionView {
 
     private func continueButton() -> some View {
         Button {
-            viewModel.showScreenViewModelCSM.isShow.toggle()
+            coordinator.showScreenViewModelCSM.isShow.toggle()
         } label: {
             Text("continue".localized)
                 .font(Font.custom("Spectral", size: 17)

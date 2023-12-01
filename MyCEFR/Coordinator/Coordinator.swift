@@ -36,6 +36,7 @@ final class Coordinator: ObservableObject {
             downloadProfile()
         }
     }
+    @Published var showScreenViewModelCSM = ShowScreenViewModel()
 
     init(isWorker: Bool) {
         if isWorker {
@@ -66,6 +67,10 @@ final class Coordinator: ObservableObject {
         pathHome.append(MyPage.wordSelection)
     }
 
+    func goFlashcards() {
+        pathHome.append(MyPage.flashcardsView)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -82,6 +87,9 @@ final class Coordinator: ObservableObject {
             case .wordSelection:
                 WordSelectionView(viewModel: WordSelectionViewModel(words: self.selectWords,
                                                                     level: self.selectLevel))
+            case .flashcardsView:
+                FlashcardsView(viewModel: FlashcardsViewModel(words: self.selectWords,
+                                                              level: self.selectLevel))
         }
     }
 }

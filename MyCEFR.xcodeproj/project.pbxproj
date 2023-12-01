@@ -10,6 +10,8 @@
 		DD023F5A2B19BF560051CE3D /* ChoosingStudyMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */; };
 		DD023F5C2B19C43A0051CE3D /* ShowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5B2B19C43A0051CE3D /* ShowScreenView.swift */; };
 		DD023F5E2B19C4B30051CE3D /* ShowScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5D2B19C4B30051CE3D /* ShowScreenViewModel.swift */; };
+		DD023F602B19DE9E0051CE3D /* FlashcardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */; };
+		DD023F622B19DF5C0051CE3D /* FlashcardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */; };
 		DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB52A9D1D7F000AAE33 /* Word.swift */; };
 		DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */; };
 		DD1DFEBA2A9D3A5B000AAE33 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB92A9D3A5B000AAE33 /* Group.swift */; };
@@ -101,6 +103,8 @@
 		DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingStudyMethodView.swift; sourceTree = "<group>"; };
 		DD023F5B2B19C43A0051CE3D /* ShowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenView.swift; sourceTree = "<group>"; };
 		DD023F5D2B19C4B30051CE3D /* ShowScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenViewModel.swift; sourceTree = "<group>"; };
+		DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsView.swift; sourceTree = "<group>"; };
+		DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewModel.swift; sourceTree = "<group>"; };
 		DD1DFEB52A9D1D7F000AAE33 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeech.swift; sourceTree = "<group>"; };
 		DD1DFEB92A9D3A5B000AAE33 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
 				DDD947042B0024DF00D413A8 /* WordSelectionView.swift */,
 				DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */,
+				DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -388,6 +393,7 @@
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
 				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
 				DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */,
+				DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -623,6 +629,7 @@
 				DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */,
 				DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
+				DD023F602B19DE9E0051CE3D /* FlashcardsView.swift in Sources */,
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,
 				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
@@ -645,6 +652,7 @@
 				DD023F5A2B19BF560051CE3D /* ChoosingStudyMethodView.swift in Sources */,
 				DD2989882A48D0150026FF2F /* Localized.swift in Sources */,
 				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,
+				DD023F622B19DF5C0051CE3D /* FlashcardsViewModel.swift in Sources */,
 				DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
