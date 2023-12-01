@@ -46,3 +46,9 @@
 "cancelTheSelection" = "Отменить выбор";
 "selected" = "выбрано";
 "continue" = "Продолжить";
+"flashcards" = "Карточки";
+"wordsReview" = "Изучение слов";
+"learn" = "Выучить";
+"learnWords" = "Выучить слова";
+"test" = "Тест";
+"TakeATestToCheckYourKnowledge" = "Пройдите тест, чтобы проверить свои знания";
