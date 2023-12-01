@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ShowScreenSettingsElement: ViewModifier {
 
-    var imageName: String
-
     func body(content: Content) -> some View {
         content
-            .background {
-                Image(imageName)
-            }
+            .background(.white)
             .cornerRadius(18)
             .shadow(radius: 2)
             .padding()
