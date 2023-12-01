@@ -7,30 +7,19 @@
 
 import SwiftUI
 
-struct FlashcardView<Front, Back>: View where Front: View, Back: View {
+struct FlashcardView: View {
 
-    var front: () -> Front
-    var back: () -> Back
-    @State var flipped: Bool = false
-    @State var flashcardRotation = 0.0
-    @State var contentRotation = 0.0
-
-    init(@ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
-        self.front = front
-        self.back = back
-    }
+    @StateObject var viewModel: FlashcardViewModel
 
     var body: some View {
         ZStack {
-            if flipped {
+            if viewModel.flipped {
                 back()
             } else {
                 front()
             }
         }
-        .padding()
-        .frame(maxHeight: .infinity)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .black.opacity(0.5), radius: 4, x: 0, y: 0)
@@ -39,30 +28,80 @@ struct FlashcardView<Front, Back>: View where Front: View, Back: View {
                 .stroke(Color.black, lineWidth: 2)
         )
         .padding()
-        .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
-        .rotation3DEffect(.degrees(flashcardRotation), axis: (x: 0, y: 1, z: 0))
-        .onTapGesture {
-            flipFlashcard()
-        }
-    }
-
-    func flipFlashcard() {
-        let animationTime = 0.5
-        withAnimation(Animation.linear(duration: animationTime)) {
-            flashcardRotation += 180
-        }
-
-        withAnimation(Animation.linear(duration: 0.001).delay(animationTime / 2)) {
-            contentRotation += 180
-            flipped.toggle()
-        }
+        .padding(.horizontal, 40)
+        .rotation3DEffect(.degrees(viewModel.contentRotation), axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(viewModel.flashcardRotation), axis: (x: 0, y: 1, z: 0))
     }
 }
 
 #Preview {
-    FlashcardView {
-        Text("Front")
-    } back: {
-        Text("Back")
+    FlashcardView(viewModel: FlashcardViewModel())
+}
+
+extension FlashcardView {
+
+    func flipFlashcard() {
+        let animationTime = 0.5
+        withAnimation(Animation.linear(duration: animationTime)) {
+            viewModel.flashcardRotation += 180
+        }
+        withAnimation(Animation.linear(duration: 0.001).delay(animationTime / 2)) {
+            viewModel.contentRotation += 180
+            viewModel.flipped.toggle()
+        }
+    }
+}
+
+extension FlashcardView {
+
+    private func front() -> some View {
+        VStack {
+            mapControls()
+            Spacer()
+            HStack {
+                Spacer()
+                Text("Перед")
+                Spacer()
+            }
+            Spacer()
+        }
+        .background(.yellow)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private func back() -> some View {
+        VStack {
+            mapControls()
+            Spacer()
+            HStack {
+                Spacer()
+                Text("Зад")
+                Spacer()
+            }
+            Spacer()
+        }
+        .background(.brown)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private func mapControls() -> some View {
+        HStack {
+            Image(systemName: "airtag.radiowaves.forward.fill")
+                .resizable()
+                .scaledToFill()
+                .foregroundStyle(.black)
+                .frame(width: 25, height: 25)
+            Spacer()
+            Button {
+                flipFlashcard()
+            } label: {
+                Image(systemName: "arrow.uturn.backward")
+                    .resizable()
+                    .scaledToFill()
+                    .foregroundStyle(.black)
+                    .frame(width: 25, height: 25)
+            }
+        }
+        .padding()
     }
 }

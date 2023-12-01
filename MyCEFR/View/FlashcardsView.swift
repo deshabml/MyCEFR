@@ -15,11 +15,7 @@ struct FlashcardsView: View {
     var body: some View {
         VStack {
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            FlashcardView {
-                Text("Перед")
-            } back: {
-                Text("Зад")
-            }
+            FlashcardView(viewModel: viewModel.flashcardVM)
         }
         .padding(.top, 85)
         .modifier(BackgroundElement(isProfile: true,
@@ -36,5 +32,3 @@ struct FlashcardsView: View {
                                                                fullName: "FulLevel")))
         .environmentObject(Coordinator(isWorker: true))
 }
-
-

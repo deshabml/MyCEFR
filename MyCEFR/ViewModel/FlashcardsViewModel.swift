@@ -11,6 +11,7 @@ final class FlashcardsViewModel: ObservableObject {
     
     let words: [Word]
     let level: Level
+    let flashcardVM = FlashcardViewModel()
 
     init(words: [Word], level: Level) {
         self.words = words
