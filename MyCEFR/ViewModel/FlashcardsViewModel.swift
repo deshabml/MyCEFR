@@ -12,6 +12,7 @@ final class FlashcardsViewModel: ObservableObject {
     let words: [Word]
     let level: Level
     let flashcardVM = FlashcardViewModel()
+    @Published var activeWords: [Word] = []
 
     init(words: [Word], level: Level) {
         self.words = words
@@ -34,5 +35,25 @@ final class FlashcardsViewModel: ObservableObject {
             }
         }
         return newFullName
+    }
+
+    func setupActiveWord(selectedWordsID: SelectedWordsID) {
+        for word in words {
+            if selectedWordsID.selectedID.contains(word.id) {
+                activeWords.append(word)
+            }
+        }
+        guard activeWords.isEmpty else {
+            flashcardVM.setupWord(word: activeWords[0], isFirst: true)
+            return
+        }
+        activeWords = words
+        flashcardVM.setupWord(word: activeWords[0], isFirst: true)
+    }
+
+    func shuffle() {
+        let newActiveWords = activeWords.shuffled()
+        activeWords = newActiveWords
+        flashcardVM.setupWord(word: activeWords[0], isFirst: true)
     }
 }

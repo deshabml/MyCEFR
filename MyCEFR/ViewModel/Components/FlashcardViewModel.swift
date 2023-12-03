@@ -12,4 +12,16 @@ final class FlashcardViewModel: ObservableObject {
     @Published var flipped: Bool = false
     @Published var flashcardRotation = 0.0
     @Published var contentRotation = 0.0
+    @Published var activeWord: Word = Word(groupID: "",
+                                           groupName: "",
+                                           word: "",
+                                           translation: "",
+                                           transcription: "",
+                                           partOfSpeechID: "")
+    @Published var isFirctWord = false
+
+    func setupWord(word: Word, isFirst: Bool = false) {
+        self.activeWord = word
+        isFirctWord = isFirst
+    }
 }

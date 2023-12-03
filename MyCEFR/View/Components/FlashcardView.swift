@@ -31,6 +31,9 @@ struct FlashcardView: View {
         .padding(.horizontal, 40)
         .rotation3DEffect(.degrees(viewModel.contentRotation), axis: (x: 0, y: 1, z: 0))
         .rotation3DEffect(.degrees(viewModel.flashcardRotation), axis: (x: 0, y: 1, z: 0))
+        .onTapGesture {
+            flipFlashcard()
+        }
     }
 }
 
@@ -60,12 +63,24 @@ extension FlashcardView {
             Spacer()
             HStack {
                 Spacer()
-                Text("Перед")
+                VStack(spacing: 6) {
+                    VStack(spacing: 0) {
+                        Text(viewModel.activeWord.word)
+                            .font(Font.custom("Spectral", size: 32)
+                                .weight(.semibold))
+                        Text(viewModel.activeWord.partOfSpeechID)
+                            .font(Font.custom("Spectral", size: 16)
+                                .weight(.semibold))
+                    }
+                    Text(viewModel.activeWord.transcription)
+                        .font(Font.custom("Spectral", size: 20)
+                            .weight(.semibold))
+                }
                 Spacer()
             }
             Spacer()
         }
-        .background(.yellow)
+        .padding(.bottom, 25)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
@@ -75,12 +90,14 @@ extension FlashcardView {
             Spacer()
             HStack {
                 Spacer()
-                Text("Зад")
+                Text(viewModel.activeWord.translation)
+                    .font(Font.custom("Spectral", size: 32)
+                        .weight(.semibold))
                 Spacer()
             }
             Spacer()
         }
-        .background(.brown)
+        .padding(.bottom, 25)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
@@ -92,14 +109,22 @@ extension FlashcardView {
                 .foregroundStyle(.black)
                 .frame(width: 25, height: 25)
             Spacer()
-            Button {
-                flipFlashcard()
-            } label: {
+            if viewModel.isFirctWord {
                 Image(systemName: "arrow.uturn.backward")
                     .resizable()
                     .scaledToFill()
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.black.opacity(0.5))
                     .frame(width: 25, height: 25)
+            } else {
+                Button {
+
+                } label: {
+                    Image(systemName: "arrow.uturn.backward")
+                        .resizable()
+                        .scaledToFill()
+                        .foregroundStyle(.black)
+                        .frame(width: 25, height: 25)
+                }
             }
         }
         .padding()
