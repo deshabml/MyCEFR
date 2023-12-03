@@ -35,6 +35,7 @@
 		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
 		DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* UserProfile.swift */; };
 		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
+		DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */; };
 		DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */; };
 		DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */; };
 		DD71FDC62AB1E65D00E8EE75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC52AB1E65D00E8EE75 /* MainView.swift */; };
@@ -132,6 +133,7 @@
 		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
 		DD4AAEDA2A21F619003E2860 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
+		DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		DD71FDC52AB1E65D00E8EE75 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				DDEABF522A2F20A10046F018 /* HideKeyboard.swift */,
 				DD2989872A48D0150026FF2F /* Localized.swift */,
 				DD7AF39C2B18737900ECB879 /* String.declinationText.swift */,
+				DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				DDEABF722A3281290046F018 /* PhotoPickerViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
+				DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
 				DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */,

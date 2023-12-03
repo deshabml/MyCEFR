@@ -103,11 +103,11 @@ extension FlashcardView {
 
     private func mapControls() -> some View {
         HStack {
-            Image(systemName: "airtag.radiowaves.forward.fill")
+            Image("SoundSecondImage")
                 .resizable()
                 .scaledToFill()
                 .foregroundStyle(.black)
-                .frame(width: 25, height: 25)
+                .frame(width: 30, height: 30)
             Spacer()
             if viewModel.isFirctWord {
                 Image(systemName: "arrow.uturn.backward")

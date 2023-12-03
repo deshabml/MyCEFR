@@ -13,6 +13,8 @@ final class FlashcardsViewModel: ObservableObject {
     let level: Level
     let flashcardVM = FlashcardViewModel()
     @Published var activeWords: [Word] = []
+    @Published var successfulWordsID: [String] = []
+    @Published var unsuccessfulWordsID: [String] = []
 
     init(words: [Word], level: Level) {
         self.words = words
