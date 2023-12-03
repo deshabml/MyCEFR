@@ -19,6 +19,19 @@ final class FlashcardViewModel: ObservableObject {
                                            transcription: "",
                                            partOfSpeechID: "")
     @Published var isFirctWord = false
+    @Published var isEnToRus = true {
+        didSet {
+            if isEnToRus {
+                if flipped {
+                    flipped.toggle()
+                }
+            } else {
+                if flipped {
+                    flipped.toggle()
+                }
+            }
+        }
+    }
 
     func setupWord(word: Word, isFirst: Bool = false) {
         self.activeWord = word

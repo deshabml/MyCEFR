@@ -13,10 +13,18 @@ struct FlashcardView: View {
 
     var body: some View {
         ZStack {
-            if viewModel.flipped {
-                back()
+            if viewModel.isEnToRus {
+                if viewModel.flipped {
+                    back()
+                } else {
+                    front()
+                }
             } else {
-                front()
+                if viewModel.flipped {
+                    front()
+                } else {
+                    back()
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

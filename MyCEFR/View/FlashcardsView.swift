@@ -12,16 +12,40 @@ struct FlashcardsView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: FlashcardsViewModel
     @State var animSquare = false
+    @State var cardPosition: CGFloat = 0
 
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            FlashcardView(viewModel: viewModel.flashcardVM)
-                .rotationEffect(.degrees(animSquare ? 720 : 0))
-            shuffleButton()
-            successfulWordCounter()
+            ZStack {
+                Text(viewModel.progressInfoText())
+                    .font(Font.custom("Spectral", size: 20)
+                        .weight(.semibold))
+                    .foregroundStyle(.white)
+                HStack {
+                    Spacer()
+                    Button {
+//                        viewModel.reload()
+                        animationReload()
+                    } label: {
+                        Text(viewModel.isEnToRus ? "eng → ru" : "ru → eng")
+                            .font(Font.custom("Spectral", size: 20)
+                                .weight(.semibold))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.horizontal)
+                }
+            }
+            VStack {
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    .background(.yellow)
+                FlashcardView(viewModel: viewModel.flashcardVM)
+                    .rotationEffect(.degrees(animSquare ? 720 : 0))
+                    .offset(x: cardPosition)
+                shuffleButton()
+                successfulWordCounter()
+            }
         }
-        .padding(.top, 85)
+        .padding(.top, 50)
         .modifier(BackgroundElement(isProfile: true,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
@@ -53,7 +77,7 @@ extension FlashcardsView {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 20, height: 20)
-                Text("Shuffle")
+                Text("shuffle".localized)
                     .font(Font.custom("Spectral", size: 13)
                         .weight(.medium))
                     .foregroundStyle(.black)
@@ -92,6 +116,19 @@ extension FlashcardsView {
                     .frame(width: 80, height: 40)
                     .padding(.leading, 20)
             )
+        }
+    }
+
+    private func animationReload() {
+        withAnimation(.linear(duration: 0.7)) {
+            cardPosition = -400
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500))  {
+            viewModel.isEnToRusToggle()
+            cardPosition = 400
+            withAnimation(.linear(duration: 0.7)) {
+                cardPosition = 0
+            }
         }
     }
 }

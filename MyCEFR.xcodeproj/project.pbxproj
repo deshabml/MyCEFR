@@ -66,7 +66,6 @@
 		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
 		DDD6C8C12AD7554900327F9E /* ProfileSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C02AD7554900327F9E /* ProfileSettingsViewModelTests.swift */; };
 		DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */; };
-		DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */; };
 		DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */; };
 		DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947042B0024DF00D413A8 /* WordSelectionView.swift */; };
 		DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */; };
@@ -162,7 +161,6 @@
 		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
 		DDD6C8C02AD7554900327F9E /* ProfileSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModelTests.swift; sourceTree = "<group>"; };
-		DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelTests.swift; sourceTree = "<group>"; };
 		DDD947042B0024DF00D413A8 /* WordSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionView.swift; sourceTree = "<group>"; };
 		DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 		DDD6C8C52AD7CA8F00327F9E /* ComponentsTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */,
 				DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */,
 			);
 			path = ComponentsTests;
@@ -590,7 +587,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */,
 				DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */,
 				DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */,
 				DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */,

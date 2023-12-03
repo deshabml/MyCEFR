@@ -34,17 +34,4 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         ModifiedContent(content: self, modifier: CornerRadiusStyle(radius: radius, corners: corners))
     }
-//
-//    public func addBorderCastumRadius(width: CGFloat = 1, cornerRadius: CGFloat, corners: UIRectCorner) -> some View {
-////        let roundedRect = Rectangle()
-//            ModifiedContent(content: self, modifier: cornerRadius(radius: cornerRadius, corners: corners))
-//        return clipShape(roundedRect)
-//             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
-//    }
-
-//    func addBorderCastumRadius<T>(_ content: T, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where T : ShapeStyle {
-//        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
-//        return clipShape(Rectangle().cornerRadius(20, corners: [.topRight, .bottomRight]))
-//             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
-//    }
 }

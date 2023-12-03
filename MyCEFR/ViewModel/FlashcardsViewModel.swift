@@ -15,6 +15,8 @@ final class FlashcardsViewModel: ObservableObject {
     @Published var activeWords: [Word] = []
     @Published var successfulWordsID: [String] = []
     @Published var unsuccessfulWordsID: [String] = []
+    @Published var activeWordIndex = 0
+    @Published var isEnToRus: Bool = true
 
     init(words: [Word], level: Level) {
         self.words = words
@@ -46,16 +48,32 @@ final class FlashcardsViewModel: ObservableObject {
             }
         }
         guard activeWords.isEmpty else {
-            flashcardVM.setupWord(word: activeWords[0], isFirst: true)
+            flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
             return
         }
         activeWords = words
-        flashcardVM.setupWord(word: activeWords[0], isFirst: true)
+        flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
 
     func shuffle() {
         let newActiveWords = activeWords.shuffled()
         activeWords = newActiveWords
-        flashcardVM.setupWord(word: activeWords[0], isFirst: true)
+        activeWordIndex = 0
+        flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
+    }
+
+    func reload() {
+        activeWordIndex = 0
+        flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
+    }
+
+    func progressInfoText() -> String {
+        "\(activeWordIndex + 1)/\(activeWords.count)"
+    }
+
+    func isEnToRusToggle() {
+        isEnToRus.toggle()
+        flashcardVM.isEnToRus = isEnToRus
+        reload()
     }
 }
