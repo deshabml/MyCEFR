@@ -13,34 +13,17 @@ struct FlashcardsView: View {
     @StateObject var viewModel: FlashcardsViewModel
     @State var animSquare = false
     @State var cardPosition: CGFloat = 0
+    @State var draggetOffsetCard = CGSize.zero
+    @State var opticalCard: Double = 1
+    @State var rotationSwipeCard: Double = 0
 
     var body: some View {
         VStack {
-            ZStack {
-                Text(viewModel.progressInfoText())
-                    .font(Font.custom("Spectral", size: 20)
-                        .weight(.semibold))
-                    .foregroundStyle(.white)
-                HStack {
-                    Spacer()
-                    Button {
-//                        viewModel.reload()
-                        animationReload()
-                    } label: {
-                        Text(viewModel.isEnToRus ? "eng → ru" : "ru → eng")
-                            .font(Font.custom("Spectral", size: 20)
-                                .weight(.semibold))
-                            .foregroundStyle(.white)
-                    }
-                    .padding(.horizontal)
-                }
-            }
+            informationBar()
             VStack {
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
                     .background(.yellow)
-                FlashcardView(viewModel: viewModel.flashcardVM)
-                    .rotationEffect(.degrees(animSquare ? 720 : 0))
-                    .offset(x: cardPosition)
+                card()
                 shuffleButton()
                 successfulWordCounter()
             }
@@ -128,6 +111,85 @@ extension FlashcardsView {
             cardPosition = 400
             withAnimation(.linear(duration: 0.7)) {
                 cardPosition = 0
+            }
+        }
+    }
+
+    private func card() -> some View {
+        FlashcardView(viewModel: viewModel.flashcardVM)
+            .rotationEffect(.degrees(animSquare ? 720 : 0))
+            .rotationEffect(.degrees(rotationSwipeCard))
+            .offset(x: cardPosition)
+            .offset(x: draggetOffsetCard.width)
+            .gesture(DragGesture()
+                .onChanged { value in
+                    swipeRotationAnimation()
+                    draggetOffsetCard = value.translation
+                    if draggetOffsetCard.width < 0 {
+                        viewModel.flashcardVM.style = .red
+                    } else if draggetOffsetCard.width > 0 {
+                        viewModel.flashcardVM.style = .green
+                    }
+                }
+                .onEnded { value in
+                    swipeRotationAnimation()
+                    if value.translation.width < -100 {
+                        swipeAnimation(isLeft: true)
+                    } else if value.translation.width > 100 {
+                        swipeAnimation(isLeft: false)
+                    } else {
+                        draggetOffsetCard = CGSize.zero
+                        viewModel.flashcardVM.style = .standart
+                        rotationSwipeCard = 0
+                    }
+                })
+            .opacity(opticalCard)
+    }
+
+    private func informationBar() -> some View {
+        ZStack {
+            Text(viewModel.progressInfoText())
+                .font(Font.custom("Spectral", size: 20)
+                    .weight(.semibold))
+                .foregroundStyle(.white)
+            HStack {
+                Spacer()
+                Button {
+                    animationReload()
+                } label: {
+                    Text(viewModel.isEnToRus ? "eng → ru" : "ru → eng")
+                        .font(Font.custom("Spectral", size: 20)
+                            .weight(.semibold))
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal)
+            }
+        }
+    }
+
+    func swipeAnimation(isLeft: Bool = true) {
+        withAnimation(.linear(duration: 0.5)) {
+            draggetOffsetCard = CGSize(width: isLeft ? -400 : 400, height: 0)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            opticalCard = 0
+            rotationSwipeCard = 0
+            draggetOffsetCard = CGSize.zero
+            viewModel.flashcardVM.style = .standart
+            withAnimation(.easeInOut(duration: 0.2)) {
+                opticalCard = 1
+            }
+        }
+    }
+
+    func swipeRotationAnimation() {
+        if draggetOffsetCard.width != 0 {
+            withAnimation(.linear(duration: 0.1)) {
+                rotationSwipeCard = draggetOffsetCard.width / 10
+            }
+        } else {
+            withAnimation(.linear(duration: 0.1)) {
+                rotationSwipeCard = 0
             }
         }
     }

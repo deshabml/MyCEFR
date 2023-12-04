@@ -32,9 +32,17 @@ final class FlashcardViewModel: ObservableObject {
             }
         }
     }
+    @Published var style: StyleCard = .standart
 
     func setupWord(word: Word, isFirst: Bool = false) {
         self.activeWord = word
         isFirctWord = isFirst
+    }
+
+    enum StyleCard {
+        
+        case red
+        case green
+        case standart
     }
 }

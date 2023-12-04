@@ -58,11 +58,14 @@ final class FlashcardsViewModel: ObservableObject {
     func shuffle() {
         let newActiveWords = activeWords.shuffled()
         activeWords = newActiveWords
+        resettingCounters()
         activeWordIndex = 0
+        flashcardVM.flipped = false
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
 
     func reload() {
+        resettingCounters()
         activeWordIndex = 0
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
@@ -75,5 +78,10 @@ final class FlashcardsViewModel: ObservableObject {
         isEnToRus.toggle()
         flashcardVM.isEnToRus = isEnToRus
         reload()
+    }
+
+    func resettingCounters() {
+        successfulWordsID = []
+        unsuccessfulWordsID = []
     }
 }

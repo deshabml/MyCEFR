@@ -30,10 +30,10 @@ struct FlashcardView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .black.opacity(0.5), radius: 4, x: 0, y: 0)
+        .shadow(color: colorCrad().opacity(0.5), radius: 4, x: 0, y: 0)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black, lineWidth: 2)
+                .stroke(colorCrad(), lineWidth: 2)
         )
         .padding()
         .padding(.horizontal, 40)
@@ -90,6 +90,7 @@ extension FlashcardView {
         }
         .padding(.bottom, 25)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.easeInOut, value: colorCrad())
     }
 
     private func back() -> some View {
@@ -136,5 +137,16 @@ extension FlashcardView {
             }
         }
         .padding()
+    }
+
+    private func colorCrad() -> Color {
+        switch viewModel.style {
+            case .standart:
+                return .black
+            case .red:
+                return Color("RedWordCardsColor")
+            case .green:
+                return Color("GreenWordCardsColor")
+        }
     }
 }
