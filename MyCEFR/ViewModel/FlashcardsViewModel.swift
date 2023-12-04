@@ -95,4 +95,9 @@ final class FlashcardsViewModel: ObservableObject {
         activeWordIndex += 1
         flashcardVM.activeWord = activeWords[activeWordIndex]
     }
+
+    func isSelectedWord(selectedWordsID: SelectedWordsID) -> Bool {
+        guard !activeWords.isEmpty else { return false }
+        return selectedWordsID.selectedID.contains(activeWords[activeWordIndex].id)
+    }
 }

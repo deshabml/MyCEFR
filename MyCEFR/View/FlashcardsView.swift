@@ -21,8 +21,11 @@ struct FlashcardsView: View {
         VStack {
             informationBar()
             VStack {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                    .background(.yellow)
+                HStack {
+                    Spacer()
+                    selectedWordButton()
+                        .padding(.horizontal)
+                }
                 card()
                 shuffleButton()
                 successfulWordCounter()
@@ -190,6 +193,21 @@ extension FlashcardsView {
             withAnimation(.linear(duration: 0.1)) {
                 rotationSwipeCard = 0
             }
+        }
+    }
+
+    private func selectedWordButton() -> some View {
+        Button {
+            if viewModel.isSelectedWord(selectedWordsID: coordinator.selectedWordsID) {
+                coordinator.deleteSelectedWordsID(viewModel.activeWords[viewModel.activeWordIndex].id)
+            } else {
+                coordinator.addSelectedWordsID(viewModel.activeWords[viewModel.activeWordIndex].id)
+            }
+        } label: {
+            Image(viewModel.isSelectedWord(selectedWordsID: coordinator.selectedWordsID) ? "FlagActiveImage" : "FlagImage")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 20, height: 20)
         }
     }
 }
