@@ -37,6 +37,7 @@ struct FlashcardsView: View {
             viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
         }
         .animation(.easeInOut, value: animSquare)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
@@ -70,36 +71,32 @@ extension FlashcardsView {
 
     private func successfulWordCounter() -> some View {
         HStack {
-            ZStack {
-                Rectangle()
-                    .cornerRadius(20, corners: [.topRight, .bottomRight])
-                    .frame(width: 60, height: 40)
-                    .foregroundStyle(Color("RedWordCardsColor").opacity(0.42))
-                Text("\(viewModel.unsuccessfulWordsID.count)")
-                    .foregroundStyle(.red)
-            }
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("RedWordCardsColor"), lineWidth: 2)
-                    .frame(width: 80, height: 40)
-                    .padding(.trailing, 20)
-            )
+            successfulWordElement(color: Color("RedWordCardsColor"),
+                                  text: "\(viewModel.unsuccessfulWordsID.count)",
+                                  isLeft: true)
             Spacer()
-            ZStack {
-                Rectangle()
-                    .cornerRadius(20, corners: [.topLeft, .bottomLeft])
-                    .frame(width: 60, height: 40)
-                    .foregroundStyle(Color("GreenWordCardsColor").opacity(0.34))
-                Text("\(viewModel.successfulWordsID.count)")
-                    .foregroundStyle(.green)
-            }
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("GreenWordCardsColor"), lineWidth: 2)
-                    .frame(width: 80, height: 40)
-                    .padding(.leading, 20)
-            )
+            successfulWordElement(color: Color("GreenWordCardsColor"),
+                                  text: "\(viewModel.successfulWordsID.count)",
+                                  isLeft: false)
         }
+    }
+
+    private func successfulWordElement(color: Color, text: String, isLeft: Bool) -> some View {
+        ZStack {
+            Rectangle()
+                .cornerRadius(20, corners: isLeft ? [.topRight, .bottomRight] : [.topLeft, .bottomLeft])
+                .frame(width: 60, height: 40)
+                .foregroundStyle(color.opacity(0.42))
+            Text("\(text)")
+                .foregroundStyle(isLeft ? .red : .green)
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(color, lineWidth: 2)
+                .frame(width: 80, height: 40)
+                .padding(.trailing, isLeft ? 20 : 0)
+                .padding(.leading, isLeft ? 0 : 20)
+        )
     }
 
     private func animationReload() {
@@ -134,8 +131,10 @@ extension FlashcardsView {
                 .onEnded { value in
                     swipeRotationAnimation()
                     if value.translation.width < -100 {
+                        viewModel.swipe(isLeft: true)
                         swipeAnimation(isLeft: true)
                     } else if value.translation.width > 100 {
+                        viewModel.swipe(isLeft: false)
                         swipeAnimation(isLeft: false)
                     } else {
                         draggetOffsetCard = CGSize.zero

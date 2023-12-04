@@ -84,4 +84,15 @@ final class FlashcardsViewModel: ObservableObject {
         successfulWordsID = []
         unsuccessfulWordsID = []
     }
+
+    func swipe(isLeft: Bool) {
+        guard activeWordIndex < (activeWords.count - 1) else { return }
+        if isLeft {
+            unsuccessfulWordsID.append(activeWords[activeWordIndex].id)
+        } else {
+            successfulWordsID.append(activeWords[activeWordIndex].id)
+        }
+        activeWordIndex += 1
+        flashcardVM.activeWord = activeWords[activeWordIndex]
+    }
 }
