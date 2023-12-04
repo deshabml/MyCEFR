@@ -87,19 +87,75 @@ extension FlashcardsView {
     private func successfulWordElement(color: Color, text: String, isLeft: Bool) -> some View {
         ZStack {
             Rectangle()
-                .cornerRadius(20, corners: isLeft ? [.topRight, .bottomRight] : [.topLeft, .bottomLeft])
-                .frame(width: 60, height: 40)
+                .cornerRadius(sWECornerRadius(isLeft: isLeft),
+                              corners: isLeft ? [.topRight, .bottomRight] : [.topLeft, .bottomLeft])
+                .frame(width: sWEFrameWidth(isLeft: isLeft),
+                       height: sWEFrameHeight(isLeft: isLeft))
                 .foregroundStyle(color.opacity(0.42))
-            Text("\(text)")
+            Text(sWEText(text: text, isLeft: isLeft))
                 .foregroundStyle(isLeft ? .red : .green)
+                .font(Font.custom("Spectral", size: sWEFontSize(isLeft: isLeft)))
         }
+        .frame(height: 100)
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: sWECornerRadius(isLeft: isLeft))
                 .stroke(color, lineWidth: 2)
-                .frame(width: 80, height: 40)
+                .frame(width: sWEFrameWidth(isLeft: isLeft) + 20,
+                       height: sWEFrameHeight(isLeft: isLeft))
                 .padding(.trailing, isLeft ? 20 : 0)
                 .padding(.leading, isLeft ? 0 : 20)
         )
+        .animation(.easeInOut, value: draggetOffsetCard)
+    }
+
+    func sWEFrameWidth(isLeft: Bool) -> Double {
+        if draggetOffsetCard.width < 0 && isLeft {
+            return 80
+        } else if draggetOffsetCard.width > 0 && !isLeft {
+            return 80
+        } else {
+            return 60
+        }
+    }
+
+    func sWEFrameHeight(isLeft: Bool) -> Double {
+        if draggetOffsetCard.width < 0 && isLeft {
+            return 60
+        } else if draggetOffsetCard.width > 0 && !isLeft {
+            return 60
+        } else {
+            return 40
+        }
+    }
+
+    func sWECornerRadius(isLeft: Bool) -> Double {
+        if draggetOffsetCard.width < 0 && isLeft {
+            return 30
+        } else if draggetOffsetCard.width > 0 && !isLeft {
+            return 30
+        } else {
+            return 20
+        }
+    }
+
+    func sWEText(text: String, isLeft: Bool) -> String {
+        if draggetOffsetCard.width < 0 && isLeft {
+            return "+ 1"
+        } else if draggetOffsetCard.width > 0 && !isLeft {
+            return "+ 1"
+        } else {
+            return text
+        }
+    }
+
+    func sWEFontSize(isLeft: Bool) -> Double {
+        if draggetOffsetCard.width < 0 && isLeft {
+            return 32
+        } else if draggetOffsetCard.width > 0 && !isLeft {
+            return 32
+        } else {
+            return 24
+        }
     }
 
     private func animationReload() {
