@@ -23,18 +23,8 @@ struct FlashcardsView: View {
             if viewModel.isFinishedRound {
                 VStack {
                     HStack {
-                        Text("good job!".localized)
-                            .font(Font.custom("Spectral", size: 20)
-                                .weight(.semibold))
-                            .foregroundStyle(.black)
-                        Button {
-                            viewModel.fireworkCounter += 1
-                        } label: {
-                            Image("FireworkImage")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 60, height: 60)
-                        }
+                        goodJobText()
+                        fireworkButton()
                     }
                     .padding()
                     Spacer()
@@ -308,5 +298,23 @@ extension FlashcardsView {
                 .scaledToFill()
                 .frame(width: 30, height: 30)
         }
+    }
+
+    private func fireworkButton() -> some View {
+        Button {
+            viewModel.fireworkCounter += 1
+        } label: {
+            Image("FireworkImage")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 60, height: 60)
+        }
+    }
+
+    private func goodJobText() -> some View {
+        Text("good job!".localized)
+            .font(Font.custom("Spectral", size: 20)
+                .weight(.semibold))
+            .foregroundStyle(.black)
     }
 }
