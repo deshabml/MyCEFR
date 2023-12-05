@@ -53,10 +53,15 @@ struct FlashcardsView: View {
             }
         }
         .modifier(BackgroundElement(isProfile: true,
+                                    isBottomPading: false,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
-                                    completion: { coordinator.goBackHome() }))
+                                    completion: {
+            coordinator.isShowTabBar = true
+            coordinator.goBackHome()
+        }))
         .onAppear {
+            coordinator.isShowTabBar = false
             viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
             viewModel.flashcardVM.setupCompletionBackButten {
                 backCardButtonAnimation()
@@ -64,7 +69,6 @@ struct FlashcardsView: View {
         }
         .animation(.easeInOut, value: animSquare)
         .animation(.easeInOut, value: viewModel.isFinishedRound)
-        .toolbar(.hidden, for: .tabBar)
     }
 }
 

@@ -31,7 +31,8 @@ struct SelectLevelView: View {
                 Text("UploadWord")
             }
         }
-        .modifier(BackgroundElement(headingText: "selectYourLevel".localized))
+        .modifier(BackgroundElement(isFirstScreen: true,
+                                    headingText: "selectYourLevel".localized))
     }
 }
 

@@ -31,9 +31,9 @@ struct LevelView: View {
             }
         }
         .modifier(BackgroundElement(isProfile: true,
+                                    isFirstScreen: true,
                                     headingText: viewModel.fullNameLevel(),
-                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
-                                    completion: { coordinator.goBackHome() }))
+                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level))))
         .environmentObject(coordinator)
     }
 }

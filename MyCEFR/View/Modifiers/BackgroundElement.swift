@@ -10,6 +10,8 @@ import SwiftUI
 struct BackgroundElement: ViewModifier {
 
     var isProfile = false
+    var isBottomPading: Bool = true
+    var isFirstScreen: Bool = false
     var headingText: String
     var colorBack: Color?
     var completion: (()->())?
@@ -18,6 +20,8 @@ struct BackgroundElement: ViewModifier {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarBackButtonHidden(true)
+            .toolbar(.hidden, for: .tabBar)
+            .padding(.bottom, isBottomPading ? 60 : 0)
             .background(
                 ZStack {
                     VStack {
@@ -38,7 +42,7 @@ struct BackgroundElement: ViewModifier {
                         Spacer()
                     }
                     .padding(.top, isProfile ? -410 : -380)
-                    if colorBack != nil {
+                    if !isFirstScreen {
                         VStack {
                             HStack(alignment: .top) {
                                 Button {

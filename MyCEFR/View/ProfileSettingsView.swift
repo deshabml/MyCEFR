@@ -31,6 +31,7 @@ struct ProfileSettingsView: View {
             }
         }
                .modifier(BackgroundElement(isProfile: true, 
+                                           isFirstScreen: true,
                                            headingText: "settings".localized))
                .onAppear {
                    viewModel.setup { coordinator.updatingUser() }

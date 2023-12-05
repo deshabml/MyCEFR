@@ -11,10 +11,19 @@ import SwiftUI
 final class Coordinator: ObservableObject {
 
     @Published var pathHome = NavigationPath()
+    @Published var pathCurrentCourse = NavigationPath()
     @Published var pathProfile = NavigationPath()
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
-    @Published var isUser = false
+    @Published var isUser = false {
+        didSet {
+            if !isUser {
+                isShowCurrentCourse = false
+            }
+        }
+    }
+    @Published var isShowCurrentCourse = false
+    @Published var isShowTabBar = true
     @Published var imegeProfile: UIImage? = nil
     @Published var userProfile: UserProfile = UserProfile(name: "firstAndlastName".localized,
                                                           eMail: "adress@email.ru",
@@ -24,6 +33,7 @@ final class Coordinator: ObservableObject {
                                               name: "",
                                               fullName: "") {
         didSet {
+            isShowCurrentCourse = true
             getSelectedWordsID()
         }
     }
@@ -51,24 +61,25 @@ final class Coordinator: ObservableObject {
     }
 
     func goToLevelScreen() {
-        pathHome.append(MyPage.level)
+        pathCurrentCourse.removeLast(pathCurrentCourse.count)
+        tab = .currentCourse
     }
 
     func goBackHome() {
-        pathHome.removeLast()
+        pathCurrentCourse.removeLast()
     }
 
     func goWordGroup() {
-        pathHome.append(MyPage.wordGroup)
+        pathCurrentCourse.append(MyPage.wordGroup)
     }
 
     func goWordSelection(selectWords: [Word]) {
         self.selectWords = selectWords
-        pathHome.append(MyPage.wordSelection)
+        pathCurrentCourse.append(MyPage.wordSelection)
     }
 
     func goFlashcards() {
-        pathHome.append(MyPage.flashcardsView)
+        pathCurrentCourse.append(MyPage.flashcardsView)
     }
 
     @ViewBuilder

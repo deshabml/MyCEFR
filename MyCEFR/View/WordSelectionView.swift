@@ -28,6 +28,7 @@ struct WordSelectionView: View {
                 VStack {
                     Spacer()
                     continueButton()
+                        .padding(.bottom, 70)
                 }
             }
         }
@@ -37,6 +38,7 @@ struct WordSelectionView: View {
             .environmentObject(coordinator)
         }
         .modifier(BackgroundElement(isProfile: true,
+                                    isBottomPading: false,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
                                     completion: { coordinator.goBackHome() }))
