@@ -31,8 +31,9 @@ struct FlashcardsView: View {
                     }
                     .padding()
                     Spacer()
+                    finishedRoundButtons()
                 }
-                .padding(.vertical, 85)
+                .padding(.top, 85)
                 .confettiCannon(counter: $viewModel.fireworkCounter, repetitions: 20, repetitionInterval: 0.1)
             } else {
                 VStack {
@@ -72,7 +73,7 @@ struct FlashcardsView: View {
                                                   level: Level(id: "1",
                                                                name: "level",
                                                                fullName: "FulLevel")))
-        .environmentObject(Coordinator(isWorker: true))
+    .environmentObject(Coordinator(isWorker: true))
 }
 
 extension FlashcardsView {
@@ -323,8 +324,8 @@ extension FlashcardsView {
 
     private func successfulWordsInfo() -> some View {
         VStack {
-            successfulWordsInfoText(text: "Know: \(viewModel.successfulWordsID.count)", isSuccessful: true)
-            successfulWordsInfoText(text: "Pending: \(viewModel.unsuccessfulWordsID.count)", isSuccessful: false)
+            successfulWordsInfoText(text: "know".localized + ": \(viewModel.successfulWordsID.count)", isSuccessful: true)
+            successfulWordsInfoText(text: "pending".localized + ": \(viewModel.unsuccessfulWordsID.count)", isSuccessful: false)
         }
     }
 
@@ -339,5 +340,48 @@ extension FlashcardsView {
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(isSuccessful ? Color("GreenWordCardsColor") : Color("RedWordCardsColor"), lineWidth: 2))
+    }
+
+    private func finishedRoundButton(text: String, isActive: Bool, completion: (()->())?) -> some View {
+        VStack {
+            if isActive {
+                Button {
+                    completion?()
+                } label: {
+                    Text(text)
+                        .font(Font.custom("Spectral", size: 17)
+                            .weight(.semibold))
+                        .foregroundStyle(.white)
+                }
+                .frame(width: 300, height: 40)
+                .background(Color("MainBlueColor"))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            } else {
+                Text(text)
+                    .font(Font.custom("Spectral", size: 17)
+                        .weight(.semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 300, height: 40)
+                    .background(Color("MainBlueColor").opacity(0.3))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+        }
+    }
+
+    private func finishedRoundButtons() -> some View {
+        VStack(spacing: 10) {
+            finishedRoundButton(text: "continueThePending".localized,
+                                isActive: !viewModel.unsuccessfulWordsID.isEmpty) {
+                viewModel.continueThePendingButton()
+            }
+            finishedRoundButton(text: "practiceSpelling".localized,
+                                isActive: false, completion: nil)
+            finishedRoundButton(text: "restartСards".localized,
+                                isActive: true) {
+                viewModel.reload()
+                viewModel.isFinishedRound.toggle()
+            }
+        }
+        .padding()
     }
 }

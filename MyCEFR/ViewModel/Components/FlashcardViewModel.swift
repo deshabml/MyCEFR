@@ -8,7 +8,7 @@
 import Foundation
 
 final class FlashcardViewModel: ObservableObject {
-
+    
     @Published var flipped: Bool = false
     @Published var flashcardRotation = 0.0
     @Published var contentRotation = 0.0
@@ -34,19 +34,19 @@ final class FlashcardViewModel: ObservableObject {
     }
     @Published var style: StyleCard = .standart
     var completionBackButten: (()->())?
-
+    
     func setupWord(word: Word, isFirst: Bool = false) {
         self.activeWord = word
         isFirctWord = isFirst
     }
-
+    
     enum StyleCard {
         
         case red
         case green
         case standart
     }
-
+    
     func setupCompletionBackButten(_ completionBackButten: @escaping ()->()) {
         self.completionBackButten = completionBackButten
     }

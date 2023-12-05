@@ -27,13 +27,13 @@ final class FlashcardsViewModel: ObservableObject {
         }
     }
     @Published var fireworkCounter = 0
-
-
+    
+    
     init(words: [Word], level: Level) {
         self.words = words
         self.level = level
     }
-
+    
     func fullNameLevel() -> String {
         guard !words.isEmpty else { return level.name }
         let fullName = words[0].groupName
@@ -51,7 +51,7 @@ final class FlashcardsViewModel: ObservableObject {
         }
         return newFullName
     }
-
+    
     func setupActiveWord(selectedWordsID: SelectedWordsID) {
         for word in words {
             if selectedWordsID.selectedID.contains(word.id) {
@@ -65,7 +65,7 @@ final class FlashcardsViewModel: ObservableObject {
         activeWords = words
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
-
+    
     func shuffle() {
         let newActiveWords = activeWords.shuffled()
         activeWords = newActiveWords
@@ -75,29 +75,29 @@ final class FlashcardsViewModel: ObservableObject {
         flashcardVM.flipped = false
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
-
+    
     func reload() {
         resettingCounters()
         activeWordIndex = 0
         flashcardVM.isFirctWord = true
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
-
+    
     func progressInfoText() -> String {
         "\(activeWordIndex + 1)/\(activeWords.count)"
     }
-
+    
     func isEnToRusToggle() {
         isEnToRus.toggle()
         flashcardVM.isEnToRus = isEnToRus
         reload()
     }
-
+    
     func resettingCounters() {
         successfulWordsID = []
         unsuccessfulWordsID = []
     }
-
+    
     func swipe(isLeft: Bool) {
         if isLeft {
             unsuccessfulWordsID.append(activeWords[activeWordIndex].id)
@@ -113,12 +113,12 @@ final class FlashcardsViewModel: ObservableObject {
         flashcardVM.activeWord = activeWords[activeWordIndex]
         flashcardVM.isEnToRus = isEnToRus
     }
-
+    
     func isSelectedWord(selectedWordsID: SelectedWordsID) -> Bool {
         guard !activeWords.isEmpty else { return false }
         return selectedWordsID.selectedID.contains(activeWords[activeWordIndex].id)
     }
-
+    
     func backCardButtonAction() {
         guard activeWordIndex > 0 else { return }
         if let index = successfulWordsID.firstIndex(of: activeWords[activeWordIndex].id) {
@@ -133,5 +133,20 @@ final class FlashcardsViewModel: ObservableObject {
             flashcardVM.isFirctWord = true
         }
         flashcardVM.isEnToRus = isEnToRus
+    }
+    
+    func continueThePendingButton() {
+        guard !unsuccessfulWordsID.isEmpty else { return }
+        let oldActiveWords = activeWords
+        activeWords = []
+        for id in unsuccessfulWordsID {
+            for word in oldActiveWords {
+                if word.id == id {
+                    activeWords.append(word)
+                }
+            }
+        }
+        reload()
+        isFinishedRound.toggle()
     }
 }

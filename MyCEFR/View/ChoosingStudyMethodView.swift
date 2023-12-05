@@ -22,7 +22,7 @@ struct ChoosingStudyMethodView: View {
             fakeButton("learn".localized,
                        "learnWords".localized)
             fakeButton("test".localized,
-                       "TakeATestToCheckYourKnowledge".localized)
+                       "knowledgeTest".localized)
         }
         .padding()
     }
