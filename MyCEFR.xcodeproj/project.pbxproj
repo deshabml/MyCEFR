@@ -35,6 +35,7 @@
 		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
 		DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* UserProfile.swift */; };
 		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
+		DD5D79D22B1F275600DBD06B /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */; };
 		DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */; };
 		DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */; };
 		DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */; };
@@ -198,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5D79D22B1F275600DBD06B /* ConfettiSwiftUI in Frameworks */,
 				DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */,
 				DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */,
 				DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */,
@@ -510,6 +512,7 @@
 				DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */,
 				DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */,
 				DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */,
+				DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */,
 			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
@@ -547,6 +550,7 @@
 			packageReferences = (
 				DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
@@ -955,6 +959,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -974,6 +986,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -17,6 +17,17 @@ final class FlashcardsViewModel: ObservableObject {
     @Published var unsuccessfulWordsID: [String] = []
     @Published var activeWordIndex = 0
     @Published var isEnToRus: Bool = true
+    @Published var isFinishedRound: Bool = false {
+        didSet {
+            if isFinishedRound {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500))  { [unowned self] in
+                    self.fireworkCounter += 1
+                }
+            }
+        }
+    }
+    @Published var fireworkCounter = 0
+
 
     init(words: [Word], level: Level) {
         self.words = words
@@ -88,7 +99,10 @@ final class FlashcardsViewModel: ObservableObject {
     }
 
     func swipe(isLeft: Bool) {
-        guard activeWordIndex < (activeWords.count - 1) else { return }
+        guard activeWordIndex < (activeWords.count - 1) else {
+            isFinishedRound = true
+            return
+        }
         if isLeft {
             unsuccessfulWordsID.append(activeWords[activeWordIndex].id)
         } else {

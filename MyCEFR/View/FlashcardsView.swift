@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct FlashcardsView: View {
 
@@ -19,19 +20,44 @@ struct FlashcardsView: View {
 
     var body: some View {
         VStack {
-            informationBar()
-            VStack {
-                HStack {
+            if viewModel.isFinishedRound {
+                VStack {
+                    HStack {
+                        Text("good job!".localized)
+                            .font(Font.custom("Spectral", size: 20)
+                                .weight(.semibold))
+                            .foregroundStyle(.black)
+                        Button {
+                            viewModel.fireworkCounter += 1
+                        } label: {
+                            Image("FireworkImage")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                        }
+                    }
+                    .padding()
                     Spacer()
-                    selectedWordButton()
-                        .padding(.horizontal)
                 }
-                card()
-                shuffleButton()
-                successfulWordCounter()
+                .padding(.vertical, 85)
+                .confettiCannon(counter: $viewModel.fireworkCounter, repetitions: 20, repetitionInterval: 0.1)
+            } else {
+                VStack {
+                    informationBar()
+                    VStack {
+                        HStack {
+                            Spacer()
+                            selectedWordButton()
+                                .padding(.horizontal)
+                        }
+                        card()
+                        shuffleButton()
+                        successfulWordCounter()
+                    }
+                }
+                .padding(.top, 50)
             }
         }
-        .padding(.top, 50)
         .modifier(BackgroundElement(isProfile: true,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
@@ -43,6 +69,7 @@ struct FlashcardsView: View {
             }
         }
         .animation(.easeInOut, value: animSquare)
+        .animation(.easeInOut, value: viewModel.isFinishedRound)
         .toolbar(.hidden, for: .tabBar)
     }
 }
