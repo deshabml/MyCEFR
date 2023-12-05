@@ -33,6 +33,7 @@ final class FlashcardViewModel: ObservableObject {
         }
     }
     @Published var style: StyleCard = .standart
+    var completionBackButten: (()->())?
 
     func setupWord(word: Word, isFirst: Bool = false) {
         self.activeWord = word
@@ -44,5 +45,9 @@ final class FlashcardViewModel: ObservableObject {
         case red
         case green
         case standart
+    }
+
+    func setupCompletionBackButten(_ completionBackButten: @escaping ()->()) {
+        self.completionBackButten = completionBackButten
     }
 }

@@ -126,7 +126,7 @@ extension FlashcardView {
                     .frame(width: 25, height: 25)
             } else {
                 Button {
-
+                    viewModel.completionBackButten?()
                 } label: {
                     Image(systemName: "arrow.uturn.backward")
                         .resizable()

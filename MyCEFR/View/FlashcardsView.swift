@@ -38,6 +38,9 @@ struct FlashcardsView: View {
                                     completion: { coordinator.goBackHome() }))
         .onAppear {
             viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
+            viewModel.flashcardVM.setupCompletionBackButten {
+                backCardButtonAnimation()
+            }
         }
         .animation(.easeInOut, value: animSquare)
         .toolbar(.hidden, for: .tabBar)
@@ -171,6 +174,19 @@ extension FlashcardsView {
         }
     }
 
+    private func backCardButtonAnimation() {
+        withAnimation(.linear(duration: 0.7)) {
+            cardPosition = 400
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500))  {
+            viewModel.backCardButtonAction()
+            cardPosition = -400
+            withAnimation(.linear(duration: 0.7)) {
+                cardPosition = 0
+            }
+        }
+    }
+
     private func card() -> some View {
         FlashcardView(viewModel: viewModel.flashcardVM)
             .rotationEffect(.degrees(animSquare ? 720 : 0))
@@ -263,7 +279,7 @@ extension FlashcardsView {
             Image(viewModel.isSelectedWord(selectedWordsID: coordinator.selectedWordsID) ? "FlagActiveImage" : "FlagImage")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 20, height: 20)
+                .frame(width: 30, height: 30)
         }
     }
 }

@@ -60,6 +60,7 @@ final class FlashcardsViewModel: ObservableObject {
         activeWords = newActiveWords
         resettingCounters()
         activeWordIndex = 0
+        flashcardVM.isFirctWord = true
         flashcardVM.flipped = false
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
@@ -67,6 +68,7 @@ final class FlashcardsViewModel: ObservableObject {
     func reload() {
         resettingCounters()
         activeWordIndex = 0
+        flashcardVM.isFirctWord = true
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
     }
 
@@ -93,11 +95,29 @@ final class FlashcardsViewModel: ObservableObject {
             successfulWordsID.append(activeWords[activeWordIndex].id)
         }
         activeWordIndex += 1
+        flashcardVM.isFirctWord = false
         flashcardVM.activeWord = activeWords[activeWordIndex]
+        flashcardVM.isEnToRus = isEnToRus
     }
 
     func isSelectedWord(selectedWordsID: SelectedWordsID) -> Bool {
         guard !activeWords.isEmpty else { return false }
         return selectedWordsID.selectedID.contains(activeWords[activeWordIndex].id)
+    }
+
+    func backCardButtonAction() {
+        guard activeWordIndex > 0 else { return }
+        if let index = successfulWordsID.firstIndex(of: activeWords[activeWordIndex].id) {
+            successfulWordsID.remove(at: index)
+        }
+        if let index = unsuccessfulWordsID.firstIndex(of: activeWords[activeWordIndex].id) {
+            unsuccessfulWordsID.remove(at: index)
+        }
+        activeWordIndex -= 1
+        flashcardVM.activeWord = activeWords[activeWordIndex]
+        if activeWordIndex == 0 {
+            flashcardVM.isFirctWord = true
+        }
+        flashcardVM.isEnToRus = isEnToRus
     }
 }
