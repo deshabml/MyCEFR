@@ -99,14 +99,14 @@ final class FlashcardsViewModel: ObservableObject {
     }
 
     func swipe(isLeft: Bool) {
-        guard activeWordIndex < (activeWords.count - 1) else {
-            isFinishedRound = true
-            return
-        }
         if isLeft {
             unsuccessfulWordsID.append(activeWords[activeWordIndex].id)
         } else {
             successfulWordsID.append(activeWords[activeWordIndex].id)
+        }
+        guard activeWordIndex < (activeWords.count - 1) else {
+            isFinishedRound = true
+            return
         }
         activeWordIndex += 1
         flashcardVM.isFirctWord = false

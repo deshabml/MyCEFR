@@ -22,9 +22,12 @@ struct FlashcardsView: View {
         VStack {
             if viewModel.isFinishedRound {
                 VStack {
-                    HStack {
-                        goodJobText()
-                        fireworkButton()
+                    VStack(spacing: 100)  {
+                        HStack {
+                            goodJobText()
+                            fireworkButton()
+                        }
+                        successfulWordsInfo()
                     }
                     .padding()
                     Spacer()
@@ -316,5 +319,25 @@ extension FlashcardsView {
             .font(Font.custom("Spectral", size: 20)
                 .weight(.semibold))
             .foregroundStyle(.black)
+    }
+
+    private func successfulWordsInfo() -> some View {
+        VStack {
+            successfulWordsInfoText(text: "Know: \(viewModel.successfulWordsID.count)", isSuccessful: true)
+            successfulWordsInfoText(text: "Pending: \(viewModel.unsuccessfulWordsID.count)", isSuccessful: false)
+        }
+    }
+
+    private func successfulWordsInfoText(text: String, isSuccessful: Bool) -> some View {
+        Text(text)
+            .font(Font.custom("Spectral", size: 24))
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(isSuccessful ? Color("GreenWordCardsColor").opacity(0.42) : Color("RedWordCardsColor").opacity(0.42))
+            .foregroundStyle(isSuccessful ? .green : .red)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(isSuccessful ? Color("GreenWordCardsColor") : Color("RedWordCardsColor"), lineWidth: 2))
     }
 }
