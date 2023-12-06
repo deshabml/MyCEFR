@@ -11,25 +11,19 @@ struct SelectLevelView: View {
     
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel: SelectLevelViewModel
-    
+    @State var isShowAdminPanel = false
+
     var body: some View {
         VStack {
-            imageProfile()
-            levels()
-            Spacer()
-            Button {
-                viewModel.downloadJson()
-                print("DownloadJson")
-            } label: {
-                Text("DownloadJson")
+            ZStack {
+                VStack {
+                    imageProfile()
+                    levels()
+                    Spacer()
+                }
+                adminPanel()
             }
-            Spacer()
-            Button {
-                viewModel.uploadWord()
-                print("Upload")
-            } label: {
-                Text("UploadWord")
-            }
+
         }
         .modifier(BackgroundElement(isFirstScreen: true,
                                     headingText: "selectYourLevel".localized))
@@ -108,4 +102,70 @@ extension SelectLevelView {
         }
         .padding(.top, 200)
     }    
+
+    private func adminPanel() -> some View {
+        VStack {
+            Spacer()
+            HStack {
+                if isShowAdminPanel {
+                    VStack(spacing: 50) {
+                        buttonAdminPanel(text: "DownloadJson") {
+                            viewModel.downloadJson()
+                            print("DownloadJson")
+                        }
+                        Button {
+                            isShowAdminPanel.toggle()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 16,
+                                       height: 16)
+                                .foregroundStyle(.black)
+                        }
+
+                        buttonAdminPanel(text: "UploadWords") {
+                            viewModel.uploadWord()
+                            print("UploadWords")
+                        }
+                    }
+                    .background(.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                } else {
+                    Button {
+                        isShowAdminPanel.toggle()
+                    } label: {
+                        Text("Панель Администратора")
+                            .font(.custom("Spectral-Regular",
+                                          size: 18))
+                            .foregroundStyle(.black)
+                    }
+                    .padding()
+                    .background(.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .blue.opacity(0.2), 
+                            radius: 4)
+                }
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 100)
+        }
+        .animation(.linear, value: isShowAdminPanel)
+    }
+
+    private func buttonAdminPanel(text: String, completion: @escaping ()->()) -> some View {
+        Button {
+            completion()
+        } label: {
+            Text(text)
+                .font(.custom("Spectral-Regular", size: 18))
+                .foregroundStyle(.white)
+        }
+        .padding()
+        .background(Color("MasteryBackColor"))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(color: .black.opacity(0.2), radius: 4)
+
+    }
 }
