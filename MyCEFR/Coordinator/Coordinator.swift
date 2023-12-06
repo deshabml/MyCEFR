@@ -82,6 +82,10 @@ final class Coordinator: ObservableObject {
         pathCurrentCourse.append(MyPage.flashcardsView)
     }
 
+    func goToLearning() {
+        pathCurrentCourse.append(MyPage.learning)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -101,6 +105,9 @@ final class Coordinator: ObservableObject {
             case .flashcardsView:
                 FlashcardsView(viewModel: FlashcardsViewModel(words: self.selectWords,
                                                               level: self.selectLevel))
+            case .learning:
+                LearningView(viewModel: LearningViewModel(words: self.selectWords,
+                                                          level: self.selectLevel))
         }
     }
 }
