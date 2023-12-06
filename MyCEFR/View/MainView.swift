@@ -61,8 +61,17 @@ extension MainView {
                                 }
                                 .frame(height: 90)
                                 .padding(.horizontal, 30)
-                                .background(.gray.opacity(0.1))
+                                .background(
+                                    GlassView(removeEffects: true)
+                                        .blur(radius: 15, opaque: true)
+                                )
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .background(
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .stroke(Color("MainBlueColor").opacity(0.3),
+                                                lineWidth: 3)
+                                )
+                                .shadow(color: .black.opacity(0.3), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             }
                             .frame(maxWidth: .infinity)
                             .padding(.bottom, 12)

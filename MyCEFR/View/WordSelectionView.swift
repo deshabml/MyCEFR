@@ -28,7 +28,7 @@ struct WordSelectionView: View {
                 VStack {
                     Spacer()
                     continueButton()
-                        .padding(.bottom, 70)
+                        .padding(.bottom, 60)
                 }
             }
         }

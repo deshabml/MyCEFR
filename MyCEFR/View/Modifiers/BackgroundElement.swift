@@ -21,7 +21,7 @@ struct BackgroundElement: ViewModifier {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarBackButtonHidden(true)
             .toolbar(.hidden, for: .tabBar)
-            .padding(.bottom, isBottomPading ? 60 : 0)
+            .padding(.bottom, isBottomPading ? 80 : 0)
             .background(
                 ZStack {
                     VStack {
