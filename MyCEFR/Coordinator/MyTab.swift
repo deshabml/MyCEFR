@@ -10,5 +10,6 @@ import Foundation
 enum MyTab: String {
 
     case home = "home"
+    case currentCourse = "currentCourse"
     case profile = "profile"
 }

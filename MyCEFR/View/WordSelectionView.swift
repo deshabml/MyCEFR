@@ -28,10 +28,17 @@ struct WordSelectionView: View {
                 VStack {
                     Spacer()
                     continueButton()
+                        .padding(.bottom, 60)
                 }
             }
         }
+        .overlay {
+            ShowScreenView(viewModel: coordinator.showScreenViewModelCSM,
+                           screen: ChoosingStudyMethodView())
+            .environmentObject(coordinator)
+        }
         .modifier(BackgroundElement(isProfile: true,
+                                    isBottomPading: false,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
                                     completion: { coordinator.goBackHome() }))
@@ -166,7 +173,7 @@ extension WordSelectionView {
 
     private func continueButton() -> some View {
         Button {
-
+            coordinator.showScreenViewModelCSM.isShow.toggle()
         } label: {
             Text("continue".localized)
                 .font(Font.custom("Spectral", size: 17)

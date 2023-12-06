@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD023F5A2B19BF560051CE3D /* ChoosingStudyMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */; };
+		DD023F5C2B19C43A0051CE3D /* ShowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5B2B19C43A0051CE3D /* ShowScreenView.swift */; };
+		DD023F5E2B19C4B30051CE3D /* ShowScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5D2B19C4B30051CE3D /* ShowScreenViewModel.swift */; };
+		DD023F602B19DE9E0051CE3D /* FlashcardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */; };
+		DD023F622B19DF5C0051CE3D /* FlashcardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */; };
+		DD023F642B1A26540051CE3D /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F632B1A26540051CE3D /* FlashcardView.swift */; };
+		DD023F662B1A2FCB0051CE3D /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD023F652B1A2FCB0051CE3D /* FlashcardViewModel.swift */; };
 		DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB52A9D1D7F000AAE33 /* Word.swift */; };
 		DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */; };
 		DD1DFEBA2A9D3A5B000AAE33 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DFEB92A9D3A5B000AAE33 /* Group.swift */; };
+		DD2116AA2B20A0F000BE435D /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2116A92B20A0F000BE435D /* GlassView.swift */; };
 		DD2634032AB496A000EAAD0E /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634022AB496A000EAAD0E /* CircularProgressView.swift */; };
 		DD2634052AB496F200EAAD0E /* CircularProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634042AB496F200EAAD0E /* CircularProgressViewModel.swift */; };
 		DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2634062ABA35EA00EAAD0E /* Level.swift */; };
@@ -28,6 +36,8 @@
 		DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAECC2A21DFD8003E2860 /* TextElement.swift */; };
 		DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* UserProfile.swift */; };
 		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
+		DD5D79D22B1F275600DBD06B /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */; };
+		DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */; };
 		DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */; };
 		DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */; };
 		DD71FDC62AB1E65D00E8EE75 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC52AB1E65D00E8EE75 /* MainView.swift */; };
@@ -58,7 +68,6 @@
 		DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAE3632A229BB0003A2415 /* SMTPService.swift */; };
 		DDD6C8C12AD7554900327F9E /* ProfileSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C02AD7554900327F9E /* ProfileSettingsViewModelTests.swift */; };
 		DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */; };
-		DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */; };
 		DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */; };
 		DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947042B0024DF00D413A8 /* WordSelectionView.swift */; };
 		DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */; };
@@ -75,8 +84,6 @@
 		DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */; };
 		DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF602A31BFD70046F018 /* TabBarItems.swift */; };
 		DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF622A31C4DA0046F018 /* EditProfileView.swift */; };
-		DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */; };
-		DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */; };
 		DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF682A31C80E0046F018 /* ShowScreenSettingsElement.swift */; };
 		DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */; };
 		DDEABF702A3281070046F018 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEABF6F2A3281070046F018 /* PhotoPickerView.swift */; };
@@ -97,9 +104,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingStudyMethodView.swift; sourceTree = "<group>"; };
+		DD023F5B2B19C43A0051CE3D /* ShowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenView.swift; sourceTree = "<group>"; };
+		DD023F5D2B19C4B30051CE3D /* ShowScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenViewModel.swift; sourceTree = "<group>"; };
+		DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsView.swift; sourceTree = "<group>"; };
+		DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewModel.swift; sourceTree = "<group>"; };
+		DD023F632B1A26540051CE3D /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+		DD023F652B1A2FCB0051CE3D /* FlashcardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardViewModel.swift; sourceTree = "<group>"; };
 		DD1DFEB52A9D1D7F000AAE33 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeech.swift; sourceTree = "<group>"; };
 		DD1DFEB92A9D3A5B000AAE33 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		DD2116A92B20A0F000BE435D /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		DD2634022AB496A000EAAD0E /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		DD2634042AB496F200EAAD0E /* CircularProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewModel.swift; sourceTree = "<group>"; };
 		DD2634062ABA35EA00EAAD0E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -120,6 +135,7 @@
 		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
 		DD4AAEDA2A21F619003E2860 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
+		DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		DD71FDC52AB1E65D00E8EE75 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -148,7 +164,6 @@
 		DDBAE3632A229BB0003A2415 /* SMTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPService.swift; sourceTree = "<group>"; };
 		DDD6C8C02AD7554900327F9E /* ProfileSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C22AD7C72300327F9E /* SelectLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModelTests.swift; sourceTree = "<group>"; };
-		DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModelTests.swift; sourceTree = "<group>"; };
 		DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModelTests.swift; sourceTree = "<group>"; };
 		DDD947042B0024DF00D413A8 /* WordSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionView.swift; sourceTree = "<group>"; };
 		DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -165,8 +180,6 @@
 		DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModel.swift; sourceTree = "<group>"; };
 		DDEABF602A31BFD70046F018 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		DDEABF622A31C4DA0046F018 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPView.swift; sourceTree = "<group>"; };
-		DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenEPViewModel.swift; sourceTree = "<group>"; };
 		DDEABF682A31C80E0046F018 /* ShowScreenSettingsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScreenSettingsElement.swift; sourceTree = "<group>"; };
 		DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		DDEABF6F2A3281070046F018 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
@@ -188,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5D79D22B1F275600DBD06B /* ConfettiSwiftUI in Frameworks */,
 				DDBAE3622A229B71003A2415 /* SwiftSMTP in Frameworks */,
 				DD9AA5BB2A25F08000FB18A8 /* FirebaseFirestore in Frameworks */,
 				DD9AA5B92A25F08000FB18A8 /* FirebaseAuth in Frameworks */,
@@ -209,7 +223,7 @@
 		DD4AAEB12A212C94003E2860 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DDEABF642A31C5550046F018 /* ShowScreenEPView.swift */,
+				DD023F5B2B19C43A0051CE3D /* ShowScreenView.swift */,
 				DDEABF622A31C4DA0046F018 /* EditProfileView.swift */,
 				DD4AAEB22A212CD9003E2860 /* ButtonView.swift */,
 				DD4AAEC42A2152C5003E2860 /* ButtonImageView.swift */,
@@ -218,6 +232,7 @@
 				DDEABF6F2A3281070046F018 /* PhotoPickerView.swift */,
 				DDEABF752A331ADF0046F018 /* ImagePrifileView.swift */,
 				DD2634022AB496A000EAAD0E /* CircularProgressView.swift */,
+				DD023F632B1A26540051CE3D /* FlashcardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -225,7 +240,7 @@
 		DD4AAEB42A212D13003E2860 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DDEABF662A31C7780046F018 /* ShowScreenEPViewModel.swift */,
+				DD023F5D2B19C4B30051CE3D /* ShowScreenViewModel.swift */,
 				DDEABF6A2A31CBD80046F018 /* EditProfileViewModel.swift */,
 				DD4AAEB52A212D29003E2860 /* ButtonViewModel.swift */,
 				DD4AAEC62A2152F8003E2860 /* ButtonImageViewModel.swift */,
@@ -233,6 +248,7 @@
 				DD4AAECA2A21CF57003E2860 /* TextFieldViewModel.swift */,
 				DDEABF712A3281290046F018 /* PhotoPickerViewModel.swift */,
 				DD2634042AB496F200EAAD0E /* CircularProgressViewModel.swift */,
+				DD023F652B1A2FCB0051CE3D /* FlashcardViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -292,6 +308,8 @@
 				DDEABF522A2F20A10046F018 /* HideKeyboard.swift */,
 				DD2989872A48D0150026FF2F /* Localized.swift */,
 				DD7AF39C2B18737900ECB879 /* String.declinationText.swift */,
+				DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */,
+				DD2116A92B20A0F000BE435D /* GlassView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -370,6 +388,8 @@
 				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
 				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
 				DDD947042B0024DF00D413A8 /* WordSelectionView.swift */,
+				DD023F592B19BF560051CE3D /* ChoosingStudyMethodView.swift */,
+				DD023F5F2B19DE9E0051CE3D /* FlashcardsView.swift */,
 				DD4AAEB12A212C94003E2860 /* Components */,
 				DD4AAEB72A21315E003E2860 /* Modifiers */,
 			);
@@ -385,6 +405,7 @@
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
 				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
 				DDD947062B0024F900D413A8 /* WordSelectionViewModel.swift */,
+				DD023F612B19DF5C0051CE3D /* FlashcardsViewModel.swift */,
 				DD4AAEB42A212D13003E2860 /* Components */,
 			);
 			path = ViewModel;
@@ -423,7 +444,6 @@
 		DDD6C8C52AD7CA8F00327F9E /* ComponentsTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDD6C8C62AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift */,
 				DDD6C8C82AD7CCF200327F9E /* EditProfileViewModelTests.swift */,
 			);
 			path = ComponentsTests;
@@ -495,6 +515,7 @@
 				DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */,
 				DD9AA5BA2A25F08000FB18A8 /* FirebaseFirestore */,
 				DD9AA5BC2A25F08000FB18A8 /* FirebaseStorage */,
+				DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */,
 			);
 			productName = MyCEFR;
 			productReference = DDB6E55229F2FE05005A4A72 /* MyCEFR.app */;
@@ -532,6 +553,7 @@
 			packageReferences = (
 				DDBAE3602A229B70003A2415 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = DDB6E55329F2FE05005A4A72 /* Products */;
 			projectDirPath = "";
@@ -572,7 +594,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDD6C8C72AD7CB8C00327F9E /* ShowScreenEPViewModelTests.swift in Sources */,
 				DDD6C8C92AD7CCF200327F9E /* EditProfileViewModelTests.swift in Sources */,
 				DD2A470D2ACF036A00B64D5A /* AuthorizationViewModelTests.swift in Sources */,
 				DDD6C8C32AD7C72300327F9E /* SelectLevelViewModelTests.swift in Sources */,
@@ -585,17 +606,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE8AA992AFB988A00CBA47A /* NetworkError.swift in Sources */,
+				DD023F5E2B19C4B30051CE3D /* ShowScreenViewModel.swift in Sources */,
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
 				DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */,
 				DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */,
 				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
-				DDEABF652A31C5550046F018 /* ShowScreenEPView.swift in Sources */,
 				DDEABF632A31C4DA0046F018 /* EditProfileView.swift in Sources */,
 				DDD947052B0024DF00D413A8 /* WordSelectionView.swift in Sources */,
 				DDEABF722A3281290046F018 /* PhotoPickerViewModel.swift in Sources */,
 				DDB6E56629F31545005A4A72 /* AuthorizationViewModel.swift in Sources */,
 				DDEABF692A31C80E0046F018 /* ShowScreenSettingsElement.swift in Sources */,
+				DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */,
 				DD4AAEC92A21CEE9003E2860 /* TextFieldView.swift in Sources */,
 				DDEABF5B2A2F61830046F018 /* FirestoreService.swift in Sources */,
 				DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */,
@@ -613,16 +635,20 @@
 				DD7AF39D2B18737A00ECB879 /* String.declinationText.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
+				DD023F5C2B19C43A0051CE3D /* ShowScreenView.swift in Sources */,
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD71FDC82AB24E6300E8EE75 /* MyTab.swift in Sources */,
 				DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */,
 				DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */,
+				DD2116AA2B20A0F000BE435D /* GlassView.swift in Sources */,
 				DDE8AA9B2AFB98E700CBA47A /* URLManager.swift in Sources */,
 				DDEABF592A2F30780046F018 /* BackgroundElement.swift in Sources */,
+				DD023F602B19DE9E0051CE3D /* FlashcardsView.swift in Sources */,
 				DDEABF5F2A30F09A0046F018 /* SelectLevelViewModel.swift in Sources */,
 				DD2634072ABA35EB00EAAD0E /* Level.swift in Sources */,
 				DDEABF6B2A31CBD80046F018 /* EditProfileViewModel.swift in Sources */,
 				DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */,
+				DD023F642B1A26540051CE3D /* FlashcardView.swift in Sources */,
 				DD9AA5C62A27BBAE00FB18A8 /* ProfileSettingsView.swift in Sources */,
 				DD4AAEC02A214569003E2860 /* SecureFieldViewModel.swift in Sources */,
 				DD4AAEC72A2152F8003E2860 /* ButtonImageViewModel.swift in Sources */,
@@ -631,7 +657,6 @@
 				DD2634032AB496A000EAAD0E /* CircularProgressView.swift in Sources */,
 				DD71FDC62AB1E65D00E8EE75 /* MainView.swift in Sources */,
 				DDEABF702A3281070046F018 /* PhotoPickerView.swift in Sources */,
-				DDEABF672A31C7780046F018 /* ShowScreenEPViewModel.swift in Sources */,
 				DD4AAECB2A21CF57003E2860 /* TextFieldViewModel.swift in Sources */,
 				DDD9470B2B016B1200D413A8 /* SpeechSynthesizer.swift in Sources */,
 				DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */,
@@ -639,8 +664,11 @@
 				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
 				DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
+				DD023F662B1A2FCB0051CE3D /* FlashcardViewModel.swift in Sources */,
+				DD023F5A2B19BF560051CE3D /* ChoosingStudyMethodView.swift in Sources */,
 				DD2989882A48D0150026FF2F /* Localized.swift in Sources */,
 				DDEABF612A31BFD70046F018 /* TabBarItems.swift in Sources */,
+				DD023F622B19DF5C0051CE3D /* FlashcardsViewModel.swift in Sources */,
 				DDEABF5D2A305ACE0046F018 /* StorageService.swift in Sources */,
 				DD4AAECD2A21DFD8003E2860 /* TextElement.swift in Sources */,
 				DD4AAEBE2A21453A003E2860 /* SecureFieldView.swift in Sources */,
@@ -935,6 +963,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -954,6 +990,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5D79D02B1F275600DBD06B /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		DD9AA5B82A25F08000FB18A8 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD9AA5B72A25F08000FB18A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

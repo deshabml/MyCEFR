@@ -25,12 +25,14 @@ struct ProfileSettingsView: View {
             }
             .padding()
             .overlay {
-                ShowScreenEPView(viewModel: viewModel.editPVM.showScreenEditProfile,
+                ShowScreenView(viewModel: viewModel.editPVM.showScreenEditProfile,
                                  screen: EditProfileView(viewModel: viewModel.editPVM))
                 .environmentObject(coordinator)
             }
         }
-               .modifier(BackgroundElement(isProfile: true, headingText: "settings".localized))
+               .modifier(BackgroundElement(isProfile: true, 
+                                           isFirstScreen: true,
+                                           headingText: "settings".localized))
                .onAppear {
                    viewModel.setup { coordinator.updatingUser() }
                }

@@ -13,27 +13,32 @@ struct LevelView: View {
     @StateObject var viewModel: LevelViewModel
 
     var body: some View {
-        VStack(spacing: 40) {
-            Button {
-                coordinator.goWordGroup()
-            } label: {
-                buttonView(label: "vocabulary".localized)
-            }
-            Button {
+//        VStack {
+            VStack(spacing: 20) {
+                Button {
+                    coordinator.goWordGroup()
+                } label: {
+                    buttonView(label: "vocabulary".localized)
+                }
+                Button {
 
-            } label: {
-                buttonView(label: "grammar".localized)
-            }
-            Button {
+                } label: {
+                    buttonView(label: "grammar".localized)
+                }
+                Button {
 
-            } label: {
-                buttonView(label: "test".localized)
+                } label: {
+                    buttonView(label: "test".localized)
+                }
             }
-        }
+            .padding()
+//            Spacer()
+//        }
+        .padding(.top, 85)
         .modifier(BackgroundElement(isProfile: true,
+                                    isFirstScreen: true,
                                     headingText: viewModel.fullNameLevel(),
-                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
-                                    completion: { coordinator.goBackHome() }))
+                                    colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level))))
         .environmentObject(coordinator)
     }
 }
@@ -51,19 +56,18 @@ extension LevelView {
         HStack {
             Text(label)
                 .font(.custom("Spectral-Regular", size: 24))
-                .foregroundStyle(.black)
+                .foregroundStyle(.white)
             Spacer()
             Image(systemName: "arrow.forward.circle")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 40, height: 40)
-                .foregroundColor(Color("MainBlueColor"))
-                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
+                .foregroundColor(.white)
+//                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
         }
         .padding()
-        .background(.white)
+        .background(Color("MainBlueColor"))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
-        .padding()
     }
 }

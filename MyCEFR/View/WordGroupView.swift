@@ -22,6 +22,7 @@ struct WordGroupView: View {
             }
             .padding(.top, 85)
             .modifier(BackgroundElement(isProfile: true,
+                                        isBottomPading: false,
                                         headingText: viewModel.fullNameLevel(),
                                         colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
                                         completion: { coordinator.goBackHome() }))

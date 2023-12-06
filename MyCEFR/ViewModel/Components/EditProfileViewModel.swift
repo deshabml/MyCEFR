@@ -9,7 +9,7 @@ import Foundation
 
 final class EditProfileViewModel: ObservableObject {
     
-    @Published var showScreenEditProfile = ShowScreenEPViewModel(imageName: "WhiteBackground")
+    @Published var showScreenEditProfile = ShowScreenViewModel()
     @Published var userProfile = UserProfile(name: "firstAndlastName".localized,
                                              eMail: "adress@email.ru",
                                              phone: 88888888888,
