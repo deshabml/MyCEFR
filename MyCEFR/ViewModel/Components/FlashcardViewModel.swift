@@ -33,6 +33,7 @@ final class FlashcardViewModel: ObservableObject {
         }
     }
     @Published var style: StyleCard = .standart
+//    @Published var opacityStyle = 0
     var completionBackButten: (()->())?
     
     func setupWord(word: Word, isFirst: Bool = false) {

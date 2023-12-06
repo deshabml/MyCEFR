@@ -30,18 +30,23 @@ struct FlashcardView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: colorCrad().opacity(0.5), radius: 4, x: 0, y: 0)
+        .shadow(color: colorCrad().opacity(0.5), 
+                radius: 4, x: 0, y: 0)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(colorCrad(), lineWidth: 2)
         )
         .padding()
         .padding(.horizontal, 40)
-        .rotation3DEffect(.degrees(viewModel.contentRotation), axis: (x: 0, y: 1, z: 0))
-        .rotation3DEffect(.degrees(viewModel.flashcardRotation), axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(viewModel.contentRotation),
+                          axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(viewModel.flashcardRotation),
+                          axis: (x: 0, y: 1, z: 0))
         .onTapGesture {
             flipFlashcard()
         }
+        .animation(.linear(duration: (colorCrad() == .black) ? 0 : 0.5),
+                   value: colorCrad())
     }
 }
 
