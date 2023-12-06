@@ -28,6 +28,7 @@ final class LearningViewModel: ObservableObject {
                 activeWords.append(word)
             }
         }
+        print(activeWords)
     }
 
     func fullNameLevel() -> String {
@@ -46,6 +47,15 @@ final class LearningViewModel: ObservableObject {
             }
         }
         return newFullName
+    }
+
+    func activeWordText() -> String {
+        guard !activeWords.isEmpty else { return "" }
+        if isEnToRus {
+            return activeWords[activeWordIndex].word
+        } else {
+            return activeWords[activeWordIndex].translation
+        }
     }
 
     func isEnToRusToggle() {

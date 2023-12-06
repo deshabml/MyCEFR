@@ -15,8 +15,27 @@ struct LearningView: View {
     var body: some View {
         VStack {
             informationBar()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             Spacer()
+            VStack(spacing: 200) {
+                VStack(spacing: 0) {
+                    HStack {
+                        Text(viewModel.activeWordText())
+                            .font(Font.custom("Spectral", size: 34))
+                        Spacer()
+                    }
+                    Divider()
+                        .frame(height: 2)
+                        .background(.black)
+                }
+                VStack {
+                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    Divider()
+                        .frame(height: 4)
+                        .background(.black)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 200)
         }
         .padding(.top, 50)
         .onAppear {
