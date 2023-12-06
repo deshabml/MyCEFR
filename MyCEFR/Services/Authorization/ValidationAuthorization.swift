@@ -27,7 +27,7 @@ final class ValidationAuthorization {
         guard login != "" || password != "" else { throw ErrorsAuthorization.emptyAll }
         guard login != "" else { throw ErrorsAuthorization.emptyLogin}
         guard password != "" else { throw ErrorsAuthorization.emptyPassword}
-        guard isMail(login: login) else { throw ErrorsAuthorization.notMail }
+        guard isMail(login: login.lowercased()) else { throw ErrorsAuthorization.notMail }
         guard isSecurePassword(password: password) else { throw ErrorsAuthorization.shortPassword }
     }
 

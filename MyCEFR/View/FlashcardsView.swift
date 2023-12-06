@@ -54,6 +54,7 @@ struct FlashcardsView: View {
         }
         .modifier(BackgroundElement(isProfile: true,
                                     isBottomPading: false,
+                                    isActionScreen: true,
                                     headingText: viewModel.fullNameLevel(),
                                     colorBack: Color(uiColor: coordinator.levelBackColor(level: viewModel.level)),
                                     completion: {

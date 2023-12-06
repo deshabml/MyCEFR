@@ -12,6 +12,7 @@ struct BackgroundElement: ViewModifier {
     var isProfile = false
     var isBottomPading: Bool = true
     var isFirstScreen: Bool = false
+    var isActionScreen: Bool = false
     var headingText: String
     var colorBack: Color?
     var completion: (()->())?
@@ -37,7 +38,7 @@ struct BackgroundElement: ViewModifier {
                         } else {
                             Ellipse()
                                 .foregroundColor(Color("MainBlueColor"))
-                                .frame(width: 570, height: 492)
+                                .frame(width: 570, height: 510)
                         }
                         Spacer()
                     }
@@ -48,10 +49,11 @@ struct BackgroundElement: ViewModifier {
                                 Button {
                                     completion?()
                                 } label: {
-                                    Image(systemName: "chevron.backward")
+                                    Image(systemName: isActionScreen ? "xmark" : "chevron.backward")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 15, height: 15)
+                                        .frame(width: isActionScreen ? 16 : 12,
+                                               height: isActionScreen ? 16 : 12)
                                         .foregroundStyle(.white)
                                         .padding(.vertical, 10)
                                         .padding(.leading, 100)

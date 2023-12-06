@@ -33,48 +33,19 @@ extension MainView {
                 ZStack {
                     TabView(selection: $coordinator.tab) {
                         tabItem(myPage: .selectLevel,
-                                image: Image(systemName: "house.fill"),
                                 myTab: .home,
                                 path: $coordinator.pathHome)
                         tabItem(myPage: .level,
-                                    image: Image("CurrentCourseImage"),
                                     myTab: .currentCourse,
                                     path: $coordinator.pathCurrentCourse)
                         tabItem(myPage: .profileSettings,
-                                image: Image(systemName: "person.fill"),
                                 myTab: .profile,
                                 path: $coordinator.pathProfile)
                     }
                     if coordinator.isShowTabBar {
                         VStack {
                             Spacer()
-                            HStack {
-                                HStack (spacing: 10) {
-                                    tabButton(image: Image(systemName: "house.fill"),
-                                              myTab: .home)
-                                    if coordinator.isShowCurrentCourse {
-                                        tabButton(image: Image("CurrentCourseImage"),
-                                                  myTab: .currentCourse)
-                                    }
-                                    tabButton(image: Image(systemName: "person.fill"),
-                                              myTab: .profile)
-                                }
-                                .frame(height: 90)
-                                .padding(.horizontal, 30)
-                                .background(
-                                    GlassView(removeEffects: true)
-                                        .blur(radius: 15, opaque: true)
-                                )
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
-                                .background(
-                                    RoundedRectangle(cornerRadius: 30)
-                                        .stroke(Color("MainBlueColor").opacity(0.3),
-                                                lineWidth: 3)
-                                )
-                                .shadow(color: .black.opacity(0.3), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.bottom, 12)
+                            customTabBar()
                         }
                     }
                 }
@@ -92,7 +63,7 @@ extension MainView {
     }
 
     @ViewBuilder
-    private func tabItem(myPage: MyPage,image: Image, myTab: MyTab, path: Binding<NavigationPath>) -> some View {
+    private func tabItem(myPage: MyPage, myTab: MyTab, path: Binding<NavigationPath>) -> some View {
         NavigationStack(path: path) {
             coordinator.getPage(myPage)
                 .navigationDestination(for: MyPage.self) { page in
@@ -121,5 +92,36 @@ extension MainView {
                     .foregroundStyle((coordinator.tab == myTab) ? .black : .gray)
             }
         }
+    }
+
+    @ViewBuilder
+    private func customTabBar() -> some View {
+        HStack {
+            HStack (spacing: 10) {
+                tabButton(image: Image(systemName: "house.fill"),
+                          myTab: .home)
+                if coordinator.isShowCurrentCourse {
+                    tabButton(image: Image("CurrentCourseImage"),
+                              myTab: .currentCourse)
+                }
+                tabButton(image: Image(systemName: "person.fill"),
+                          myTab: .profile)
+            }
+            .frame(height: 90)
+            .padding(.horizontal, 30)
+            .background(
+                GlassView(removeEffects: true)
+                    .blur(radius: 10, opaque: true)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .background(
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color("MainBlueColor").opacity(0.3),
+                            lineWidth: 3)
+            )
+            .shadow(color: .black.opacity(0.3), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.bottom, 12)
     }
 }
