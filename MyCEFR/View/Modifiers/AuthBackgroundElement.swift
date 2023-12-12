@@ -42,11 +42,11 @@ struct AuthBackgroundElement: ViewModifier {
                         Spacer()
                         Rectangle()
                             .foregroundColor(Color("WhiteColor"))
-                            .frame(width: 300, height: 600)
+                            .frame(width: 500, height: 1000)
                             .rotationEffect(Angle(degrees: isShowView ? 35 : 50))
                     }
                     .padding(.trailing, -300)
-                    .padding(.bottom, -250)
+                    .padding(.bottom, -500)
                 }
                     .animation(.easeInOut(duration: 0.2), value: isShowView)
 

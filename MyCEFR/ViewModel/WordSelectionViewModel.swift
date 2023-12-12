@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//import AVFoundation
 
 final class WordSelectionViewModel: ObservableObject{
 
@@ -68,5 +69,9 @@ final class WordSelectionViewModel: ObservableObject{
         }
         let wordsText = "".declinationText(countSelected, "wordsOne".localized, "wordsTwo".localized, "wordsThree".localized)
         return "selected".localized + ": \(countSelected) " + wordsText
+    }
+
+    func soundButtonAction(index: Int) {
+        Speaker.shared.speak(msg: words[index].word)
     }
 }

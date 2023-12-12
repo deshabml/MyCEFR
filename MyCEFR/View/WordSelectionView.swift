@@ -98,6 +98,7 @@ extension WordSelectionView {
             HStack(spacing: 32) {
                 soundButton {
                     print("Run Sound")
+                    viewModel.soundButtonAction(index: index)
                 }
                 selectedWordButton(index: index)
             }

@@ -81,6 +81,7 @@ final class FlashcardsViewModel: ObservableObject {
         activeWordIndex = 0
         flashcardVM.isFirctWord = true
         flashcardVM.setupWord(word: activeWords[activeWordIndex], isFirst: true)
+        flashcardVM.isEnToRus = isEnToRus
     }
     
     func progressInfoText() -> String {
