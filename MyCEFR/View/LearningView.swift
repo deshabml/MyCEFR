@@ -22,6 +22,7 @@ struct LearningView: View {
                         Text(viewModel.activeWordText())
                             .font(Font.custom("Spectral", size: 34))
                         Spacer()
+                        soundButton
                     }
                     Divider()
                         .frame(height: 2)
@@ -82,6 +83,18 @@ extension LearningView {
                 }
                 .padding(.horizontal)
             }
+        }
+    }
+
+    private var soundButton: some View {
+        Button {
+            viewModel.soundButtonAction()
+        } label: {
+            Image("SoundSecondImage")
+                .resizable()
+                .scaledToFill()
+                .foregroundStyle(.black)
+                .frame(width: 30, height: 30)
         }
     }
 }

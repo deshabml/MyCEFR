@@ -117,11 +117,15 @@ extension FlashcardView {
 
     private func mapControls() -> some View {
         HStack {
-            Image("SoundSecondImage")
-                .resizable()
-                .scaledToFill()
-                .foregroundStyle(.black)
-                .frame(width: 30, height: 30)
+            Button {
+                viewModel.soundButtonAction()
+            } label: {
+                Image("SoundSecondImage")
+                    .resizable()
+                    .scaledToFill()
+                    .foregroundStyle(.black)
+                    .frame(width: 30, height: 30)
+            }
             Spacer()
             if viewModel.isFirctWord {
                 Image(systemName: "arrow.uturn.backward")

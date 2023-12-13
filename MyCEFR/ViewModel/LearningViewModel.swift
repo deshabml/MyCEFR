@@ -28,7 +28,6 @@ final class LearningViewModel: ObservableObject {
                 activeWords.append(word)
             }
         }
-        print(activeWords)
     }
 
     func fullNameLevel() -> String {
@@ -75,5 +74,9 @@ final class LearningViewModel: ObservableObject {
 
     func progressInfoText() -> String {
         "\(activeWordIndex + 1)/\(activeWords.count)"
+    }
+
+    func soundButtonAction() {
+        Speaker.shared.speak(msg: activeWords[activeWordIndex].word)
     }
 }

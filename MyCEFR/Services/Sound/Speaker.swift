@@ -7,11 +7,12 @@
 
 import AVFoundation
 
-class Speaker: NSObject, AVSpeechSynthesizerDelegate {
-    
+final class Speaker: NSObject, AVSpeechSynthesizerDelegate {
+
     let synthesizer = AVSpeechSynthesizer()
 
     static let shared = Speaker()
+
 
     private override init() {
         super.init()
@@ -19,12 +20,12 @@ class Speaker: NSObject, AVSpeechSynthesizerDelegate {
     }
 
     func speak(msg: String) {
-        let utterance = AVSpeechUtterance(string: msg)
+        let utterance = AVSpeechUtterance(string: msg.lowercased())
         utterance.rate = 0.4
         utterance.pitchMultiplier = 0.8
         utterance.postUtteranceDelay = 0.4
         utterance.volume = 0.8
-        let voice = AVSpeechSynthesisVoice(language: "en-GB")
+        let voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Daniel-compact")
         utterance.voice = voice
         synthesizer.speak(utterance)
     }
