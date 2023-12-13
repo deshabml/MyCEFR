@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackgroundElement: ViewModifier {
-
+    
     var isProfile = false
     var isBottomPading: Bool = true
     var isFirstScreen: Bool = false
@@ -16,7 +16,7 @@ struct BackgroundElement: ViewModifier {
     var headingText: String
     var colorBack: Color?
     var completion: (()->())?
-
+    
     func body(content: Content) -> some View {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity)

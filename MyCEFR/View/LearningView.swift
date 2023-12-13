@@ -28,15 +28,32 @@ struct LearningView: View {
                         .frame(height: 2)
                         .background(.black)
                 }
-                VStack {
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                VStack(spacing: 0) {
+                    HStack {
+                        if viewModel.showTextField {
+                            TextField("", text: $viewModel.activeUserResponseText)
+                                .font(Font.custom("Spectral", size: 24))
+                        }
+                        Spacer()
+                        Button {
+                            viewModel.showUnsuccessfulWordsAnimation = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                viewModel.dontKnowButtonAction()
+                                viewModel.showUnsuccessfulWordsAnimation = false
+                            }
+                        } label: {
+                            Text(viewModel.activeUserResponseText.isEmpty ? "dontKnow".localized : "skip".localized)
+                                .font(Font.custom("Spectral", size: 18))
+                                .foregroundStyle(Color("MainBlueColor"))
+                        }
+                    }
                     Divider()
                         .frame(height: 4)
-                        .background(.black)
+                        .background(dividerColor())
                 }
             }
             .padding(.horizontal)
-            .padding(.bottom, 200)
+            Spacer()
         }
         .padding(.top, 50)
         .onAppear {
@@ -52,6 +69,10 @@ struct LearningView: View {
             coordinator.isShowTabBar = true
             coordinator.goBackHome()
         }))
+        .animation(.easeInOut(duration: 0.5), value: viewModel.activeWordIndex)
+        .animation(.easeInOut(duration: 0.7), value: viewModel.showSuccessfulWordsAnimation)
+        .animation(.easeInOut(duration: 0.7), value: viewModel.showUnsuccessfulWordsAnimation)
+        .animation(.linear(duration: 0.3), value: viewModel.showTextField)
     }
 }
 
@@ -95,6 +116,16 @@ extension LearningView {
                 .scaledToFill()
                 .foregroundStyle(.black)
                 .frame(width: 30, height: 30)
+        }
+    }
+
+    private func dividerColor() -> Color {
+        if viewModel.showUnsuccessfulWordsAnimation {
+            return .red
+        } else if viewModel.showSuccessfulWordsAnimation {
+            return .green
+        } else {
+            return .black
         }
     }
 }

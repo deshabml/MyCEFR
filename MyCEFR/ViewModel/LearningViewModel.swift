@@ -16,6 +16,15 @@ final class LearningViewModel: ObservableObject {
     @Published var isEnToRus: Bool = true
     @Published var successfulWordsID: [String] = []
     @Published var unsuccessfulWordsID: [String] = []
+    @Published var activeUserResponseText = "" {
+        didSet {
+            checkText(text: activeUserResponseText)
+        }
+    }
+    @Published var showUnsuccessfulWordsAnimation = false
+    @Published var showSuccessfulWordsAnimation = false
+    @Published var showTextField = true
+
 
     init(words: [Word], level: Level) {
         self.words = words
@@ -65,6 +74,7 @@ final class LearningViewModel: ObservableObject {
     func reload() {
         resettingCounters()
         activeWordIndex = 0
+        activeUserResponseText = ""
     }
 
     func resettingCounters() {
@@ -78,5 +88,43 @@ final class LearningViewModel: ObservableObject {
 
     func soundButtonAction() {
         Speaker.shared.speak(msg: activeWords[activeWordIndex].word)
+    }
+
+    func dontKnowButtonAction() {
+        guard activeWordIndex < activeWords.count - 1 else { return }
+        unsuccessfulWordsID.append(activeWords[activeWordIndex].word)
+        activeUserResponseText = ""
+        activeWordIndex += 1
+    }
+
+    func successfulNextWord() {
+        showUnsuccessfulWordsAnimation = false
+        showSuccessfulWordsAnimation = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
+            guard self.activeWordIndex < self.activeWords.count - 1 else { return }
+            self.successfulWordsID.append(self.activeWords[self.activeWordIndex].word)
+            self.showTextField = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
+                self.showTextField = true
+                self.activeUserResponseText = ""
+            }
+            self.activeWordIndex += 1
+        }
+    }
+
+    func checkText(text: String) {
+        guard !text.isEmpty else {
+            showUnsuccessfulWordsAnimation = false
+            showSuccessfulWordsAnimation = false
+            return
+        }
+        if isEnToRus, text.lowercased() == activeWords[activeWordIndex].translation.lowercased() {
+            successfulNextWord()
+        } else if !isEnToRus, text.lowercased() == activeWords[activeWordIndex].word.lowercased() {
+            successfulNextWord()
+        } else {
+            showSuccessfulWordsAnimation = false
+            showUnsuccessfulWordsAnimation = true
+        }
     }
 }

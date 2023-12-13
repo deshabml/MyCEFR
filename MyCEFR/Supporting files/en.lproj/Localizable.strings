@@ -61,3 +61,5 @@
 "pending" = "Pending";
 "knowledgeTest" = "Knowledge test";
 "currentCourse" = "Current Course";
+"dontKnow" = "Don’t know";
+"skip" = "Skip";

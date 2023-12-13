@@ -61,3 +61,5 @@
 "pending" = "Отложенные";
 "knowledgeTest" = "Проверка знаний";
 "currentCourse" = "Текущий курс";
+"dontKnow" = "Не знаю";
+"skip" = "Пропустить";
