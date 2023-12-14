@@ -33,6 +33,8 @@ struct LearningView: View {
                         if viewModel.showTextField {
                             TextField("", text: $viewModel.activeUserResponseText)
                                 .font(Font.custom("Spectral", size: 24))
+                                .keyboardType(.namePhonePad)
+                                .disableAutocorrection(true)
                         }
                         Spacer()
                         Button {
@@ -56,10 +58,6 @@ struct LearningView: View {
             Spacer()
         }
         .padding(.top, 50)
-        .onAppear {
-            coordinator.isShowTabBar = false
-            viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
-        }
         .modifier(BackgroundElement(isProfile: true,
                                     isBottomPading: false,
                                     isActionScreen: true,
@@ -69,6 +67,10 @@ struct LearningView: View {
             coordinator.isShowTabBar = true
             coordinator.goBackHome()
         }))
+        .onAppear {
+            coordinator.isShowTabBar = false
+            viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
+        }
         .animation(.easeInOut(duration: 0.5), value: viewModel.activeWordIndex)
         .animation(.easeInOut(duration: 0.7), value: viewModel.showSuccessfulWordsAnimation)
         .animation(.easeInOut(duration: 0.7), value: viewModel.showUnsuccessfulWordsAnimation)
@@ -95,7 +97,7 @@ extension LearningView {
             HStack {
                 Spacer()
                 Button {
-//                    animationReload()
+                    viewModel.isEnToRusToggle()
                 } label: {
                     Text(viewModel.isEnToRus ? "eng → ru" : "ru → eng")
                         .font(Font.custom("Spectral", size: 20)

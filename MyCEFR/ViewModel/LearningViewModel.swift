@@ -97,11 +97,13 @@ final class LearningViewModel: ObservableObject {
         activeWordIndex += 1
     }
 
-    func successfulNextWord() {
-        showUnsuccessfulWordsAnimation = false
-        showSuccessfulWordsAnimation = true
+    func successfulNextWord() async {
+        DispatchQueue.main.async { [unowned self] in
+            self.showUnsuccessfulWordsAnimation = false
+            self.showSuccessfulWordsAnimation = true
+        }
+        guard self.activeWordIndex < self.activeWords.count - 1 else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
-            guard self.activeWordIndex < self.activeWords.count - 1 else { return }
             self.successfulWordsID.append(self.activeWords[self.activeWordIndex].word)
             self.showTextField = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
@@ -118,13 +120,38 @@ final class LearningViewModel: ObservableObject {
             showSuccessfulWordsAnimation = false
             return
         }
-        if isEnToRus, text.lowercased() == activeWords[activeWordIndex].translation.lowercased() {
-            successfulNextWord()
-        } else if !isEnToRus, text.lowercased() == activeWords[activeWordIndex].word.lowercased() {
-            successfulNextWord()
+        let formatText = formattingTheText(text: text.lowercased())
+        let formatActiveWordsRu = formattingTheText(text: activeWords[activeWordIndex].translation.lowercased())
+        let formatActiveWordsEn = formattingTheText(text: activeWords[activeWordIndex].word.lowercased())
+        if isEnToRus, formatText == formatActiveWordsRu {
+            Task {
+                await successfulNextWord()
+            }
+        } else if !isEnToRus, formatText == formatActiveWordsEn {
+            Task {
+                await successfulNextWord()
+            }
         } else {
             showSuccessfulWordsAnimation = false
             showUnsuccessfulWordsAnimation = true
         }
+    }
+
+    func formattingTheText(text: String) -> String {
+        var itogText = ""
+        for character in text {
+            guard character != "(" else {
+                if itogText.last == " " {
+                    itogText.removeLast()
+                }
+                return itogText
+            }
+            if character == "ё" {
+                itogText += "е"
+            } else {
+                itogText += "\(character)"
+            }
+        }
+        return itogText
     }
 }

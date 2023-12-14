@@ -19,6 +19,8 @@ struct WordGroupView: View {
                         wordCroupCell(wordGroup: viewModel.wordsGroup[index])
                     }
                 }
+                .padding(.top, 10)
+                .padding(.bottom, 100)
             }
             .padding(.top, 85)
             .modifier(BackgroundElement(isProfile: true,

@@ -23,6 +23,7 @@ struct WordSelectionView: View {
                             dividerWithCondition(index)
                         }
                     }
+                    .padding(.bottom, 100)
                 }
                 .padding(.top, 10)
                 VStack {
