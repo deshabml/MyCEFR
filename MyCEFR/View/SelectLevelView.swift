@@ -23,7 +23,6 @@ struct SelectLevelView: View {
                 }
                 adminPanel()
             }
-
         }
         .modifier(BackgroundElement(isFirstScreen: true,
                                     headingText: "selectYourLevel".localized))
@@ -56,9 +55,7 @@ extension SelectLevelView {
     private func levelCell(level: Level) -> some View {
         Button {
             coordinator.setupSelectLevel(level: level)
-            if level.id == "1" {
-                coordinator.goToLevelScreen()
-            }
+            coordinator.goToLevelScreen()
         } label: {
             VStack(alignment: .center, spacing: 35) {
                 VStack(alignment: .center, spacing: 8) {
@@ -166,6 +163,5 @@ extension SelectLevelView {
         .background(Color("MasteryBackColor"))
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: .black.opacity(0.2), radius: 4)
-
     }
 }

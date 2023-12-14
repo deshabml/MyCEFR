@@ -18,13 +18,13 @@ final class LearningViewModel: ObservableObject {
     @Published var unsuccessfulWordsID: [String] = []
     @Published var activeUserResponseText = "" {
         didSet {
-            print(activeUserResponseText)
             checkText(text: activeUserResponseText)
         }
     }
     @Published var showUnsuccessfulWordsAnimation = false
     @Published var showSuccessfulWordsAnimation = false
     @Published var showTextField = true
+    @Published var isFinishedRound = false
 
 
     init(words: [Word], level: Level) {
@@ -38,6 +38,8 @@ final class LearningViewModel: ObservableObject {
                 activeWords.append(word)
             }
         }
+        guard activeWords.isEmpty else { return }
+        activeWords = words
     }
 
     func fullNameLevel() -> String {
@@ -92,7 +94,11 @@ final class LearningViewModel: ObservableObject {
     }
 
     func dontKnowButtonAction() {
-        guard activeWordIndex < activeWords.count - 1 else { return }
+        unsuccessfulWordsID.append(activeWords[activeWordIndex].word)
+        guard activeWordIndex < activeWords.count - 1 else {
+            isFinishedRound = true
+            return
+        }
         unsuccessfulWordsID.append(activeWords[activeWordIndex].word)
         activeUserResponseText = ""
         activeWordIndex += 1
@@ -102,10 +108,15 @@ final class LearningViewModel: ObservableObject {
         DispatchQueue.main.async { [unowned self] in
             self.showUnsuccessfulWordsAnimation = false
             self.showSuccessfulWordsAnimation = true
-        }
-        guard self.activeWordIndex < self.activeWords.count - 1 else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
             self.successfulWordsID.append(self.activeWords[self.activeWordIndex].word)
+        }
+        guard activeWordIndex < activeWords.count - 1 else {
+            DispatchQueue.main.async { [unowned self] in
+                self.isFinishedRound = true
+            }
+            return
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
             self.showTextField = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [unowned self] in
                 self.showTextField = true

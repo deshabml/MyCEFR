@@ -9,9 +9,11 @@ import Foundation
 
 final class LevelViewModel: ObservableObject {
 
-    let level: Level
+    @Published var level: Level = Level(id: "",
+                                        name: "",
+                                        fullName: "")
 
-    init(level: Level) {
+    func setupLevel(level: Level) {
         self.level = level
     }
 

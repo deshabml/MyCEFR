@@ -14,16 +14,27 @@ struct LearningView: View {
 
     var body: some View {
         VStack {
-            informationBar()
-            Spacer()
-            VStack(spacing: 200) {
-                denmarkZone
-                responseZone
+            if viewModel.isFinishedRound {
+                VStack(spacing: 0) {
+                    finalInformationBar
+                    finalStatistics
+                    Spacer()
+                }
+                .padding(.top, 50)
+            } else {
+                VStack {
+                    informationBar
+                    Spacer()
+                    VStack(spacing: 200) {
+                        denmarkZone
+                        responseZone
+                    }
+                    .padding(.horizontal)
+                    Spacer()
+                }
+                .padding(.top, 50)
             }
-            .padding(.horizontal)
-            Spacer()
         }
-        .padding(.top, 50)
         .modifier(BackgroundElement(isProfile: true,
                                     isBottomPading: false,
                                     isActionScreen: true,
@@ -41,6 +52,7 @@ struct LearningView: View {
         .animation(.easeInOut(duration: 0.7), value: viewModel.showSuccessfulWordsAnimation)
         .animation(.easeInOut(duration: 0.7), value: viewModel.showUnsuccessfulWordsAnimation)
         .animation(.linear(duration: 0.3), value: viewModel.showTextField)
+        .animation(.easeInOut(duration: 0.5), value: viewModel.isFinishedRound)
     }
 }
 
@@ -54,7 +66,7 @@ struct LearningView: View {
 
 extension LearningView {
 
-    private func informationBar() -> some View {
+    private var informationBar: some View {
         ZStack {
             Text(viewModel.progressInfoText())
                 .font(Font.custom("Spectral", size: 20)
@@ -73,6 +85,46 @@ extension LearningView {
                 .padding(.horizontal)
             }
         }
+    }
+
+    private var finalInformationBar: some View {
+        Text("results".localized)
+            .font(Font.custom("Spectral", size: 20)
+                .weight(.semibold))
+            .foregroundStyle(.white)
+    }
+
+    private var finalStatistics: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                finalStatisticsText(text: "correct".localized,
+                                    isCorrect: true)
+                Divider()
+                    .frame(width: 1)
+                    .background(.black)
+                finalStatisticsText(text: "skipped".localized)
+            }
+            .frame(height: 30)
+            Divider()
+                .frame(height: 1)
+                .background(.black)
+            HStack(spacing: 0) {
+                finalStatisticsText(text: "\(viewModel.successfulWordsID.count)")
+                finalStatisticsText(text: "\(viewModel.unsuccessfulWordsID.count)")
+            }
+            .frame(height: 30)
+        }
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: .black, radius: 2)
+        .padding()
+    }
+
+    private func finalStatisticsText(text: String, isCorrect: Bool = false) -> some View {
+        Text(text)
+            .font(Font.custom("Spectral", size: 20))
+            .foregroundStyle(isCorrect ? .green : .black)
+            .frame(width:  (UIScreen.main.bounds.size.width - 32) / 2)
     }
 
     private var denmarkZone: some View {

@@ -63,3 +63,6 @@
 "currentCourse" = "Current Course";
 "dontKnow" = "Don’t know";
 "skip" = "Skip";
+"results" = "Results";
+"correct" = "Correct";
+"skipped" = "Skipped";

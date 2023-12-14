@@ -13,27 +13,24 @@ struct LevelView: View {
     @StateObject var viewModel: LevelViewModel
 
     var body: some View {
-//        VStack {
-            VStack(spacing: 20) {
-                Button {
-                    coordinator.goWordGroup()
-                } label: {
-                    buttonView(label: "vocabulary".localized)
-                }
-                Button {
-
-                } label: {
-                    buttonView(label: "grammar".localized)
-                }
-                Button {
-
-                } label: {
-                    buttonView(label: "test".localized)
-                }
+        VStack(spacing: 20) {
+            Button {
+                coordinator.goWordGroup()
+            } label: {
+                buttonView(label: "vocabulary".localized)
             }
-            .padding()
-//            Spacer()
-//        }
+            Button {
+
+            } label: {
+                buttonView(label: "grammar".localized)
+            }
+            Button {
+
+            } label: {
+                buttonView(label: "test".localized)
+            }
+        }
+        .padding()
         .padding(.top, 85)
         .modifier(BackgroundElement(isProfile: true,
                                     isFirstScreen: true,
@@ -44,10 +41,8 @@ struct LevelView: View {
 }
 
 #Preview {
-    LevelView(viewModel: LevelViewModel(level: Level(id: "1",
-                                                     name: "А1",
-                                                     fullName: "Elementary")))
-        .environmentObject(Coordinator(isWorker: true))
+    LevelView(viewModel: LevelViewModel())
+    .environmentObject(Coordinator(isWorker: true))
 }
 
 extension LevelView {
@@ -63,7 +58,6 @@ extension LevelView {
                 .scaledToFill()
                 .frame(width: 40, height: 40)
                 .foregroundColor(.white)
-//                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 2)
         }
         .padding()
         .background(Color("MainBlueColor"))

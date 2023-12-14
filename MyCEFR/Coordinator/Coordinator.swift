@@ -15,6 +15,7 @@ final class Coordinator: ObservableObject {
     @Published var pathProfile = NavigationPath()
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
+    @Published var currentCoerseFirstPageVM = LevelViewModel()
     @Published var isUser = false {
         didSet {
             if !isUser {
@@ -61,6 +62,7 @@ final class Coordinator: ObservableObject {
     }
 
     func goToLevelScreen() {
+        currentCoerseFirstPageVM.setupLevel(level: selectLevel)
         pathCurrentCourse.removeLast(pathCurrentCourse.count)
         tab = .currentCourse
     }
@@ -96,7 +98,7 @@ final class Coordinator: ObservableObject {
             case .profileSettings:
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel())
             case .level:
-                LevelView(viewModel: LevelViewModel(level: self.selectLevel))
+                LevelView(viewModel: self.currentCoerseFirstPageVM)
             case .wordGroup:
                 WordGroupView(viewModel: WordGroupViewModel(level: self.selectLevel))
             case .wordSelection:

@@ -24,8 +24,6 @@ struct ChoosingStudyMethodView: View {
                 coordinator.showScreenViewModelCSM.isShow.toggle()
                 coordinator.goToLearning()
             }
-            fakeButton("test".localized,
-                       "knowledgeTest".localized)
         }
         .padding()
     }
