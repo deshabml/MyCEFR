@@ -18,6 +18,7 @@ final class LearningViewModel: ObservableObject {
     @Published var unsuccessfulWordsID: [String] = []
     @Published var activeUserResponseText = "" {
         didSet {
+            print(activeUserResponseText)
             checkText(text: activeUserResponseText)
         }
     }

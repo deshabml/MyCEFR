@@ -17,42 +17,8 @@ struct LearningView: View {
             informationBar()
             Spacer()
             VStack(spacing: 200) {
-                VStack(spacing: 0) {
-                    HStack {
-                        Text(viewModel.activeWordText())
-                            .font(Font.custom("Spectral", size: 34))
-                        Spacer()
-                        soundButton
-                    }
-                    Divider()
-                        .frame(height: 2)
-                        .background(.black)
-                }
-                VStack(spacing: 0) {
-                    HStack {
-                        if viewModel.showTextField {
-                            TextField("", text: $viewModel.activeUserResponseText)
-                                .font(Font.custom("Spectral", size: 24))
-                                .keyboardType(.namePhonePad)
-                                .disableAutocorrection(true)
-                        }
-                        Spacer()
-                        Button {
-                            viewModel.showUnsuccessfulWordsAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                viewModel.dontKnowButtonAction()
-                                viewModel.showUnsuccessfulWordsAnimation = false
-                            }
-                        } label: {
-                            Text(viewModel.activeUserResponseText.isEmpty ? "dontKnow".localized : "skip".localized)
-                                .font(Font.custom("Spectral", size: 18))
-                                .foregroundStyle(Color("MainBlueColor"))
-                        }
-                    }
-                    Divider()
-                        .frame(height: 4)
-                        .background(dividerColor())
-                }
+                denmarkZone
+                responseZone
             }
             .padding(.horizontal)
             Spacer()
@@ -106,6 +72,53 @@ extension LearningView {
                 }
                 .padding(.horizontal)
             }
+        }
+    }
+
+    private var denmarkZone: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text(viewModel.activeWordText())
+                    .font(Font.custom("Spectral", size: 34))
+                Spacer()
+                soundButton
+            }
+            Divider()
+                .frame(height: 2)
+                .background(.black)
+        }
+    }
+
+    private var responseZone: some View {
+        VStack(spacing: 0) {
+            HStack {
+                if viewModel.showTextField {
+                    TextField("", text: $viewModel.activeUserResponseText)
+                        .font(Font.custom("Spectral", size: 24))
+                        .keyboardType(.namePhonePad)
+                        .disableAutocorrection(true)
+                        .textFieldStyle(.plain)
+                }
+                Spacer()
+                skipButton
+            }
+            Divider()
+                .frame(height: 4)
+                .background(dividerColor())
+        }
+    }
+
+    private var skipButton: some View {
+        Button {
+            viewModel.showUnsuccessfulWordsAnimation = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                viewModel.dontKnowButtonAction()
+                viewModel.showUnsuccessfulWordsAnimation = false
+            }
+        } label: {
+            Text(viewModel.activeUserResponseText.isEmpty ? "dontKnow".localized : "skip".localized)
+                .font(Font.custom("Spectral", size: 18))
+                .foregroundStyle(Color("MainBlueColor"))
         }
     }
 
