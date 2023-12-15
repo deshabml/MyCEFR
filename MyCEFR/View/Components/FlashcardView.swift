@@ -117,14 +117,16 @@ extension FlashcardView {
 
     private func mapControls() -> some View {
         HStack {
-            Button {
-                viewModel.soundButtonAction()
-            } label: {
-                Image("SoundSecondImage")
-                    .resizable()
-                    .scaledToFill()
-                    .foregroundStyle(.black)
-                    .frame(width: 30, height: 30)
+            if viewModel.isEnToRus {
+                Button {
+                    viewModel.soundButtonAction()
+                } label: {
+                    Image("SoundSecondImage")
+                        .resizable()
+                        .scaledToFill()
+                        .foregroundStyle(.black)
+                        .frame(width: 30, height: 30)
+                }
             }
             Spacer()
             if viewModel.isFirctWord {

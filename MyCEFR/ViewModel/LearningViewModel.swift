@@ -85,6 +85,11 @@ final class LearningViewModel: ObservableObject {
         unsuccessfulWordsID = []
     }
 
+    func restartRound() {
+        reload()
+        isFinishedRound = false
+    }
+
     func progressInfoText() -> String {
         "\(activeWordIndex + 1)/\(activeWords.count)"
     }
@@ -99,7 +104,6 @@ final class LearningViewModel: ObservableObject {
             isFinishedRound = true
             return
         }
-        unsuccessfulWordsID.append(activeWords[activeWordIndex].word)
         activeUserResponseText = ""
         activeWordIndex += 1
     }
@@ -108,7 +112,7 @@ final class LearningViewModel: ObservableObject {
         DispatchQueue.main.async { [unowned self] in
             self.showUnsuccessfulWordsAnimation = false
             self.showSuccessfulWordsAnimation = true
-            self.successfulWordsID.append(self.activeWords[self.activeWordIndex].word)
+            self.successfulWordsID.append(self.activeWords[self.activeWordIndex].id)
         }
         guard activeWordIndex < activeWords.count - 1 else {
             DispatchQueue.main.async { [unowned self] in
@@ -165,5 +169,10 @@ final class LearningViewModel: ObservableObject {
             }
         }
         return itogText
+    }
+
+    func isCoorectWord(index: Int) -> Bool {
+        guard successfulWordsID.contains(activeWords[index].id) else { return false }
+        return true
     }
 }

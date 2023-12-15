@@ -18,7 +18,14 @@ struct LearningView: View {
                 VStack(spacing: 0) {
                     finalInformationBar
                     finalStatistics
-                    Spacer()
+                    ZStack {
+                        finalWordsList
+                        finishedRoundButton(text: "restart".localized) {
+                            viewModel.restartRound()
+
+                        }
+                    }
+                    .padding(.top, 2)
                 }
                 .padding(.top, 50)
             } else {
@@ -94,6 +101,45 @@ extension LearningView {
             .foregroundStyle(.white)
     }
 
+    private var finalWordsList: some View {
+        ScrollView(.vertical) {
+            ForEach( 0 ..< viewModel.activeWords.count, id: \.self) { index in
+                finalWordCell(index: index)
+            }
+            .padding(.top, 8)
+            .padding(.bottom, 50)
+        }
+    }
+
+    private func finalWordCell(index: Int) -> some View {
+        HStack {
+            VStack {
+                HStack {
+                    finalWordCellText(text: viewModel.activeWords[index].word,
+                                      isCorrect: viewModel.isCoorectWord(index: index))
+                    Spacer()
+                }
+                HStack {
+                    finalWordCellText(text: viewModel.activeWords[index].translation,
+                                      isCorrect: viewModel.isCoorectWord(index: index))
+                    Spacer()
+                }
+            }
+            .padding(.leading, 20)
+            Spacer()
+            finalStatisticsText(text: viewModel.isCoorectWord(index: index) ? "correct".localized : "skipped".localized,
+                                isCorrect: viewModel.isCoorectWord(index: index))
+
+        }
+        .padding(.vertical, 8)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: .black, radius: 2)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+    }
+
+
     private var finalStatistics: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
@@ -117,7 +163,8 @@ extension LearningView {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .black, radius: 2)
-        .padding()
+        .padding(.top)
+        .padding(.horizontal)
     }
 
     private func finalStatisticsText(text: String, isCorrect: Bool = false) -> some View {
@@ -127,13 +174,38 @@ extension LearningView {
             .frame(width:  (UIScreen.main.bounds.size.width - 32) / 2)
     }
 
+    private func finalWordCellText(text: String, isCorrect: Bool = false) -> some View {
+        Text(text)
+            .font(Font.custom("Spectral", size: 20))
+            .foregroundStyle(isCorrect ? .green : .black)
+    }
+
+    private func finishedRoundButton(text: String, completion: (()->())?) -> some View {
+        VStack {
+            Spacer()
+            Button {
+                completion?()
+            } label: {
+                Text(text)
+                    .font(Font.custom("Spectral", size: 17)
+                        .weight(.semibold))
+                    .foregroundStyle(.white)
+            }
+            .frame(width: 300, height: 40)
+            .background(Color("MainBlueColor"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+    }
+
     private var denmarkZone: some View {
         VStack(spacing: 0) {
             HStack {
                 Text(viewModel.activeWordText())
                     .font(Font.custom("Spectral", size: 34))
                 Spacer()
-                soundButton
+                if viewModel.isEnToRus {
+                    soundButton
+                }
             }
             Divider()
                 .frame(height: 2)
