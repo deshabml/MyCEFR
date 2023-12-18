@@ -296,7 +296,10 @@ extension LearningView {
                 fireworkImage
             }
             successfullyInfo
+                .padding(.top, 70)
+            Spacer()
         }
+        .padding(.top, 60)
         .confettiCannon(counter: $viewModel.fireworkCounter, repetitions: 20, repetitionInterval: 0.1)
     }
 
@@ -313,9 +316,28 @@ extension LearningView {
                 .foregroundStyle(.green)
                 .padding(.horizontal)
         }
+        .frame(height: 80)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .black, radius: 2)
         .padding()
+        .overlay {
+            progressBar
+        }
+    }
+
+    private var progressBar: some View {
+        VStack {
+            Spacer()
+            ProgressView(value: 0.3)
+                .progressViewStyle(.linear)
+                .frame(height: 8)
+                .tint(.green)
+                .background(Color("ProgressBackLevelColor"))
+                .cornerRadius(4)
+                .padding(.horizontal)
+        }
+        .padding(.bottom, 18)
+        .padding(.horizontal, 40)
     }
 }
