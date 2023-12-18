@@ -48,6 +48,7 @@
 		DD7289A62AFEC46A00A3F1F6 /* WordGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */; };
 		DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */; };
 		DD7289AA2AFFB52200A3F1F6 /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */; };
+		DD73890A2B30E41200608D10 /* SuccessfullyLearnedWordsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7389092B30E41200608D10 /* SuccessfullyLearnedWordsID.swift */; };
 		DD7AF39B2B17CE6600ECB879 /* SelectedWordsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */; };
 		DD7AF39D2B18737A00ECB879 /* String.declinationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AF39C2B18737900ECB879 /* String.declinationText.swift */; };
 		DD9AA5B62A25EEE500FB18A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */; };
@@ -148,6 +149,7 @@
 		DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupView.swift; sourceTree = "<group>"; };
 		DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupViewModel.swift; sourceTree = "<group>"; };
 		DD7289A92AFFB52200A3F1F6 /* Spectral-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		DD7389092B30E41200608D10 /* SuccessfullyLearnedWordsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyLearnedWordsID.swift; sourceTree = "<group>"; };
 		DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWordsID.swift; sourceTree = "<group>"; };
 		DD7AF39C2B18737900ECB879 /* String.declinationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.declinationText.swift; sourceTree = "<group>"; };
 		DD9AA5B52A25EEE500FB18A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				DD4AAEDA2A21F619003E2860 /* UserProfile.swift */,
 				DD1DFEB52A9D1D7F000AAE33 /* Word.swift */,
 				DD7AF39A2B17CE6600ECB879 /* SelectedWordsID.swift */,
+				DD7389092B30E41200608D10 /* SuccessfullyLearnedWordsID.swift */,
 				DD1DFEB72A9D1ED8000AAE33 /* PartOfSpeech.swift */,
 				DD1DFEB92A9D3A5B000AAE33 /* Group.swift */,
 				DDEABF602A31BFD70046F018 /* TabBarItems.swift */,
@@ -642,6 +645,7 @@
 				DD7AF39D2B18737A00ECB879 /* String.declinationText.swift in Sources */,
 				DD4AAEB32A212CD9003E2860 /* ButtonView.swift in Sources */,
 				DD9AA5C12A25F5CD00FB18A8 /* AppDelegate.swift in Sources */,
+				DD73890A2B30E41200608D10 /* SuccessfullyLearnedWordsID.swift in Sources */,
 				DD023F5C2B19C43A0051CE3D /* ShowScreenView.swift in Sources */,
 				DDBAE3642A229BB0003A2415 /* SMTPService.swift in Sources */,
 				DD71FDC82AB24E6300E8EE75 /* MyTab.swift in Sources */,

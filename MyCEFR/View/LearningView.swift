@@ -61,6 +61,9 @@ struct LearningView: View {
         .onAppear {
             coordinator.isShowTabBar = false
             viewModel.setupActiveWord(selectedWordsID: coordinator.selectedWordsID)
+            viewModel.setupCompletion { successfulWordsID in
+                coordinator.addSuccessfullyLearnedWordsID(successfulWordsID: successfulWordsID)
+            }
         }
         .animation(.easeInOut(duration: 0.5), value: viewModel.activeWordIndex)
         .animation(.easeInOut(duration: 0.7), value: viewModel.showSuccessfulWordsAnimation)
@@ -311,10 +314,12 @@ extension LearningView {
                 .foregroundStyle(.green)
                 .padding(.horizontal)
             Spacer()
-            Image(systemName: "checkmark")
-                .frame(width: 50, height: 50)
-                .foregroundStyle(.green)
-                .padding(.horizontal)
+            if let calculatingProgress = coordinator.calculatingProgressGroup(), calculatingProgress == 1 {
+                Image(systemName: "checkmark")
+                    .frame(width: 50, height: 50)
+                    .foregroundStyle(.green)
+                    .padding(.horizontal)
+            }
         }
         .frame(height: 80)
         .background(.white)
@@ -329,13 +334,15 @@ extension LearningView {
     private var progressBar: some View {
         VStack {
             Spacer()
-            ProgressView(value: 0.3)
-                .progressViewStyle(.linear)
-                .frame(height: 8)
-                .tint(.green)
-                .background(Color("ProgressBackLevelColor"))
-                .cornerRadius(4)
-                .padding(.horizontal)
+            if let calculatingProgress = coordinator.calculatingProgressGroup(), calculatingProgress < 1 {
+                ProgressView(value: calculatingProgress)
+                    .progressViewStyle(.linear)
+                    .frame(height: 8)
+                    .tint(.green)
+                    .background(Color("ProgressBackLevelColor"))
+                    .cornerRadius(4)
+                    .padding(.horizontal)
+            }
         }
         .padding(.bottom, 18)
         .padding(.horizontal, 40)

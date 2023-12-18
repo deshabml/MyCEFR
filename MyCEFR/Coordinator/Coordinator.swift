@@ -36,11 +36,14 @@ final class Coordinator: ObservableObject {
         didSet {
             isShowCurrentCourse = true
             getSelectedWordsID()
+            getSuccessfullyLearnedWordsID()
         }
     }
     @Published var selectWords: [Word] = []
-    @Published var selectedWordsID: SelectedWordsID = SelectedWordsID(id: "",
-                                                                      selectedID: [])
+    @Published var selectedWordsID = SelectedWordsID(id: "",
+                                                     selectedID: [])
+    @Published var successfullyLearnedWordsID = SuccessfullyLearnedWordsID(id: "",
+                                                                           selectedID: [])
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
@@ -212,5 +215,51 @@ extension Coordinator {
                 selectedWordsID.selectedID.remove(at: index)
             }
         }
+    }
+
+    func getSuccessfullyLearnedWordsID() {
+        let id = "user:\(userProfile.id)_level:\(selectLevel.id)"
+        successfullyLearnedWordsID.id = id
+        Task {
+            do {
+                let successfullyLearnedWordsID = try await FirestoreService.shared.getSuccessfullyLearnedWordsID(id)
+                DispatchQueue.main.async {
+                    self.successfullyLearnedWordsID = successfullyLearnedWordsID
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func editSuccessfullyLearnedWordsID() {
+        Task {
+            do {
+                try await FirestoreService.shared.editSuccessfullyLearnedWordsID(successfullyLearnedWordsID: successfullyLearnedWordsID)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func calculatingProgressGroup() -> Double? {
+        guard !successfullyLearnedWordsID.selectedID.isEmpty else { return nil }
+        let totalWordsTheGroup = Double(selectWords.count)
+        var successfullyLearnedWords: Double = 0
+        selectWords.forEach { word in
+            if successfullyLearnedWordsID.selectedID.contains(word.id) {
+                successfullyLearnedWords += 1
+            }
+        }
+        return successfullyLearnedWords / totalWordsTheGroup
+    }
+
+    func addSuccessfullyLearnedWordsID(successfulWordsID: [String]) {
+        successfulWordsID.forEach { wordID in
+            if !successfullyLearnedWordsID.selectedID.contains(wordID) {
+                successfullyLearnedWordsID.selectedID.append(wordID)
+            }
+        }
+        editSuccessfullyLearnedWordsID()
     }
 }

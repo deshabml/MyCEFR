@@ -11,6 +11,7 @@ final class LearningViewModel: ObservableObject {
 
     let words: [Word]
     let level: Level
+    var completion: (([String]) -> ())?
     @Published var activeWords: [Word] = []
     @Published var activeWordIndex = 0
     @Published var isEnToRus: Bool = true
@@ -37,7 +38,13 @@ final class LearningViewModel: ObservableObject {
             }
         }
     }
-    @Published var isSuccessfully = false
+    @Published var isSuccessfully = false {
+        didSet {
+            if isSuccessfully {
+                completion?(successfulWordsID)
+            }
+        }
+    }
     @Published var fireworkCounter = 0
 
     init(words: [Word], level: Level) {
@@ -53,6 +60,10 @@ final class LearningViewModel: ObservableObject {
         }
         guard activeWords.isEmpty else { return }
         activeWords = words
+    }
+
+    func setupCompletion(completion: @escaping ([String]) -> ()) {
+        self.completion = completion
     }
 
     func fullNameLevel() -> String {
