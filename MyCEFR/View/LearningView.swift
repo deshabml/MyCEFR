@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct LearningView: View {
 
@@ -17,9 +18,15 @@ struct LearningView: View {
             if viewModel.isFinishedRound {
                 VStack(spacing: 0) {
                     finalInformationBar
-                    finalStatistics
+                    if !viewModel.isSuccessfully {
+                        finalStatistics
+                    }
                     ZStack {
-                        finalWordsList
+                        if viewModel.isSuccessfully {
+                            successfullyRound
+                        } else {
+                            finalWordsList
+                        }
                         finishedRoundButton(text: "restart".localized) {
                             viewModel.restartRound()
 
@@ -266,5 +273,49 @@ extension LearningView {
         } else {
             return .black
         }
+    }
+    
+    private var successfullyText: some View {
+        Text("successfullyTest".localized)
+            .font(Font.custom("Spectral", size: 20)
+                .weight(.semibold))
+            .foregroundStyle(.black)
+    }
+
+    private var fireworkImage: some View {
+        Image("FireworkImage")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 60, height: 60)
+    }
+
+    private var successfullyRound: some View {
+        VStack {
+            HStack {
+                successfullyText
+                fireworkImage
+            }
+            successfullyInfo
+        }
+        .confettiCannon(counter: $viewModel.fireworkCounter, repetitions: 20, repetitionInterval: 0.1)
+    }
+
+    private var successfullyInfo: some View {
+        HStack {
+            Text(viewModel.fullNameLevel())
+                .font(Font.custom("Spectral", size: 20)
+                    .weight(.semibold))
+                .foregroundStyle(.green)
+                .padding(.horizontal)
+            Spacer()
+            Image(systemName: "checkmark")
+                .frame(width: 50, height: 50)
+                .foregroundStyle(.green)
+                .padding(.horizontal)
+        }
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: .black, radius: 2)
+        .padding()
     }
 }

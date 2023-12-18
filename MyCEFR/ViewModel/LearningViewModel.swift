@@ -14,7 +14,11 @@ final class LearningViewModel: ObservableObject {
     @Published var activeWords: [Word] = []
     @Published var activeWordIndex = 0
     @Published var isEnToRus: Bool = true
-    @Published var successfulWordsID: [String] = []
+    @Published var successfulWordsID: [String] = [] {
+        didSet {
+            isSuccessfully = successfulWordsID.count == activeWords.count
+        }
+    }
     @Published var unsuccessfulWordsID: [String] = []
     @Published var activeUserResponseText = "" {
         didSet {
@@ -24,8 +28,17 @@ final class LearningViewModel: ObservableObject {
     @Published var showUnsuccessfulWordsAnimation = false
     @Published var showSuccessfulWordsAnimation = false
     @Published var showTextField = true
-    @Published var isFinishedRound = false
-
+    @Published var isFinishedRound = false {
+        didSet {
+            if isSuccessfully, isFinishedRound {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500))  { [unowned self] in
+                    self.fireworkCounter += 1
+                }
+            }
+        }
+    }
+    @Published var isSuccessfully = false
+    @Published var fireworkCounter = 0
 
     init(words: [Word], level: Level) {
         self.words = words

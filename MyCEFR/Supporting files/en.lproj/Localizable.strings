@@ -67,3 +67,5 @@
 "correct" = "Correct";
 "skipped" = "Skipped";
 "restart" = "Restart";
+"successfullyTest" = "Congratulations. You've successfully passed the test.";
+
