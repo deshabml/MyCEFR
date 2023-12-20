@@ -10,8 +10,8 @@ import Foundation
 final class FlashcardViewModel: ObservableObject {
     
     @Published var flipped: Bool = false
-    @Published var flashcardRotation = 0.0
-    @Published var contentRotation = 0.0
+    @Published var flashcardRotation = 0.1
+    @Published var contentRotation = 0.1
     @Published var activeWord: Word = Word(groupID: "",
                                            groupName: "",
                                            word: "",
@@ -33,7 +33,6 @@ final class FlashcardViewModel: ObservableObject {
         }
     }
     @Published var style: StyleCard = .standart
-//    @Published var opacityStyle = 0
     var completionBackButten: (()->())?
     
     func setupWord(word: Word, isFirst: Bool = false) {
@@ -50,5 +49,9 @@ final class FlashcardViewModel: ObservableObject {
     
     func setupCompletionBackButten(_ completionBackButten: @escaping ()->()) {
         self.completionBackButten = completionBackButten
+    }
+
+    func soundButtonAction() {
+        Speaker.shared.speak(msg: activeWord.word)
     }
 }

@@ -25,7 +25,7 @@ struct FlashcardsView: View {
                     VStack(spacing: 100)  {
                         HStack {
                             goodJobText()
-                            fireworkButton()
+                            fireworkImage()
                         }
                         successfulWordsInfo()
                     }
@@ -232,10 +232,8 @@ extension FlashcardsView {
                 .onEnded { value in
                     swipeRotationAnimation()
                     if value.translation.width < -100 {
-                        viewModel.swipe(isLeft: true)
                         swipeAnimation(isLeft: true)
                     } else if value.translation.width > 100 {
-                        viewModel.swipe(isLeft: false)
                         swipeAnimation(isLeft: false)
                     } else {
                         draggetOffsetCard = CGSize.zero
@@ -272,6 +270,9 @@ extension FlashcardsView {
             draggetOffsetCard = CGSize(width: isLeft ? -400 : 400, height: 0)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            viewModel.swipe(isLeft: isLeft)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             opticalCard = 0
             rotationSwipeCard = 0
             draggetOffsetCard = CGSize.zero
@@ -309,15 +310,11 @@ extension FlashcardsView {
         }
     }
 
-    private func fireworkButton() -> some View {
-        Button {
-            viewModel.fireworkCounter += 1
-        } label: {
-            Image("FireworkImage")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60, height: 60)
-        }
+    private func fireworkImage() -> some View {
+        Image("FireworkImage")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 60, height: 60)
     }
 
     private func goodJobText() -> some View {

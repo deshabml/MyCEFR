@@ -16,6 +16,7 @@ enum MyPage: Hashable, Identifiable {
     case wordGroup
     case wordSelection
     case flashcardsView
+    case learning
 
     var id: String {
         String(describing: self)
@@ -41,6 +42,8 @@ enum MyPage: Hashable, Identifiable {
                 hasher.combine("wordSelection")
             case .flashcardsView:
                 hasher.combine("flashcardsView")
+            case .learning:
+                hasher.combine("learning")
         }
     }
 }

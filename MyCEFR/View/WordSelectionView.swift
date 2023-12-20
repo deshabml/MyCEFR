@@ -23,6 +23,7 @@ struct WordSelectionView: View {
                             dividerWithCondition(index)
                         }
                     }
+                    .padding(.bottom, 100)
                 }
                 .padding(.top, 10)
                 VStack {
@@ -95,15 +96,27 @@ extension WordSelectionView {
                 Text(viewModel.words[index].translation)
             })
             Spacer()
+            if coordinator.checkSuccessfullyWord(word: viewModel.words[index]) {
+                checkmark
+            }
             HStack(spacing: 32) {
                 soundButton {
-                    print("Run Sound")
+                    viewModel.soundButtonAction(index: index)
                 }
                 selectedWordButton(index: index)
             }
             .padding(.trailing, 16)
         }
         .padding(.horizontal, 4)
+    }
+
+    private var checkmark: some View {
+        Image(systemName: "checkmark.circle")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 20, height: 20)
+            .foregroundColor(.green)
+            .padding(.trailing, 10)
     }
 
     private func dividerWithCondition(_ index: Int) -> some View {

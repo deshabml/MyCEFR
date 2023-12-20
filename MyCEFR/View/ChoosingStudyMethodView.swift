@@ -19,10 +19,11 @@ struct ChoosingStudyMethodView: View {
                 coordinator.showScreenViewModelCSM.isShow.toggle()
                 coordinator.goFlashcards()
             })
-            fakeButton("learn".localized,
-                       "learnWords".localized)
-            fakeButton("test".localized,
-                       "knowledgeTest".localized)
+            choosingStudyMethodButton("learn".localized,
+                                      "learnWords".localized) {
+                coordinator.showScreenViewModelCSM.isShow.toggle()
+                coordinator.goToLearning()
+            }
         }
         .padding()
     }

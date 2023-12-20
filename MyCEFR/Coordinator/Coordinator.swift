@@ -15,6 +15,7 @@ final class Coordinator: ObservableObject {
     @Published var pathProfile = NavigationPath()
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
+    @Published var currentCoerseFirstPageVM = LevelViewModel()
     @Published var isUser = false {
         didSet {
             if !isUser {
@@ -35,11 +36,14 @@ final class Coordinator: ObservableObject {
         didSet {
             isShowCurrentCourse = true
             getSelectedWordsID()
+            getSuccessfullyLearnedWordsID()
         }
     }
     @Published var selectWords: [Word] = []
-    @Published var selectedWordsID: SelectedWordsID = SelectedWordsID(id: "",
-                                                                      selectedID: [])
+    @Published var selectedWordsID = SelectedWordsID(id: "",
+                                                     selectedID: [])
+    @Published var successfullyLearnedWordsID = SuccessfullyLearnedWordsID(id: "",
+                                                                           selectedID: [])
     var currentUser = AuthService.shared.currentUser {
         didSet {
             findOutIsUser()
@@ -61,6 +65,7 @@ final class Coordinator: ObservableObject {
     }
 
     func goToLevelScreen() {
+        currentCoerseFirstPageVM.setupLevel(level: selectLevel)
         pathCurrentCourse.removeLast(pathCurrentCourse.count)
         tab = .currentCourse
     }
@@ -82,6 +87,10 @@ final class Coordinator: ObservableObject {
         pathCurrentCourse.append(MyPage.flashcardsView)
     }
 
+    func goToLearning() {
+        pathCurrentCourse.append(MyPage.learning)
+    }
+
     @ViewBuilder
     func getPage(_ page: MyPage) -> some View {
         switch page {
@@ -92,7 +101,7 @@ final class Coordinator: ObservableObject {
             case .profileSettings:
                 ProfileSettingsView(viewModel: ProfileSettingsViewModel())
             case .level:
-                LevelView(viewModel: LevelViewModel(level: self.selectLevel))
+                LevelView(viewModel: self.currentCoerseFirstPageVM)
             case .wordGroup:
                 WordGroupView(viewModel: WordGroupViewModel(level: self.selectLevel))
             case .wordSelection:
@@ -101,6 +110,9 @@ final class Coordinator: ObservableObject {
             case .flashcardsView:
                 FlashcardsView(viewModel: FlashcardsViewModel(words: self.selectWords,
                                                               level: self.selectLevel))
+            case .learning:
+                LearningView(viewModel: LearningViewModel(words: self.selectWords,
+                                                          level: self.selectLevel))
         }
     }
 }
@@ -203,5 +215,72 @@ extension Coordinator {
                 selectedWordsID.selectedID.remove(at: index)
             }
         }
+    }
+
+    func getSuccessfullyLearnedWordsID() {
+        let id = "user:\(userProfile.id)_level:\(selectLevel.id)"
+        successfullyLearnedWordsID.id = id
+        Task {
+            do {
+                let successfullyLearnedWordsID = try await FirestoreService.shared.getSuccessfullyLearnedWordsID(id)
+                DispatchQueue.main.async {
+                    self.successfullyLearnedWordsID = successfullyLearnedWordsID
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func editSuccessfullyLearnedWordsID() {
+        Task {
+            do {
+                try await FirestoreService.shared.editSuccessfullyLearnedWordsID(successfullyLearnedWordsID: successfullyLearnedWordsID)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func calculatingProgressGroup() -> Double? {
+        guard !successfullyLearnedWordsID.selectedID.isEmpty else { return nil }
+        let totalWordsTheGroup = Double(selectWords.count)
+        var successfullyLearnedWords: Double = 0
+        selectWords.forEach { word in
+            if successfullyLearnedWordsID.selectedID.contains(word.id) {
+                successfullyLearnedWords += 1
+            }
+        }
+        return successfullyLearnedWords / totalWordsTheGroup
+    }
+
+    func addSuccessfullyLearnedWordsID(successfulWordsID: [String]) {
+        successfulWordsID.forEach { wordID in
+            if !successfullyLearnedWordsID.selectedID.contains(wordID) {
+                successfullyLearnedWordsID.selectedID.append(wordID)
+            }
+        }
+        editSuccessfullyLearnedWordsID()
+    }
+
+    func checkSuccessfullyWord(word: Word) -> Bool {
+        for id in successfullyLearnedWordsID.selectedID {
+            if id == word.id {
+                return true
+            }
+        }
+        return false
+    }
+
+    func calculatingProgressForWordGroupScreen(selectionWords: [Word]) -> Double? {
+        guard !successfullyLearnedWordsID.selectedID.isEmpty else { return nil }
+        let totalWordsTheGroup = Double(selectionWords.count)
+        var successfullyLearnedWords: Double = 0
+        selectionWords.forEach { word in
+            if successfullyLearnedWordsID.selectedID.contains(word.id) {
+                successfullyLearnedWords += 1
+            }
+        }
+        return successfullyLearnedWords / totalWordsTheGroup
     }
 }

@@ -35,7 +35,7 @@ final class ProfileSettingsViewModelTests: XCTestCase {
             return
         }
         viewModel.setup {
-            let test = 4
+            let _ = 4
         }
         XCTAssertNotNil(viewModel.completeonUpdatingUser)
         XCTAssertNotNil(viewModel.buttonExitVM.action)

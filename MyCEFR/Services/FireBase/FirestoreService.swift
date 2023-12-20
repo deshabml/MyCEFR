@@ -16,6 +16,7 @@ class FirestoreService {
     var SMRPSettingRef: CollectionReference { db.collection("smtpSetting") }
     var levelRef: CollectionReference { db.collection("level") }
     var selectedWordsIDRef: CollectionReference { db.collection("selectedWordsID") }
+    var successfullyLearnedWordsIDRef: CollectionReference { db.collection("successfullyLearnedWordsID") }
 
 
     private init() { }
@@ -119,6 +120,29 @@ class FirestoreService {
     func editWord(word: Word, level: Level) async throws {
         do {
             try await db.collection("word" + level.name).document(word.id).setData(word.representation)
+        } catch {
+            throw error
+        }
+    }
+
+    func editSuccessfullyLearnedWordsID(successfullyLearnedWordsID: SuccessfullyLearnedWordsID) async throws {
+        do {
+            try await successfullyLearnedWordsIDRef.document(successfullyLearnedWordsID.id).setData(successfullyLearnedWordsID.representation)
+        } catch {
+            throw error
+        }
+    }
+
+    func getSuccessfullyLearnedWordsID(_ id: String) async throws -> SuccessfullyLearnedWordsID {
+        do {
+            let snap = try await successfullyLearnedWordsIDRef.document(id).getDocument()
+            guard let data = snap.data() else {
+                throw FirestoreErrorCode(.dataLoss)
+            }
+            guard let successfullyLearnedWordsID = SuccessfullyLearnedWordsID(data: data) else {
+                throw FirestoreErrorCode(.invalidArgument)
+            }
+            return successfullyLearnedWordsID
         } catch {
             throw error
         }
