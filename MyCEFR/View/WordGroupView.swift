@@ -65,6 +65,26 @@ extension WordGroupView {
             .clipShape(RoundedRectangle(cornerRadius: 17))
             .shadow(color: .gray.opacity(0.5), radius: 2)
             .padding(.horizontal)
+            .overlay {
+                progressBar(group: wordGroup.group)
+            }
         }
+    }
+
+    private func progressBar(group: Group) -> some View {
+        VStack {
+            Spacer()
+            if let calculatingProgress = coordinator.calculatingProgressForWordGroupScreen(selectionWords: viewModel.selectionWords(group: group)), calculatingProgress < 1 {
+                ProgressView(value: calculatingProgress)
+                    .progressViewStyle(.linear)
+                    .frame(height: 8)
+                    .tint(.green)
+                    .background(Color("ProgressBackLevelColor"))
+                    .cornerRadius(4)
+                    .padding(.horizontal)
+            }
+        }
+        .padding(.bottom, 4)
+        .padding(.horizontal, 20)
     }
 }

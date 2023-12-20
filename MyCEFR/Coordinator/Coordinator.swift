@@ -271,4 +271,16 @@ extension Coordinator {
         }
         return false
     }
+
+    func calculatingProgressForWordGroupScreen(selectionWords: [Word]) -> Double? {
+        guard !successfullyLearnedWordsID.selectedID.isEmpty else { return nil }
+        let totalWordsTheGroup = Double(selectionWords.count)
+        var successfullyLearnedWords: Double = 0
+        selectionWords.forEach { word in
+            if successfullyLearnedWordsID.selectedID.contains(word.id) {
+                successfullyLearnedWords += 1
+            }
+        }
+        return successfullyLearnedWords / totalWordsTheGroup
+    }
 }

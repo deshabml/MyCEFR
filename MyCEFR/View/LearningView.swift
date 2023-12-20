@@ -344,7 +344,7 @@ extension LearningView {
                     .padding(.horizontal)
             }
         }
-        .padding(.bottom, 18)
-        .padding(.horizontal, 40)
+        .padding(.bottom, 20)
+        .padding(.horizontal, 20)
     }
 }
