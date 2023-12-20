@@ -14,10 +14,14 @@ final class LearningViewModel: ObservableObject {
     var completion: (([String]) -> ())?
     @Published var activeWords: [Word] = []
     @Published var activeWordIndex = 0
-    @Published var isEnToRus: Bool = true
+    @Published var isEnToRus: Bool = false
     @Published var successfulWordsID: [String] = [] {
         didSet {
-            isSuccessfully = successfulWordsID.count == activeWords.count
+            isSuccessfully = if isEnToRus {
+                false
+            } else {
+                successfulWordsID.count == activeWords.count
+            }
         }
     }
     @Published var unsuccessfulWordsID: [String] = []

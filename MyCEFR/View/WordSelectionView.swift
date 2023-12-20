@@ -96,6 +96,7 @@ extension WordSelectionView {
                 Text(viewModel.words[index].translation)
             })
             Spacer()
+            checkmark
             HStack(spacing: 32) {
                 soundButton {
                     viewModel.soundButtonAction(index: index)
@@ -105,6 +106,15 @@ extension WordSelectionView {
             .padding(.trailing, 16)
         }
         .padding(.horizontal, 4)
+    }
+
+    private var checkmark: some View {
+        Image(systemName: "checkmark.circle")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 20, height: 20)
+            .foregroundColor(.green)
+            .padding(.trailing, 10)
     }
 
     private func dividerWithCondition(_ index: Int) -> some View {

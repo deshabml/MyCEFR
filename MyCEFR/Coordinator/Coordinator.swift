@@ -262,4 +262,13 @@ extension Coordinator {
         }
         editSuccessfullyLearnedWordsID()
     }
+
+    func checkSuccessfullyWord(word: Word) -> Bool {
+        for id in successfullyLearnedWordsID.selectedID {
+            if id == word.id {
+                return true
+            }
+        }
+        return false
+    }
 }
