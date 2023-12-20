@@ -96,7 +96,9 @@ extension WordSelectionView {
                 Text(viewModel.words[index].translation)
             })
             Spacer()
-            checkmark
+            if coordinator.checkSuccessfullyWord(word: viewModel.words[index]) {
+                checkmark
+            }
             HStack(spacing: 32) {
                 soundButton {
                     viewModel.soundButtonAction(index: index)
