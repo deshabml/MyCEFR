@@ -212,6 +212,7 @@ extension Coordinator {
         for word in words {
             let index = selectedWordsID.selectedID.firstIndex(of: word.id)
             if let index {
+                deleteSelectedWordsID(selectedWordsID.selectedID[index])
                 selectedWordsID.selectedID.remove(at: index)
             }
         }
