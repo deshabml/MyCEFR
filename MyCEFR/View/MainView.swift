@@ -38,6 +38,9 @@ extension MainView {
                         tabItem(myPage: .level,
                                     myTab: .currentCourse,
                                     path: $coordinator.pathCurrentCourse)
+                        tabItem(myPage: .library,
+                                myTab: .library,
+                                path: $coordinator.pathLibrary)
                         tabItem(myPage: .profileSettings,
                                 myTab: .profile,
                                 path: $coordinator.pathProfile)
@@ -104,6 +107,8 @@ extension MainView {
                     tabButton(image: Image("CurrentCourseImage"),
                               myTab: .currentCourse)
                 }
+                tabButton(image: Image(.library),
+                          myTab: .library)
                 tabButton(image: Image(systemName: "person.fill"),
                           myTab: .profile)
             }

@@ -11,5 +11,6 @@ enum MyTab: String {
 
     case home = "home"
     case currentCourse = "currentCourse"
+    case library = "library"
     case profile = "profile"
 }

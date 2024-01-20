@@ -9,18 +9,18 @@ import SwiftUI
 
 struct CircularProgressView: View {
 
-    @StateObject var viewvModel: CircularProgressViewModel
+    @StateObject var viewModel: CircularProgressViewModel
 
     var body: some View {
         ZStack {
-            if viewvModel.progress > 0 {
+            if viewModel.progress > 0 {
                 Circle()
                     .stroke(
                         Color("MainBlueColor").opacity(0.5),
                         lineWidth: 30
                     )
                 Circle()
-                    .trim(from: 0, to: viewvModel.progress)
+                    .trim(from: 0, to: viewModel.progress)
                     .stroke(
                         Color("MainBlueColor").opacity(0.9),
                         style: StrokeStyle(
@@ -29,7 +29,7 @@ struct CircularProgressView: View {
                         )
                     )
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeOut, value: viewvModel.progress)
+                    .animation(.easeOut, value: viewModel.progress)
             }
         }
     }
@@ -38,6 +38,6 @@ struct CircularProgressView: View {
 struct CircularProgressView_Previews: PreviewProvider {
 
     static var previews: some View {
-        CircularProgressView(viewvModel: CircularProgressViewModel())
+        CircularProgressView(viewModel: CircularProgressViewModel())
     }
 }

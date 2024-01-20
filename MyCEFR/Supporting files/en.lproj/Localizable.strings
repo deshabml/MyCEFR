@@ -68,4 +68,5 @@
 "skipped" = "Skipped";
 "restart" = "Restart";
 "successfullyTest" = "Congratulations.\nYou've successfully passed the test.";
+"library" = "Library";
 

@@ -14,6 +14,4 @@ final class CircularProgressViewModel: ObservableObject {
     func setup(progress: Double) {
         self.progress = progress
     }
-
-    
 }

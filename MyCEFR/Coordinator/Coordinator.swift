@@ -13,6 +13,7 @@ final class Coordinator: ObservableObject {
     @Published var pathHome = NavigationPath()
     @Published var pathCurrentCourse = NavigationPath()
     @Published var pathProfile = NavigationPath()
+    @Published var pathLibrary = NavigationPath()
     @Published var page: MyPage = .selectLevel
     @Published var tab: MyTab = MyTab.home
     @Published var currentCoerseFirstPageVM = LevelViewModel()
@@ -113,6 +114,8 @@ final class Coordinator: ObservableObject {
             case .learning:
                 LearningView(viewModel: LearningViewModel(words: self.selectWords,
                                                           level: self.selectLevel))
+            case .library:
+                LibraryView(viewModel: LibraryViewModel())
         }
     }
 }

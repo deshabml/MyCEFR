@@ -39,6 +39,8 @@
 		DD4AAEDB2A21F619003E2860 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDA2A21F619003E2860 /* UserProfile.swift */; };
 		DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */; };
 		DD5D79D22B1F275600DBD06B /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D79D12B1F275600DBD06B /* ConfettiSwiftUI */; };
+		DD6227852B5C244A00AB0F2E /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6227842B5C244A00AB0F2E /* LibraryView.swift */; };
+		DD6227872B5C24BF00AB0F2E /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6227862B5C24BF00AB0F2E /* LibraryViewModel.swift */; };
 		DD6E2CD12B1C87090030F944 /* View.CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */; };
 		DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */; };
 		DD71FDC22AB03D3E00E8EE75 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */; };
@@ -140,6 +142,8 @@
 		DD4AAECC2A21DFD8003E2860 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
 		DD4AAEDA2A21F619003E2860 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		DD4AAEDC2A220277003E2860 /* ValidationAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationAuthorization.swift; sourceTree = "<group>"; };
+		DD6227842B5C244A00AB0F2E /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		DD6227862B5C24BF00AB0F2E /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		DD6E2CD02B1C87090030F944 /* View.CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		DD71FDBE2AB03CEA00E8EE75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DD71FDC12AB03D3E00E8EE75 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 				DD71FDC52AB1E65D00E8EE75 /* MainView.swift */,
 				DDB6E55729F2FE05005A4A72 /* AuthorizationView.swift */,
 				DD9AA5C52A27BBAE00FB18A8 /* ProfileSettingsView.swift */,
+				DD6227842B5C244A00AB0F2E /* LibraryView.swift */,
 				DDEABF562A2F25DB0046F018 /* SelectLevelView.swift */,
 				DDE8AA9C2AFCC50000CBA47A /* LevelView.swift */,
 				DD7289A52AFEC46900A3F1F6 /* WordGroupView.swift */,
@@ -409,6 +414,7 @@
 			children = (
 				DDB6E56529F31545005A4A72 /* AuthorizationViewModel.swift */,
 				DD9AA5C72A27BBBD00FB18A8 /* ProfileSettingsViewModel.swift */,
+				DD6227862B5C24BF00AB0F2E /* LibraryViewModel.swift */,
 				DDEABF5E2A30F09A0046F018 /* SelectLevelViewModel.swift */,
 				DD7289A32AFD742200A3F1F6 /* LevelViewModel.swift */,
 				DD7289A72AFEC4F400A3F1F6 /* WordGroupViewModel.swift */,
@@ -618,6 +624,7 @@
 				DD023F5E2B19C4B30051CE3D /* ShowScreenViewModel.swift in Sources */,
 				DD4AAEB62A212D29003E2860 /* ButtonViewModel.swift in Sources */,
 				DD4AAEDD2A220277003E2860 /* ValidationAuthorization.swift in Sources */,
+				DD6227852B5C244A00AB0F2E /* LibraryView.swift in Sources */,
 				DD71FDBF2AB03CEA00E8EE75 /* Coordinator.swift in Sources */,
 				DD1DFEB62A9D1D7F000AAE33 /* Word.swift in Sources */,
 				DDEABF742A3281940046F018 /* MediaFile.swift in Sources */,
@@ -673,6 +680,7 @@
 				DDD947072B0024F900D413A8 /* WordSelectionViewModel.swift in Sources */,
 				DD4AAEC52A2152C5003E2860 /* ButtonImageView.swift in Sources */,
 				DD1DFEB82A9D1ED8000AAE33 /* PartOfSpeech.swift in Sources */,
+				DD6227872B5C24BF00AB0F2E /* LibraryViewModel.swift in Sources */,
 				DD7289A82AFEC4F400A3F1F6 /* WordGroupViewModel.swift in Sources */,
 				DDEABF532A2F20A10046F018 /* HideKeyboard.swift in Sources */,
 				DD023F662B1A2FCB0051CE3D /* FlashcardViewModel.swift in Sources */,

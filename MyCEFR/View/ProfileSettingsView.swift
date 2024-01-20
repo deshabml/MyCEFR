@@ -61,7 +61,7 @@ extension ProfileSettingsView {
             ImagePrifileView(size: 100)
                 .environmentObject(coordinator)
                 .overlay {
-                    CircularProgressView(viewvModel: viewModel.editPVM.progressUploadPhotosCPVM)
+                    CircularProgressView(viewModel: viewModel.editPVM.progressUploadPhotosCPVM)
                         .frame(width: 60, height: 60)
                 }
         }
